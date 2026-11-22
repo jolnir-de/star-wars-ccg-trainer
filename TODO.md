@@ -136,7 +136,7 @@ Für fertige Schritte Entwicklungsbranches verwenden und Commit, Testergebnis so
 
 ## 18. Jabba’s Palace vollständig integrieren
 
-- [ ] 180 reguläre Karten nach JABBAS_PALACE_REGELSTAND.md implementieren und prüfen.
-- [ ] Je acht Themendecks für Light und Dark Side (Karten bis einschließlich Jabba’s Palace).
-- [ ] Formatauswahl und nachgeladene Kataloge/Bundles ergänzen.
+- [x] 180 reguläre Karten nach JABBAS_PALACE_REGELSTAND.md implementieren und prüfen.
+- [x] Je acht Themendecks für Light und Dark Side (Karten bis einschließlich Jabba’s Palace).
+- [x] Formatauswahl und nachgeladene Kataloge/Bundles ergänzen.
 - [ ] Alle Tests ausführen, PR erstellen und auf starwarsccg.de veröffentlichen.

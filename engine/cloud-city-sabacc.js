@@ -34,12 +34,13 @@ function ccSabaccStakes(winner,perfect=false){
  const loser=PremiereGame.otherSide(winner),hand=game.hands[loser];
  const stake=card=>game.jpVariant?jpSabaccStake(card,game.jpVariant):card.type==='Weapon'||card.type==='Device'||PremiereUnits.fighter(card);
  const transfer=card=>{hand.splice(hand.indexOf(card),1);if(stake(card)){card.owner=winner;card.controller=winner;card.cloudCityStolen=true;if(card.type==='Starship')card.subType=card.subType.replace(winner==='Light'?/Imperial/g:/Rebel/g,winner==='Light'?'Rebel':'Imperial');ccOwn(winner).used.push(card);}else ccOwn(loser).lost.push(card);};
- if(perfect||game.jpVariant==='dune'&&game.players[winner]?.id==='Light:1988'){for(const card of hand.slice())transfer(card);ccEndSabacc(game.complete);return;}
- const eligible=hand.some(stake)?hand.filter(stake):hand;
- if(!eligible.length){ccEndSabacc(game.complete);return;}
- ccChoose(winner,game.card,'SabaccStakes',eligible.map((card,index)=>({args:[index],card,label:stake(card)?card.name+' als Einsatz übernehmen':card.name+' verlieren lassen'})),choice=>{
-  transfer(choice.card);ccEndSabacc(game.complete);
- },{shown:hand.slice(),publicView:true});
+ if(perfect){for(const card of hand.slice())transfer(card);ccEndSabacc(game.complete);return;}
+ let remaining=game.jpVariant==='dune'&&game.players[winner]?.id==='Light:1988'?2:1;
+ const choose=()=>{
+  const eligible=hand.some(stake)?hand.filter(stake):hand;
+  if(!eligible.length||!remaining){ccEndSabacc(game.complete);return;}
+  ccChoose(winner,game.card,'SabaccStakes',eligible.map((card,index)=>({args:[index],card,label:stake(card)?card.name+' als Einsatz übernehmen':card.name+' verlieren lassen'})),choice=>{transfer(choice.card);remaining--;choose();},{shown:hand.slice(),publicView:true});
+ };choose();
 }
 function ccSabaccReveal(perfectWinner){
  const game=state.cloudCitySabacc;if(!game)return;

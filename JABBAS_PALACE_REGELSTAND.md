@@ -30,7 +30,7 @@ Die 308 privaten Premiere-Drucktexte werden weder gelesen noch übernommen. Gena
 | Charaktere und Kombinationen | Spezies ohne falsche Lore-Treffer, Ambassador-Boni, Deploy-Kosten, Reacts, Immunität, Persona-Wechsel und Mindscan: combinations und regressions. |
 | Waffen und Kreaturen | Mos Eisley Blaster, Vibro-Ax, Riot Gun, Detonator mit Gefangenen, Skiff-Passagieren und mehrfacher Destiny, Rancor und Amanin: rules und regressions. |
 | Effekte und Antworten | Scum And Villainy, All Wrapped Up, Bo Shuda, Information Exchange, Wounded Wookiee und Skull: rules, combinations und regressions. |
-| Sabacc | Dune Sea und Palace mit eigenem Teilnehmerkreis, Wild-/Clone-Werten und Einsätzen; Kiffex und Devaronian werden mit früheren Varianten verbunden. |
+| Sabacc | Dune Sea und Palace mit eigenem Teilnehmerkreis, Wild-/Clone-Werten und Einsätzen; Kiffex und Devaronian werden mit früheren Varianten verbunden. Projection Of A Skywalker erhöht die Verlustkosten von Dagobahs Shot In The Dark vor dessen Kartenziehung. |
 | Spielstand | Fünf mehrstufige Fälle mit Neuladen nach jeder Aktion, identischer Fortsetzung, JSON-Import und abgewiesenem ungültigem Folgezug: autosave. |
 | Vollständige Partien | Acht unterschiedliche Deckpaarungen beider Spielerseiten erreichen ein Spielende; alle 120 eindeutigen Karteninstanzen bleiben erhalten: matches. |
 | Browser und Paket | Alle Decks vorab sichtbar; Katalog und Regeln erst bei Bedarf; Deckvorschau, Karten-Popup und Fortsetzen beider Seiten: jabbas-palace-browser-check und web-release. |
@@ -39,8 +39,8 @@ Die genannten Node-Prüfungen stehen unter tests/ mit dem Präfix jabbas-palace-
 
 ## Verbindliche Kartenpool-Grenzen
 
-Einzelne gedruckte Absätze beziehen sich ausdrücklich auf Karten späterer Editionen: Sarlacc (Great Pit Of Carkoon), Walker Garrison (Ortolan), Shot In The Dark (Projection Of A Skywalker) und Ewoks (Yuzzum). Diese Voraussetzungen sind im Pool Premiere bis Jabba’s Palace nicht vorhanden. Dafür werden keine Ersatz-Ziele erzeugt; die übrigen Regeln dieser Karten sind verfügbar. Eine vollständige Freigabe ist kein formaler Beweis aller denkbaren Kartenkombinationen. Gefundene Wechselwirkungen erhalten gezielte Regressionstests.
+Einzelne gedruckte Absätze beziehen sich ausdrücklich auf Karten späterer Editionen: Sarlacc (Great Pit Of Carkoon), Walker Garrison (Ortolan) und Ewoks (Yuzzum). Diese Voraussetzungen sind im Pool Premiere bis Jabba’s Palace nicht vorhanden. Dafür werden keine Ersatz-Ziele erzeugt; die übrigen Regeln dieser Karten sind verfügbar. Eine vollständige Freigabe ist kein formaler Beweis aller denkbaren Kartenkombinationen. Gefundene Wechselwirkungen erhalten gezielte Regressionstests.
 
 ## Veröffentlichung
 
-Gesamtabnahme und öffentliche Releasekennung werden nach Abschluss der laufenden Prüfungen ergänzt. Die bisherigen Korrekturen aus V2.18.2/V2.18.3 werden vor dem Upload übernommen.
+Alle sechs Katalog-/Deckprüfungen, die Sammlerprüfung und der Deckübersichtsabgleich sind bestanden. Der vollständige Node-Lauf besteht mit **953/953 Tests**, ohne Fehler, Auslassungen oder offene Testfälle. Die bisherigen Änderungen aus V2.18.2/V2.18.3 sind in Commit be19996 erhalten. Alle **sechs Chrome-Browserprüfungen** sind bestanden. Das geprüfte Release V2.19.0 trägt die Kennung **9039a119bd009002**. Öffentliche Abnahme und PR werden nach dem Upload ergänzt.

@@ -4,7 +4,7 @@ import {once} from 'node:events';
 import {chromium} from 'playwright-core';
 import {startLocalV2Server} from './serve-v2-local.mjs';
 
-// This acceptance flow exercises five editions plus replay, learning and responsive layouts.
+// This acceptance flow exercises six editions plus replay, learning and responsive layouts.
 test('V2 starts, handles unavailable images and stays playable at desktop and narrow widths', {timeout: 240000}, async () => {
   const server = startLocalV2Server({port: 0, reportPath: null});
   let browser;
@@ -33,11 +33,11 @@ test('V2 starts, handles unavailable images and stays playable at desktop and na
     await page.locator('#launchSides').screenshot({path:'.hosting-qa-original-starter-sides.png'});
     await chooseSide('light');
     assert.equal(await page.locator('#launchDeckGrid .launch-original-cover[data-cover-side="dark"]').count(),0);
-    assert.equal(await page.locator('#launchDeckGrid .launch-original-cover[data-cover-side="light"]').count(),40);
-    assert.equal(await page.locator('.edition-banner').count(),5);
+    assert.equal(await page.locator('#launchDeckGrid .launch-original-cover[data-cover-side="light"]').count(),48);
+    assert.equal(await page.locator('.edition-banner').count(),6);
     await page.locator('.edition-banner-art').last().scrollIntoViewIfNeeded();
     await page.waitForFunction(()=>[...document.querySelectorAll('.edition-banner-art')].every(image=>image.complete&&image.naturalWidth===440));
-    assert.ok(bannerRequests.every(url=>/\/(premiere|a-new-hope|hoth|dagobah|cloud-city)(?:\.[a-f0-9]+)?\.svg$/.test(new URL(url).pathname)),'Only playable editions may load banners in the trainer');
+    assert.ok(bannerRequests.every(url=>/\/(premiere|a-new-hope|hoth|dagobah|cloud-city|jabbas-palace)(?:\.[a-f0-9]+)?\.svg$/.test(new URL(url).pathname)),'Only playable editions may load banners in the trainer');
     await page.locator('.edition-banner').first().screenshot({path:'.hosting-qa-banner-premiere.png'});
     await page.locator('.edition-banner').nth(1).screenshot({path:'.hosting-qa-banner-anh.png'});
     const botStyle = page.getByLabel('Bot-Spielstil', {exact: true});
@@ -96,7 +96,7 @@ test('V2 starts, handles unavailable images and stays playable at desktop and na
     await page.getByRole('button', {name: 'Seite wechseln'}).click();
     await chooseSide('dark');
     assert.equal(await page.locator('#launchDeckGrid .launch-original-cover[data-cover-side="light"]').count(),0);
-    assert.equal(await page.locator('#launchDeckGrid .launch-original-cover[data-cover-side="dark"]').count(),40);
+    assert.equal(await page.locator('#launchDeckGrid .launch-original-cover[data-cover-side="dark"]').count(),48);
     assert.equal(await deckTiles.count(), 8);
     assert.equal(await page.locator('[data-deck-format="premiere"] .launch-deck-guide').count(), 8);
     assert.match(await deckTiles.filter({hasText: 'Vaders Jagd'}).innerHTML(), /darthvader\.gif.*Darth Vader/s);

@@ -17,6 +17,8 @@ battleDamageAction=function(side,kind,args){const card=kind==='battleForfeit'?ba
 PremiereUnits.canUseWeapon=function(game,host,...args){return !(jpEnabled()&&host?.id==='Light:183')&&jpTimingBase.weapon(game,host,...args);};
 PremiereUnits.canUseDevice=function(game,host,...args){return !(jpEnabled()&&host?.id==='Light:183')&&jpTimingBase.device(game,host,...args);};
 const jpProjectionBase=forceDrainEffects;
+const jpProjectionLoss=dagoLoss;
+dagoLoss=function(side,amount,reason,...args){if(jpEnabled()&&jpTitle({name:reason})==='shot in the dark'&&ccEffects('Light:1956',PremiereGame.otherSide(side)).some(e=>!Number.isInteger(e.site)))amount++;return jpProjectionLoss(side,amount,reason,...args);};
 forceDrainEffects=function(side,slot){const plan=jpProjectionBase(side,slot);if(!jpEnabled()||!plan)return plan;return isHoloSite(state.locations[slot])&&ccEffects('Light:1956',side).some(e=>!Number.isInteger(e.site))?{...plan,modifier:plan.modifier+1}:plan;};
 // Insert losses use several legacy reasons; their originating interrupt remains
 // in the response stack, so cap the complete loss before individual card choices.

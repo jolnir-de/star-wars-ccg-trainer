@@ -4,7 +4,7 @@ function ccInterruptOptions(side,window=null){
  const out=[],own=ccOwn(side),enemy=PremiereGame.otherSide(side),all=ccUnits(),turn=state.game.timing.turn,active=state.activeSide===side;
  const add=(card,index,mode,args,label,extra={})=>{const cost=extra.cost??0;if(cost<=forceBudget(side))out.push({card,index,mode:'cc:'+mode,choice:[index,'cc:'+mode,...args],label:card.name+' · '+label,cost,rule:{pile:extra.pile??(card.subType==='Used'?'Used':'Lost')},...extra});};
  own.hand.forEach((card,index)=>{
-  if(card.set!=='5'||card.type!=='Interrupt'||ccOwner(card)!==side)return;
+  if(!['5','6'].includes(card.set)||card.type!=='Interrupt'||ccOwner(card)!==side)return;
   if(window){
    const shot=window.shot,target=shot?.target,targetOwner=target&&(ccEntry(target)?.side??ccOwner(target));
    if(card.id==='Light:2393'&&window.card?.id==='Dark:1701'&&window.hothEffect)add(card,index,'cancel',[],'Mostly Armless beim Ausspielen aufheben');

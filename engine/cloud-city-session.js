@@ -1,5 +1,5 @@
 'use strict';
-const cloudCityEnabled=()=>!!state&&(currentGame()?.cardRulesVersion??0)>=33&&currentGame()?.playFormat===CloudCityRules.FORMAT;
+const cloudCityEnabled=()=>!!state&&(currentGame()?.cardRulesVersion??0)>=33&&[CloudCityRules.FORMAT,'premiere-a-new-hope-hoth-dagobah-cloud-city-jabbas-palace'].includes(currentGame()?.playFormat);
 const ccProviders=[],ccTiming=[],ccContinuousProviders=[],ccResponseProviders=[];
 const ccUnits=()=>hothAllUnits();
 const ccOwn=side=>PremiereGame.zones(state,side);
@@ -7,7 +7,7 @@ const ccTitle=CloudCityRules.title;
 const ccOwner=card=>card?.controller??card?.owner??card?.side;
 const ccEntry=card=>PremiereLocations.findEntry(state,card);
 const ccText=card=>DagobahRules.live(card)&&!PremiereUnits.textSuppressed(card);
-const ccEffects=(id,side)=>[...(state.tableEffects??[]),...Object.entries(state.locationEffects??{}).flatMap(([site,list])=>list.map(effect=>({...effect,site:Number(site)})))].filter(effect=>effect.card.id===id&&ccText(effect.card)&&(!side||ccOwner(effect.card)===side)&&(!effect.host||ccEntry(effect.host)&&(!ccEntry(effect.host).unavailable||['Dark:316','Dark:2697','Dark:379','Dark:87','Dark:2768'].includes(id))));
+const ccEffects=(id,side)=>[...(state.tableEffects??[]),...Object.entries(state.locationEffects??{}).flatMap(([site,list])=>list.map(effect=>({...effect,site:Number(site)})))].filter(effect=>effect.card.id===id&&ccText(effect.card)&&(!side||ccOwner(effect.card)===side)&&(!effect.host||ccEntry(effect.host)&&(!ccEntry(effect.host).unavailable||['Dark:316','Dark:2697','Dark:379','Dark:87','Dark:2768','Dark:1192'].includes(id))));
 const ccPresent=(side,slot)=>PremiereLocations.presentCards(state,side,slot);
 const ccControl=(side,slot)=>PremiereLocations.control(state,side,slot,cardAbility)===true;
 const ccUse=(card,mode)=>'cloud:'+card.instanceId+':'+mode;

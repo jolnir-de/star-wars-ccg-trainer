@@ -513,9 +513,9 @@ function startingLocationChoices(deck){
  });
 }
 
-const latestCardRulesVersion=33;
+const latestCardRulesVersion=34;
 const hothEnabled=()=>typeof HothRules!=='undefined'&&(currentGame()?.cardRulesVersion??latestCardRulesVersion)>=HothRules.VERSION&&
- (!currentGame()?.playFormat||['premiere-a-new-hope-hoth','premiere-a-new-hope-hoth-dagobah','premiere-a-new-hope-hoth-dagobah-cloud-city'].includes(currentGame().playFormat));
+ (!currentGame()?.playFormat||['premiere-a-new-hope-hoth','premiere-a-new-hope-hoth-dagobah','premiere-a-new-hope-hoth-dagobah-cloud-city','premiere-a-new-hope-hoth-dagobah-cloud-city-jabbas-palace'].includes(currentGame().playFormat));
 const latestBotStrategyVersion=3;
 const usesBotPlanner=version=>version===2||version===latestBotStrategyVersion;
 const playerSide=()=>currentGame()?.playerSide??'Light';
@@ -575,6 +575,7 @@ function resolveStartingChoice(side,index){
  }
  const {lightChoice,darkChoice}=setup;
  let collision=!!lightChoice&&!!darkChoice&&locationTitle(lightChoice.card)===locationTitle(darkChoice.card);
+ if(collision&&typeof jpGenericStartCollision==='function'&&jpGenericStartCollision(lightChoice.card,darkChoice.card))collision=false;
  if(collision){
   setup.light.setAside.add(lightChoice.index);
   setup.dark.setAside.add(darkChoice.index);
@@ -607,12 +608,15 @@ function finishSetup(){
   state.locationOrder=initialLocationOrder(state.locations);
  }
  state.trainingBattle=setup.trainingBattle;
+ const completeSetup=()=>{
  registerDuelTiming();
  setupDecks=null;
  log('Starting Locations: Light '+(lightChoice?.card.name??'kein Startort')+' / Dark '+(darkChoice?.card.name??'kein Startort')+'. Je 8 Karten Starthand. '+firstSide+' Side beginnt.');
  if(lesson)log('Lernstart · '+PremiereLearning.lesson(lesson).title+'. Ausgangslage für die Übung vorbereitet.');
  if(firstSide===botSide())botBegin();
  checkpoint('turn:start',()=>checkpoint('phase:start',()=>{}));
+ };
+ if(typeof jpStartingInterrupts==='function'&&jpEnabled()){setupDecks=null;jpStartingInterrupts(completeSetup);}else completeSetup();
  return true;
 }
 
@@ -4214,7 +4218,7 @@ function pileInterruptOptions(side){
    case 'allClearRun':
     return state.attackRun&&side==='Light'?runSurvivors('Dark').flatMap((target,targetIndex)=>PremiereUnits.fighter(target)?[{card,rule,cost,target,args:[index,mode,targetIndex],label:card.name+' · '+target.name+' aus Trench entfernen (1 Force)'}]:[]):[];
    case 'captureShipCrew':
-    return (state.capturedShips??[]).flatMap((record,targetIndex)=>{const targets=tractorShipCrew(record.ship),cost=2*targets.length;return targets.length&&cost<=budget?[{card,rule,cost,record,targets,args:[index,mode,targetIndex],label:card.name+' · alle '+targets.length+' Characters für '+cost+' Force fangen'}]:[];});
+    return (state.capturedShips??[]).flatMap((record,targetIndex)=>{const targets=tractorShipCrew(record.ship),cost=typeof jpWrappedFree==='function'&&jpWrappedFree(card)?0:2*targets.length;return targets.length&&cost<=budget?[{card,rule,cost,record,targets,args:[index,mode,targetIndex],label:card.name+' · alle '+targets.length+' Characters für '+cost+' Force fangen'}]:[];});
    case 'evaderRevolutions':
     return Object.values(state.locationEffects??{}).some(row=>row.some(effect=>effect.card.id==='Light:2110'))?[{card,rule,cost,args:[index,mode],label:card.name+' · Alle Revolutions aufheben'}]:[];
    case 'roarSearch':
@@ -8684,7 +8688,7 @@ function queueCharacterLoss(side,card,site,forfeited){
 
 function queueMemorialLoss(side,card,site){
  if(!(isDroid(card)||['Starship','Vehicle','Weapon','Device'].includes(card.type))||
-   !(state.tableEffects??[]).some(effect=>effect.support)&&!(hothEnabled()&&(card.hothWasHitForfeit||HothRules.atat(card)||/\bAT-ST\b|Jabba.s Sail Barge/i.test(card.subType??card.name??'')||card.id==='Light:1910')))return;
+   !(state.tableEffects??[]).some(effect=>effect.support)&&!(hothEnabled()&&(card.hothWasHitForfeit||HothRules.atat(card)||/\bAT-ST\b|Jabba.s Sail Barge/i.test((card.subType??'')+' '+(card.name??''))||card.id==='Light:1910')))return;
  queueRuleResponse({kind:'equipmentLost',side:PremiereGame.otherSide(side),fallen:card,site,hit:!!card.hothWasHitForfeit});
 }
 
@@ -9282,7 +9286,7 @@ function counterResponses(side,window){
    const direct=rule.mode==='direct';
    const damageRelief=activeCardRules(window.card,'damageRelief').length;
    const immune=rule.name==='Alter'?effect&&!alterTarget(window.card,window.site):
-    window.kind==='interrupt'&&(!!scannerSupport(window.side,window.rule?.mode)||
+    window.kind==='interrupt'&&(!!scannerSupport(window.side,window.rule?.mode)||typeof jpWrappedFree==='function'&&jpWrappedFree(window.card)||
      /immune to sense\b/i.test(window.card?.gametext??'')&&(!damageRelief||window.interrupt==='damageRelief'));
    if(immune)continue;
    const valid=direct?window.kind==='interrupt'&&window.interrupt===rule.targets:
@@ -10289,7 +10293,7 @@ function anhResponseOptions(side,window){
  if(!window||(state.game?.cardRulesVersion??0)<29)return [];
  return PremiereGame.zones(state,side).hand.flatMap((card,index)=>activeCardRules(card,'anhResponse').flatMap(rule=>{
   const result=[],offer=(mode,label,cost=0,extra={})=>({kind:'anhResponse',card,index,rule,cost,mode,args:[index,'anhResponse',mode,...(extra.choice??[])],label:card.name+' · '+label,...extra});
-  if(rule.prisoner&&window.kind==='aboutToLoseBattle'&&side==='Dark'&&forceBudget(side)>=1)result.push(offer('captureBattle',window.target.name+' statt Verlust fangen (1 Force)',1,{target:window.target}));
+  if(rule.prisoner&&window.kind==='aboutToLoseBattle'&&side==='Dark'){const cost=typeof jpWrappedFree==='function'&&jpWrappedFree(card)?0:1;if(forceBudget(side)>=cost)result.push(offer('captureBattle',window.target.name+' statt Verlust fangen ('+cost+' Force)',cost,{target:window.target}));}
   if(rule.evader&&window.kind==='characterLost'&&window.side===side){
    const target=window.fallen,title=locationTitle(target);
    if(PremiereGame.zones(state,side).lost.includes(target)&&(title==='darth vader'||title==="vader's custom tie"||target.subType==='Imperial'&&sitePlanet(state.locations[window.site])==='death star'))result.push(offer('evaderRecovery',target.name+' auf Used retten',0,{target}));
@@ -10307,8 +10311,8 @@ function anhResponseOptions(side,window){
   if(rule.smugglerStop&&window.kind==='deployment'&&window.side!==side)window.targets.forEach((target,i)=>{
    if(PremiereUnits.hasSkill(target,'smuggler'))result.push(offer('stopSmuggler',target.name+' an Bewegung hindern',0,{target,choice:[i]}));
   });
-  if(rule.transport&&window.kind==='transportCompleted'&&window.card.id===rule.transport&&forceBudget(side)>=2)
-   result.push(offer('transportRetaliation','Transport beantworten (2 Force)',2,{transport:window.card,targets:window.targets}));
+  if(rule.transport&&window.kind==='transportCompleted'&&window.card.id===rule.transport){const cost=typeof jpWrappedFree==='function'&&jpWrappedFree(card)?0:2;if(forceBudget(side)>=cost)
+   result.push(offer('transportRetaliation','Transport beantworten ('+cost+' Force)',cost,{transport:window.card,targets:window.targets}));}
   if(rule.spaceBattle&&window.kind==='battle'&&(isSystem(state.locations[window.site])||state.locations[window.site]?.subType==='Sector')&&forceBudget(side)>=3)
    result.push(offer('cancelBattle','Raumbattle aufheben (3 Force)',3));
   return result;
@@ -10381,6 +10385,7 @@ function resolveAnhDestinyTriggers(drawSide,draw,resume){
  for(const entry of PremiereLocations.entries(state,side))if(!entry.unavailable&&activeCardRules(entry.card,'r2Destiny').length&&atScompLink(entry.card)&&draw.value>=1&&draw.value<=6)sources.push({kind:'r2',card:entry.card});
  function next(){
   const source=sources.shift();if(!source){resume();return;}
+  if(typeof jpKraytAnswer==='function'&&jpEnabled()&&source.kind==='bones'&&!source.jpAnswered&&jpKraytAnswer(source,draw,next,()=>{source.jpAnswered=true;sources.unshift(source);next();}))return;
   const frame={mode:'anhDestinyTrigger',side,draw,...source,shown:[],resume:next};
   if(source.kind==='trap'){resolveProgramTrap(source);next();return;}
   if(source.kind==='bones'){

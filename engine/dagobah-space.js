@@ -115,6 +115,7 @@ function dagoAsteroid(entry,done){
  const draw=()=>{state.dagobahAsteroidTarget=entry;(state.dagobahAsteroidsDrawn??=[]).push({card:entry.card,turn:state.game.timing.turn});drawDestinySeries(side,'asteroid',1,modifier,draws=>{
   const drawn=draws.length?PremiereBattle.total(draws):null,stats=craftStats(entry.card,entry.slot),defense=Number.isFinite(stats.armor)?stats.armor:stats.maneuver;
   dagoTargetTotal(side,entry.card,drawn,total=>{
+  if(typeof jpRaycProtection==='function'&&jpEnabled()&&jpRaycProtection(entry.card)&&draws.some(draw=>!draw.cancelled&&DagobahRules.asteroid(draw.card))){finish();return;}
   if(draws.some(draw=>!draw.cancelled&&DagobahRules.asteroid(draw.card))||Number.isFinite(total)&&total>defense){const relay=entry.card.dagobahLostRelayTurn===state.game.timing.turn,forfeit=cardForfeitValueAt(entry.card,entry.side,entry.slot);loseTableCard(entry.side,entry.slot,entry.card);if(relay)dagoLoss(entry.side,forfeit??0,'Lost Relay',finish);else finish();}
   else finish();});
  });};

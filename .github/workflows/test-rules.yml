@@ -22,6 +22,7 @@ jobs:
           node scripts/import_premiere.mjs --edition hoth --check
           node scripts/import_premiere.mjs --edition dagobah --check
           node scripts/import_premiere.mjs --edition cloud-city --check
+          node scripts/import_premiere.mjs --edition jabbas-palace --check
           node scripts/import-collectors.mjs --check
           node scripts/build-deck-overview.mjs --check
       - name: Run all tests

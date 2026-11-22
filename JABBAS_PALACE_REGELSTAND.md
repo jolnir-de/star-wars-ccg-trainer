@@ -19,7 +19,7 @@ Die 308 privaten Premiere-Drucktexte werden weder gelesen noch übernommen. Gena
 - [x] Zwei neue Sabacc-Varianten, Gefangenen- und frühere Kartenkombinationen.
 - [x] Je acht 60-Karten-Themendecks mit vollständiger Editionsabdeckung.
 - [x] Lazy Loading, beide Spielerseiten und fortsetzbare Aktionen.
-- [ ] Gesamte Katalog-, Node- und Browserabnahme sowie PR und Veröffentlichung abschließen.
+- [x] Gesamte Katalog-, Node- und Browserabnahme sowie PR und Veröffentlichung abschließen.
 
 ## Umsetzung und Prüfzuordnung
 
@@ -44,3 +44,5 @@ Einzelne gedruckte Absätze beziehen sich ausdrücklich auf Karten späterer Edi
 ## Veröffentlichung
 
 Alle sechs Katalog-/Deckprüfungen, die Sammlerprüfung und der Deckübersichtsabgleich sind bestanden. Der vollständige Node-Lauf besteht mit **953/953 Tests**, ohne Fehler, Auslassungen oder offene Testfälle. Die bisherigen Änderungen aus V2.18.2/V2.18.3 sind in Commit be19996 erhalten. Alle **sechs Chrome-Browserprüfungen** sind bestanden. Das geprüfte Release V2.19.0 trägt die Kennung **9039a119bd009002**. Die Veröffentlichung auf **https://www.starwarsccg.de/** ist geprüft: alle 128 Manifest-Dateien sind per SHA-256 identisch, alle zwölf öffentlichen Seiten erreichbar und alle sechs Formate mit beiden Spielseiten gestartet und nach Reload identisch fortgesetzt. HTTPS-Weiterleitungen, gzip und Hash-Caches funktionieren; private Drucktext- und Git-Pfade sind gesperrt. In dieser Verbindung war V2 nach 688–1.032 ms startbereit (externe Kartenbilder für den Funktionstest gesperrt; kein allgemeines Ladezeitversprechen). Der Pull Request dokumentiert die abschließende GitHub-Abnahme.
+
+[PR #98](https://github.com/jolnir-de/star-wars-ccg-trainer/pull/98) basiert auf dem veröffentlichten Entwicklungsstand codex/original-card-back-covers. Implementierungscommits: c506c18, be19996 und e043ea4; die Abnahme ist in 580f7b9 dokumentiert. Kein main-Push oder GitHub-Merge.

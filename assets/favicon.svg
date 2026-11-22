@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+  <title>Star Wars CCG Trainer</title>
+  <rect width="32" height="32" rx="7" fill="#080d16"/>
+  <rect x="5" y="6" width="16" height="22" rx="2.5" transform="rotate(-12 13 17)" fill="#183044" stroke="#9fd6f4" stroke-width="1.5"/>
+  <rect x="12" y="4" width="16" height="22" rx="2.5" transform="rotate(8 20 15)" fill="#172031" stroke="#e9c46d" stroke-width="1.5"/>
+  <path d="m20 8 1.7 5.3L27 15l-5.3 1.7L20 22l-1.7-5.3L13 15l5.3-1.7Z" fill="#e9c46d"/>
+</svg>

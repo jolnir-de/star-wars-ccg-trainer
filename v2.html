@@ -1,4 +1,4 @@
-<!doctype html><html lang="de"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>SWCCG Trainer V2 · Starter</title><link rel="stylesheet" href="assets/edition-banners.css"><link rel="stylesheet" href="assets/playfield-views.css"><style>
+<!doctype html><html lang="de"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>SWCCG Trainer V2 · Starter</title><link rel="icon" type="image/svg+xml" sizes="any" href="assets/favicon.svg"><link rel="stylesheet" href="assets/edition-banners.css"><link rel="stylesheet" href="assets/playfield-views.css"><style>
 :root{color-scheme:dark;--gold:#f3cf7a;--frame:#50617a;--ink:#e7edf9}
 *{box-sizing:border-box}
 body{
@@ -336,6 +336,7 @@ html:has(#cardInspector[open],#battlePreview[open],#battleAnalysis[open],#moveme
 
 .ongoing-effect{border-top:1px solid #46566b;padding:8px 0}.ongoing-effect:first-child{border-top:0}.ongoing-effect button{display:flex;align-items:center;gap:8px;text-align:left;width:100%;padding:5px;font-size:12px}.ongoing-effect img{width:42px;aspect-ratio:5/7;object-fit:contain}.ongoing-effect p{font-size:11px;line-height:1.45;margin:6px 0;color:#c0cddd}.ongoing-effects>div{max-height:320px;overflow:auto}
 </style>
+<link rel="stylesheet" href="assets/starter-covers.css">
 <main>
   <header class="brand-header"><img src="https://gemp.starwarsccg.org/gemp-swccg/epic-duel/logo.png" alt="Star Wars Customizable Card Game Logo" referrerpolicy="no-referrer"><a href="./" style="font-size:12px;color:#f3cf7a">← Fanprojekt-Startseite</a></header>
   <div class="panel game-toolbar" id="gameToolbar">
@@ -394,6 +395,7 @@ html:has(#cardInspector[open],#battlePreview[open],#battleAnalysis[open],#moveme
     <p id="playFormatHint" class="hint"></p>
     <div id="launchSides" class="launch-side-grid"></div>
     <div id="launchDeckGrid" aria-label="Decks deiner Seite" hidden></div>
+    <p class="launch-cover-note">Originale Kartenrückseiten · Light Side und Dark Side.</p>
     <div id="launchActions" class="launch-actions" hidden>
       <p id="launchSummary" class="launch-summary" aria-live="polite"></p>
       <div id="launchBotStyle" class="launch-bot-style" hidden>
@@ -933,6 +935,11 @@ function selectPlayFormat(format){
 }
 
 let launchArtObserver;
+function launchSideBackArt(side){
+ return '<img class="launch-original-cover" data-cover-side="'+side+'" width="298" height="413" loading="lazy" decoding="async" '
+  +(typeof IntersectionObserver==='undefined'?'src':'data-launch-src')+'="assets/faction-card-backs.svg#'+side+'" alt="" onerror="this.hidden=true">';
+}
+
 function launchArt(url,fallback){
  const image=url?'<img loading="lazy" decoding="async" '+(typeof IntersectionObserver==='undefined'?'src':'data-launch-src')+'="'+escapeHTML(url)+'" alt="" referrerpolicy="no-referrer" onerror="this.hidden=true;this.nextElementSibling.hidden=false">':'';
  return '<span class="launch-art">'+image+'<span class="launch-art-fallback"'+(image?' hidden':'')+'>'+escapeHTML(fallback)+'</span></span>';
@@ -1022,10 +1029,10 @@ function renderLaunch(){
  el('returnToGame').hidden=!state&&!activeSaveStored&&!activeSave?.commands.length;
  const deckGrid=el('launchDeckGrid');
  deckGrid.hidden=!!lesson||sideStep;
- if(sideStep)el('launchSides').innerHTML=Object.entries(launchFactions).map(([side,{caption,hero}])=>{
-  const name=sideName[side],card=catalog.find(card=>card.id===hero);
+ if(sideStep)el('launchSides').innerHTML=Object.entries(launchFactions).map(([side,{caption}])=>{
+  const name=sideName[side];
   return '<button type="button" class="launch-side launch-tone-'+side+'" data-side="'+side+'" onclick="chooseLaunchFaction(\''+side+'\')">'
-   +'<span class="launch-stack" aria-hidden="true">'+launchArt(cardBackUrls[name],name)+launchArt(card?.image,card?.name??name)+'</span>'
+   +'<span class="launch-starter-hero" aria-hidden="true">'+launchSideBackArt(side)+'</span>'
    +'<span class="launch-side-copy"><strong>'+name+' Side</strong><small>'+caption+'</small></span></button>';
  }).join('');
  if(!deckGrid.hidden){
@@ -1040,7 +1047,7 @@ function renderLaunch(){
      const pick='chooseLaunchDeck('+JSON.stringify(id)+','+JSON.stringify(format)+')';
      const preview='showStarterDeck('+JSON.stringify(side)+','+JSON.stringify(id)+','+JSON.stringify(format)+')';
      return '<div class="launch-deck-tile launch-tone-'+side+'"><button type="button" class="launch-deck" data-deck="'+escapeHTML(id)+'" data-format="'+format+'" aria-pressed="'+(id===selected&&format===selectedFormat)
-      +'" onclick="'+escapeHTML(pick)+'"><span class="launch-deck-visual" aria-hidden="true">'+launchArt(cover?.image,cover?.name??name)+'</span>'
+      +'" onclick="'+escapeHTML(pick)+'"><span class="launch-deck-visual" aria-hidden="true">'+launchSideBackArt(side)+'<span class="launch-deck-feature">'+launchArt(cover?.image,cover?.name??name)+'</span></span>'
       +'<span class="launch-deck-copy"><strong>'+escapeHTML(name)+'</strong><small>'+escapeHTML(cover?.name?.replace(/^•+\s*/,''))+'</small></span></button>'
       +'<button type="button" class="launch-deck-guide" aria-haspopup="dialog" aria-label="Strategie und Karten zu '+escapeHTML(name)
       +' ansehen" onclick="'+escapeHTML(preview)+'">Strategie &amp; Karten</button></div>';

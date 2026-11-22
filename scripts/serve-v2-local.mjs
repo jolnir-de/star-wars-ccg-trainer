@@ -37,7 +37,7 @@ export function startLocalV2Server({port = 8000, reportPath = defaultReport, sit
       return;
     }
     const asset = route === '/' ? '/index.html' : route === '/anleitungen/' ? '/anleitungen/index.html' : route;
-    if (!privateReport && !/^\/(?:v2\.html|index\.html|editionen\.html|release\.json|anleitungen\/(?:index|schnellstart|spielzug|kampf|a-new-hope|hoth|dagobah|cloud-city|jabbas-palace)\.html|assets\/(?:site|collectors|edition-banners|playfield-views)(?:\.[a-f0-9]{12})?\.(?:css|js)|assets\/edition-banners\/[a-z0-9-]+(?:\.[a-f0-9]{12})?\.svg|engine\/[\w-]+(?:\.[a-f0-9]{12})?\.js|data\/[\w-]+(?:\.[a-f0-9]{12})?\.json|data\/SWCCGPC-LICENSE\.txt)$/.test(asset)) {
+    if (!privateReport && !/^\/(?:v2\.html|index\.html|editionen\.html|release\.json|anleitungen\/(?:index|schnellstart|spielzug|kampf|a-new-hope|hoth|dagobah|cloud-city|jabbas-palace)\.html|assets\/(?:site|collectors|edition-banners|playfield-views|starter-covers|home-covers)(?:\.[a-f0-9]{12})?\.(?:css|js)|assets\/favicon(?:\.[a-f0-9]{12})?\.svg|assets\/faction-card-backs(?:\.[a-f0-9]{12})?\.svg|assets\/edition-banners\/[a-z0-9-]+(?:\.[a-f0-9]{12})?\.svg|engine\/[\w-]+(?:\.[a-f0-9]{12})?\.js|data\/[\w-]+(?:\.[a-f0-9]{12})?\.json|data\/SWCCGPC-LICENSE\.txt)$/.test(asset)) {
       response.writeHead(404).end();
       return;
     }

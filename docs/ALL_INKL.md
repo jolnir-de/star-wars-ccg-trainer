@@ -18,6 +18,8 @@ Eine serverseitige API mit Datenbank wird sinnvoll, wenn Benutzerkonten, geräte
 
 ## Paket bauen und prüfen
 
+Die originalen Kartenrückseiten teilen sich eine lokale SVG-Datei mit zwei verlustfrei eingebetteten Bildern und einem eigenen Bildbudget von 320 KiB gzip. Auf der Startseite laden die fünf Editionsbanner verzögert; Spielkataloge und Regelmodule bleiben dort unangefordert.
+
 Aus einem sauberen Entwicklungsbranch, niemals direkt aus main:
 
 ```powershell

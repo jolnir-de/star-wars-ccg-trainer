@@ -21,6 +21,11 @@
     const query = normalize(byId('editionSearch').value), category = byId('editionCategory').value, status = byId('editionStatus').value;
     const shown = editions.filter(e => (!query || normalize(e.name + ' ' + e.releaseDate).includes(query)) && (!category || e.category === category) && (!status || e.playable === (status === 'playable')));
     byId('editionCount').textContent = shown.length + ' von ' + editions.length + ' Veröffentlichungen · chronologisch nach Erscheinen';
+    const choice=byId('editionSelect'),matched=shown.some(edition=>edition.id===selected?.id);
+    choice.innerHTML=(matched?'':'<option value="" disabled>'+(!shown.length?'Keine passende Edition':'Edition auswählen')+'</option>')
+      +shown.map(edition=>'<option value="'+escape(edition.id)+'">'+escape(edition.name+' · '+edition.releaseDate.slice(0,4)+(edition.playable?' · Spielbar':''))+'</option>').join('');
+    choice.value=matched?selected.id:'';
+    choice.disabled=!shown.length;
     byId('editionGrid').innerHTML = shown.map(e => '<button type="button" class="edition-tile" data-edition="'+escape(e.id)+'" aria-pressed="'+(e.id===selected?.id)+'"><strong>'+escape(e.name)+'</strong><time datetime="'+e.releaseDate+'">'+escape(releaseLabel(e.releaseDate))+'</time><small>'+e.cardCount+' Standardkarten'+(e.variantCount?' · '+e.variantCount+' AI':'')+(e.foilCount?' · '+e.foilCount+' Foils':'')+'</small><small class="'+(e.playable?'playable-mark':'')+'">'+(e.playable?'Im Trainer spielbar':escape(e.category))+'</small></button>').join('');
     if (!shown.length) byId('editionGrid').innerHTML = '<p>Keine Veröffentlichung passt zu diesen Filtern.</p>';
     for (const tile of byId('editionGrid').querySelectorAll('[data-edition]')) window.PremiereEditionBanners.apply(tile, tile.dataset.edition);
@@ -97,6 +102,7 @@
     byId('flipCollectorCard').textContent = back?'Vorderseite ansehen':'Rückseite ansehen';
   }
   byId('editionGrid').addEventListener('click',event=>{const tile=event.target.closest('[data-edition]');if(tile){chooseEdition(tile.dataset.edition);byId('selectedEdition').scrollIntoView({block:'start'});}});
+  byId('editionSelect').addEventListener('change',event=>{if(event.target.value)chooseEdition(event.target.value);});
   byId('cardRows').addEventListener('click',event=>{
     const button=event.target.closest('[data-card]'); if(!button)return;
     inspected=cards.find(c=>c.id===button.dataset.card); if(!inspected)return; back=false;

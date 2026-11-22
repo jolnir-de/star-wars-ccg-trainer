@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Editionen & Kartenlisten · Star Wars CCG Trainer</title>
+  <title>Editionen & Kartenlisten · Star Wars CCG Trainer</title><link rel="icon" type="image/svg+xml" sizes="any" href="assets/favicon.svg">
   <meta name="description" content="Die klassischen Star Wars CCG Veröffentlichungen von 1995 bis 2001: Erscheinungsdaten, Kartenanzahl, Varianten und durchsuchbare Kartenlisten.">
   <link rel="stylesheet" href="assets/site.css">
   <link rel="stylesheet" href="assets/collectors.css">
@@ -20,20 +20,21 @@
   <main class="wrap collection" id="inhalt" data-editions-url="data/editions.json">
     <p class="eyebrow">Das Sammlerarchiv · Decipher 1995–2001</p>
     <h1>Eine Galaxis aus Karten.</h1>
-    <p class="intro">Entdecke die Editionen, ihre Erscheinungsdaten und Kartenlisten. Premiere, A New Hope und Hoth sind im Trainer spielbar; die weiteren Veröffentlichungen kannst du hier als Sammler durchsehen.</p>
+    <p class="intro">Entdecke die Editionen, ihre Erscheinungsdaten und Kartenlisten. Die regulären Editionen von Premiere bis Cloud City sind im Trainer spielbar; weitere Veröffentlichungen kannst du hier als Sammler durchsehen.</p>
     <p class="small">Standardkarten, alternative Bilder und Foils werden getrennt gezählt. Japanische Auflagen, Druckfehler und andere Sonderdrucke sind kein eigener Katalog dieser Übersicht. Eine persönliche Bestandsverwaltung ist für später geplant.</p>
     <noscript><p class="callout">Für die durchsuchbaren Listen benötigst du JavaScript. Alle Karten findest du auch in der <a href="https://res.starwarsccg.org/Resources/swccgcardlist4.0.pdf">Originalcheckliste des Players Committee (PDF)</a>.</p></noscript>
-    <div class="collection-filters">
+    <div class="collection-filters edition-filters">
+      <div class="compact-edition-choice"><label for="editionSelect">Edition auswählen</label><select id="editionSelect" aria-describedby="editionCount" disabled><option>Editionen werden geladen …</option></select></div>
       <label>Edition suchen<input type="search" id="editionSearch" placeholder="Name oder Erscheinungsjahr" autocomplete="off"></label>
       <label>Veröffentlichung<select id="editionCategory"><option value="">Alle Veröffentlichungen</option><option>Grundset</option><option>Erweiterung</option><option>Premium</option><option>Vorschau</option><option>Foil-Set</option><option>Premium & Foils</option></select></label>
       <label>Trainer-Status<select id="editionStatus"><option value="">Alle Editionen</option><option value="playable">Im Trainer spielbar</option><option value="archive">Sammlerübersicht</option></select></label>
     </div>
     <p id="editionCount" class="small" role="status">Editionsdaten werden geladen …</p>
-    <div id="editionGrid" class="edition-grid" aria-label="Chronologische Editionsauswahl"></div>
+    <details id="editionOverview" class="edition-overview"><summary>Alle Editionen als Kacheln anzeigen</summary><div id="editionGrid" class="edition-grid" aria-label="Chronologische Editionsauswahl"></div></details>
     <p id="registryError" class="callout" role="alert" hidden></p>
     <section id="selectedEdition" class="selected-edition" aria-labelledby="editionTitle" hidden>
       <div id="selectedEditionBanner" class="edition-banner"><div class="edition-banner-copy"><p id="editionCategoryLabel" class="eyebrow"></p><h2 id="editionTitle"></h2></div><img id="editionBannerArt" class="edition-banner-art" alt="" aria-hidden="true" loading="lazy" decoding="async" width="440" height="180"></div>
-      <div class="edition-banner-links"><a href="#editionGrid">Edition wechseln ↑</a><a id="playEdition" class="button primary" href="v2.html" hidden>Im Trainer spielen →</a></div>
+      <div class="edition-banner-links"><a href="#editionSelect">Edition wechseln ↑</a><a id="playEdition" class="button primary" href="v2.html" hidden>Im Trainer spielen →</a></div>
       <dl id="editionFacts" class="edition-facts"></dl>
       <p id="editionNote" class="small"></p>
       <p class="source-list"><a id="editionSource" href="https://www.starwarsccg.org/collecting/">Quelle: Veröffentlichungsdaten</a> · <a id="originalList" href="https://res.starwarsccg.org/cardlists/PremiereType.html">Original-Kartenliste</a> · <a id="foilList" href="https://res.starwarsccg.org/Resources/swccgcardlist4.0.pdf">Originalcheckliste inkl. Foils (PDF)</a></p>

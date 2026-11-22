@@ -10,6 +10,7 @@ test('three live table views preserve a match, preview payment and survive resum
   await once(server,'listening');const origin='http://127.0.0.1:'+server.address().port;
   browser=await chromium.launch({channel:process.env.SWCCG_CHROMIUM_CHANNEL||'chrome'});
   const page=await browser.newPage({viewport:{width:1440,height:1000}});page.setDefaultTimeout(7000);
+  page.setDefaultNavigationTimeout(30000);
   const errors=[],requests=[];page.on('pageerror',error=>errors.push(error.message));
   page.on('request',request=>requests.push(request.url()));
   await page.route('**/*',route=>new URL(route.request().url()).origin===origin?route.continue():route.abort());

@@ -1,0 +1,21 @@
+.home-starter{position:absolute;width:182px;margin:0;filter:drop-shadow(0 18px 20px #0008)}
+.home-starter img{display:block;width:100%;height:auto;aspect-ratio:298/413;object-fit:contain}
+.home-starter-light{transform:translate(-75px,-18px) rotate(-11deg)}
+.home-starter-dark{transform:translate(74px,22px) rotate(11deg)}
+.home-editions .edition-with-banner{padding:0;overflow:hidden;border-top-width:1px}
+.home-editions .home-edition-banner{border:0;border-radius:0;min-height:165px}
+.home-editions .edition-banner-copy{padding:20px;flex-basis:57%}
+.home-editions .edition-banner h3{margin:0 0 9px;color:#f5f1e8;font-size:28px;line-height:1.12}
+.home-editions .edition-banner small{font-size:12px;line-height:1.5;color:#c7d1de}
+.home-edition-body{padding:20px 25px 25px}
+.home-edition-body p{margin-bottom:16px}
+@media(max-width:760px){
+ .home-starter{width:142px}
+ .home-starter-light{transform:translate(-61px,-8px) rotate(-11deg)}
+ .home-starter-dark{transform:translate(58px,12px) rotate(11deg)}
+ .home-editions .home-edition-banner{min-height:154px}
+ .home-edition-body{padding:18px 20px 22px}
+ .home-editions .edition-banner-copy{padding:17px 15px}
+ .home-editions .edition-banner h3{font-size:25px}
+}
+@media(max-width:360px){.home-starter{width:125px}.home-starter-light{transform:translate(-51px,-8px) rotate(-10deg)}.home-starter-dark{transform:translate(50px,12px) rotate(10deg)}}

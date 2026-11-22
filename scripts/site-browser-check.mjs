@@ -19,6 +19,7 @@ test('built fan homepage, guides and hashed game run without remote images', {ti
     browser = await chromium.launch({channel: process.env.SWCCG_CHROMIUM_CHANNEL || 'chrome'});
     const page = await browser.newPage({viewport: {width: 1440, height: 1000}});
     page.setDefaultTimeout(6000);
+    page.setDefaultNavigationTimeout(30000);
     const errors = [], requests = [];
     page.on('pageerror', error => errors.push(error.message));
     page.on('request', request => requests.push(request.url()));
@@ -27,6 +28,12 @@ test('built fan homepage, guides and hashed game run without remote images', {ti
     await page.getByRole('heading', {level: 1}).waitFor();
     assert.match(await page.locator('.fan-notice').textContent(), /inoffizielles Fanprojekt/);
     assert.equal(requests.filter(url => /engine\/|data\/|https:\/\//.test(url)).length, 0, 'Homepage must not load game or external assets');
+    await page.waitForFunction(()=>[...document.querySelectorAll('.home-starter img')].every(image=>image.complete&&image.naturalWidth===298));
+    assert.equal(await page.locator('.home-editions [data-banner-edition]').count(),6);
+    for(const banner of await page.locator('.home-editions .edition-banner-art').all()){
+      await banner.scrollIntoViewIfNeeded();await banner.evaluate(image=>image.decode());
+    }
+    await page.evaluate(()=>scrollTo(0,0));
     await page.screenshot({path: '.hosting-qa-desktop.png', fullPage: true});
     for (const width of [360, 768, 1440]) {
       await page.setViewportSize({width, height: 900});
@@ -47,6 +54,16 @@ test('built fan homepage, guides and hashed game run without remote images', {ti
     await page.goto(origin + '/editionen.html');
     await page.waitForFunction(() => document.querySelector('#cardRows').children.length === 40);
     assert.equal(await page.locator('[data-edition]').count(), 27);
+    assert.equal(await page.locator('#editionOverview').evaluate(details=>details.open),false);
+    assert.equal(await page.locator('#editionGrid').isVisible(),false);
+    assert.equal(await page.locator('#editionSelect option').count(),27);
+    assert.equal(await page.locator('#editionSelect').inputValue(),'premiere');
+    await page.locator('#editionSearch').fill('keine-passende-edition-12345');
+    assert.equal(await page.locator('#editionSelect').isDisabled(),true);
+    assert.equal(await page.locator('#editionTitle').textContent(),'Premiere');
+    await page.locator('#editionSearch').fill('');
+    assert.equal(await page.locator('#editionSelect').isDisabled(),false);
+    assert.equal(await page.locator('#editionSelect').inputValue(),'premiere');
     assert.equal(await page.locator('[data-banner-edition]').count(),28);
     await page.locator('#selectedEditionBanner').scrollIntoViewIfNeeded();
     await page.waitForFunction(()=>document.querySelector('#editionBannerArt').complete&&document.querySelector('#editionBannerArt').naturalWidth===440);
@@ -76,18 +93,20 @@ test('built fan homepage, guides and hashed game run without remote images', {ti
     await page.keyboard.press('Escape');
     assert.equal(await scan.isVisible(),false);
     assert.equal(await page.locator('#cardRows .card-name').evaluate(button=>button===document.activeElement),true);
-    await page.locator('[data-edition="hoth"]').click();
+    await page.locator('#editionSelect').selectOption('hoth');
     await page.waitForFunction(()=>document.querySelector('#cardLoadStatus').textContent.includes('162 Standardkarten'));
     assert.equal(await page.locator('#playEdition').isVisible(),true);
     assert.equal(await page.locator('#cardSearch').inputValue(),'');
     const cachedRequests=requests.filter(url=>url.includes('/data/')).length;
-    await page.locator('[data-edition="premiere"]').click();
+    await page.locator('#editionSelect').selectOption('premiere');
     await page.waitForFunction(()=>document.querySelector('#cardLoadStatus').textContent.includes('324 Standardkarten'));
     assert.equal(requests.filter(url=>url.includes('/data/')).length,cachedRequests,'Previously opened catalog should be reused');
+    await page.locator('#editionOverview summary').click();
     await page.locator('#editionSearch').fill('2001');
     assert.equal(await page.locator('[data-edition]').count(),5);
     await page.locator('#editionCategory').selectOption('Erweiterung');
     assert.equal(await page.locator('[data-edition]').count(),3);
+    assert.equal(await page.locator('#editionSelect option[value]:not([value=""])').count(),3);
     await page.locator('[data-edition="tatooine"]').click();
     await page.waitForFunction(()=>document.querySelector('#cardLoadStatus').textContent.includes('90 Standardkarten'));
     await page.locator('#cardVariant').selectOption('AI');
@@ -113,12 +132,13 @@ test('built fan homepage, guides and hashed game run without remote images', {ti
     await page.waitForFunction(()=>document.querySelector('#cardLoadStatus').textContent.includes('120 Standardkarten'));
     assert.equal(await page.locator('#editionTitle').textContent(),'Theed Palace');
     assert.match(await page.locator('#editionFacts').textContent(),/12. Dezember 2001/);
+    assert.equal(await page.locator('#editionSelect').inputValue(),'theed-palace');
     const editionIds=await page.locator('[data-edition]').evaluateAll(tiles=>tiles.map(tile=>tile.dataset.edition));
     for(const id of editionIds){
-      await page.locator('[data-edition="'+id+'"]').click();
+      await page.locator('#editionSelect').selectOption(id);
       await page.waitForFunction(id=>{const image=document.querySelector('#editionBannerArt');return image.complete&&image.naturalWidth===440&&image.getAttribute('src').includes('/'+id+'.');},id);
     }
-    await page.locator('[data-edition="hoth"]').click();
+    await page.locator('#editionSelect').selectOption('hoth');
     await page.waitForFunction(()=>document.querySelector('#editionBannerArt').complete&&document.querySelector('#editionBannerArt').naturalWidth===440);
     await page.locator('#selectedEditionBanner').screenshot({path:'.hosting-qa-banner-hoth.png'});
     await page.goto(origin + '/v2.html');

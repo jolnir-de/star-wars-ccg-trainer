@@ -4,7 +4,8 @@ import {once} from 'node:events';
 import {chromium} from 'playwright-core';
 import {startLocalV2Server} from './serve-v2-local.mjs';
 
-test('V2 starts, handles unavailable images and stays playable at desktop and narrow widths', {timeout: 120000}, async () => {
+// This acceptance flow exercises five editions plus replay, learning and responsive layouts.
+test('V2 starts, handles unavailable images and stays playable at desktop and narrow widths', {timeout: 240000}, async () => {
   const server = startLocalV2Server({port: 0, reportPath: null});
   let browser;
   try {
@@ -13,6 +14,7 @@ test('V2 starts, handles unavailable images and stays playable at desktop and na
     browser = await chromium.launch({channel: process.env.SWCCG_CHROMIUM_CHANNEL || 'chrome'});
     const page = await browser.newPage({viewport: {width: 1440, height: 900}});
     page.setDefaultTimeout(6000);
+    page.setDefaultNavigationTimeout(30000);
     const errors = [];
     const bannerRequests = [];
     page.on('request', request => {if(request.url().includes('/assets/edition-banners/'))bannerRequests.push(request.url());});
@@ -25,8 +27,13 @@ test('V2 starts, handles unavailable images and stays playable at desktop and na
     const deckTiles = page.locator('[data-deck-format="premiere"] [data-deck]');
     assert.equal(await page.locator('#launchSides button').count(), 2);
     assert.equal(await page.locator('#launchDeckGrid').isVisible(), false);
-    assert.match(await page.locator('#launchSides button').first().innerHTML(), /lightcardback\.png.*lukeskywalker\.gif/s);
+    await page.waitForFunction(()=>[...document.querySelectorAll('#launchSides .launch-original-cover')].every(image=>image.complete&&image.naturalWidth===298));
+    assert.match(await page.locator('#launchSides button').first().innerHTML(), /faction-card-backs\.svg#light/);
+    assert.match(await page.locator('#launchSides button').last().innerHTML(), /faction-card-backs\.svg#dark/);
+    await page.locator('#launchSides').screenshot({path:'.hosting-qa-original-starter-sides.png'});
     await chooseSide('light');
+    assert.equal(await page.locator('#launchDeckGrid .launch-original-cover[data-cover-side="dark"]').count(),0);
+    assert.equal(await page.locator('#launchDeckGrid .launch-original-cover[data-cover-side="light"]').count(),40);
     assert.equal(await page.locator('.edition-banner').count(),5);
     await page.locator('.edition-banner-art').last().scrollIntoViewIfNeeded();
     await page.waitForFunction(()=>[...document.querySelectorAll('.edition-banner-art')].every(image=>image.complete&&image.naturalWidth===440));
@@ -88,6 +95,8 @@ test('V2 starts, handles unavailable images and stays playable at desktop and na
     await page.keyboard.press('Escape');
     await page.getByRole('button', {name: 'Seite wechseln'}).click();
     await chooseSide('dark');
+    assert.equal(await page.locator('#launchDeckGrid .launch-original-cover[data-cover-side="light"]').count(),0);
+    assert.equal(await page.locator('#launchDeckGrid .launch-original-cover[data-cover-side="dark"]').count(),40);
     assert.equal(await deckTiles.count(), 8);
     assert.equal(await page.locator('[data-deck-format="premiere"] .launch-deck-guide').count(), 8);
     assert.match(await deckTiles.filter({hasText: 'Vaders Jagd'}).innerHTML(), /darthvader\.gif.*Darth Vader/s);

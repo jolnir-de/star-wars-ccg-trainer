@@ -279,7 +279,7 @@ const PremiereUnits = (() => {
   }
 
   return {active, accepts, add, bantha, bountyHunter, canEscort, canUseWeapon, capital, crawler, enclosed, fighter, hasDock, hasSkill, landspeedCost, matchingBattleDestiny, matchingPilot, trainingPower,
-    canUseDevice,recordDeviceUse,recordWeaponUse, remove, restrainingBolt, roles, stats, textSuppressed, tie, tube, usesMultipleWeapons};
+    canUseDevice,rUnit,recordDeviceUse,recordWeaponUse, remove, restrainingBolt, roles, stats, textSuppressed, tie, tube, usesMultipleWeapons};
 })();
 
 if (typeof module !== 'undefined') module.exports = PremiereUnits;

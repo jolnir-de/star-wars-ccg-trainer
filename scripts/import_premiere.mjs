@@ -3,14 +3,15 @@ import {readFile, rename, rm, writeFile} from 'node:fs/promises';
 import {fileURLToPath, pathToFileURL} from 'node:url';
 import premiere from '../engine/premiere-data.js';
 
-const {SOURCE, REVISION, EDITION, A_NEW_HOPE, HOTH, DAGOBAH, CLOUD_CITY, EDITIONS, SIDES, readCatalog, readSupplementalCards, readStarterDecks, readThemedDecks,
+const {SOURCE, REVISION, EDITION, A_NEW_HOPE, HOTH, DAGOBAH, CLOUD_CITY,JABBAS_PALACE, EDITIONS, SIDES, readCatalog, readSupplementalCards, readStarterDecks, readThemedDecks,
   isGarrisonExpansionCard, isReleasedExpansionCard, readFormatDeckChoices, buildAudit} = premiere;
 const snapshotPaths = {
   [EDITION]: new URL('../data/premiere.json', import.meta.url),
   [A_NEW_HOPE]: new URL('../data/a-new-hope.json', import.meta.url),
   [HOTH]: new URL('../data/hoth.json', import.meta.url),
   [DAGOBAH]: new URL('../data/dagobah.json',import.meta.url),
-  [CLOUD_CITY]: new URL('../data/cloud-city.json',import.meta.url)
+  [CLOUD_CITY]: new URL('../data/cloud-city.json',import.meta.url),
+  [JABBAS_PALACE]: new URL('../data/jabbas-palace.json',import.meta.url)
 };
 const deckPath = new URL('../data/premiere-starter-decks.json', import.meta.url);
 const themesPath = new URL('../data/premiere-themed-decks.json', import.meta.url);
@@ -139,12 +140,12 @@ function expansionReport(catalog, edition = A_NEW_HOPE) {
 
 async function main(args) {
   let edition = EDITION;
-  if (args[0] === '--edition' && ['a-new-hope','hoth','dagobah','cloud-city'].includes(args[1])) {
-    edition = args[1] === 'cloud-city' ? CLOUD_CITY : args[1] === 'dagobah' ? DAGOBAH : args[1] === 'hoth' ? HOTH : A_NEW_HOPE;
+  if (args[0] === '--edition' && ['a-new-hope','hoth','dagobah','cloud-city','jabbas-palace'].includes(args[1])) {
+    edition = args[1] === 'jabbas-palace' ? JABBAS_PALACE : args[1] === 'cloud-city' ? CLOUD_CITY : args[1] === 'dagobah' ? DAGOBAH : args[1] === 'hoth' ? HOTH : A_NEW_HOPE;
     args = args.slice(2);
   }
   if (args.length > 1 || (args.length && !['--check', '--report', '--verify-source', '--verify-scans'].includes(args[0]))) {
-    throw new Error('Aufruf: node scripts/import_premiere.mjs [--edition a-new-hope|hoth|dagobah|cloud-city] [--check | --report | --verify-source | --verify-scans]');
+    throw new Error('Aufruf: node scripts/import_premiere.mjs [--edition a-new-hope|hoth|dagobah|cloud-city|jabbas-palace] [--check | --report | --verify-source | --verify-scans]');
   }
   const [mode] = args;
   const downloads = mode === undefined || mode === '--verify-source';
@@ -154,6 +155,20 @@ async function main(args) {
   const catalog = readCatalog(snapshot, edition);
   if (mode === '--verify-source' && serialize(snapshot) !== serialize(await readJson(snapshotPath))) {
     throw new Error('Der versionierte Snapshot weicht vom reproduzierten Quelldatensatz ab.');
+  }
+  if(edition===JABBAS_PALACE){
+    if(mode==='--verify-scans')return writeScanReport(catalog);
+    const report=expansionReport(catalog,JABBAS_PALACE);
+    if(report.cardsReleased!==180)throw Error('Jabba’s-Palace-Regelfreigabe unvollständig.');
+    const names=['premiere','a-new-hope','hoth','dagobah','cloud-city'],earlier=await Promise.all(names.map(name=>readJson(new URL('../data/'+name+'.json',import.meta.url))));
+    const [starters,themes,decks]=await Promise.all([readJson(deckPath),readJson(themesPath),readJson(new URL('../data/jabbas-palace-decks.json',import.meta.url))]);
+    const format='premiere-a-new-hope-hoth-dagobah-cloud-city-jabbas-palace',choices=readFormatDeckChoices(format,starters,themes,decks,[...earlier.flatMap((payload,i)=>readCatalog(payload,String(i+1))),...catalog]);
+    const available=new Set(Object.values(choices).flatMap(rows=>rows.flatMap(({deck})=>deck.cards.map(card=>card.id))));
+    if(catalog.some(card=>!available.has(card.id)))throw Error('Jabba’s-Palace-Karte ohne wählbares Deck.');
+    if(Object.values(decks.formats[format]).some(rows=>rows.length!==8))throw Error('Jabba’s Palace benötigt je acht Themendecks.');
+    if(mode==='--report')return process.stdout.write(serialize(report));
+    if(mode===undefined)await replaceSnapshot(snapshot,snapshotPath);
+    console.log('Jabba’s Palace '+REVISION+': 90 Light + 90 Dark, 180 freigegeben, alle über je acht Themendecks verfügbar.');return;
   }
   if(edition===CLOUD_CITY){
     if(mode==='--verify-scans')return writeScanReport(catalog);

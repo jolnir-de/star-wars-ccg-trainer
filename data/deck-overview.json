@@ -450,6 +450,156 @@
           }
         }
       ]
+    },
+    "premiere-a-new-hope-hoth-dagobah-cloud-city-jabbas-palace": {
+      "light": [
+        {
+          "id": "jabbas-palace-palastbotschafter",
+          "name": "Die Palastbotschafter",
+          "cover": {
+            "id": "Light:1012",
+            "name": "•Garon Nas Tal",
+            "image": "https://res.starwarsccg.org/cards/JabbasPalace-Light/large/garonnastal.gif"
+          }
+        },
+        {
+          "id": "jabbas-palace-artoos-geheimplan",
+          "name": "Artoos Geheimplan",
+          "cover": {
+            "id": "Light:136",
+            "name": "•Artoo",
+            "image": "https://res.starwarsccg.org/cards/JabbasPalace-Light/large/artoo.gif"
+          }
+        },
+        {
+          "id": "jabbas-palace-oolas-palastintrige",
+          "name": "Oolas Palastintrige",
+          "cover": {
+            "id": "Light:1842",
+            "name": "•Oola",
+            "image": "https://res.starwarsccg.org/cards/JabbasPalace-Light/large/oola.gif"
+          }
+        },
+        {
+          "id": "jabbas-palace-jawas-in-der-duenensee",
+          "name": "Jawas in der Dünensee",
+          "cover": {
+            "id": "Light:1988",
+            "name": "•R'kik D'nec, Hero Of The Dune Sea",
+            "image": "https://res.starwarsccg.org/cards/JabbasPalace-Light/large/rkikdnecheroofthedunesea.gif"
+          }
+        },
+        {
+          "id": "jabbas-palace-musik-aus-der-wueste",
+          "name": "Musik aus der Wüste",
+          "cover": {
+            "id": "Light:784",
+            "name": "•Droopy McCool",
+            "image": "https://res.starwarsccg.org/cards/JabbasPalace-Light/large/droopymccool.gif"
+          }
+        },
+        {
+          "id": "jabbas-palace-leias-befreiung",
+          "name": "Leias Befreiung",
+          "cover": {
+            "id": "Light:1945",
+            "name": "•Princess Leia Organa",
+            "image": "https://res.starwarsccg.org/cards/JabbasPalace-Light/large/princessleiaorgana.gif"
+          }
+        },
+        {
+          "id": "jabbas-palace-sabacc-am-hof",
+          "name": "Sabacc am Hof",
+          "cover": {
+            "id": "Light:722",
+            "name": "Devaronian",
+            "image": "https://res.starwarsccg.org/cards/JabbasPalace-Light/large/devaronian.gif"
+          }
+        },
+        {
+          "id": "jabbas-palace-thryss-rueckkehr",
+          "name": "Thryss’ Rückkehr",
+          "cover": {
+            "id": "Light:1964",
+            "name": "•Pucumir Thryss",
+            "image": "https://res.starwarsccg.org/cards/JabbasPalace-Light/large/pucumirthryss.gif"
+          }
+        }
+      ],
+      "dark": [
+        {
+          "id": "jabbas-palace-jabbas-verbrecherhof",
+          "name": "Jabbas Verbrecherhof",
+          "cover": {
+            "id": "Dark:1346",
+            "name": "•Jabba The Hutt",
+            "image": "https://res.starwarsccg.org/cards/JabbasPalace-Dark/large/jabbathehutt.gif"
+          }
+        },
+        {
+          "id": "jabbas-palace-bibs-torwaechter",
+          "name": "Bibs Torwächter",
+          "cover": {
+            "id": "Dark:232",
+            "name": "•Bib Fortuna",
+            "image": "https://res.starwarsccg.org/cards/JabbasPalace-Dark/large/bibfortuna.gif"
+          }
+        },
+        {
+          "id": "jabbas-palace-baradas-skiffgarde",
+          "name": "Baradas Skiffgarde",
+          "cover": {
+            "id": "Dark:196",
+            "name": "•Barada",
+            "image": "https://res.starwarsccg.org/cards/JabbasPalace-Dark/large/barada.gif"
+          }
+        },
+        {
+          "id": "jabbas-palace-dengars-kerkerjagd",
+          "name": "Dengars Kerkerjagd",
+          "cover": {
+            "id": "Dark:700",
+            "name": "•Dengar",
+            "image": "https://res.starwarsccg.org/cards/Dagobah-Dark/large/dengar.gif"
+          }
+        },
+        {
+          "id": "jabbas-palace-malakilis-bestien",
+          "name": "Malakilis Bestien",
+          "cover": {
+            "id": "Dark:1633",
+            "name": "•Malakili",
+            "image": "https://res.starwarsccg.org/cards/JabbasPalace-Dark/large/malakili.gif"
+          }
+        },
+        {
+          "id": "jabbas-palace-wittins-wuestenhandel",
+          "name": "Wittins Wüstenhandel",
+          "cover": {
+            "id": "Dark:2817",
+            "name": "•Wittin",
+            "image": "https://res.starwarsccg.org/cards/JabbasPalace-Dark/large/wittin.gif"
+          }
+        },
+        {
+          "id": "jabbas-palace-ree-yees-letzter-trick",
+          "name": "Ree-Yees’ letzter Trick",
+          "cover": {
+            "id": "Dark:2077",
+            "name": "•Ree-Yees",
+            "image": "https://res.starwarsccg.org/cards/JabbasPalace-Dark/large/reeyees.gif"
+          }
+        },
+        {
+          "id": "jabbas-palace-werkstatt-der-schatten",
+          "name": "Werkstatt der Schatten",
+          "cover": {
+            "id": "Dark:887",
+            "name": "•EV-9D9",
+            "image": "https://res.starwarsccg.org/cards/JabbasPalace-Dark/large/ev9d9.gif"
+          }
+        }
+      ]
     }
   }
 }

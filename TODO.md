@@ -133,3 +133,10 @@ V2.15.34 gibt alle **162 Karten aus A New Hope** frei. Die letzten 74 Karten bes
 Die 308 privaten Premiere-Drucktexte bleiben ausschließlich lokal. Ein vollständig freigegebener Kartenkatalog ist kein formaler Nachweis sämtlicher denkbarer Kartenkombinationen. Neue gefundene Kombinationen werden weiterhin als Regressionstests ergänzt.
 
 Für fertige Schritte Entwicklungsbranches verwenden und Commit, Testergebnis sowie offene Fehler im Pull Request dokumentieren. Kein direkter Push auf main, kein Force-Push und kein automatischer Merge.
+
+## 18. Jabba’s Palace vollständig integrieren
+
+- [ ] 180 reguläre Karten nach JABBAS_PALACE_REGELSTAND.md implementieren und prüfen.
+- [ ] Je acht Themendecks für Light und Dark Side (Karten bis einschließlich Jabba’s Palace).
+- [ ] Formatauswahl und nachgeladene Kataloge/Bundles ergänzen.
+- [ ] Alle Tests ausführen, PR erstellen und auf starwarsccg.de veröffentlichen.

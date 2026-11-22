@@ -12,7 +12,7 @@ locationPositionsForCard=function(side,card){
  try{for(let i=first;i<=last+1;i++){const prospective=order.slice();prospective.splice(i,0,slot);if(ccSiteOrderValid(prospective.filter(index=>CloudCityRules.city(state.locations[index]))))result.push(i);}}
  finally{state.locations.pop();}return result;
 };
-initialLocationOrder=function(locations){const order=ccLayoutBase.initial(locations);if(currentGame()?.playFormat!==CloudCityRules.FORMAT)return order;const sites=order.filter(slot=>CloudCityRules.city(locations[slot])),bays=sites.filter(slot=>locations[slot].locationTags?.includes('Exterior')),interiors=sites.filter(slot=>!bays.includes(slot));if(sites.length){const sorted=[...(bays.length?bays.slice(0,1):[]),...interiors,...bays.slice(1)];let i=0;return order.map(slot=>sites.includes(slot)?sorted[i++]:slot);}return order;};
+initialLocationOrder=function(locations){const order=ccLayoutBase.initial(locations);if(![CloudCityRules.FORMAT,'premiere-a-new-hope-hoth-dagobah-cloud-city-jabbas-palace'].includes(currentGame()?.playFormat))return order;const sites=order.filter(slot=>CloudCityRules.city(locations[slot])),bays=sites.filter(slot=>locations[slot].locationTags?.includes('Exterior')),interiors=sites.filter(slot=>!bays.includes(slot));if(sites.length){const sorted=[...(bays.length?bays.slice(0,1):[]),...interiors,...bays.slice(1)];let i=0;return order.map(slot=>sites.includes(slot)?sorted[i++]:slot);}return order;};
 dagoCanDeploy=function(card,loc,side){return cloudCityEnabled()&&CloudCityRules.cloud(loc)&&CloudCityRules.cloudCapable(card)||ccLayoutBase.canDeploy(card,loc,side);};
 dagoMovesLikeFighter=function(card){return cloudCityEnabled()&&CloudCityRules.fighter(card)||ccLayoutBase.movesLike(card);};
 function ccRearrangeSites(side,card,done){

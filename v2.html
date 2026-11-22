@@ -554,7 +554,7 @@ html:has(#cardInspector[open],#battlePreview[open],#battleAnalysis[open],#moveme
   </section>
   <div id="catalogEditionBox" class="catalog-search" hidden>
     <label for="catalogEdition">Edition</label> <select id="catalogEdition">
-      <option value="1">Premiere</option><option value="2">A New Hope</option><option value="3">Hoth</option><option value="4">Dagobah</option><option value="5">Cloud City</option>
+      <option value="1">Premiere</option><option value="2">A New Hope</option><option value="3">Hoth</option><option value="4">Dagobah</option><option value="5">Cloud City</option><option value="6">Jabba’s Palace</option>
     </select>
   </div>
   <label id="catalogSearchBox" class="catalog-search" hidden>Karte suchen <input id="catalogSearch" type="search"></label>
@@ -580,7 +580,7 @@ html:has(#cardInspector[open],#battlePreview[open],#battleAnalysis[open],#moveme
 </dialog>
 <script src="assets/playfield-views.js"></script><script src="assets/edition-banners.js"></script><script src="engine/premiere-data.js?v=2.15.41"></script><script src="engine/premiere-game.js?v=2.15.41"></script><script src="engine/premiere-battle.js?v=2.15.41"></script><script src="engine/premiere-units.js?v=2.15.41"></script><script src="engine/premiere-locations.js?v=2.15.41"></script><script src="engine/premiere-weapons.js?v=2.15.41"></script><script src="engine/premiere-card-rules.js?v=2.15.41"></script><script src="engine/premiere-bot.js?v=2.15.41"></script><script src="engine/premiere-learning.js?v=2.15.29"></script><script src="engine/premiere-session.js?v=2.15.41"></script><script>
 const german=['Aktivieren','Kontrolle','Ausspielen','Kampf','Bewegung','Nachziehen'];
-const trainerVersion='2.18.1';
+const trainerVersion='2.19.0';
 const lessonCompleteMessage='Übung abgeschlossen. Du kannst die Partie weiterspielen oder die Übung neu starten.';
 let supplementalCatalog=[];
 const cardBackUrls={
@@ -596,6 +596,7 @@ let aNewHopeCatalog=null,aNewHopeLoad=null,aNewHopeLoadFailed=false;
 let hothCatalog=null,hothLoad=null,hothLoadFailed=false;
 let dagobahCatalog=null,dagobahLoad=null,dagobahLoadFailed=false,dagobahFormatLoad=null;
 let cloudCityCatalog=null,cloudCityLoad=null,cloudCityLoadFailed=false,cloudCityFormatLoad=null;
+let jabbasPalaceCatalog=null,jabbasPalaceLoad=null,jabbasPalaceLoadFailed=false,jabbasPalaceFormatLoad=null;
 const sameOffer=(option,kind,args)=>option.kind===kind&&option.args.length===args.length&&option.args.every((arg,i)=>arg===args[i]);
 const findOffer=(available,kind,...args)=>available.find(option=>sameOffer(option,kind,args));
 function ruleClick(action,handler='dispatchUI'){
@@ -810,9 +811,9 @@ const sideName={light:'Light',dark:'Dark'};
 const deckSelector=side=>el('select'+sideName[side]+'Deck');
 const deckId=deck=>deck?.theme?.id??'starter';
 const deckName=deck=>deck?.theme?.name??'Premiere-Starterdeck';
-const premiereFormat='premiere',mixedFormat='premiere-a-new-hope',hothFormat='premiere-a-new-hope-hoth',dagobahFormat='premiere-a-new-hope-hoth-dagobah',cloudCityFormat='premiere-a-new-hope-hoth-dagobah-cloud-city';
+const premiereFormat='premiere',mixedFormat='premiere-a-new-hope',hothFormat='premiere-a-new-hope-hoth',dagobahFormat='premiere-a-new-hope-hoth-dagobah',cloudCityFormat='premiere-a-new-hope-hoth-dagobah-cloud-city',jabbasPalaceFormat='premiere-a-new-hope-hoth-dagobah-cloud-city-jabbas-palace';
 const launchFormat=()=>el('playFormat').value||premiereFormat;
-const formatName=format=>format===cloudCityFormat?'Premiere + A New Hope + Hoth + Dagobah + Cloud City':format===dagobahFormat?'Premiere + A New Hope + Hoth + Dagobah':format===hothFormat?'Premiere + A New Hope + Hoth':format===mixedFormat?'Premiere + A New Hope':'Premiere';
+const formatName=format=>format===jabbasPalaceFormat?'Premiere + A New Hope + Hoth + Dagobah + Cloud City + Jabba’s Palace':format===cloudCityFormat?'Premiere + A New Hope + Hoth + Dagobah + Cloud City':format===dagobahFormat?'Premiere + A New Hope + Hoth + Dagobah':format===hothFormat?'Premiere + A New Hope + Hoth':format===mixedFormat?'Premiere + A New Hope':'Premiere';
 let launchDeckSources=null,hothFormatLoad=null,launchDeckOverview={},launchDeckRequest=0,launchDeckMessage='';
 const hothDeckCovers={},hothScriptLoads=new Map();
 function ensureHothCatalog(){
@@ -878,6 +879,23 @@ async function ensureCloudCityFormat(){
  })().finally(()=>cloudCityFormatLoad=null);
  return cloudCityFormatLoad;
 }
+async function ensureJabbasPalaceCatalog(){
+ if(jabbasPalaceCatalog)return jabbasPalaceCatalog;
+ if(!jabbasPalaceLoad)jabbasPalaceLoad=readLocalJson('data/jabbas-palace.json').then(payload=>jabbasPalaceCatalog=readCatalog(payload,PremiereData.JABBAS_PALACE)).finally(()=>jabbasPalaceLoad=null);
+ return jabbasPalaceLoad;
+}
+async function ensureJabbasPalaceFormat(){
+ if(formatDeckChoices?.[jabbasPalaceFormat])return true;
+ if(jabbasPalaceFormatLoad)return jabbasPalaceFormatLoad;
+ jabbasPalaceFormatLoad=(async()=>{
+  await ensureCloudCityFormat();
+  const [cards,decks]=await Promise.all([ensureJabbasPalaceCatalog(),readLocalJson('data/jabbas-palace-decks.json')]);
+  for(const path of ["engine/jabbas-palace-rules.js","engine/jabbas-palace-card-rules.js","engine/jabbas-palace-session.js","engine/jabbas-palace-layout.js","engine/jabbas-palace-units.js","engine/jabbas-palace-abilities.js","engine/jabbas-palace-locations.js","engine/jabbas-palace-creatures.js","engine/jabbas-palace-weapons.js","engine/jabbas-palace-devices.js","engine/jabbas-palace-effects.js","engine/jabbas-palace-sabacc.js","engine/jabbas-palace-interrupts.js","engine/jabbas-palace-battle.js","engine/jabbas-palace-captives.js","engine/jabbas-palace-storage.js","engine/jabbas-palace-support.js","engine/jabbas-palace-reacts.js","engine/jabbas-palace-vehicles.js","engine/jabbas-palace-timing.js","engine/jabbas-palace-combinations.js","engine/jabbas-palace-answers.js","engine/jabbas-palace-droids.js","engine/jabbas-palace-numbers.js","engine/jabbas-palace-attacks.js","engine/jabbas-palace-personas.js","engine/jabbas-palace-choices.js","engine/jabbas-palace-mindscan.js","engine/jabbas-palace-bot.js"])await loadHothScript(path);
+  formatDeckChoices[jabbasPalaceFormat]=PremiereData.readFormatDeckChoices(jabbasPalaceFormat,launchDeckSources.deckLists,launchDeckSources.themedLists,decks,[...catalog,...aNewHopeCatalog,...hothCatalog,...dagobahCatalog,...cloudCityCatalog,...cards]);
+  for(const definitions of Object.values(decks.formats[jabbasPalaceFormat]))for(const definition of definitions)hothDeckCovers[definition.theme.id]=definition.theme.cover;
+  return true;
+ })().finally(()=>jabbasPalaceFormatLoad=null);return jabbasPalaceFormatLoad;
+}
 async function loadDagobahDecks(){
  const loading=ensureDagobahFormat();renderLaunch();
  try{await loading;renderLaunch();}catch(error){renderLaunch();el('playFormatHint').hidden=false;el('playFormatHint').textContent=error.message+' Bitte erneut versuchen.';}
@@ -936,7 +954,7 @@ function launchCover(side,deck){
 
 function launchDeckOptions(format,side){
  const loaded=formatDeckChoices?.[format]?.[side];
- return loaded?loaded.filter(({deck})=>format===premiereFormat||deck.cards.some(card=>card.set===(format===cloudCityFormat?PremiereData.CLOUD_CITY:format===dagobahFormat?PremiereData.DAGOBAH:format===hothFormat?PremiereData.HOTH:PremiereData.A_NEW_HOPE)))
+ return loaded?loaded.filter(({deck})=>format===premiereFormat||deck.cards.some(card=>card.set===(format===jabbasPalaceFormat?PremiereData.JABBAS_PALACE:format===cloudCityFormat?PremiereData.CLOUD_CITY:format===dagobahFormat?PremiereData.DAGOBAH:format===hothFormat?PremiereData.HOTH:PremiereData.A_NEW_HOPE)))
   .map(({deck})=>({id:deckId(deck),name:deckName(deck),cover:launchCover(side,deck)})):launchDeckOverview[format]?.[side]??[];
 }
 
@@ -949,7 +967,7 @@ function loadLaunchDeck(format,side,id,complete){
  if(!launchOpen||side!==launchFaction||!launchDeckOverview[format]?.[side]?.some(deck=>deck.id===id))return false;
  const request=++launchDeckRequest;
  launchDeckMessage=formatName(format)+' wird geladen …';el('start').disabled=true;renderLaunch();
- return (format===cloudCityFormat?ensureCloudCityFormat():format===dagobahFormat?ensureDagobahFormat():ensureHothFormat()).then(()=>{
+ return (format===jabbasPalaceFormat?ensureJabbasPalaceFormat():format===cloudCityFormat?ensureCloudCityFormat():format===dagobahFormat?ensureDagobahFormat():ensureHothFormat()).then(()=>{
   if(request!==launchDeckRequest||side!==launchFaction||!launchOpen)return false;
   launchDeckMessage='';renderLaunch();return complete();
  }).catch(error=>{
@@ -1012,12 +1030,12 @@ function renderLaunch(){
  }).join('');
  if(!deckGrid.hidden){
   const side=launchFaction,selected=deckId(selectedDeck(side).deck),selectedFormat=launchFormat();
-  deckGrid.innerHTML=[premiereFormat,mixedFormat,hothFormat,dagobahFormat,cloudCityFormat].flatMap(format=>{
+  deckGrid.innerHTML=[premiereFormat,mixedFormat,hothFormat,dagobahFormat,cloudCityFormat,jabbasPalaceFormat].flatMap(format=>{
    const choices=launchDeckOptions(format,side);
    if(!choices?.length)return [];
    const heading='launchDecks-'+format;
    return ['<section class="launch-deck-section" aria-labelledby="'+heading+'" data-deck-format="'+format+'">'
-    +PremiereEditionBanners.heading(format===premiereFormat?'premiere':format===cloudCityFormat?'cloud-city':format===dagobahFormat?'dagobah':format===hothFormat?'hoth':'a-new-hope',{headingId:heading,title:format===premiereFormat?'Premiere: Decks':format===cloudCityFormat?'Cloud City: Deckauswahl':format===dagobahFormat?'Dagobah: Deckauswahl':format===hothFormat?'Hoth: Deckauswahl':'A New Hope: Deckauswahl',description:choices.length+' Decks'+(format!==premiereFormat?' · '+formatName(format):'')})
+    +PremiereEditionBanners.heading(format===premiereFormat?'premiere':format===jabbasPalaceFormat?'jabbas-palace':format===cloudCityFormat?'cloud-city':format===dagobahFormat?'dagobah':format===hothFormat?'hoth':'a-new-hope',{headingId:heading,title:format===premiereFormat?'Premiere: Decks':format===jabbasPalaceFormat?'Jabba’s Palace: Deckauswahl':format===cloudCityFormat?'Cloud City: Deckauswahl':format===dagobahFormat?'Dagobah: Deckauswahl':format===hothFormat?'Hoth: Deckauswahl':'A New Hope: Deckauswahl',description:choices.length+' Decks'+(format!==premiereFormat?' · '+formatName(format):'')})
     +'<div class="launch-deck-grid">'+choices.map(({id,name,cover})=>{
      const pick='chooseLaunchDeck('+JSON.stringify(id)+','+JSON.stringify(format)+')';
      const preview='showStarterDeck('+JSON.stringify(side)+','+JSON.stringify(id)+','+JSON.stringify(format)+')';
@@ -1093,20 +1111,21 @@ function showStarterDeck(side,id,format=launchFormat()){
 
 const aNewHopeSelected=()=>el('catalogEdition').value===PremiereData.A_NEW_HOPE;
 const hothSelected=()=>el('catalogEdition').value===PremiereData.HOTH;
+const jabbasPalaceSelected=()=>el('catalogEdition').value===PremiereData.JABBAS_PALACE;
 const cloudCitySelected=()=>el('catalogEdition').value===PremiereData.CLOUD_CITY;
 const dagobahSelected=()=>el('catalogEdition').value===PremiereData.DAGOBAH;
-const visibleCatalog=()=>cloudCitySelected()?cloudCityCatalog:dagobahSelected()?dagobahCatalog:hothSelected()?hothCatalog:aNewHopeSelected()?aNewHopeCatalog:catalog;
+const visibleCatalog=()=>jabbasPalaceSelected()?jabbasPalaceCatalog:cloudCitySelected()?cloudCityCatalog:dagobahSelected()?dagobahCatalog:hothSelected()?hothCatalog:aNewHopeSelected()?aNewHopeCatalog:catalog;
 const expansionCardStatus=card=>card.set===PremiereData.CLOUD_CITY?'Für Premiere bis Cloud City freigegeben':card.set===PremiereData.DAGOBAH?'Für Premiere bis Dagobah freigegeben':card.set===PremiereData.HOTH?'Für Premiere + A New Hope + Hoth freigegeben':PremiereData.isReleasedExpansionCard(card)?'Für Premiere + A New Hope freigegeben':'Regelprüfung offen';
 
 function renderCatalog(){
- const cards=visibleCatalog(),list=el('starterDeckCards'),expansion=aNewHopeSelected()||hothSelected()||dagobahSelected()||cloudCitySelected();
- const name=PremiereData.EDITIONS[cloudCitySelected()?PremiereData.CLOUD_CITY:dagobahSelected()?PremiereData.DAGOBAH:hothSelected()?PremiereData.HOTH:expansion?PremiereData.A_NEW_HOPE:PremiereData.EDITION].name;
+ const cards=visibleCatalog(),list=el('starterDeckCards'),expansion=aNewHopeSelected()||hothSelected()||dagobahSelected()||cloudCitySelected()||jabbasPalaceSelected();
+ const name=PremiereData.EDITIONS[jabbasPalaceSelected()?PremiereData.JABBAS_PALACE:cloudCitySelected()?PremiereData.CLOUD_CITY:dagobahSelected()?PremiereData.DAGOBAH:hothSelected()?PremiereData.HOTH:expansion?PremiereData.A_NEW_HOPE:PremiereData.EDITION].name;
  const description=el('starterDeckDescription');
  el('starterDeckTitle').textContent=name+'-Kartenkatalog'+(cards?' · '+cards.length+' Karten':'');
  description.hidden=!expansion;
- if(expansion)description.textContent=cloudCitySelected()?'180 Cloud-City-Karten mit Wolkensektoren, Sabacc, Carbon-Freezing und neuen Antwortfenstern. Karten mit Zielen aus späteren Editionen werden erst mit passenden Zielen nutzbar.':dagobahSelected()?'180 Dagobah-Karten mit Jedi-Tests, Asteroidensektoren und neuen Kreaturen. Manche Texte benötigen bestimmte Ziele oder Karten aus späteren Editionen.':hothSelected()?'Alle 162 Hoth-Karten sind im Hoth-Format integriert. Manche Texte benötigen bestimmte Ziele oder Karten aus späteren Editionen.':'Die Liste zeigt den Stand der Regelfreigabe je Karte.';
+ if(expansion)description.textContent=jabbasPalaceSelected()?'180 Jabba’s-Palace-Karten: Palast-Sites, Starting Interrupts, Wüsten, Gefangene, Sabacc und neue Kreaturen. Einige Texte benötigen Ziele aus späteren Editionen.':cloudCitySelected()?'180 Cloud-City-Karten mit Wolkensektoren, Sabacc, Carbon-Freezing und neuen Antwortfenstern. Karten mit Zielen aus späteren Editionen werden erst mit passenden Zielen nutzbar.':dagobahSelected()?'180 Dagobah-Karten mit Jedi-Tests, Asteroidensektoren und neuen Kreaturen. Manche Texte benötigen bestimmte Ziele oder Karten aus späteren Editionen.':hothSelected()?'Alle 162 Hoth-Karten sind im Hoth-Format integriert. Manche Texte benötigen bestimmte Ziele oder Karten aus späteren Editionen.':'Die Liste zeigt den Stand der Regelfreigabe je Karte.';
  if(!cards){
-  list.innerHTML=(cloudCitySelected()?cloudCityLoadFailed:dagobahSelected()?dagobahLoadFailed:hothSelected()?hothLoadFailed:aNewHopeLoadFailed)?'<li>'+name+' konnte nicht geladen werden. Wechsle die Edition, um es erneut zu versuchen.</li>':
+  list.innerHTML=(jabbasPalaceSelected()?jabbasPalaceLoadFailed:cloudCitySelected()?cloudCityLoadFailed:dagobahSelected()?dagobahLoadFailed:hothSelected()?hothLoadFailed:aNewHopeLoadFailed)?'<li>'+name+' konnte nicht geladen werden. Wechsle die Edition, um es erneut zu versuchen.</li>':
    '<li>'+name+' wird geladen …</li>';
   return;
  }
@@ -1118,6 +1137,7 @@ function renderCatalog(){
 }
 
 function selectCatalogEdition(){
+ if(jabbasPalaceSelected()&&!jabbasPalaceCatalog&&!jabbasPalaceLoad){jabbasPalaceLoadFailed=false;ensureJabbasPalaceCatalog().catch(()=>{jabbasPalaceLoadFailed=true;}).finally(()=>{if(jabbasPalaceSelected()&&!el('catalogEditionBox').hidden&&el('starterDeckDialog').open)renderCatalog();});}
  if(cloudCitySelected()&&!cloudCityCatalog&&!cloudCityLoad){cloudCityLoadFailed=false;ensureCloudCityCatalog().catch(()=>{cloudCityLoadFailed=true;}).finally(()=>{if(cloudCitySelected()&&!el('catalogEditionBox').hidden&&el('starterDeckDialog').open)renderCatalog();});}
  if(dagobahSelected()&&!dagobahCatalog&&!dagobahLoad){dagobahLoadFailed=false;ensureDagobahCatalog().catch(()=>{dagobahLoadFailed=true;}).finally(()=>{if(dagobahSelected()&&!el('catalogEditionBox').hidden&&el('starterDeckDialog').open)renderCatalog();});}
 
@@ -1161,7 +1181,7 @@ function inspectCatalogCard(index){
 }
 
 function inspectDeckCard(id){
- const card=catalog.find(entry=>entry.id===id)??aNewHopeCatalog?.find(entry=>entry.id===id)??hothCatalog?.find(entry=>entry.id===id)??dagobahCatalog?.find(entry=>entry.id===id)??cloudCityCatalog?.find(entry=>entry.id===id)??supplementalCatalog.find(entry=>entry.id===id);
+ const card=catalog.find(entry=>entry.id===id)??aNewHopeCatalog?.find(entry=>entry.id===id)??hothCatalog?.find(entry=>entry.id===id)??dagobahCatalog?.find(entry=>entry.id===id)??cloudCityCatalog?.find(entry=>entry.id===id)??jabbasPalaceCatalog?.find(entry=>entry.id===id)??supplementalCatalog.find(entry=>entry.id===id);
  if(card)showCardWithStats(card);
 }
 
@@ -2530,10 +2550,11 @@ function parseSavedGame(value){
   if(saved?.version!==saveVersion||saved.cardRevision!==REVISION||!Array.isArray(saved.commands)||
      (saved.playFormat!==undefined&&(!Object.hasOwn(PremiereData.PLAY_FORMATS,saved.playFormat)||
       !Number.isInteger(saved.cardRulesVersion)||saved.cardRulesVersion<PremiereData.EXPANSION_RULES_VERSION))||
-     ([mixedFormat,hothFormat,dagobahFormat,cloudCityFormat].includes(saved.playFormat)?saved.expansionRevision!==REVISION||!!lesson:saved.expansionRevision!==undefined)||
+     ([mixedFormat,hothFormat,dagobahFormat,cloudCityFormat,jabbasPalaceFormat].includes(saved.playFormat)?saved.expansionRevision!==REVISION||!!lesson:saved.expansionRevision!==undefined)||
      (saved.playFormat===hothFormat&&saved.cardRulesVersion<PremiereData.HOTH_RULES_VERSION)||
      (saved.playFormat===dagobahFormat&&saved.cardRulesVersion<PremiereData.DAGOBAH_RULES_VERSION)||
      (saved.playFormat===cloudCityFormat&&saved.cardRulesVersion<PremiereData.CLOUD_CITY_RULES_VERSION)||
+     (saved.playFormat===jabbasPalaceFormat&&saved.cardRulesVersion<PremiereData.JABBAS_PALACE_RULES_VERSION)||
      saved.commands.length>30000||
      !Number.isInteger(saved.seed)||saved.seed<0||saved.seed>4294967295||typeof saved.trainingBattle!=='boolean'||
      (saved.cardRulesVersion!==undefined&&(!Number.isInteger(saved.cardRulesVersion)||saved.cardRulesVersion<0||saved.cardRulesVersion>latestCardRulesVersion))||
@@ -2620,7 +2641,7 @@ function startNewGame(seed,trainingBattle=false,key,keepLauncher=false){
  let matchSeed=lesson?.fixedSeed?lesson.seed:seed??lesson?.seed;
  if(!fixed&&!keepLauncher&&el('autoBotDeck').checked){
   const opponent=PremiereGame.otherSide(side).toLowerCase();
-  const themes=available[opponent].filter(({deck})=>deck.theme&&(format!==hothFormat||deck.cards.some(card=>card.set===PremiereData.HOTH))&&(format!==dagobahFormat||deck.cards.some(card=>card.set===PremiereData.DAGOBAH))&&(format!==cloudCityFormat||deck.cards.some(card=>card.set===PremiereData.CLOUD_CITY)));
+  const themes=available[opponent].filter(({deck})=>deck.theme&&(format!==hothFormat||deck.cards.some(card=>card.set===PremiereData.HOTH))&&(format!==dagobahFormat||deck.cards.some(card=>card.set===PremiereData.DAGOBAH))&&(format!==cloudCityFormat||deck.cards.some(card=>card.set===PremiereData.CLOUD_CITY))&&(format!==jabbasPalaceFormat||deck.cards.some(card=>card.set===PremiereData.JABBAS_PALACE)));
   if(themes.length){
    matchSeed??=Math.floor(Math.random()*4294967296);
    const roll=PremiereGame.random({randomState:matchSeed});
@@ -2637,7 +2658,7 @@ function startNewGame(seed,trainingBattle=false,key,keepLauncher=false){
  undoAvailable=false;
  activateSave({version:saveVersion,cardRevision:REVISION,cardRulesVersion:currentGame().cardRulesVersion,botStrategyVersion:currentGame().botStrategyVersion,
   seed:currentGame().seed,trainingBattle,playerSide:side,decks:definition,commands:[],playFormat:format,
-  ...([mixedFormat,hothFormat,dagobahFormat,cloudCityFormat].includes(format)?{expansionRevision:REVISION}:{}),...(key?{lesson:key}:{}),
+  ...([mixedFormat,hothFormat,dagobahFormat,cloudCityFormat,jabbasPalaceFormat].includes(format)?{expansionRevision:REVISION}:{}),...(key?{lesson:key}:{}),
   ...(botVersion===latestBotStrategyVersion?{botPlayStyle:style}:{})});
  activeSaveStored=false;
  launchOpen=keepLauncher;
@@ -2657,8 +2678,8 @@ function replayScenario(saved,commands=saved.commands,verify=true){
  undoAvailable=false;
  try {
   const format=saved.playFormat;
-  if([mixedFormat,hothFormat,dagobahFormat,cloudCityFormat].includes(format)&&!formatDeckChoices?.[format])throw new Error('Erweiterung fehlt');
-  const scenarioCatalog=format===cloudCityFormat?[...catalog,...aNewHopeCatalog,...hothCatalog,...dagobahCatalog,...cloudCityCatalog]:format===dagobahFormat?[...catalog,...aNewHopeCatalog,...hothCatalog,...dagobahCatalog]:format===hothFormat?[...catalog,...aNewHopeCatalog,...hothCatalog]:format===mixedFormat?[...catalog,...aNewHopeCatalog]:format===premiereFormat?catalog:[...catalog,...supplementalCatalog];
+  if([mixedFormat,hothFormat,dagobahFormat,cloudCityFormat,jabbasPalaceFormat].includes(format)&&!formatDeckChoices?.[format])throw new Error('Erweiterung fehlt');
+  const scenarioCatalog=format===jabbasPalaceFormat?[...catalog,...aNewHopeCatalog,...hothCatalog,...dagobahCatalog,...cloudCityCatalog,...jabbasPalaceCatalog]:format===cloudCityFormat?[...catalog,...aNewHopeCatalog,...hothCatalog,...dagobahCatalog,...cloudCityCatalog]:format===dagobahFormat?[...catalog,...aNewHopeCatalog,...hothCatalog,...dagobahCatalog]:format===hothFormat?[...catalog,...aNewHopeCatalog,...hothCatalog]:format===mixedFormat?[...catalog,...aNewHopeCatalog]:format===premiereFormat?catalog:[...catalog,...supplementalCatalog];
   const decks=readStarterDecks(saved.decks,scenarioCatalog,{format,cardRulesVersion:saved.cardRulesVersion??0});
   if(!beginSavedScenario(saved.seed,saved.trainingBattle,decks,saved.cardRulesVersion??0,saved.botStrategyVersion??0,saved.lesson,
      saved.playerSide,saved.botPlayStyle,format))
@@ -2699,6 +2720,7 @@ function syncScenarioControls(saved){
 function resumeGameFromUI(){
  const saved=resumeCandidate;
  if(!saved)return false;
+ if(saved.playFormat===jabbasPalaceFormat&&!formatDeckChoices?.[jabbasPalaceFormat])return ensureJabbasPalaceFormat().then(()=>resumeGameFromUI()).catch(()=>{saveStatus('Jabba’s Palace konnte nicht geladen werden. Bitte erneut fortsetzen.');return false;});
  if(saved.playFormat===cloudCityFormat&&!formatDeckChoices?.[cloudCityFormat])return ensureCloudCityFormat().then(()=>resumeGameFromUI()).catch(()=>{saveStatus('Cloud City konnte nicht geladen werden. Bitte erneut fortsetzen.');return false;});
  if(saved.playFormat===dagobahFormat&&!formatDeckChoices?.[dagobahFormat])return ensureDagobahFormat().then(()=>resumeGameFromUI()).catch(()=>{saveStatus('Dagobah konnte nicht geladen werden. Bitte erneut fortsetzen.');return false;});
  if(saved.playFormat===hothFormat&&!formatDeckChoices?.[hothFormat])return ensureHothFormat().then(()=>resumeGameFromUI()).catch(()=>{saveStatus('Hoth konnte nicht geladen werden. Bitte erneut fortsetzen.');return false;});
@@ -2784,6 +2806,7 @@ function importScenario(value){
   saveStatus('Die Datei enthält kein unterstütztes Szenario.');
   return false;
  }
+ if(saved.playFormat===jabbasPalaceFormat&&!formatDeckChoices?.[jabbasPalaceFormat])return ensureJabbasPalaceFormat().then(()=>importScenario(value)).catch(()=>{saveStatus('Jabba’s Palace konnte nicht geladen werden.');return false;});
  if(saved.playFormat===cloudCityFormat&&!formatDeckChoices?.[cloudCityFormat])return ensureCloudCityFormat().then(()=>importScenario(value)).catch(()=>{saveStatus('Cloud City konnte nicht geladen werden.');return false;});
  if(saved.playFormat===dagobahFormat&&!formatDeckChoices?.[dagobahFormat])return ensureDagobahFormat().then(()=>importScenario(value)).catch(()=>{saveStatus('Dagobah konnte nicht geladen werden.');return false;});
  if(saved.playFormat===hothFormat&&!formatDeckChoices?.[hothFormat])return ensureHothFormat().then(()=>importScenario(value)).catch(()=>{saveStatus('Hoth konnte nicht geladen werden.');return false;});

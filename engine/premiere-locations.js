@@ -4,7 +4,7 @@ const PremiereLocations = (() => {
   const opposite = side => side === 'Light' ? 'Dark' : 'Light';
   const title = card => (card?.name ?? '').replace(/^•+\s*/, '').split(' (')[0];
   const system = card => ['System','Sector'].includes(card?.subType);
-  const region = card => card?.cloudCityPlanet?.replace(/^./,letter=>letter.toUpperCase()) ?? (/^Cloud City:/.test(title(card)) ? 'Bespin' : system(card) ? title(card) : title(card).split(':')[0]);
+  const region = card => card?.cloudCityPlanet?.replace(/^./,letter=>letter.toUpperCase()) ?? (/^Jabba's Palace:/.test(title(card)) ? 'Tatooine' : /^Cloud City:/.test(title(card)) ? 'Bespin' : system(card) ? title(card) : title(card).split(':')[0]);
   function hothMarker(card) {
     if(card?.type!=='Location'||card.subType!=='Site'||region(card).toLowerCase()!=='hoth')return null;
     const match=(card.name??'').match(/\(([1-7])(?:st|nd|rd|th) Marker\)/i);
@@ -142,7 +142,8 @@ const PremiereLocations = (() => {
     if (!Number.isInteger(printed)) return null;
     const effects = effectsAt(state, slot);
     const bothSidesBonus = Math.max(0, ...effects.map(effect => effect.iconBonus ?? 0));
-    return Math.max(0, printed + bothSidesBonus + effects.reduce((sum, effect) => sum + (effect.icons?.[side] ?? 0), 0));
+    const value=Math.max(0, printed + bothSidesBonus + effects.reduce((sum, effect) => sum + (effect.icons?.[side] ?? 0), 0));
+    return typeof jpIconValue==='function'?jpIconValue(state,slot,side,value):value;
   }
 
   function nightEffectsAt(state, slot) {

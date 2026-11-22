@@ -7,9 +7,9 @@ const html=readFileSync(new URL('v2.html',root),'utf8');
 const inline=html.match(/<script>([\s\S]*?)<\/script>/)[1].replace(/load\(\);\s*$/,'');
 const scripts=['data','game','battle','units','locations','card-rules','weapons','bot','learning','session']
  .map(name=>readFileSync(new URL('engine/premiere-'+name+'.js',root),'utf8'));
-const files=Object.fromEntries(['premiere','premiere-starter-decks','premiere-themed-decks','premiere-supplemental-cards','play-format-decks','a-new-hope','hoth','hoth-decks','dagobah','dagobah-decks','cloud-city','cloud-city-decks']
+const files=Object.fromEntries(['premiere','premiere-starter-decks','premiere-themed-decks','premiere-supplemental-cards','play-format-decks','a-new-hope','hoth','hoth-decks','dagobah','dagobah-decks','cloud-city','cloud-city-decks','jabbas-palace','jabbas-palace-decks']
  .map(name=>['data/'+name+'.json',JSON.parse(readFileSync(new URL('data/'+name+'.json',root),'utf8'))]));
-const cards=[...data.readCatalog(files['data/premiere.json']),...data.readCatalog(files['data/a-new-hope.json'],'2'),...data.readCatalog(files['data/hoth.json'],'3'),...data.readCatalog(files['data/dagobah.json'],'4'),...data.readCatalog(files['data/cloud-city.json'],'5')];
+const cards=[...data.readCatalog(files['data/premiere.json']),...data.readCatalog(files['data/a-new-hope.json'],'2'),...data.readCatalog(files['data/hoth.json'],'3'),...data.readCatalog(files['data/dagobah.json'],'4'),...data.readCatalog(files['data/cloud-city.json'],'5'),...data.readCatalog(files['data/jabbas-palace.json'],'6')];
 
 function definitions(spec){
  const ids=[...spec.setup.matchAll(/['"]((?:Light|Dark):\d+)['"]/g)].map(match=>match[1]);
@@ -39,11 +39,12 @@ export async function savedPosition(spec,value){
  for(const script of scripts)run(script);
  if(spec.format?.startsWith('premiere-a-new-hope-hoth'))for(const name of ['rules','card-rules','session','interrupts','creatures','mines','timing'])run(readFileSync(new URL('engine/hoth-'+name+'.js',root),'utf8'));
  if(spec.format?.startsWith('premiere-a-new-hope-hoth-dagobah'))for(const name of ['rules','card-rules','session','jedi','space','creatures','units','effects','weapons','locations','interrupts','timing','abilities','passives'])run(readFileSync(new URL('engine/dagobah-'+name+'.js',root),'utf8'));
- if(spec.format==='premiere-a-new-hope-hoth-dagobah-cloud-city')for(const name of ["rules","card-rules","session","space","sabacc","captives","devices","freezing","locations","weather-vane","units","weapons","effects","abilities","reacts","interrupts","battle","duels","storage","timing","layout","support","captive-battle","reactions","answers","information","drains","nabrun","limits","bot"])run(readFileSync(new URL('engine/cloud-city-'+name+'.js',root),'utf8'));
+ if(spec.format?.startsWith('premiere-a-new-hope-hoth-dagobah-cloud-city'))for(const name of ["rules","card-rules","session","space","sabacc","captives","devices","freezing","locations","weather-vane","units","weapons","effects","abilities","reacts","interrupts","battle","duels","storage","timing","layout","support","captive-battle","reactions","answers","information","drains","nabrun","limits","bot"])run(readFileSync(new URL('engine/cloud-city-'+name+'.js',root),'utf8'));
+ if(spec.format==='premiere-a-new-hope-hoth-dagobah-cloud-city-jabbas-palace')for(const name of ["rules","card-rules","session","layout","units","abilities","locations","creatures","weapons","devices","effects","sabacc","interrupts","battle","captives","storage","support","reacts","vehicles","timing","combinations","answers","droids","numbers","attacks","personas","choices","mindscan","bot"])run(readFileSync(new URL('engine/jabbas-palace-'+name+'.js',root),'utf8'));
  run(inline);
  if(value){storage.clear();storage.set(run('saveKey'),value)}
  await run('load()');
- if(spec.format?.startsWith('premiere-a-new-hope-hoth')){run('loadHothScript=async()=>{}');await run(spec.format==='premiere-a-new-hope-hoth-dagobah-cloud-city'?'ensureCloudCityFormat()':spec.format==='premiere-a-new-hope-hoth-dagobah'?'ensureDagobahFormat()':'ensureHothFormat()');}
+ if(spec.format?.startsWith('premiere-a-new-hope-hoth')){run('loadHothScript=async()=>{}');await run(spec.format==='premiere-a-new-hope-hoth-dagobah-cloud-city-jabbas-palace'?'ensureJabbasPalaceFormat()':spec.format==='premiere-a-new-hope-hoth-dagobah-cloud-city'?'ensureCloudCityFormat()':spec.format==='premiere-a-new-hope-hoth-dagobah'?'ensureDagobahFormat()':'ensureHothFormat()');}
  // Only the starting position is arranged. No pending window, response, legal-action,
  // save, import, or replay handler is replaced: these are exercised by real commands.
  run(`const qaAllInstances=new Map();const qaFinishSetup=finishSetup;finishSetup=function(){
@@ -81,7 +82,7 @@ export async function savedPosition(spec,value){
  const definition=definitions(spec),rules=spec.rulesVersion??30;
  if(!value){
   run(`const qaFormat=${JSON.stringify(spec.format??'premiere-a-new-hope')};selectPlayFormat(qaFormat);const qaDefinition=${JSON.stringify(definition)};
-   const qaDecks=readStarterDecks(qaDefinition,[...catalog,...aNewHopeCatalog,...(hothCatalog??[]),...(dagobahCatalog??[]),...(cloudCityCatalog??[])],{format:qaFormat,cardRulesVersion:${rules}});
+   const qaDecks=readStarterDecks(qaDefinition,[...catalog,...aNewHopeCatalog,...(hothCatalog??[]),...(dagobahCatalog??[]),...(cloudCityCatalog??[]),...(jabbasPalaceCatalog??[])],{format:qaFormat,cardRulesVersion:${rules}});
    beginSavedScenario(7001,false,qaDecks,${rules},2,undefined,${JSON.stringify(spec.player??'Light')},undefined,qaFormat);
    activateSave({version:saveVersion,seed:7001,cardRevision:REVISION,expansionRevision:REVISION,cardRulesVersion:${rules},botStrategyVersion:2,playerSide:${JSON.stringify(spec.player??'Light')},trainingBattle:false,decks:qaDefinition,commands:[],playFormat:qaFormat});
    const qaStart=legalActions(null,playerSide()).find(action=>action.kind==='chooseStart');dispatchUI(qaStart);dispatchUI(legalActions(null,playerSide()).find(action=>action.kind==='beginGame'));launchOpen=false;presentGame();`);

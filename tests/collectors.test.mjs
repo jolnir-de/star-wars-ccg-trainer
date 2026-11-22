@@ -6,7 +6,7 @@ import {checkCollectorData, extractCollectorCards} from '../scripts/import-colle
 test('collector catalogs cover 27 releases and 26 validated lists without private texts', async () => {
   assert.deepEqual(await checkCollectorData(), {editions:27,lists:26,cards:2557,verifiedSource:false});
   const registry=JSON.parse(await readFile(new URL('../data/editions.json',import.meta.url),'utf8'));
-  assert.deepEqual(registry.editions.filter(e=>e.playable).map(e=>e.id), ['premiere','a-new-hope','hoth','dagobah','cloud-city']);
+  assert.deepEqual(registry.editions.filter(e=>e.playable).map(e=>e.id), ['premiere','a-new-hope','hoth','dagobah','cloud-city','jabbas-palace']);
   assert.equal(registry.editions.find(e=>e.id==='premiere').releaseDate,'1995-12');
   assert.equal(registry.editions.find(e=>e.id==='theed-palace').releaseDate,'2001-12-12');
   assert.equal(registry.editions.find(e=>e.id==='special-edition').cardCount,324);

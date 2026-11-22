@@ -1,6 +1,11 @@
 'use strict';
 const ccSabaccEligible=entry=>!entry.unavailable&&entry.card.type==='Character'&&CloudCityRules.city(state.locations[entry.slot])&&['gambler','smuggler','thief'].some(trait=>PremiereUnits.hasSkill(entry.card,trait));
-const ccSabaccCards=side=>(state.cloudCitySabacc?.hands?.[side]??[]).map(card=>({...card,destiny:Math.max(0,(card.destiny??0)+clakdorDestinyModifier(card)+(tonnikaFactor(card)-1)*(card.destiny??0))}));
+const ccSabaccWild=card=>typeof jpSabaccWild==='function'&&jpEnabled()&&state.cloudCitySabacc?.jpVariant?jpSabaccWild(card):CloudCityRules.wild(card);
+const ccSabaccClone=card=>typeof jpSabaccClone==='function'&&jpEnabled()&&state.cloudCitySabacc?.jpVariant?jpSabaccClone(card):CloudCityRules.clone(card);
+const ccSabaccGambler=card=>CloudCityRules.gambler(card);
+const ccSabaccValues=(hand,assigned,gambler,side)=>typeof jpSabaccValues==='function'&&jpEnabled()&&(state.cloudCitySabacc?.jpVariant||state.cloudCitySabacc?.players?.[side]?.id==='Light:722')?jpSabaccValues(hand,assigned,gambler,side):CloudCityRules.sabaccValues(hand,assigned,gambler);
+const ccSabaccPerfect=(hand,modifier=0)=>hand.length===2&&!modifier&&hand.every(card=>!ccSabaccWild(card)&&!ccSabaccClone(card))&&hand.reduce((n,c)=>n+(c.destiny??0),0)===11;
+const ccSabaccCards=side=>(state.cloudCitySabacc?.hands?.[side]??[]).map(card=>({...card,destiny:Math.max(0,(card.destiny??0)+clakdorDestinyModifier(card)+(tonnikaFactor(card)-1)*(card.destiny??0)+(typeof jpVulBonus==='function'&&jpEnabled()?jpVulBonus(card,'destiny'):0))}));
 function ccEndSabacc(next){
  const game=state.cloudCitySabacc;if(!game)return;
  for(const side of PremiereGame.sides)ccOwn(side).used.push(...game.hands[side].splice(0));
@@ -20,16 +25,16 @@ function ccSabaccDraw(side,count,next){
  });
 }
 function ccSabaccScore(side){
- const game=state.cloudCitySabacc,hand=ccSabaccCards(side),values=CloudCityRules.sabaccValues(hand,game.values[side],CloudCityRules.gambler(game.players[side]));
+ const game=state.cloudCitySabacc,hand=ccSabaccCards(side),values=ccSabaccValues(hand,game.values[side],CloudCityRules.gambler(game.players[side]),side);
  const modifier=game.modifiers[side]??0;
- return {total:Math.max(0,values.reduce((a,b)=>a+b,0)+modifier),count:hand.length,perfect:CloudCityRules.perfect(hand,modifier)};
+ return {total:Math.max(0,values.reduce((a,b)=>a+b,0)+modifier),count:hand.length,perfect:ccSabaccPerfect(hand,modifier)};
 }
 function ccSabaccStakes(winner,perfect=false){
  const game=state.cloudCitySabacc;if(!winner){ccEndSabacc(game.complete);return;}
  const loser=PremiereGame.otherSide(winner),hand=game.hands[loser];
- const stake=card=>card.type==='Weapon'||card.type==='Device'||PremiereUnits.fighter(card);
+ const stake=card=>game.jpVariant?jpSabaccStake(card,game.jpVariant):card.type==='Weapon'||card.type==='Device'||PremiereUnits.fighter(card);
  const transfer=card=>{hand.splice(hand.indexOf(card),1);if(stake(card)){card.owner=winner;card.controller=winner;card.cloudCityStolen=true;if(card.type==='Starship')card.subType=card.subType.replace(winner==='Light'?/Imperial/g:/Rebel/g,winner==='Light'?'Rebel':'Imperial');ccOwn(winner).used.push(card);}else ccOwn(loser).lost.push(card);};
- if(perfect){for(const card of hand.slice())transfer(card);ccEndSabacc(game.complete);return;}
+ if(perfect||game.jpVariant==='dune'&&game.players[winner]?.id==='Light:1988'){for(const card of hand.slice())transfer(card);ccEndSabacc(game.complete);return;}
  const eligible=hand.some(stake)?hand.filter(stake):hand;
  if(!eligible.length){ccEndSabacc(game.complete);return;}
  ccChoose(winner,game.card,'SabaccStakes',eligible.map((card,index)=>({args:[index],card,label:stake(card)?card.name+' als Einsatz übernehmen':card.name+' verlieren lassen'})),choice=>{
@@ -51,18 +56,20 @@ function ccSabaccAssign(index=0){
  const game=state.cloudCitySabacc;if(!game)return;
  if(index>=2){ccSabaccReveal();return;}
  const side=index===0?PremiereGame.otherSide(game.side):game.side,hand=ccSabaccCards(side),assigned=game.values[side];
- const wild=hand.findIndex((card,i)=>CloudCityRules.wild(card)&&assigned[i]===undefined);
- const clone=hand.findIndex((card,i)=>CloudCityRules.clone(card)&&assigned[i]===undefined);
+ const wild=hand.findIndex((card,i)=>ccSabaccWild(card)&&assigned[i]===undefined);
+ const clone=hand.findIndex((card,i)=>ccSabaccClone(card)&&assigned[i]===undefined);
  if(wild>=0||clone>=0){
   const position=wild>=0?wild:clone;
-  let values=wild>=0?[1,2,3,4,5,6]:[...new Set(hand.flatMap((card,i)=>CloudCityRules.clone(card)?[]:[CloudCityRules.wild(card)?assigned[i]:card.destiny??0]))];
-  if(wild<0&&(CloudCityRules.gambler(game.players[side])||!values.length))values=[...new Set([0,...values])];
+  let values=wild>=0?(game.jpVariant==='dune'?[0,1,2,3,4,5,6,7]:[1,2,3,4,5,6]):[...new Set(hand.flatMap((card,i)=>ccSabaccClone(card)?[]:[ccSabaccWild(card)?assigned[i]:card.destiny??0]))];
+  if(wild<0&&(!game.jpVariant&&CloudCityRules.gambler(game.players[side])||game.jpVariant==='palace'&&(CloudCityRules.gambler(game.players[side])||ccPersona(game.players[side],'Jabba'))))values=[...new Set([game.jpVariant?4:0,...values])];
+  if(wild<0&&!values.length)values=[0];
+  if(wild<0&&game.players[side]?.id==='Light:722')values=[...new Set([game.players[side].destiny??0,...values])];
   ccChoose(side,game.card,'SabaccValue',values.map(value=>({args:[value],label:hand[position].name+' = '+value})),choice=>{assigned[position]=choice.args[0];ccSabaccAssign(index);},{shown:game.hands[side].slice(),publicView:false,
-   botChoice:offers=>offers.reduce((best,offer)=>Math.abs(11-(hand.reduce((sum,card,i)=>sum+(i===position?offer.args[0]:CloudCityRules.clone(card)?0:assigned[i]??card.destiny??0),0)))<Math.abs(11-(hand.reduce((sum,card,i)=>sum+(i===position?best.args[0]:CloudCityRules.clone(card)?0:assigned[i]??card.destiny??0),0)))?offer:best)});
+   botChoice:offers=>offers.reduce((best,offer)=>Math.abs(11-(hand.reduce((sum,card,i)=>sum+(i===position?offer.args[0]:ccSabaccClone(card)?0:assigned[i]??card.destiny??0),0)))<Math.abs(11-(hand.reduce((sum,card,i)=>sum+(i===position?best.args[0]:ccSabaccClone(card)?0:assigned[i]??card.destiny??0),0)))?offer:best)});
   return;
  }
  if(game.modifiers[side]===undefined&&game.players[side]&&ccPersona(game.players[side],'Lando')&&ccText(game.players[side])){
-  const base=CloudCityRules.sabaccValues(hand,assigned,CloudCityRules.gambler(game.players[side])).reduce((a,b)=>a+b,0);
+  const base=ccSabaccValues(hand,assigned,CloudCityRules.gambler(game.players[side]),side).reduce((a,b)=>a+b,0);
   ccChoose(side,game.card,'SabaccLando',[-1,0,1].map(amount=>({args:[amount],label:'Lando · Gesamtwert '+Math.max(0,base+amount)})),choice=>{game.modifiers[side]=choice.args[0];ccSabaccAssign(index+1);},{shown:game.hands[side].slice(),botChoice:offers=>offers.reduce((best,offer)=>Math.abs(11-base-offer.args[0])<Math.abs(11-base-best.args[0])?offer:best)});
  }else ccSabaccAssign(index+1);
 }
@@ -74,13 +81,13 @@ function ccSabaccTurn(side){
  ccChoose(side,game.card,'SabaccDraw',[{args:['draw'],label:'Eine weitere Sabacc-Karte ziehen'},{args:['pass'],label:'Passen · keine weiteren Karten ziehen'}],choice=>{
   if(choice.args[0]==='pass'){game.passed[side]=true;ccSabaccTurn(PremiereGame.otherSide(side));}
   else ccSabaccDraw(side,1,()=>ccSabaccTurn(PremiereGame.otherSide(side)));
- },{shown:game.hands[side].slice(),publicView:false,botChoice:offers=>offers.find(offer=>offer.args[0]===(ccSabaccCards(side).reduce((sum,card)=>sum+(CloudCityRules.wild(card)?1:CloudCityRules.clone(card)?0:card.destiny??0),0)>=8?'pass':'draw'))});
+ },{shown:game.hands[side].slice(),publicView:false,botChoice:offers=>offers.find(offer=>offer.args[0]===(ccSabaccCards(side).reduce((sum,card)=>sum+(ccSabaccWild(card)?1:ccSabaccClone(card)?0:card.destiny??0),0)>=8?'pass':'draw'))});
 }
 function ccStartSabacc(side,source,participant,complete){
- const enemy=PremiereGame.otherSide(side),candidates=ccUnits().filter(entry=>entry.side===enemy&&ccSabaccEligible(entry));
- const game=state.cloudCitySabacc={side,card:source,players:{[side]:participant,[enemy]:null},hands:{Light:[],Dark:[]},values:{Light:[],Dark:[]},modifiers:{},passed:{Light:false,Dark:false},complete};
+ const enemy=PremiereGame.otherSide(side),jpVariant=typeof jpSabaccVariant==='function'&&jpEnabled()?jpSabaccVariant(source):null,candidates=ccUnits().filter(entry=>entry.side===enemy&&(jpVariant?jpSabaccEligible(entry,source):ccSabaccEligible(entry)));
+ const game=state.cloudCitySabacc={side,card:source,jpVariant,players:{[side]:participant,[enemy]:null},hands:{Light:[],Dark:[]},values:{Light:[],Dark:[]},modifiers:{},passed:{Light:false,Dark:false},complete};
  const deal=()=>ccSabaccDraw(side,2,()=>ccSabaccDraw(enemy,2,()=>{
-  const perfect=PremiereGame.sides.map(actor=>CloudCityRules.perfect(ccSabaccCards(actor)));
+  const perfect=PremiereGame.sides.map(actor=>ccSabaccPerfect(ccSabaccCards(actor)));
   if(perfect.some(Boolean))ccSabaccReveal(perfect.every(Boolean)?'draw':perfect[0]?'Light':'Dark');else ccSabaccTurn(enemy);
  }));
  if(!candidates.length){deal();return;}

@@ -1,5 +1,5 @@
 'use strict';
-const dagobahEnabled=()=>!!state&&typeof DagobahRules!=='undefined'&&(currentGame()?.cardRulesVersion??0)>=32&&[DagobahRules.FORMAT,'premiere-a-new-hope-hoth-dagobah-cloud-city'].includes(currentGame()?.playFormat);
+const dagobahEnabled=()=>!!state&&typeof DagobahRules!=='undefined'&&(currentGame()?.cardRulesVersion??0)>=32&&[DagobahRules.FORMAT,'premiere-a-new-hope-hoth-dagobah-cloud-city','premiere-a-new-hope-hoth-dagobah-cloud-city-jabbas-palace'].includes(currentGame()?.playFormat);
 const dagoUnits=()=>hothAllUnits();
 const dagoOwn=side=>PremiereGame.zones(state,side);
 const dagoEntry=card=>PremiereLocations.findEntry(state,card);

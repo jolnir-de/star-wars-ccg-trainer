@@ -136,7 +136,7 @@ ccContinuousProviders.push(()=>{
   if(effect.host&&!ccEntry(effect.host)){hothCancelEffect(effect);continue;}
   if(['Light:414','Dark:46'].includes(id)&&ccUnits().filter(entry=>entry.side===enemy&&!entry.unavailable&&cardAbility(entry.card)>0).length>ccUnits().filter(entry=>entry.side===side&&!entry.unavailable&&cardAbility(entry.card)>0).length)hothCancelEffect(effect);
   if(id==='Light:1112'&&ccControl(enemy,effect.site))hothCancelEffect(effect);
-  if(id==='Dark:614'&&state.locations.filter((loc,slot)=>ccPlanet(loc)==='bespin'&&PremiereLocations.occupy(state,enemy,slot,cardAbility)===true).length>=4)hothCancelEffect(effect);
+  if(id==='Dark:614'&&state.locations.filter((loc,slot)=>ccPlanet(loc)==='bespin'&&PremiereLocations.occupy(state,enemy,slot,cardAbility)===true).length>=4+(typeof jpDarkDealExtra==='function'&&jpEnabled()?jpDarkDealExtra(side):0))hothCancelEffect(effect);
   if(id==='Dark:972'&&ccEntry(effect.target)?.slot===effect.site)hothCancelEffect(effect);
   if(id==='Dark:2768'&&ccUnits().some(entry=>ccPersona(entry.card,'Luke')&&ccAtSame(entry.card,effect.host)))hothCancelEffect(effect);
  }

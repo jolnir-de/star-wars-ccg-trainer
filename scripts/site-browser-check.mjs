@@ -172,7 +172,7 @@ test('built fan homepage, guides and hashed game run without remote images', {ti
     }
     await page.getByRole('button',{name:'Partie beginnen',exact:true}).click();
     await page.waitForFunction(()=>!!state?.game?.playFormat&&state.game.playFormat==='premiere-a-new-hope-hoth'&&!document.querySelector('#gameTable').hidden);
-    assert.equal(await page.evaluate(()=>state.game.cardRulesVersion),33);
+    assert.equal(await page.evaluate(()=>state.game.cardRulesVersion),34);
     await page.reload();
     await page.getByRole('button',{name:'Partie fortsetzen',exact:true}).click();
     await page.waitForFunction(()=>state?.game?.playFormat==='premiere-a-new-hope-hoth'&&!document.querySelector('#gameTable').hidden);
@@ -187,7 +187,7 @@ test('built fan homepage, guides and hashed game run without remote images', {ti
     assert.equal(await page.evaluate(()=>dagobahCatalog.filter(card=>PremiereData.isReleasedExpansionCard(card,32)&&PremiereCardRules.entry(card).complete).length),180);
     assert.ok(requests.some(url=>/engine\/dagobah-passives\.[a-f0-9]{12}\.js$/.test(url)),'Built Dagobah modules use hashed URLs');
     await page.keyboard.press('Escape');
-    assert.equal(await page.locator('#launchDeckGrid [data-deck]').count(),40);
+    assert.equal(await page.locator('#launchDeckGrid [data-deck]').count(),48);
     const cloudDecks=page.locator('[data-deck-format="premiere-a-new-hope-hoth-dagobah-cloud-city"] [data-deck]');
     assert.equal(await cloudDecks.count(),8);
     assert.equal(await page.evaluate(()=>!!cloudCityCatalog),false,'Cloud City remains optional after loading Dagobah');

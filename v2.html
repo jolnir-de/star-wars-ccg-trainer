@@ -33,6 +33,20 @@ button:disabled{opacity:.35}
 .hand-card-inspect::before{width:10px;height:10px;border:2px solid currentColor;border-radius:50%;transform:translate(-2px,-2px)}
 .hand-card-inspect::after{width:8px;height:2px;background:currentColor;transform:translate(6px,6px) rotate(45deg)}
 .hand-card-inspect:hover,.hand-card-inspect:focus-visible{background:#283951;outline:2px solid var(--gold);outline-offset:1px}
+.hand-card>.card-face{border-width:2px}
+.hand-card.hand-playable>.card-face{border-color:#48e59d;box-shadow:0 0 0 1px #48e59d50}
+.hand-card.hand-blocked>.card-face{border-color:#f17683;box-shadow:0 0 0 1px #f1768340}
+.hand-card.hand-recommended>.card-face{box-shadow:0 0 0 2px #101b2b,0 0 0 4px var(--gold)}
+.hand-card.chosen>.card-face{outline:2px solid #fff;outline-offset:3px}
+.hand-play-icon,.hand-recommend-icon{position:absolute;top:4px;display:grid;place-items:center;width:20px;height:20px;border-radius:50%;font-size:14px;font-weight:800;pointer-events:none}
+.hand-play-icon{left:4px;background:#173e30;color:#9bffd0;border:1px solid #48e59d}
+.hand-blocked .hand-play-icon{background:#4b1b28;color:#ffd6dc;border-color:#f17683}
+.hand-recommend-icon{right:4px;background:var(--gold);color:#131b29;border:1px solid #fff1bf}
+.hand-status-text{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap;border:0}
+.hand-advice{display:flex;flex-wrap:wrap;align-items:center;gap:5px 12px;margin:5px 0;color:#c8d8e9;font-size:12px;line-height:1.45}
+.hand-advice [data-hand-legend="playable"]{color:#9bffd0}.hand-advice [data-hand-legend="blocked"]{color:#ffafb9}
+.hand-advice .hand-tip{flex-basis:100%;overflow-wrap:anywhere}
+.hand-tip button{padding:3px 7px;font:inherit;border-color:var(--gold);color:#fff0b0}
 .hint{color:#b7c9e1}
 .log{max-height:170px;overflow:auto;white-space:pre-line}
 a{color:#b6d8ff}
@@ -490,6 +504,7 @@ html:has(#cardInspector[open],#battlePreview[open],#battleAnalysis[open],#moveme
         </div>
         <section id="playerReactControls" class="react-controls" aria-label="Deine React-Aktionen" tabindex="-1" hidden></section>
         <section id="playerCustodyControls" class="react-controls" aria-label="Gefangenenentscheidung" tabindex="-1" hidden></section>
+        <div id="handAdvice" class="hand-advice" aria-label="Spielbarkeit und Hand-Tipp"></div>
         <div id="hand" class="cards"></div>
       </div>
       <aside class="phase-display" id="phaseDisplayPlayer" aria-label="Phasen der Light Side">
@@ -582,7 +597,7 @@ html:has(#cardInspector[open],#battlePreview[open],#battleAnalysis[open],#moveme
 </dialog>
 <script src="assets/playfield-views.js"></script><script src="assets/edition-banners.js"></script><script src="engine/premiere-data.js?v=2.15.41"></script><script src="engine/premiere-game.js?v=2.15.41"></script><script src="engine/premiere-battle.js?v=2.15.41"></script><script src="engine/premiere-units.js?v=2.15.41"></script><script src="engine/premiere-locations.js?v=2.15.41"></script><script src="engine/premiere-weapons.js?v=2.15.41"></script><script src="engine/premiere-card-rules.js?v=2.15.41"></script><script src="engine/premiere-bot.js?v=2.15.41"></script><script src="engine/premiere-learning.js?v=2.15.29"></script><script src="engine/premiere-session.js?v=2.15.41"></script><script>
 const german=['Aktivieren','Kontrolle','Ausspielen','Kampf','Bewegung','Nachziehen'];
-const trainerVersion='2.19.0';
+const trainerVersion='2.19.1';
 const lessonCompleteMessage='Übung abgeschlossen. Du kannst die Partie weiterspielen oder die Übung neu starten.';
 let supplementalCatalog=[];
 const cardBackUrls={
@@ -1968,12 +1983,56 @@ function dagobahCardStatus(card){
  return labels.length?'<span class="card-state-label">'+escapeHTML(labels.join(' · '))+'</span>':'';
 }
 
-function handCardMarkup(card,index){
+// A hand card offered as payment, a discard or a target is not being played.
+const handNonPlayActions=new Set(['loseForce','battleForceLoss','battleHandForfeit','recycleHand','memorialExchange',
+ 'takeFromReserve','battleForfeit','toggleLoss','custody','prisonerTransfer','automatedTarget','timingTrigger']);
+function handPlayCards(option,hand){
+ if(handNonPlayActions.has(option.kind))return [];
+ if(option.kind==='finishCardInformation'&&state.pendingCardView?.mode!=='emergencyDeploy')return [];
+ if(option.kind==='transport'&&option.args[0]!=='deployAboard')return [];
+ return hand.filter(card=>[option.card,option.ship,option.weapon].includes(card)||option.kind==='deployWithPilot'&&option.pilot===card);
+}
+let handAdviceCache=null;
+function handAdviceModel(available,side=playerSide()){
+ const game=state.game,{hand=[],force=[]}=PremiereGame.zones(state,side);
+ if(!game)return {entries:hand.map(card=>({card,playable:false,reason:'Die Spielvorbereitung ist noch nicht abgeschlossen.'})),recommendation:null};
+ if(handAdviceCache?.position===state&&handAdviceCache.game===game&&handAdviceCache.revision===game.revision&&handAdviceCache.side===side&&handAdviceCache.phase===state.phase&&handAdviceCache.activeSide===state.activeSide&&handAdviceCache.forceCount===force.length&&handAdviceCache.hand===hand&&handAdviceCache.cards.length===hand.length&&handAdviceCache.cards.every((card,index)=>card===hand[index])&&!game.executing)return handAdviceCache.model;
+ const entries=hand.map(card=>({card,offers:[],blocked:[]}));
+ const byCard=new Map(entries.map(entry=>[entry.card,entry]));
+ const plays=available.filter(option=>{const cards=handPlayCards(option,hand);for(const card of cards)byCard.get(card).offers.push(option);return cards.length;});
+ let recommendation=null;
+ if(!state.cloudCitySabacc){
+  if(entries.some(entry=>!entry.offers.length))for(const blocked of unaffordableCardOffers(side,option=>handPlayCards(option,hand).length,plays))for(const card of handPlayCards(blocked.option,hand))byCard.get(card).blocked.push(blocked);
+  for(const entry of entries){
+   entry.playable=entry.offers.length>0;
+   entry.reason=entry.playable?'Jetzt spielbar. '+entry.offers.length+' legale Aktion'+(entry.offers.length===1?'':'en')+'.':entry.blocked.length?entry.blocked.reduce((best,item)=>(cardActionForceCost(item.option)??Infinity)<(cardActionForceCost(best.option)??Infinity)?item:best).reason:unavailableCardAction(entry.card,true);
+  }
+  if(plays.length){
+   const position=plannedBotPosition(plays,side,'balanced'),index=PremiereBot.choose(position.view,position.actions);
+   if(index!==null&&index!==undefined){const option=plays[index],card=handPlayCards(option,hand)[0];recommendation={card,index:hand.indexOf(card),option,reason:PremiereBot.explain(position.view,position.actions[index])||'Diese legale Aktion unterstützt deinen Aufbau oder beantwortet die aktuelle Spielsituation.'};}
+  }
+ }
+ const model={entries,recommendation};
+ if(!game.executing)handAdviceCache={position:state,game,revision:game.revision,side,phase:state.phase,activeSide:state.activeSide,forceCount:force.length,hand,cards:hand.slice(),model};
+ return model;
+}
+function renderHandAdvice(model){
+ const panel=el('handAdvice');panel.hidden=!!state.cloudCitySabacc;
+ if(panel.hidden){panel.innerHTML='';return;}
+ const tip=model.recommendation,game=currentGame();
+ panel.innerHTML='<span data-hand-legend="playable">✓ Grün: jetzt spielbar</span><span data-hand-legend="blocked">× Rot: aktuell nicht spielbar</span><span>★ Gold: Hand-Tipp</span>'
+  +'<span class="hand-tip">'+(tip?'Hand-Tipp: <button type="button" aria-label="Hand-Tipp auswählen: '+escapeHTML(tip.card.name)+'" onclick="select('+tip.index+','+game.id+','+game.revision+')">★ '+escapeHTML(tip.card.name)+'</button> · '+escapeHTML(playmatActionLabel(tip.option)+' · '+playmatActionCost(tip.option))+'. '+escapeHTML(tip.reason):model.entries.some(entry=>entry.playable)?'Hand-Tipp: Im Moment würde ich keine Handkarte spielen und Force zurückhalten.':'Hand-Tipp: Aktuell ist keine Handkarte spielbar. Wähle eine Karte, um den Grund zu sehen.')+'</span>';
+ const selection=model.entries[selected];
+ if(selection&&!selection.playable)panel.innerHTML+='<span class="hand-tip" role="status">Auswahl · '+escapeHTML(selection.card.name)+': '+escapeHTML(selection.reason)+'</span>';
+}
+function handCardMarkup(card,index,advice){
  if(state.cloudCitySabacc)return '<div class="card hand-card"><button class="card-face" aria-label="'+escapeHTML(card.name)+' · Sabacc ansehen" onclick="openCardById(\''+escapeHTML(card.id)+'\')">'+smallCardArt(card)+'</button></div>';
- const chosen=index===selected,game=currentGame(),name=escapeHTML(card.name);
- return '<div class="card hand-card'+(chosen?' chosen':'')+'">'
+ const chosen=index===selected,game=currentGame(),name=escapeHTML(card.name),entry=advice.entries[index],recommended=advice.recommendation?.index===index;
+ const reason=entry.reason+(recommended?' Hand-Tipp: '+advice.recommendation.reason:'');
+ return '<div class="card hand-card '+(entry.playable?'hand-playable':'hand-blocked')+(recommended?' hand-recommended':'')+(chosen?' chosen':'')+'" data-playable="'+entry.playable+'" title="'+escapeHTML(reason)+'">'
   +'<button class="card-face" type="button" id="handCard'+index+'" aria-pressed="'+chosen+'" aria-label="'+name+' auswählen"'
-  +' onclick="select('+index+','+game?.id+','+game?.revision+')">'+smallCardArt(card)+'</button>'
+  +' aria-describedby="handCardStatus'+index+'" onclick="select('+index+','+game?.id+','+game?.revision+')">'+smallCardArt(card)+'<span class="hand-play-icon" aria-hidden="true">'+(entry.playable?'✓':'×')+'</span>'+(recommended?'<span class="hand-recommend-icon" aria-hidden="true">★</span>':'')+'</button>'
+  +'<span id="handCardStatus'+index+'" class="hand-status-text">'+escapeHTML(reason)+'</span>'
   +'<button class="hand-card-inspect" type="button" id="inspectHandCard'+index+'" aria-haspopup="dialog" aria-label="'+name+' ansehen"'
   +' title="Kartendetails ansehen" onclick="inspectCard(\''+playerSide()+'\','+index+',\'hand\')"></button></div>';
 }
@@ -2396,7 +2455,8 @@ function render(){
   +' · Nächster Abschnitt: '+(state.botTurn.steps[state.botTurn.index]?.kind||'Abschluss');
  const selection=selectedPlaymatCard(side),targets=renderPlaymatSelection(selection,available,side);
  el('board').innerHTML=renderPlaymat(available,view,targets);
- el('hand').innerHTML=own.hand.map(handCardMarkup).join('');
+ const handAdvice=handAdviceModel(available,side);renderHandAdvice(handAdvice);
+ el('hand').innerHTML=own.hand.map((card,index)=>handCardMarkup(card,index,handAdvice)).join('');
  el('showBotHand').disabled=!learningMode();
  const showBotHand=showLearningBotHand();
  el('botHandCount').textContent=bot.handCount+' Karten · '+(showBotHand?'offen (Lernmodus)':'verdeckt');

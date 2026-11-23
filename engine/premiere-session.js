@@ -1150,9 +1150,8 @@ function botUnitStrength(card,slot,pilot=null,side='Dark'){
 
 // The engine owns legal actions and their arguments. The planner gets only
 // public facts, the bot's hand, and targets the current rules have revealed.
-function plannedBotPosition(offers){
- const side=botSide(),rival=playerSide();
- const style=styledBot()?state.game.botPlayStyle:undefined;
+function plannedBotPosition(offers,side=botSide(),style=styledBot()?state.game.botPlayStyle:undefined){
+ const rival=PremiereGame.otherSide(side);
  const {hand=[],board=[],deck=[],force=[]}=PremiereGame.zones(state,side);
  const entries=PremiereGame.sides.flatMap(side=>PremiereLocations.entries(state,side));
  const publicEntries=new Map(entries.map(entry=>[entry.card,entry]));

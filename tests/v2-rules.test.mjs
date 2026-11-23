@@ -799,7 +799,7 @@ test('hand images select directly and a separate magnifier opens the inspector',
  run("el('selectInspectorCard').onclick()");
  assert.equal(run('selected'),0);
  assert.equal(elements.get('cardInspector').open,false);
- assert.match(elements.get('hand').innerHTML,/class="card hand-card chosen"/);
+ assert.match(elements.get('hand').innerHTML,/class="card hand-card [^"]*\bchosen\b/);
 
  run(`const ship={name:'Test Ship',type:'Starship',ionDamage:true,
   weapons:[{name:'Test Weapon'}],occupants:[{role:'pilot',card:{name:'Test Pilot'}}]};

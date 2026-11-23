@@ -4,6 +4,8 @@ Browserbasierter Lerntrainer für Star Wars CCG. Dieses Repository ist unabhäng
 
 ## Aktueller Stand
 
+- V2.19.1 markiert eigene Handkarten grün, wenn sie jetzt regelgerecht spielbar sind, und rot, wenn Phase, Ziel, Auslöser oder Force fehlen. Häkchen/Kreuz und eine zugängliche Begründung ergänzen die Farbe. Ein goldener Stern kennzeichnet einen Hand-Tipp aus den legalen Aktionen und sichtbaren Kräften; Anklicken wählt die Karte aus, die Lupe öffnet weiterhin die Details. Die Anzeige verändert weder Partie noch Zufallsfolge und funktioniert für beide Seiten sowie Antwortfenster.
+
 - V2.19.0 integriert **alle 180 regulären Jabba’s-Palace-Karten** mit **acht zusätzlichen Themendecks je Seite**. Der Pool umfasst Premiere bis einschließlich Jabba’s Palace (1.188 Karten). Starting Interrupts, Palast-Sites, Wüsten und Sandwhirl, Sabacc, Gefangene, Creatures und neue Waffen verwenden Engine, Bot und Autosave. [Regelstand und Prüfmatrix](JABBAS_PALACE_REGELSTAND.md) · [Spielanleitung](anleitungen/jabbas-palace.html).
 
 - V2.18.3 zeigt auf der Startseite sowie in Seiten- und Deckauswahl die originalen Light-/Dark-Side-Kartenrückseiten mit Rebellen- und Imperiumssymbol. Das Kartenarchiv bietet eine kompakte Editionsauswahl als Dropdown; Suche und Filter bleiben verfügbar, die vollständige Kachelübersicht ist aufklappbar. Die Startseite verwendet außerdem die vorhandenen Banner für alle fünf spielbaren Editionen. Ein gemeinsames SVG-Tab-Icon kennzeichnet Startseite, Trainer, Kartenarchiv und Anleitungen. Die Deckkacheln behalten ihre Schlüsselkarte als kleines Erkennungsbild. Beide Cover teilen sich eine lokale Bilddatei; Decklisten und Regelfreigaben bleiben unverändert. [Bildquellen](docs/CARD_BACK_COVER_SOURCES.md)

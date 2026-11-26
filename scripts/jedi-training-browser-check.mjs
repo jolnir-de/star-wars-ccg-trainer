@@ -47,6 +47,37 @@ test('German Dagobah popups and explicit Jedi mentor/pupil choices lead from Tes
   await page.locator('#playmatSelection .playmat-action-group').filter({hasText:'Dagobah: Training Area'}).getByRole('button',{name:/Landspeed/}).click();
   await page.evaluate(()=>{state.game.timing.turn+=2;PremiereGame.setPhase(state,1);checkpoint('phase:start',()=>{});render();});await page.getByRole('button',{name:'Jedi-Test 2 versuchen',exact:true}).click();
   assert.match(await page.locator('#jediTrainingControls').innerText(),/bestanden: 1 ✓ · 2 ✓/);
+  // Reproduce two simultaneous Test-1 pupils and a drawn R2-D2. Its 2/5
+  // decision used to sit above the board, leaving the training UI blocked.
+  await page.evaluate(()=>{
+   const game=state.game,seen=new Set(),pool=[];
+   function collect(value,key){
+    if(key==='starterDecks'||!value||typeof value!=='object'||seen.has(value))return;seen.add(value);
+    if(value.instanceId)pool.push({...structuredClone([...catalog,...aNewHopeCatalog,...hothCatalog,...dagobahCatalog].find(c=>c.id===value.id)),instanceId:value.instanceId,owner:value.owner});
+    for(const [name,item] of Object.entries(value))collect(item,name);
+   }
+   collect(state);if(pool.length!==120)throw Error('fixture must retain all 120 instances');
+   state=PremiereGame.createState(game,pool.filter(c=>c.owner==='Light'),pool.filter(c=>c.owner==='Dark'),[],[],'Light');
+   for(const side of PremiereGame.sides){const z=PremiereGame.zones(state,side);z.deck.push(...z.hand.splice(0));}
+   const take=id=>{const z=PremiereGame.zones(state,id.split(':')[0]),i=z.deck.findIndex(c=>c.id===id);if(i<0)throw Error('fixture missing '+id);return z.deck.splice(i,1)[0];};
+   state.locations=['Light:603','Light:601','Light:600','Light:598','Light:602'].map(take);state.locationOrder=initialLocationOrder(state.locations);state.light=state.locations.map(()=>[]);state.dark=state.locations.map(()=>[]);
+   const yoda=take('Light:2865'),luke=take('Light:2304'),pilot=take('Light:2040'),trooper=take('Light:2052');state.light[0].push(yoda,luke,pilot,trooper);
+   state.tableEffects=[take('Light:1071'),take('Light:1071')].map((card,i)=>{const mentor=[yoda,luke][i],apprentice=[pilot,trooper][i];apprentice.dagobahApprentice=true;apprentice.dagobahMentorId=mentor.instanceId;return {card,mentor,apprentice,target:apprentice,site:0,dagobah:true};});
+   state.hand.push(take('Light:30'));state.deck.push(take('Light:1332'),take('Light:1992'));
+   state.activated=true;state.botTurn=null;PremiereGame.setPhase(state,1);state.dagobahTrainingWindow=game.timing.turn;selected=-1;selectedTableCard=null;handAdviceCache=null;render();
+  });
+  const training=page.locator('#jediTrainingControls');
+  assert.equal(await page.locator('#board').getByRole('button',{name:/Jedi-Test 1 versuchen/}).count(),0);
+  await training.locator('.jedi-training-row').filter({hasText:'Rebel Pilot'}).getByRole('button',{name:'Jedi-Test 1 versuchen',exact:true}).click();
+  assert.equal(await page.evaluate(()=>state.pendingCardView?.mode),'destinyValue');
+  await training.getByRole('button',{name:'Destiny 5 wählen',exact:true}).click();
+  assert.match(await training.innerText(),/Rebel Pilot · Bestanden ✓[\s\S]*11 \+ Ability 2 = 13/);
+  await training.locator('.jedi-training-row').filter({hasText:'Rebel Trooper'}).getByRole('button',{name:'Jedi-Test 1 versuchen',exact:true}).click();
+  assert.match(await training.innerText(),/Rebel Trooper · Nicht bestanden[\s\S]*10 \+ Ability 1 = 11/);
+  assert.equal(await page.locator('#board').getByRole('button',{name:/Jedi-Test 1 versuchen/}).count(),0);
+  await training.getByRole('button',{name:'Jedi-Test 2 auswählen',exact:true}).click();
+  assert.match(await page.locator('#playmatSelection').innerText(),/Kontrollphase|Ausspielen|Deploy/i);
+  await training.screenshot({path:'.hosting-qa-jedi-results.png'});
   for(const width of [1440,390,320]){await page.setViewportSize({width,height:1000});assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),'No horizontal overflow at '+width);}
   assert.deepEqual(errors,[]);
  }finally{try{await browser?.close();}finally{server.closeAllConnections();await new Promise((resolve,reject)=>server.close(e=>e?reject(e):resolve()));}}

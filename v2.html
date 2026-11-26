@@ -49,6 +49,7 @@ button:disabled{opacity:.35}
 .hand-tip button{padding:3px 7px;font:inherit;border-color:var(--gold);color:#fff0b0}
 .jedi-pickers{display:flex;flex-wrap:wrap;align-items:end;gap:8px}.jedi-pickers label{display:grid;gap:3px;flex:1 1 160px;min-width:0}.jedi-pickers select{width:100%;min-width:0;max-width:100%}
 .jedi-training-row{border-top:1px solid #384454;padding:6px 0;overflow-wrap:anywhere}.jedi-training-row p{margin:3px 0}.jedi-training-choices{display:flex;flex-wrap:wrap;gap:5px;max-height:180px;overflow:auto}
+.jedi-training-decision,.jedi-training-result{margin:6px 0;padding:8px;border:1px solid #e0bb65;border-radius:6px;overflow-wrap:anywhere}.jedi-training-result.passed{border-color:#70d7a4}.jedi-training-result.failed{border-color:#ee8791}.jedi-training-result p{margin:3px 0}
 .hint{color:#b7c9e1}
 .log{max-height:170px;overflow:auto;white-space:pre-line}
 a{color:#b6d8ff}
@@ -600,7 +601,7 @@ html:has(#cardInspector[open],#battlePreview[open],#battleAnalysis[open],#moveme
 </dialog>
 <script src="assets/playfield-views.js"></script><script src="assets/edition-banners.js"></script><script src="engine/premiere-data.js?v=2.15.41"></script><script src="engine/premiere-game.js?v=2.15.41"></script><script src="engine/premiere-battle.js?v=2.15.41"></script><script src="engine/premiere-units.js?v=2.15.41"></script><script src="engine/premiere-locations.js?v=2.15.41"></script><script src="engine/premiere-weapons.js?v=2.15.41"></script><script src="engine/premiere-card-rules.js?v=2.15.41"></script><script src="engine/premiere-bot.js?v=2.15.41"></script><script src="engine/premiere-learning.js?v=2.15.29"></script><script src="engine/premiere-session.js?v=2.15.41"></script><script>
 const german=['Aktivieren','Kontrolle','Ausspielen','Kampf','Bewegung','Nachziehen'];
-const trainerVersion='2.19.2';
+const trainerVersion='2.19.3';
 const lessonCompleteMessage='Übung abgeschlossen. Du kannst die Partie weiterspielen oder die Übung neu starten.';
 let supplementalCatalog=[];
 const cardBackUrls={
@@ -698,6 +699,11 @@ function renderPlayerCustody(inBattleDialog,available){
  if(focus)area.focus({preventScroll:true});
 }
 
+function expireCardPeek(box){
+ const peek=box.querySelector?.('[data-scomp-peek]');
+ if(peek)setTimeout(()=>peek.remove(),Math.max(0,state.pendingCardView.expiresAt-Date.now()));
+}
+
 function renderControlPanel(available=legalActions(state,playerSide()),box=el('controlPanel'),react=reactResponse()){
  const drainArea=el('drainLossControls');
  const focusDrain=drainArea.hidden||drainArea.contains?.(document.activeElement);
@@ -707,11 +713,7 @@ function renderControlPanel(available=legalActions(state,playerSide()),box=el('c
  }
  if(state.pendingCardView){
   box.innerHTML=cardInformationMarkup(available);
-  const peek=box.querySelector?.('[data-scomp-peek]');
-  if(peek){
-   const wait=Math.max(0,state.pendingCardView.expiresAt-Date.now());
-   setTimeout(()=>peek.remove(),wait);
-  }
+  if(!state.dagobahTrainingResolution)expireCardPeek(box);
   box.style.display='block';return;
  }
  if(state.automatedPending){
@@ -2156,12 +2158,19 @@ function renderJediTraining(available,side){
  const panel=el('jediTrainingControls');panel.hidden=typeof dagobahEnabled!=='function'||!dagobahEnabled();
  if(panel.hidden){panel.innerHTML='';return;}
  const own=side==='Light',pending=(state.tableEffects??[]).filter(effect=>DagobahRules.testNumber(effect.card)),units=PremiereLocations.entries(state,'Light').filter(entry=>entry.card.type==='Character'),rows=[];
+ const resolving=state.dagobahTrainingResolution;
+ // The normal decision renderer already handles priority, hidden information and
+ // manual/automatic bot choices. Move its controls beside the training attempt.
+ const control=el('controlPanel'),decision=resolving?control.innerHTML:'';
+ if(resolving){control.innerHTML='';control.style.display='none';}
  for(const effect of pending){
   const n=DagobahRules.testNumber(effect.card),a=dagoEntry(effect.apprentice),m=dagoEntry(effect.mentor),site=state.locations[effect.site]?.name??'Trainingsort fehlt';
   const attempts=available.filter(option=>option.mode==='dago:testAttempt'&&option.card===effect.card),testId=effect.card.instanceId;
   const attempt=attempts.find(option=>String(option.args.at(-1))===jediBonuses.get(testId))??attempts[0];
   const bonusChoice=attempts.length>1?'<label>Dagobah-Bonus <select aria-label="Dagobah-Bonus für Jedi-Test '+n+'" data-test="'+escapeHTML(testId)+'" onchange="setJediBonus(this.dataset.test,this.value)">'+attempts.map(option=>'<option value="'+option.args.at(-1)+'"'+(option===attempt?' selected':'')+'>+'+option.args.at(-1)+'</option>').join('')+'</select></label> ':'';
   let hint=effect.meditation?'Meditation läuft bis zum Ende des nächsten eigenen Zuges; der Schüler darf sich nicht bewegen und hat Power 0.':!a||a.unavailable||!m||m.unavailable?'Mentor oder Schüler ist momentan nicht einsatzbereit. Die Ausbildung kann nach Rückkehr fortgesetzt werden.':dagoEffects('Dark:918').length?'Failure At The Cave setzt die Jedi-Test-Spieltexte aus.':!PremiereLocations.presentAt(a,effect.site)?'Bewege den Schüler zum Trainingsort'+(n===2?' mit persönlicher Landspeed':'')+'.':n===1&&!PremiereLocations.presentAt(m,effect.site)?'Mentor und Schüler müssen beide am Trainingsort anwesend sein.':effect.apprentice.dagobahRestUntil>=state.game.timing.turn||dagoEffects('Light:157').some(rest=>rest.host===effect.apprentice&&rest.restUntil>=state.game.timing.turn)?'Der Schüler ruht wegen At Peace und darf noch keinen Jedi-Test versuchen.':n===3?'Versuch am Ende eines eigenen Zuges ohne Teilnahme deiner Karten an Kampf, Force Drain oder anderem Jedi-Test.':attempt?'Jetzt zu Beginn der Kontrollphase möglich.':state.activeSide==='Light'&&state.phase===1&&state.dagobahTrainingWindow===state.game.timing.turn?'Schließe zuerst das offene Antwortfenster oder die offene Entscheidung ab.':'Versuch zu Beginn der nächsten eigenen Kontrollphase, vor anderen regulären Aktionen.';
+  if(resolving?.testId===testId)hint='Versuch läuft. Schließe die Entscheidung direkt hier in der Jedi-Ausbildung ab.';
+  else if(PremiereGame.wasUsed(state.game,'turn',dagoUsed(effect.card,'attempt'))&&!effect.meditation)hint='In diesem Zug bereits versucht. Ein neuer Versuch ist zu Beginn der nächsten eigenen Kontrollphase möglich.';
   rows.push('<div class="jedi-training-row"><strong>Jedi-Test '+n+' · '+escapeHTML(effect.apprentice.name)+'</strong><p>Mentor: '+escapeHTML(effect.mentor.name)+' · '+escapeHTML(site)+'</p><p>'+escapeHTML(hint)+'</p>'+(attempt?bonusChoice+ruleButton(attempt,'Jedi-Test '+n+' versuchen'):'')+(n<5?'<small>Erfolg: Trainings-Destiny + Ability &gt; '+(11+n)+'; Gleichstand reicht nicht.</small>':'')+'</div>');
  }
  for(const entry of units){
@@ -2172,7 +2181,9 @@ function renderJediTraining(available,side){
  }
  const searches=available.filter(option=>option.mode==='dago:trainingSearch'||option.mode==='dago:testFourSearch');
  const frame=state.pendingCardView,choices=frame?.side===side&&frame.mode?.startsWith('hothDag')&&(DagobahRules.testNumber(frame.card)||frame.card?.id==='Light:602')?available.filter(option=>option.kind==='finishCardInformation'):[];
- panel.innerHTML='<h3>Jedi-Ausbildung'+(own?'':' · Light Side')+'</h3>'+(!rows.length?'<p class="hint">'+(own?'Wähle einen Jedi-Test in deiner Hand. Die Auswahl von Trainingsort, Mentor und Schüler erscheint unter der Playmat. Beginne mit Great Warrior (Test 1).':'Noch keine Jedi-Ausbildung im Spiel.')+'</p>':rows.join(''))+(searches.length?'<div class="jedi-training-choices">'+searches.map(option=>ruleButton(option,option.label)).join('')+'</div>':'')+(choices.length?'<div class="jedi-training-choices" aria-label="Jedi-Test-Entscheidung">'+choices.map(option=>ruleButton(option,option.label)).join('')+'</div>':'');
+ const results=(state.dagobahTrainingResults??[]).slice().reverse().map(result=>'<div class="jedi-training-result '+(result.passed?'passed':'failed')+'"><strong>Jedi-Test '+result.number+' · '+escapeHTML(result.apprentice)+' · '+(result.passed?'Bestanden ✓':'Nicht bestanden')+'</strong><p>'+(Number.isFinite(result.total)?'Trainings-Destiny inklusive Boni '+result.destiny+' + Ability '+result.ability+' = '+result.total+'; benötigt &gt; '+(11+result.number)+'.':'Keine verwertbare Trainings-Destiny gezogen.')+'</p><small>Zug '+result.turn+(result.passed?' · Der bestandene Test liegt am Schüler.':' · Erneut versuchen: nächste eigene Kontrollphase.')+'</small></div>').join('');
+ panel.innerHTML='<h3>Jedi-Ausbildung'+(own?'':' · Light Side')+'</h3>'+(resolving?'<div class="jedi-training-decision" aria-label="Jedi-Test-Entscheidung"><strong>Jedi-Test '+resolving.number+' · '+escapeHTML(resolving.apprentice)+' · Versuch läuft</strong>'+decision+'</div>':'')+(!rows.length?'<p class="hint">'+(own?'Wähle einen Jedi-Test in deiner Hand. Die Auswahl von Trainingsort, Mentor und Schüler erscheint unter der Playmat. Beginne mit Great Warrior (Test 1).':'Noch keine Jedi-Ausbildung im Spiel.')+'</p>':rows.join(''))+(searches.length?'<div class="jedi-training-choices">'+searches.map(option=>ruleButton(option,option.label)).join('')+'</div>':'')+(choices.length?'<div class="jedi-training-choices" aria-label="Jedi-Test-Entscheidung">'+choices.map(option=>ruleButton(option,option.label)).join('')+'</div>':'')+(results?'<div role="status" aria-live="polite" aria-label="Jedi-Test-Ergebnisse">'+results+'</div>':'');
+ if(resolving)expireCardPeek(panel);
 }
 
 function playmatActionLabel(option){
@@ -2224,6 +2235,7 @@ function renderPlaymatSelection(selection,available,side){
  const jediSelection=selection?.inHand&&typeof DagobahRules!=='undefined'&&DagobahRules.testNumber(card)&&typeof dagobahEnabled==='function'&&dagobahEnabled();
  const groups=new Map(),targets=new Map();
  for(const {option,reason} of [...legal.map(option=>({option})),...blocked]){
+  if(option.mode==='dago:testAttempt')continue;
   const slot=cardActionSlot(option),location=state.locations[slot];
   const cost=playmatActionCost(option),label=playmatActionLabel(option);
   const suffix=' ('+cost+')',captionLabel=cost&&label.endsWith(suffix)?label.slice(0,-suffix.length):label;
@@ -2311,7 +2323,7 @@ function renderPlaymatColumn(loc,i,startsGroup,available=legalActions(state,play
   .map(option=>ruleButton(option,'Mit '+option.pilot.name+' ausspielen ('+option.cost+' Force)')).join('');
  const automated=findOffer(available,'deployAutomated',selected,i);
  const bury=findOffer(available,'buryMineCard',selected,i),buried=view.buriedCounts[i];
- const deviceActions=available.filter(option=>['hothAction','anhCharacter','spyAction','deviceAction','controlTheft','mouseUtinni','wager','apprehendMig','beggarPayment','moveMobileSystem','tractorDisembark','unitReserveSearch','unitTableCancel'].includes(option.kind)?option.site===i:
+ const deviceActions=available.filter(option=>option.mode==='dago:testAttempt'?false:['hothAction','anhCharacter','spyAction','deviceAction','controlTheft','mouseUtinni','wager','apprehendMig','beggarPayment','moveMobileSystem','tractorDisembark','unitReserveSearch','unitTableCancel'].includes(option.kind)?option.site===i:
   option.kind==='navSabotage'?option.site===i&&option.args[0]===selected:
   ['deployDevice','deployBolt'].includes(option.kind)&&option.args[0]===selected&&option.args[1]===i)
   .map(option=>ruleButton(option,option.label??(option.host.name+' ausrüsten ('+option.cost+' Force)'))).join('');

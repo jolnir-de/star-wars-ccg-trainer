@@ -218,7 +218,7 @@ a{color:#b6d8ff}
 .deck-card-link:hover,.deck-card-link:focus-visible{color:#ffe2a6}
 .deck-card-link:focus-visible{outline:2px solid #eac977;outline-offset:3px}
 html{scrollbar-gutter:stable}
-html:has(#cardInspector[open],#battlePreview[open],#battleAnalysis[open],#movementDialog[open]){overflow:hidden}
+html:has(#cardInspector[open],#battlePreview[open],#battleAnalysis[open],#movementDialog[open],#extraActionDialog[open]){overflow:hidden}
 #movementDialog[open]{display:flex;flex-direction:column;gap:10px;overflow:hidden}
 #movementOptions{min-height:0;overflow:auto;overscroll-behavior:contain;padding:2px;overflow-wrap:anywhere}
 #movementOptions details{padding:7px;border:1px solid #526782;border-radius:7px;margin-bottom:5px}
@@ -458,6 +458,7 @@ html:has(#cardInspector[open],#battlePreview[open],#battleAnalysis[open],#moveme
       <div><h2 id="battleTitle" tabindex="-1" autofocus>Kampf</h2><p id="battlePriority" role="status"></p></div>
       <div class="dialog-controls">
         <label><input id="autoBotBattle" type="checkbox"> Bot automatisch</label>
+        <label><input id="autoBotDamage" type="checkbox" checked> Gegnerische Verluste automatisch</label>
         <button id="viewBattlePlaymat" type="button">Playmat ansehen</button>
         <button id="endBattleGame" type="button"></button>
       </div>
@@ -505,6 +506,7 @@ html:has(#cardInspector[open],#battlePreview[open],#battleAnalysis[open],#moveme
         <div class="hand-heading">
           <h2 id="playerHandTitle">Deine Hand · Light Side</h2>
         </div>
+        <div class="pile-action"><button id="resumeExtraAction" type="button" aria-haspopup="dialog" onclick="openExtraAction()" hidden>Offene Entscheidung</button><button id="openJediTraining" type="button" aria-haspopup="dialog" onclick="openExtraAction('training')" hidden>Jedi-Ausbildung öffnen</button></div>
         <section id="playerReactControls" class="react-controls" aria-label="Deine React-Aktionen" tabindex="-1" hidden></section>
         <section id="playerCustodyControls" class="react-controls" aria-label="Gefangenenentscheidung" tabindex="-1" hidden></section>
         <section id="jediTrainingControls" class="react-controls" aria-label="Jedi-Ausbildung" hidden></section>
@@ -590,6 +592,11 @@ html:has(#cardInspector[open],#battlePreview[open],#battleAnalysis[open],#moveme
     </div>
   </header>
   <div id="cardInspectorBody" tabindex="0"></div>
+</dialog>
+<dialog id="extraActionDialog" class="game-dialog" aria-labelledby="extraActionTitle">
+  <header class="dialog-header"><h2 id="extraActionTitle">Regelentscheidung</h2><button type="button" onclick="closeExtraAction()">Playmat ansehen</button></header>
+  <p id="extraActionHint" class="hint"></p>
+  <div id="extraActionBody"></div>
 </dialog>
 <dialog id="movementDialog" class="game-dialog" aria-labelledby="movementTitle">
   <header class="dialog-header">
@@ -704,6 +711,51 @@ function expireCardPeek(box){
  if(peek)setTimeout(()=>peek.remove(),Math.max(0,state.pendingCardView.expiresAt-Date.now()));
 }
 
+let extraActionSource=null,extraActionAnchor=null,extraActionKey=null,extraActionDismissed=null,extraActionMode=null,extraActionResult=null;
+function restoreExtraAction(){
+ if(extraActionAnchor){extraActionAnchor.replaceWith(extraActionSource);extraActionAnchor=null;extraActionSource=null;}
+}
+function closeExtraAction(){
+ extraActionDismissed=extraActionKey;extraActionMode=null;
+ if(el('extraActionDialog').open)el('extraActionDialog').close();
+}
+function openExtraAction(mode=null){extraActionMode=mode;extraActionDismissed=null;render();}
+function selectJediTest(index,gameId,revision){closeExtraAction();return select(index,gameId,revision);}
+function renderExtraAction(available){
+ const dialog=el('extraActionDialog'),body=el('extraActionBody');
+ // Small rule-only test hosts have no DOM relocation API. In the browser we
+ // move the real controls, preserving input IDs, event handlers and peek timers.
+ if(!body.appendChild)return;
+ const window=PremiereGame.responseWindow(state.game),training=el('jediTrainingControls');
+ const ownTraining=!training.hidden,frame=state.pendingCardView;
+ const selection=selectedPlaymatCard(playerSide()),deployment=extraActionMode!=='training'&&selection?.inHand&&typeof DagobahRules!=='undefined'&&!!DagobahRules.testNumber(selection.card);
+ const pending=!!(frame||state.pendingCustody?.length||state.automatedPending||state.game?.timing.pending||window||state.pendingReserveSearch||state.pendingForceLoss);
+ const inBattle=!!battleSession&&!battleOnPlaymat;
+ const botOnly=pending&&!available.length&&(el('autoBot').checked||el('autoBotDamage').checked&&battleSession?.segment==='damage');
+ const result=state.dagobahTrainingResults?.at(-1),resultKey=result?currentGame().id+':'+JSON.stringify(result):null;
+ const newResult=!!resultKey&&resultKey!==extraActionResult;extraActionResult=resultKey;
+ const active=!launchOpen&&!replayingGame&&!state.gameWinner;
+ el('openJediTraining').hidden=!active||!ownTraining;
+ el('resumeExtraAction').hidden=!active||!pending&&!deployment||inBattle||botOnly;
+ el('resumeExtraAction').textContent=deployment&&!pending?'Jedi-Test auslegen':'Offene Entscheidung';
+ if(newResult&&active&&!pending)extraActionMode='training';
+ const jedi=!!state.dagobahTrainingResolution||frame?.mode?.startsWith('hothDag')&&(DagobahRules.testNumber(frame.card)||frame.card?.id==='Light:602');
+ const source=pending?(jedi?training:state.pendingCustody?.length?el('playerCustodyControls'):
+  !el('drainLossControls').hidden?el('drainLossControls'):reactResponse()?el('playerReactControls'):el('controlPanel')):deployment?el('playmatSelection'):training;
+ extraActionKey=pending||deployment?currentGame().id+':'+currentGame().revision+':'+(frame?.mode??window?.kind??(deployment?'deploy:'+selection.card.instanceId:'decision')):resultKey??currentGame().id+':training';
+ const wanted=active&&!inBattle&&((pending&&!botOnly)||deployment||extraActionMode==='training'&&ownTraining);
+ // Retain optional training controls in the closed dialog, leaving a compact
+ // launcher at the hand. Mandatory decisions can be reopened without passing.
+ if(active&&!inBattle&&(pending||deployment||ownTraining)&&!source.hidden){
+  extraActionAnchor=document.createElement('span');source.replaceWith(extraActionAnchor);body.appendChild(source);extraActionSource=source;
+ }
+ el('extraActionTitle').textContent=deployment?'Jedi-Test auslegen':jedi||!pending?'Jedi-Ausbildung':state.pendingCustody?.length?'Gefangenenentscheidung':window?'Antwortfenster':state.pendingForceLoss?'Force-Verlust':state.pendingReserveSearch?'Reserve Deck durchsuchen':'Regelentscheidung';
+ el('extraActionHint').textContent=pending?(available.length?'Wähle die nächste zulässige Aktion. Die Entscheidung bleibt beim Schließen offen.':el('autoBot').checked?'Der Bot entscheidet automatisch.':'Zeige die nächste Entscheidung des Bots.'):'Trainingsversuche, Ergebnisse und der nächste Jedi-Test.';
+ const otherDialog=['cardInspector','movementDialog','starterDeckDialog','battlePreview','battleAnalysis','gameReview'].some(id=>el(id).open);
+ if(wanted&&extraActionDismissed!==extraActionKey&&!otherDialog){if(!dialog.open)dialog.showModal();}
+ else if(!wanted&&dialog.open)dialog.close();
+}
+
 function renderControlPanel(available=legalActions(state,playerSide()),box=el('controlPanel'),react=reactResponse()){
  const drainArea=el('drainLossControls');
  const focusDrain=drainArea.hidden||drainArea.contains?.(document.activeElement);
@@ -743,6 +795,9 @@ function renderControlPanel(available=legalActions(state,playerSide()),box=el('c
   box.style.display='block';return;
  }
  const pending=state.pendingForceLoss;
+ if(pending?.payer===botSide()&&!state.gameWinner){
+  box.innerHTML='<b>'+forceLossReason(pending.reason)+' · Gegner</b><p>Verbleibende Verluste: '+pending.remaining+'.</p>'+botRuleButton(botPromptAction(),'Verlust des Bots zeigen');box.style.display='block';return;
+ }
  if(pending?.payer===playerSide()&&!state.gameWinner){
   const label=forceLossReason(pending.reason);
   const names={deck:'Reserve Deck',force:'Force Pile',used:'Used Pile'};
@@ -1612,7 +1667,7 @@ function renderBattle(){
    botRuleButton(botPredictionAction(botOptions),'Vorhersage des Bots zeigen');
  }else if(x.segment==='damage'){
   const labels={deck:'Reserve Deck',used:'Used Pile',force:'Force Pile'};
-  buttons=x.damage.priority===bot?botRuleButton(botDamageAction(),'Schadensentscheidung des Bots zeigen'):
+  buttons=x.damage.priority===bot?(el('autoBotDamage').checked?'<p class="hint">Der Gegner reguliert seine Verluste automatisch.</p>':botRuleButton(botDamageAction(),'Schadensentscheidung des Bots zeigen')):
    available.map(option=>ruleButton(option,option.kind==='battleForfeit'?'Forfeit · '+option.card.name+' ('+option.value+')'+(option.hit?' · Treffer':'')+
     (option.charged?' · Trooper Charge':''):
     option.kind==='battleForceLoss'?'Force verlieren · '+(option.card?.name??labels[option.args[0]]):option.label??'Im Damage-Segment passen')).join(' ');
@@ -2158,11 +2213,12 @@ function renderJediTraining(available,side){
  const panel=el('jediTrainingControls');panel.hidden=typeof dagobahEnabled!=='function'||!dagobahEnabled();
  if(panel.hidden){panel.innerHTML='';return;}
  const own=side==='Light',pending=(state.tableEffects??[]).filter(effect=>DagobahRules.testNumber(effect.card)),units=PremiereLocations.entries(state,'Light').filter(entry=>entry.card.type==='Character'),rows=[];
- const resolving=state.dagobahTrainingResolution;
+ const resolving=state.dagobahTrainingResolution,frame=state.pendingCardView;
+ const trainingDecision=!!resolving||frame?.mode?.startsWith('hothDag')&&(DagobahRules.testNumber(frame.card)||frame.card?.id==='Light:602');
  // The normal decision renderer already handles priority, hidden information and
  // manual/automatic bot choices. Move its controls beside the training attempt.
- const control=el('controlPanel'),decision=resolving?control.innerHTML:'';
- if(resolving){control.innerHTML='';control.style.display='none';}
+ const control=el('controlPanel'),decision=trainingDecision?control.innerHTML:'';
+ if(trainingDecision){control.innerHTML='';control.style.display='none';}
  for(const effect of pending){
   const n=DagobahRules.testNumber(effect.card),a=dagoEntry(effect.apprentice),m=dagoEntry(effect.mentor),site=state.locations[effect.site]?.name??'Trainingsort fehlt';
   const attempts=available.filter(option=>option.mode==='dago:testAttempt'&&option.card===effect.card),testId=effect.card.instanceId;
@@ -2177,13 +2233,12 @@ function renderJediTraining(available,side){
   const completed=(entry.card.attachments??[]).filter(test=>test.dagobahJediTest).map(test=>test.dagobahJediTest).sort(),highest=Math.max(0,...completed);
   if(!highest)continue;
   const next=highest+1,test=own&&PremiereGame.zones(state,side).hand.find(card=>DagobahRules.testNumber(card)===next),index=test?PremiereGame.zones(state,side).hand.indexOf(test):-1,game=currentGame();
-  rows.push('<div class="jedi-training-row"><strong>'+escapeHTML(entry.card.name)+' · bestanden: '+completed.map(n=>n+' ✓').join(' · ')+'</strong><p>'+(highest===5?'Alle fünf Dagobah-Jedi-Tests abgeschlossen.':pending.some(effect=>effect.apprentice===entry.card)?'Die nächste Ausbildung läuft bereits.':escapeHTML('Nächster Schritt: Jedi-Test '+next+' aus der Hand auslegen. '+(next===2?'Er benötigt eine unbesetzte Dagobah-Site. ':''))+(test?'<button type="button" onclick="select('+index+','+game.id+','+game.revision+')">Jedi-Test '+next+' auswählen</button>':own?'Du kannst Tests über Dagobah: Training Area aus dem Reserve Deck holen oder nach einem bestandenen Test aus dem Lost Pile tauschen.':''))+'</p></div>');
+  rows.push('<div class="jedi-training-row"><strong>'+escapeHTML(entry.card.name)+' · bestanden: '+completed.map(n=>n+' ✓').join(' · ')+'</strong><p>'+(highest===5?'Alle fünf Dagobah-Jedi-Tests abgeschlossen.':pending.some(effect=>effect.apprentice===entry.card)?'Die nächste Ausbildung läuft bereits.':escapeHTML('Nächster Schritt: Jedi-Test '+next+' aus der Hand auslegen. '+(next===2?'Er benötigt eine unbesetzte Dagobah-Site. ':''))+(test?'<button type="button" onclick="selectJediTest('+index+','+game.id+','+game.revision+')">Jedi-Test '+next+' auswählen</button>':own?'Du kannst Tests über Dagobah: Training Area aus dem Reserve Deck holen oder nach einem bestandenen Test aus dem Lost Pile tauschen.':''))+'</p></div>');
  }
  const searches=available.filter(option=>option.mode==='dago:trainingSearch'||option.mode==='dago:testFourSearch');
- const frame=state.pendingCardView,choices=frame?.side===side&&frame.mode?.startsWith('hothDag')&&(DagobahRules.testNumber(frame.card)||frame.card?.id==='Light:602')?available.filter(option=>option.kind==='finishCardInformation'):[];
  const results=(state.dagobahTrainingResults??[]).slice().reverse().map(result=>'<div class="jedi-training-result '+(result.passed?'passed':'failed')+'"><strong>Jedi-Test '+result.number+' · '+escapeHTML(result.apprentice)+' · '+(result.passed?'Bestanden ✓':'Nicht bestanden')+'</strong><p>'+(Number.isFinite(result.total)?'Trainings-Destiny inklusive Boni '+result.destiny+' + Ability '+result.ability+' = '+result.total+'; benötigt &gt; '+(11+result.number)+'.':'Keine verwertbare Trainings-Destiny gezogen.')+'</p><small>Zug '+result.turn+(result.passed?' · Der bestandene Test liegt am Schüler.':' · Erneut versuchen: nächste eigene Kontrollphase.')+'</small></div>').join('');
- panel.innerHTML='<h3>Jedi-Ausbildung'+(own?'':' · Light Side')+'</h3>'+(resolving?'<div class="jedi-training-decision" aria-label="Jedi-Test-Entscheidung"><strong>Jedi-Test '+resolving.number+' · '+escapeHTML(resolving.apprentice)+' · Versuch läuft</strong>'+decision+'</div>':'')+(!rows.length?'<p class="hint">'+(own?'Wähle einen Jedi-Test in deiner Hand. Die Auswahl von Trainingsort, Mentor und Schüler erscheint unter der Playmat. Beginne mit Great Warrior (Test 1).':'Noch keine Jedi-Ausbildung im Spiel.')+'</p>':rows.join(''))+(searches.length?'<div class="jedi-training-choices">'+searches.map(option=>ruleButton(option,option.label)).join('')+'</div>':'')+(choices.length?'<div class="jedi-training-choices" aria-label="Jedi-Test-Entscheidung">'+choices.map(option=>ruleButton(option,option.label)).join('')+'</div>':'')+(results?'<div role="status" aria-live="polite" aria-label="Jedi-Test-Ergebnisse">'+results+'</div>':'');
- if(resolving)expireCardPeek(panel);
+ panel.innerHTML='<h3>Jedi-Ausbildung'+(own?'':' · Light Side')+'</h3>'+(trainingDecision?'<div class="jedi-training-decision" aria-label="Jedi-Test-Entscheidung">'+(resolving?'<strong>Jedi-Test '+resolving.number+' · '+escapeHTML(resolving.apprentice)+' · Versuch läuft</strong>':'')+decision+'</div>':'')+(!rows.length?'<p class="hint">'+(own?'Wähle einen Jedi-Test in deiner Hand. Die Auswahl von Trainingsort, Mentor und Schüler erscheint unter der Playmat. Beginne mit Great Warrior (Test 1).':'Noch keine Jedi-Ausbildung im Spiel.')+'</p>':rows.join(''))+(searches.length?'<div class="jedi-training-choices">'+searches.map(option=>ruleButton(option,option.label)).join('')+'</div>':'')+(results?'<div role="status" aria-live="polite" aria-label="Jedi-Test-Ergebnisse">'+results+'</div>':'');
+ if(trainingDecision)expireCardPeek(panel);
 }
 
 function playmatActionLabel(option){
@@ -2472,6 +2527,7 @@ function renderOngoingEffects(){
 
 function render(){
  if(!state)return;
+ restoreExtraAction();
  const side=playerSide(),rival=botSide();
  const available=legalActions(state,side),view=PremiereGame.playerView(state,side),own=view.players[side],bot=view.players[rival];
  el('playerHandTitle').textContent=(state.cloudCitySabacc?'Deine Sabacc-Hand · ':'Deine Hand · ')+side+' Side';
@@ -2545,6 +2601,7 @@ function render(){
  renderOngoingEffects();
  renderLearning();
  globalThis.PremiereTableViews?.update(view);
+ renderExtraAction(available);
 }
 
 function runBotStep(action){
@@ -2566,6 +2623,7 @@ function offTurnBotInterrupt(available){
 }
 
 function automaticBotAction(){
+ const damage=automaticBotDamageAction();if(damage)return damage;
  if(!automaticBot())return null;
  const side=botSide(),offers=legalActions(state,side);
  if(!offers.length)return null;
@@ -2580,6 +2638,15 @@ function automaticBotAction(){
  }
  return offers.find(action=>action.kind==='botStep'||action.kind==='botDecision')??
   chooseBotSeekerMove(offers.filter(action=>action.kind==='moveSeeker'))??offTurnBotInterrupt(offers);
+}
+
+function automaticBotDamageAction(){
+ if(!el('autoBotDamage').checked||replayingGame||launchOpen||!state||state.gameWinner||setupDecks||battleSession?.segment!=='damage'||
+  ['cardInspector','movementDialog','starterDeckDialog','gameReview'].some(id=>el(id).open))return null;
+ const offers=legalActions(state,botSide());if(!offers.length)return null;
+ if(state.pendingCustody?.length)return botCustodyAction(offers);
+ if(PremiereGame.responseWindow(state.game)||state.game?.timing.pending||state.automatedPending||state.pendingForceLoss||state.pendingReserveSearch||state.pendingCardView)return botPromptAction(offers);
+ return battleSession.damage?.priority===botSide()?botDamageAction(offers):null;
 }
 
 function scheduleAutomaticBot(){
@@ -2610,6 +2677,8 @@ presentGame=()=>{
  if(battleOnPlaymat!==battleSession||battleSession?.resolved||state?.gameWinner)battleOnPlaymat=null;
  el('returnToBattle').hidden=!battleOnPlaymat;
  if(shownGame!==currentGame()){
+  restoreExtraAction();extraActionMode=null;extraActionDismissed=null;extraActionResult=null;
+  if(el('extraActionDialog').open)el('extraActionDialog').close();
   selected=-1;
   selectedTableCard=null;
   shownGame=currentGame();
@@ -3196,6 +3265,9 @@ el('gameReview').onclose=scheduleAutomaticBot;
 el('viewBattlePlaymat').onclick=showBattlePlaymat;
 el('returnToBattle').onclick=returnToBattle;
 el('battlePreview').onclose=scheduleAutomaticBot;
+el('extraActionDialog').oncancel=event=>{event.preventDefault();closeExtraAction();};
+el('extraActionDialog').onclose=scheduleAutomaticBot;
+el('autoBotDamage').onchange=scheduleAutomaticBot;
 el('battleAnalysis').oncancel=event=>{if(!closeBattle())event.preventDefault();};
 load();
 </script></html>

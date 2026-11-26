@@ -348,11 +348,11 @@ test('V2 starts, handles unavailable images and stays playable at desktop and na
       if (!requestAction('drain', 'Dark', [2])) throw Error('Dark drain did not start');
       return name;
     });
-    const reactControls = page.locator('.light-hand #playerReactControls');
+    const reactControls = page.locator('#extraActionDialog #playerReactControls');
     assert.ok(await reactControls.getByRole('button', {name: 'SoroSuub V-35 Landspeeder (React, 1 Force)'}).isVisible());
     assert.equal(await page.locator('#controlPanel').isVisible(), false);
     await reactControls.getByRole('button', {name: 'Passen', exact: true}).click();
-    const lossControls = page.locator('.light-hand #drainLossControls');
+    const lossControls = page.locator('#extraActionDialog #drainLossControls');
     assert.equal(await page.locator('#phaseDisplayPlayer > #step').count(), 1);
     await lossControls.waitFor({state: 'visible'});
     assert.equal(await reactControls.isVisible(), false);

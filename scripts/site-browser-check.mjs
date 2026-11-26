@@ -192,7 +192,7 @@ test('built fan homepage, guides and hashed game run without remote images', {ti
     }
     await page.getByRole('button',{name:'Partie beginnen',exact:true}).click();
     await page.waitForFunction(()=>!!state?.game?.playFormat&&state.game.playFormat==='premiere-a-new-hope-hoth'&&!document.querySelector('#gameTable').hidden);
-    assert.equal(await page.evaluate(()=>state.game.cardRulesVersion),34);
+    assert.equal(await page.evaluate(()=>state.game.cardRulesVersion),35);
     await page.reload();
     await page.getByRole('button',{name:'Partie fortsetzen',exact:true}).click();
     await page.waitForFunction(()=>state?.game?.playFormat==='premiere-a-new-hope-hoth'&&!document.querySelector('#gameTable').hidden);

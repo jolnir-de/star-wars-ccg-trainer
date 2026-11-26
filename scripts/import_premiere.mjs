@@ -150,9 +150,13 @@ async function main(args) {
   const [mode] = args;
   const downloads = mode === undefined || mode === '--verify-source';
   const snapshotPath = snapshotPaths[edition];
-  const snapshot = downloads ? buildSnapshot(await downloadInputs(), edition === EDITION ? await readJson(notesPath) : {}, edition) :
+  const notes = edition === EDITION ? await readJson(notesPath) : edition === DAGOBAH ? await readJson(new URL('../data/dagobah-card-notes.json', import.meta.url)) : {};
+  const snapshot = downloads ? buildSnapshot(await downloadInputs(), notes, edition) :
     await readJson(snapshotPath);
   const catalog = readCatalog(snapshot, edition);
+  if (edition === DAGOBAH && (Object.keys(notes).length !== 180 || catalog.some(card => !notes[card.id]?.explanationDe?.trim() || card.texts.explanationDe !== notes[card.id].explanationDe))) {
+    throw new Error('Dagobah benötigt genau 180 vollständige, mit dem Katalog übereinstimmende deutsche Erklärungen.');
+  }
   if (mode === '--verify-source' && serialize(snapshot) !== serialize(await readJson(snapshotPath))) {
     throw new Error('Der versionierte Snapshot weicht vom reproduzierten Quelldatensatz ab.');
   }

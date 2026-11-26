@@ -1,12 +1,23 @@
-# Dagobah – Regelstand 32
+# Dagobah – Regelstand 35
 
-V2.17.0 integriert die 180 Karten (90 je Seite) im Format `premiere-a-new-hope-hoth-dagobah`. Jede Seite erhält acht zusätzliche Themendecks mit je 60 Karten, Startorten, Cover und Strategieeinweisung. Die Decks dürfen ausschließlich Premiere, A New Hope, Hoth und Dagobah enthalten und decken zusammen sämtliche Dagobah-Karten ab.
+Seit V2.17.0 sind die 180 Karten (90 je Seite) im Format `premiere-a-new-hope-hoth-dagobah` integriert. Jede Seite erhält acht zusätzliche Themendecks mit je 60 Karten, Startorten, Cover und Strategieeinweisung. Die Decks dürfen ausschließlich Premiere, A New Hope, Hoth und Dagobah enthalten und decken zusammen sämtliche Dagobah-Karten ab.
+
+## V2.19.2: deutsche Erklärungen und bedienbare Jedi-Ausbildung
+
+Alle **180 deutschen Spielerklärungen** sind einzeln in `data/dagobah-card-notes.json` gepflegt und im verzögert geladenen Dagobah-Katalog enthalten. Die Katalogprüfung verlangt vollständige Übereinstimmung. Der Import reproduziert die Erklärungen; englische Quelldaten, Vor-Errata-Fassungen und Drucktexte bleiben getrennt. At Peace berücksichtigt ausdrücklich die Errata zur jederzeitigen Verlagerung bei fortbestehender Ruhezeit. Die 308 privaten Premiere-Drucktexte wurden nicht gelesen oder übernommen.
+
+Die Playmat bietet für Jedi-Tests ausdrücklich Trainingsort, Mentor und Schüler an. Kosten und nicht zulässige Auswahlen bleiben an die tatsächlichen Engine-Angebote gebunden. Der Spielerbereich zeigt laufende und bestandene Tests, fehlende Voraussetzungen, Versuche, Suchaktionen und offene Ausbildungsentscheidungen. Test 2 benötigt seine eigene Handkarte und eine unbesetzte Dagobah-Site. [Schritt-für-Schritt-Anleitung](anleitungen/dagobah.html#jedi-tests).
+
+Neue Partien verwenden Regelstand **35**: Nach einem abgeschlossenen Test wird der Mentor für eine neue Ausbildung frei; parallele offene Ausbildungen desselben Mentors und gleichzeitige Mentor-/Schülerrollen bleiben verboten. Gedruckte Light-Side-Ability ab 6 zählt als Jedi und kann keine neue Schülerschaft beginnen. Bei Test 1 wird zwischen „hier“ bei der Zielwahl und „anwesend“ beim Versuch unterschieden: Ein Ziel an Bord ist beim Auslegen zulässig, muss für den Versuch aber anwesend sein. Der freiwillige Standortbonus kann von 0 bis zur Anzahl nicht-generischer Dagobah-Sites gewählt werden. Test 2 berücksichtigt Battle-Destiny-Ausnahmen mit „if unable to otherwise“. Ältere Replays behalten ihre bisherige Zielreihenfolge und Regelversion.
+
+`tests/dagobah-training-revision.test.mjs` ergänzt Prüfungen für alle 180 Erklärungen, Mentorwahl und -wechsel, abgeschlossene gegenüber offenen Tests, Jedi-Status, Unterbrechung und Wiederaufnahme, freiwillige Boni, strikte Erfolgsgrenzen, den gesamten Weg 1–5, Test-2-Ausnahmen sowie Autosave und Szenarioimport. Der zusätzliche Browserablauf prüft die 180 Popup-Erklärungen und die bediente Auswahl bis zum Abschluss von Test 2. Die historische Abnahme weiter unten beschreibt unverändert die Erstveröffentlichung mit Regelstand 32.
 
 ## Quellen und Fassung
 
 - [Dagobah-Regelbeilage von Decipher, 1997](https://res.starwarsccg.org/rules/dagobahrules.pdf).
 - [Players Committee Advanced Rulebook, 2023](https://res.starwarsccg.org/rules/SWCCG_2023_AdvancedRulebook.pdf): Kapitel 5–9 sowie Anhänge A–C und E. Aktuelle Errata und Klarstellungen haben Vorrang vor der ursprünglichen Beilage.
 - [Offizielle Kartenliste](https://res.starwarsccg.org/cardlists/DagobahType.html).
+- Abgleich der Zielwahl mit der öffentlichen PC-Engine: [Jedi-Test-Ziele und freie Mentoren](https://github.com/PlayersCommittee/gemp-swccg-public/blob/05d5417ac9ec8b7402bfec9a76240dcbccb506e6/src/gemp-swccg-cards/src/main/java/com/gempukku/swccgo/cards/AbstractJediTest.java) sowie [Unterscheidung „here“/„present“](https://github.com/PlayersCommittee/gemp-swccg-public/blob/05d5417ac9ec8b7402bfec9a76240dcbccb506e6/src/gemp-swccg-logic/src/main/java/com/gempukku/swccgo/filters/Filters.java). Es wurde kein fremder Engine-Code übernommen.
 - [Öffentlicher Kartenkatalog](https://github.com/swccgpc/swccg-card-json/tree/65cd150d20634447a5499d763ac324436158c7a8), festgeschriebene Revision `65cd150d20634447a5499d763ac324436158c7a8`; aktive Texte, Scans und ältere Textfassungen bleiben getrennt.
 
 Die 308 privaten Premiere-Drucktexte wurden für diese Erweiterung weder gelesen noch kopiert. Im öffentlichen Paket bleiben genau 16 Premiere-Drucktexte. Dagobah verwendet die öffentlichen Katalogdaten; deren aktive Spieltexte werden nicht als eigene Scan-Transkriptionen ausgegeben.

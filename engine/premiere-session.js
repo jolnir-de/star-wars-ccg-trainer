@@ -513,7 +513,7 @@ function startingLocationChoices(deck){
  });
 }
 
-const latestCardRulesVersion=34;
+const latestCardRulesVersion=35;
 const hothEnabled=()=>typeof HothRules!=='undefined'&&(currentGame()?.cardRulesVersion??latestCardRulesVersion)>=HothRules.VERSION&&
  (!currentGame()?.playFormat||['premiere-a-new-hope-hoth','premiere-a-new-hope-hoth-dagobah','premiere-a-new-hope-hoth-dagobah-cloud-city','premiere-a-new-hope-hoth-dagobah-cloud-city-jabbas-palace'].includes(currentGame().playFormat));
 const latestBotStrategyVersion=3;
@@ -6817,9 +6817,9 @@ function scheduleBattleDestiny(side,purpose,count){
  else (battleSession.additionalDestinies??=[]).push({side,purpose,count});
 }
 
-function battleDestinyDrawCount(side,siteIndex,ability,initiator=battleSession?.initiator){
+function battleDestinyDrawCount(side,siteIndex,ability,initiator=battleSession?.initiator,minimum=0){
  if(!Number.isFinite(ability))return null; // Unknown ability cannot justify an assumed draw.
- const required=minimumBattleDestinyAbility(side,siteIndex);
+ const required=Math.max(minimum,minimumBattleDestinyAbility(side,siteIndex));
  const own=PremiereGame.zones(state,side).board?.[siteIndex]??[];
  const activeText=(currentGame()?.cardRulesVersion??latestCardRulesVersion)>=7;
  const backups=own.flatMap(ship=>craftStats(ship,siteIndex).powered?(ship.occupants??[]).filter(entry=>entry.role==='pilot'&&
@@ -6829,10 +6829,16 @@ function battleDestinyDrawCount(side,siteIndex,ability,initiator=battleSession?.
   sum+(battleSession.powerAbilitySpent.get(card)??0),0):0;
  const newPilot=card=>['Light:2786','Dark:792'].includes(card.id);
  const captainHan=typeof cloudCityEnabled==='function'&&cloudCityEnabled()&&backups.some(card=>card.id==='Light:360')?1:0;
+ if(minimum>0&&ability-spent<required)return Math.max(backups.length?(captainHan?2:1):0,fallbackBattleDestinyCount(side,siteIndex));
  const regular=ability-spent>=required||backups.some(card=>!newPilot(card)&&(!captainHan||card.id!=='Light:360'))?1:0;
  const draws=regular+captainHan+printedWarRoomExtraBattleDestiny(side,siteIndex,initiator)+(battleSession?.extraDraws?.[side]??0);
  if(backups.some(newPilot))return Math.max(1,draws);
- if(draws||!isSite(state.locations[siteIndex]))return draws;
+ if(draws)return draws;
+ return fallbackBattleDestinyCount(side,siteIndex);
+}
+
+function fallbackBattleDestinyCount(side,siteIndex){
+ if(!isSite(state.locations[siteIndex]))return 0;
  if(hothEnabled()&&PremiereLocations.entries(state,side).some(entry=>entry.slot===siteIndex&&!entry.unavailable&&entry.card.id==='Light:2483'&&
    !excludedAtBattle(entry.card,siteIndex)&&!PremiereUnits.textSuppressed(entry.card)&&entry.carriers.some(host=>host.id==='Light:2480')))return 1;
  const sameSite=PremiereGame.sides.flatMap(actor=>PremiereLocations.entries(state,actor)).filter(({card,slot,unavailable})=>
@@ -9788,7 +9794,7 @@ function cardActionMatches(option,card){
  if(['passResponse','passWeapons','passDamage','trainingModifier','trainingNight','advance','draw','activate'].includes(option.kind))return false;
  if([option.card,option.ship,option.weapon,option.host,option.carrier,option.source,option.target,option.pilot,option.item,
    option.mount?.host,option.target?.card,option.entry?.card,option.source?.card,option.comlinkHost,option.effect?.card,
-   option.counterCharacter,option.vader,option.obi].includes(card))return true;
+   option.counterCharacter,option.vader,option.obi,option.mentor,option.apprentice].includes(card))return true;
  if(option.ships?.includes(card)||option.choices?.some(choice=>choice.card===card||choice.weapon===card||choice.host===card))return true;
  const slot=state.locations.indexOf(card);
  return slot>=0&&cardActionSlot(option)===slot;

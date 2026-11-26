@@ -69,10 +69,13 @@ function dagoAttemptJedi(effect,siteBonus){
  PremiereGame.useOnce(state.game,'turn',dagoUsed(effect.card,'attempt'));(state.dagobahTurnActivity??={})[side]={...(state.dagobahTurnActivity?.[side]??{}),test:true,turn:state.game.timing.turn};
  const n=DagobahRules.testNumber(effect.card);
  if(n===5){effect.apprentice.dagobahMeditationUntil=state.game.timing.turn+2;effect.meditation=true;return true;}
+ state.dagobahTrainingResolution={testId:effect.card.instanceId,number:n,side,apprentice:effect.apprentice.name};
  drawDestinySeries(side,'training',1,dagoTrainingModifier(effect,siteBonus),draws=>{
-  const destiny=draws.length?PremiereBattle.total(draws):null,total=destiny===null?null:destiny+cardAbility(effect.apprentice);
-  log('Jedi-Test '+n+' · Trainings-Destiny '+destiny+' + Ability '+cardAbility(effect.apprentice)+' = '+total+' (benötigt > '+(11+n)+').');
-  if(Number.isFinite(total)&&total>11+n)dagoCompleteJedi(effect);
+  const destiny=draws.length?PremiereBattle.total(draws):null,ability=cardAbility(effect.apprentice),total=destiny===null?null:destiny+ability,passed=Number.isFinite(total)&&total>11+n;
+  state.dagobahTrainingResults=[...(state.dagobahTrainingResults??[]),{...state.dagobahTrainingResolution,turn:state.game.timing.turn,destiny,ability,total,passed}].slice(-8);
+  delete state.dagobahTrainingResolution;
+  log('Jedi-Test '+n+' · '+effect.apprentice.name+' · '+(passed?'Bestanden':'Nicht bestanden')+' · Trainings-Destiny '+destiny+' + Ability '+ability+' = '+total+' (benötigt > '+(11+n)+').');
+  if(passed)dagoCompleteJedi(effect);
  });return true;
 }
 function dagoCompleteJedi(effect){
@@ -120,9 +123,9 @@ function dagoJediTiming(event,tasks){
 function dagoJediCanFinishMeditation(effect,side){return (effect.card.owner??effect.card.side)===side&&dagoEntry(effect.apprentice)&&!dagoEntry(effect.apprentice).unavailable&&dagoEntry(effect.mentor)&&!dagoEntry(effect.mentor).unavailable;}
 const dagoPerformBefore=performAction;
 performAction=function(action,...rest){
- const before=state?.phase,turn=state?.game?.timing.turn,result=dagoPerformBefore(action,...rest);
+ const before=state?.phase,turn=state?.game?.timing.turn,training=!!state?.dagobahTrainingResolution,result=dagoPerformBefore(action,...rest);
  if(result&&dagobahEnabled()){
-  if(before===1&&turn===state.game.timing.turn&&!(action.kind==='hothAction'&&action.args[0]==='dago:testAttempt')&&!['passResponse','finishCardInformation','loseForce','timingTrigger'].includes(action.kind))delete state.dagobahTrainingWindow;
+  if(before===1&&turn===state.game.timing.turn&&!training&&!state.dagobahTrainingResolution&&!(action.kind==='hothAction'&&action.args[0]==='dago:testAttempt')&&!['passResponse','finishCardInformation','loseForce','timingTrigger'].includes(action.kind))delete state.dagobahTrainingWindow;
   if(['battle','drain'].includes(action.kind))for(const side of action.kind==='battle'?PremiereGame.sides:[action.side])(state.dagobahTurnActivity??={})[side]={...(state.dagobahTurnActivity?.[side]??{}),[action.kind]:true,turn:state.game.timing.turn};
   if(action.kind==='battle')state.dagobahTurnActivity[action.side].initiatedBattle=true;
  }

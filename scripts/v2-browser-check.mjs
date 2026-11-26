@@ -348,11 +348,11 @@ test('V2 starts, handles unavailable images and stays playable at desktop and na
       if (!requestAction('drain', 'Dark', [2])) throw Error('Dark drain did not start');
       return name;
     });
-    const reactControls = page.locator('.light-hand #playerReactControls');
+    const reactControls = page.locator('#extraActionDialog #playerReactControls');
     assert.ok(await reactControls.getByRole('button', {name: 'SoroSuub V-35 Landspeeder (React, 1 Force)'}).isVisible());
     assert.equal(await page.locator('#controlPanel').isVisible(), false);
     await reactControls.getByRole('button', {name: 'Passen', exact: true}).click();
-    const lossControls = page.locator('.light-hand #drainLossControls');
+    const lossControls = page.locator('#extraActionDialog #drainLossControls');
     assert.equal(await page.locator('#phaseDisplayPlayer > #step').count(), 1);
     await lossControls.waitFor({state: 'visible'});
     assert.equal(await reactControls.isVisible(), false);
@@ -415,6 +415,7 @@ test('V2 starts, handles unavailable images and stays playable at desktop and na
     assert.equal(await battle.locator('[aria-current="step"]').textContent(), 'Power & Destiny');
     assert.match(await battle.locator('#battlePriority').textContent(), /Priorität: Light Side · Du bist dran/);
     await battle.getByRole('checkbox', {name: 'Bot automatisch', exact: true}).uncheck();
+    await battle.getByRole('checkbox', {name: 'Gegnerische Verluste automatisch', exact: true}).uncheck();
     await battle.getByRole('button', {name: 'Light verzichtet'}).click();
     await battle.getByRole('button', {name: 'Bot-Entscheidung zeigen'}).click();
     assert.equal(await battle.locator('[aria-current="step"]').textContent(), 'Schaden');
@@ -458,7 +459,7 @@ test('V2 starts, handles unavailable images and stays playable at desktop and na
       loseTableCard('Dark', 0, escort);
       presentGame();
     });
-    const release = page.locator('.light-hand').getByRole('region', {name: 'Gefangenenentscheidung'});
+    const release = page.locator('#extraActionDialog').getByRole('region', {name: 'Gefangenenentscheidung'});
     assert.ok(await release.isVisible());
     await release.getByRole('button', {name: /Rally/}).click();
     assert.equal(await release.isVisible(), false);

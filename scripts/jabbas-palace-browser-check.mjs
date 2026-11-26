@@ -47,6 +47,11 @@ test('Jabba’s Palace loads on demand, offers eight decks per side, and resumes
    const resumed=await page.evaluate(async()=>{await resumeGameFromUI();return {format:state.game.playFormat,side:state.game.playerSide};});
    assert.equal(resumed.format,expected.format);assert.equal(resumed.side,expected.side);
    await page.evaluate(()=>{const z=PremiereGame.zones(state,playerSide());if(!z.force.length)z.force.push(z.deck.pop());spendForce(playerSide(),1);z.used.at(-1).dagobahFaceUp=true;render();});
+   if(await page.locator('#extraActionDialog').evaluate(dialog=>dialog.open)){
+    const revision=await page.evaluate(()=>currentGame().revision);
+    await page.locator('#extraActionDialog').getByRole('button',{name:'Playmat ansehen',exact:true}).click();
+    assert.equal(await page.evaluate(()=>currentGame().revision),revision,'viewing the playmat does not resolve the pending decision');
+   }
    await page.locator('#pilesPlayer .pile-face-up').click();
    assert.match(await page.locator('#cardInspector').innerText(),/Offenliegende oberste Karte/);
    await page.evaluate(()=>{recirculate(playerSide());render();});

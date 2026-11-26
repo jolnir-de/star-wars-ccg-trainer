@@ -2,6 +2,12 @@
 
 Seit V2.17.0 sind die 180 Karten (90 je Seite) im Format `premiere-a-new-hope-hoth-dagobah` integriert. Jede Seite erhält acht zusätzliche Themendecks mit je 60 Karten, Startorten, Cover und Strategieeinweisung. Die Decks dürfen ausschließlich Premiere, A New Hope, Hoth und Dagobah enthalten und decken zusammen sämtliche Dagobah-Karten ab.
 
+## V2.19.3: Trainingsversuche abschließen
+
+Auswahl von Trainingsort, Mentor und Schüler sowie Destiny-Auswahl, Antwortfenster und ausgelöste Entscheidungen erscheinen in einem gemeinsamen Popup. „Jedi-Ausbildung öffnen“ zeigt laufende Tests, Versuche und Ergebnisse; „Playmat ansehen“ schließt das Popup, ohne eine Entscheidung zu passen. Eine offene Entscheidung kann direkt bei der Hand erneut geöffnet werden. Das Ergebnis nennt Schüler, Test, Trainings-Destiny einschließlich Boni, Ability und die strikte Erfolgsgrenze. Die letzten acht Ergebnisse bleiben sichtbar. Ein erfolgloser Versuch verbraucht nur den Versuch dieses Tests; andere Schüler können anschließend trainieren. Reaktionen innerhalb der Auflösung schließen das Zeitfenster zu Beginn der Kontrollphase nicht vorzeitig. Eine anschließende reguläre Kontrollaktion schließt es weiterhin.
+
+Der Regelsatz bleibt 35; auch fortgesetzte Partien erhalten die Bedienkorrektur. `tests/jedi-training-resolution.test.mjs` prüft zwei gleichzeitige Schüler, R2-D2 mit Destiny 2/5, Erfolg, Fehlschlag, gegnerische Destiny-Reaktionen, das Ende des Trainingsfensters sowie Autosave und Szenarioimport nach jeder Entscheidung. Der Browserablauf bedient die Wahl und beide Versuche direkt im Spielerbereich. Die mehrfachen Bonus-Buttons in den Location-Spalten entfallen.
+
 ## V2.19.2: deutsche Erklärungen und bedienbare Jedi-Ausbildung
 
 Alle **180 deutschen Spielerklärungen** sind einzeln in `data/dagobah-card-notes.json` gepflegt und im verzögert geladenen Dagobah-Katalog enthalten. Die Katalogprüfung verlangt vollständige Übereinstimmung. Der Import reproduziert die Erklärungen; englische Quelldaten, Vor-Errata-Fassungen und Drucktexte bleiben getrennt. At Peace berücksichtigt ausdrücklich die Errata zur jederzeitigen Verlagerung bei fortbestehender Ruhezeit. Die 308 privaten Premiere-Drucktexte wurden nicht gelesen oder übernommen.

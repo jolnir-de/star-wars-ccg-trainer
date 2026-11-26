@@ -95,7 +95,7 @@ test('German Dagobah popups and explicit Jedi mentor/pupil choices lead from Tes
    state=PremiereGame.createState(game,pool.filter(c=>c.owner==='Light'),pool.filter(c=>c.owner==='Dark'),[],[],'Light');
    for(const side of PremiereGame.sides){const z=PremiereGame.zones(state,side);z.deck.push(...z.hand.splice(0));}
    const take=id=>{const z=PremiereGame.zones(state,id.split(':')[0]),i=z.deck.findIndex(c=>c.id===id);if(i<0)throw Error('fixture missing '+id);return z.deck.splice(i,1)[0];};
-   state.locations=[take('Light:2447')];state.locationOrder=[0];state.light=[[take('Light:2304'),take('Light:1495'),take('Light:1495'),take('Light:2052'),take('Light:2052'),take('Light:2052')]];
+   state.locations=[take('Light:2447')];state.locationOrder=[0];state.light=[[take('Light:2304'),take('Light:1495'),take('Light:2052'),take('Light:2052'),take('Light:2052')]];
    const victim=state.botDeck.filter(c=>c.type==='Character'&&c.ability>0).sort((a,b)=>a.power-b.power)[0];if(!victim)throw Error('bot needs a character');state.botDeck.splice(state.botDeck.indexOf(victim),1);state.dark=[[victim]];
    PremiereGame.moveTop(state.deck,state.force,8);PremiereGame.moveTop(state.botDeck,state.botForce,8);state.activated=true;state.botTurn=null;PremiereGame.setPhase(state,3);el('autoBot').checked=false;el('autoBotDamage').checked=true;selected=-1;selectedTableCard=null;handAdviceCache=null;
    const battle=legalActions(state,'Light').find(o=>o.kind==='battle');if(!battle)throw Error('fixture needs a legal battle');dispatchUI(battle);
@@ -104,6 +104,7 @@ test('German Dagobah popups and explicit Jedi mentor/pupil choices lead from Tes
    if(battleSession.damage.priority==='Light')dispatchUI(legalActions(state,'Light').find(o=>o.kind==='passDamage'));
   });
   await page.waitForFunction(()=>state.botLost.length>1&&!automaticBotDamageAction());
+  assert.equal(await page.evaluate(()=>!battleSession||battleSession.damage.debt.Dark.damage===0),true);
   assert.equal(await page.locator('#autoBot').isChecked(),false);
   assert.equal(await page.locator('#autoBotDamage').isChecked(),true);
   assert.equal(await page.evaluate(()=>PremiereGame.zones(state,botSide()).lost.length>1),true);

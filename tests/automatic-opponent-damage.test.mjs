@@ -12,13 +12,26 @@ for(const player of ['Light','Dark'])test('Opponent damage resolves automaticall
   assert.ok(next,'battle must reach damage through normal decisions');h.act(next);
  }
  assert.equal(h.run(`battleSession?.segment`),'damage');
- // The active player may be asked to pass their own empty damage debt first.
- if(h.run(`battleSession.damage.priority===playerSide()`))h.act({kind:'passDamage',side:player});
  assert.equal(h.run(`!!automaticBotDamageAction()`),true);
  const before=h.run(`PremiereGame.zones(state,botSide()).lost.length`);
  for(let i=0;i<200&&h.run(`!!automaticBotDamageAction()`);i++)assert.equal(h.tick(),true,'an automatic loss action has a scheduled timer');
  assert.equal(h.run(`!!automaticBotDamageAction()`),false);
- assert.ok(h.run(`PremiereGame.zones(state,botSide()).lost.length`)>before,'bot forfeits and pays remaining Force without manual damage clicks');
+ assert.equal(h.run(`!battleSession||battleSession.damage.debt[botSide()].damage===0`),true,'remaining bot damage is fully paid');
+ assert.ok(h.run(`PremiereGame.zones(state,botSide()).lost.length`)>before+1,'all bot losses continue through alternating empty player passes');
+ assert.equal(h.run(`PremiereGame.zones(state,playerSide()).lost.length`),0,'no player losses are chosen automatically');
  assert.equal(h.run(`el('autoBot').checked`),false,'the general manual-turn preference is unchanged');
  const reload=await savedPosition(spec,h.saved());assert.equal(reload.run('resumeGameFromUI()'),true);assert.equal(reload.snapshot(),h.snapshot());
+});
+
+test('The automatic regulator stops when the player must choose real losses',async()=>{
+ const h=await savedPosition({name:'Player losses stay manual',phase:3,rulesVersion:35,copies:{'Dark:2355':8},
+  setup:`locations(['Light:2447']);put('Light',0,'Light:2052');put('Dark',0,'Dark:634');for(let i=0;i<6;i++)put('Dark',0,'Dark:2355');`});
+ h.run(`el('autoBot').checked=false;el('autoBotDamage').checked=true;`);h.act({kind:'battle',args:[0]});
+ for(let i=0;i<30&&h.run(`battleSession?.segment!=='damage'`);i++)h.act(JSON.parse(h.run(`JSON.stringify(PremiereGame.sides.flatMap(side=>legalActions(state,side)).find(o=>['passWeapons','skipDestiny','passResponse'].includes(o.kind)))`)));
+ for(let i=0;i<20&&h.run(`!!automaticBotDamageAction()`);i++)assert.equal(h.tick(),true);
+ assert.equal(h.run(`battleSession.damage.priority`),'Light');
+ assert.ok(h.run(`battleSession.damage.debt.Light.damage`)>0);
+ assert.equal(h.run(`automaticBotDamageAction()`),null);
+ assert.equal(h.run(`state.lost.length`),0);
+ assert.ok(h.run(`legalActions(state,'Light').some(o=>o.kind==='battleForfeit'||o.kind==='battleForceLoss')`));
 });

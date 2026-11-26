@@ -2643,7 +2643,13 @@ function automaticBotAction(){
 function automaticBotDamageAction(){
  if(!el('autoBotDamage').checked||replayingGame||launchOpen||!state||state.gameWinner||setupDecks||battleSession?.segment!=='damage'||
   ['cardInspector','movementDialog','starterDeckDialog','gameReview'].some(id=>el(id).open))return null;
- const offers=legalActions(state,botSide());if(!offers.length)return null;
+ const offers=legalActions(state,botSide());
+ if(!offers.length){
+  // Damage priority alternates after every loss. Passing an empty player debt
+  // is bookkeeping; forfeits, Force losses and optional responses remain manual.
+  const own=legalActions(state,playerSide());
+  return own.length===1&&own[0].kind==='passDamage'?own[0]:null;
+ }
  if(state.pendingCustody?.length)return botCustodyAction(offers);
  if(PremiereGame.responseWindow(state.game)||state.game?.timing.pending||state.automatedPending||state.pendingForceLoss||state.pendingReserveSearch||state.pendingCardView)return botPromptAction(offers);
  return battleSession.damage?.priority===botSide()?botDamageAction(offers):null;

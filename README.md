@@ -4,6 +4,8 @@ Browserbasierter Lerntrainer für Star Wars CCG. Dieses Repository ist unabhäng
 
 ## Aktueller Stand
 
+- V2.19.2 ergänzt **deutsche Erklärungen für alle 180 Dagobah-Karten** und eine sichtbare Jedi-Ausbildung: Trainingsort, Mentor und Schüler auswählen, den nächsten Test finden und Versuche direkt im eigenen Spielbereich starten. Regelstand 35 korrigiert Rollen, Mentorbindung und die Battle-Destiny-Ausnahme von Test 2; der Dagobah-Trainingsbonus ist wählbar. Gespeicherte Partien behalten ihren bisherigen Regelstand. [Jedi-Tests Schritt für Schritt](anleitungen/dagobah.html#jedi-tests) · [Prüfmatrix](DAGOBAH_REGELSTAND.md).
+
 - V2.19.1 markiert eigene Handkarten grün, wenn sie jetzt regelgerecht spielbar sind, und rot, wenn Phase, Ziel, Auslöser oder Force fehlen. Häkchen/Kreuz und eine zugängliche Begründung ergänzen die Farbe. Ein goldener Stern kennzeichnet einen Hand-Tipp aus den legalen Aktionen und sichtbaren Kräften; Anklicken wählt die Karte aus, die Lupe öffnet weiterhin die Details. Die Anzeige verändert weder Partie noch Zufallsfolge und funktioniert für beide Seiten sowie Antwortfenster.
 
 - V2.19.0 integriert **alle 180 regulären Jabba’s-Palace-Karten** mit **acht zusätzlichen Themendecks je Seite**. Der Pool umfasst Premiere bis einschließlich Jabba’s Palace (1.188 Karten). Starting Interrupts, Palast-Sites, Wüsten und Sandwhirl, Sabacc, Gefangene, Creatures und neue Waffen verwenden Engine, Bot und Autosave. [Regelstand und Prüfmatrix](JABBAS_PALACE_REGELSTAND.md) · [Spielanleitung](anleitungen/jabbas-palace.html).

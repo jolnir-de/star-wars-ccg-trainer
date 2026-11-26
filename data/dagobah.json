@@ -35,7 +35,8 @@
         "type": "Jedi Test #2"
       },
       "set": "4",
-      "gempId": "4_75"
+      "gempId": "4_75",
+      "explanationDe": "Jedi-Test 2. Lege ihn an einer unbesetzten Dagobah-Site aus und wähle einen Mentor auf Dagobah sowie einen Schüler mit abgeschlossenem Test 1. Zu Beginn jeder deiner Bewegungsphasen darf der Gegner den Test an eine benachbarte Site versetzen. Der Schüler darf sich bis zum Abschluss nur mit persönlicher Landspeed bewegen. Ist er zu Beginn deiner Kontrollphase am Test anwesend, ziehe Trainings-Destiny: Destiny + Ability des Schülers muss größer als 13 sein. Bei Erfolg kommt der Test auf den Schüler: Power +1, wieder normale Bewegung; der Gegner benötigt insgesamt mindestens Ability 6 für Battle Destiny."
     },
     {
       "id": "Light:111",
@@ -70,7 +71,8 @@
         "uniqueness": "*"
       },
       "set": "4",
-      "gempId": "4_16"
+      "gempId": "4_16",
+      "explanationDe": "Schleuse den Effect in das gegnerische Reserve Deck ein. Erreicht er dessen Oberseite, wird er verloren. Der Gegner muss dann bis zum Ende seiner nächsten Kampfphase einen Kampf beginnen oder 4 Force verlieren. Immun gegen Alter."
     },
     {
       "id": "Light:113",
@@ -110,7 +112,8 @@
         "uniqueness": "*"
       },
       "set": "4",
-      "gempId": "4_80"
+      "gempId": "4_80",
+      "explanationDe": "Light-Seite: Beginnt der Gegner hier einen Kampf, dürfen deine Raumschiffe als React zum nächstgelegenen verwandten Asteroidensektor oder von dort hierher ziehen. Dark-Seite: Deine Ugnaughts können hier kostenlos an Bord von Raumschiffen ausgespielt werden. Kontrollierst du das System, erhalten alle deine Ugnaughts im Spiel Forfeit +2."
     },
     {
       "id": "Light:149",
@@ -149,7 +152,8 @@
         "uniqueness": "<><><>"
       },
       "set": "4",
-      "gempId": "4_81"
+      "gempId": "4_81",
+      "explanationDe": "Beide Textseiten: Hier gelten die Asteroidenregeln. Light-Seite: Kontrollierst du diesen Sektor, darfst du einen Force Drain am verwandten System aufheben."
     },
     {
       "id": "Light:150",
@@ -186,7 +190,8 @@
         "printableSlipType": "ERRATA"
       },
       "set": "4",
-      "gempId": "4_17"
+      "gempId": "4_17",
+      "explanationDe": "Lege den Effect an einem Asteroidensektor aus, den du kontrollierst. In jeder deiner Kontrollphasen verliert der Gegner X Force. X ist die Anzahl der Asteroidensektoren am selben System, die der Gegner nicht besetzt. Der Effect wird aufgehoben, wenn der Gegner seinen Standort kontrolliert."
     },
     {
       "id": "Light:151",
@@ -222,7 +227,8 @@
         "uniqueness": "*"
       },
       "set": "4",
-      "gempId": "4_18"
+      "gempId": "4_18",
+      "explanationDe": "Lege den Utinni Effect an einem Asteroidensektor aus und bestimme ein gegnerisches Großkampfschiff als Ziel. Piloten an Bord dieses Schiffs dürfen ihre Ability nicht für Battle Destiny verwenden. Asteroiden-Destiny gegen dieses Schiff erhält −4. Der Effect wird aufgehoben, sobald das Ziel seinen Standort erreicht."
     },
     {
       "id": "Light:155",
@@ -256,7 +262,8 @@
         "type": "Device"
       },
       "set": "4",
-      "gempId": "4_8"
+      "gempId": "4_8",
+      "explanationDe": "Bringe das Device an einem Raumjäger an. Solange ein Astromech-Charakter an Bord ist: Ohne Piloten darf der Jäger sich bewegen und Power, Maneuver und Hyperspeed nutzen. Mit Piloten ist er stattdessen immun gegen Attrition < 3; mit seinem passenden Piloten gilt < 6."
     },
     {
       "id": "Light:157",
@@ -295,7 +302,8 @@
         "printableSlipType": "ERRATA"
       },
       "set": "4",
-      "gempId": "4_19"
+      "gempId": "4_19",
+      "explanationDe": "Lege diesen Immediate Effect zu Beginn deines Zuges auf einen Schüler. Dieser darf bis zum Ende deines nächsten Zuges keine Jedi-Tests versuchen. Gemäß Errata darfst du den Effect jederzeit vom Schüler auf einen Jedi-Test verschieben; die Ruhezeit bleibt trotzdem bestehen. Bei diesem Test erhält genau dieser Schüler Trainings-Destiny +3. Immun gegen Control."
     },
     {
       "id": "Light:177",
@@ -331,7 +339,8 @@
         "uniqueness": "*"
       },
       "set": "4",
-      "gempId": "4_45"
+      "gempId": "4_45",
+      "explanationDe": "USED: Wurde gerade ein Lichtschwert zur Verstärkung eines Force Drains benutzt, lege es in den Used Pile seines Besitzers. LOST: Lege beliebig viele deiner ausgespielten Devices und Charakterwaffen in deinen Used Pile."
     },
     {
       "id": "Light:236",
@@ -370,7 +379,8 @@
         "uniqueness": "<>"
       },
       "set": "4",
-      "gempId": "4_82"
+      "gempId": "4_82",
+      "explanationDe": "Beide Textseiten: Hier gelten die Asteroidenregeln. Light-Seite: Wenn du kontrollierst, erhält dein Force Drain hier +1 je Asteroid Field am selben System. Dark-Seite: Wenn du kontrollierst, erhält dein Force Drain hier +1."
     },
     {
       "id": "Light:238",
@@ -415,7 +425,8 @@
         "uniqueness": "<>"
       },
       "set": "4",
-      "gempId": "4_83"
+      "gempId": "4_83",
+      "explanationDe": "Beide Textseiten: Hier gelten die Höhlenregeln. Light-Seite: Kontrollierst du diesen Ort, darfst du Force Drains am System aufheben, das mit dem zugehörigen Big One verwandt ist."
     },
     {
       "id": "Light:258",
@@ -451,7 +462,8 @@
         "uniqueness": "*"
       },
       "set": "4",
-      "gempId": "4_46"
+      "gempId": "4_46",
+      "explanationDe": "Nutze 1 Force, um alle Mynocks von einem Raumjäger oder alle Vine Snakes von einem Charakter abzulösen. ODER lasse einen an einem beliebigen Raumjäger haftenden Mynock verloren gehen. ODER hebe unmittelbar nach der Zielwahl einer Kreatur diese Auswahl auf und lasse erneut wählen."
     },
     {
       "id": "Light:297",
@@ -502,7 +514,8 @@
         "printableSlipType": "ERRATA"
       },
       "set": "4",
-      "gempId": "4_3"
+      "gempId": "4_3",
+      "explanationDe": "Ferocity = Destiny −1. Lebensraum: Dagobah. Parasit für Charaktere, die sich bewegen können. Der Gegner des Opfers versetzt Bog-wing und Wirt um bis zu zwei Sites. Danach löst sich der Bog-wing ab."
     },
     {
       "id": "Light:424",
@@ -538,7 +551,8 @@
         "uniqueness": "*"
       },
       "set": "4",
-      "gempId": "4_47"
+      "gempId": "4_47",
+      "explanationDe": "Nutze in deiner Bewegungsphase 1 Force, um eines deiner Raumschiffe von einem Planetensystem zu einem verwandten Asteroidensektor oder zurück zu versetzen. Mit einem Schmuggler an Bord ist die Bewegung kostenlos. ODER hebe Rogue Asteroid oder Close Call auf."
     },
     {
       "id": "Light:521",
@@ -573,7 +587,8 @@
         "type": "Interrupt"
       },
       "set": "4",
-      "gempId": "4_48"
+      "gempId": "4_48",
+      "explanationDe": "Hebe eine Sense- oder Alter-Karte auf; diese Variante ist immun gegen Sense. ODER hebe einen Immediate Effect, einen Mobile Effect oder einen Force Drain auf."
     },
     {
       "id": "Light:597",
@@ -616,7 +631,8 @@
         "printableSlipType": "ERRATA"
       },
       "set": "4",
-      "gempId": "4_84"
+      "gempId": "4_84",
+      "explanationDe": "Light-Seite: In deiner Ausspielen-Phase darfst du eine Dagobah-Site direkt aus deinem Reserve Deck ausspielen. Danach mischen und abheben lassen. Dark-Seite: Kein Spieler darf hier einen Force Drain durchführen."
     },
     {
       "id": "Light:598",
@@ -657,7 +673,8 @@
         "uniqueness": "*"
       },
       "set": "4",
-      "gempId": "4_85"
+      "gempId": "4_85",
+      "explanationDe": "Light-Seite: Deine Raumjäger dürfen hier ausgespielt werden und sind hier immun gegen Awwww, Cannot Get Your Ship Out. Dark-Seite: Besetzt du diesen Ort, erhältst du hier Force-Generierung +1."
     },
     {
       "id": "Light:600",
@@ -698,7 +715,8 @@
         "uniqueness": "*"
       },
       "set": "4",
-      "gempId": "4_86"
+      "gempId": "4_86",
+      "explanationDe": "Beide Textseiten: Keine Raumschiffe oder Fahrzeuge an diesem Ort. Light-Seite: Deine Kreaturen kosten hier beim Ausspielen 2 Force weniger. Dark-Seite: Besetzt du diesen Ort, erhältst du hier Force-Generierung +1."
     },
     {
       "id": "Light:601",
@@ -739,7 +757,8 @@
         "uniqueness": "*"
       },
       "set": "4",
-      "gempId": "4_87"
+      "gempId": "4_87",
+      "explanationDe": "Light-Seite: Am Ende deines Zuges versinken deine Raumschiffe und Fahrzeuge hier in deinem Used Pile. Dark-Seite: Am Ende deines Zuges versinken deine Raumschiffe und Fahrzeuge hier unter deinem Lost Pile."
     },
     {
       "id": "Light:602",
@@ -780,7 +799,8 @@
         "uniqueness": "*"
       },
       "set": "4",
-      "gempId": "4_88"
+      "gempId": "4_88",
+      "explanationDe": "Light-Seite: Einmal pro Zug darfst du dein Reserve Deck nach einem Jedi-Test durchsuchen und ihn auf die Hand nehmen. Danach das Deck neu mischen. Dark-Seite: Du darfst 1 Force nutzen, um einen Force Drain hier aufzuheben."
     },
     {
       "id": "Light:603",
@@ -821,7 +841,8 @@
         "uniqueness": "*"
       },
       "set": "4",
-      "gempId": "4_89"
+      "gempId": "4_89",
+      "explanationDe": "Light-Seite: Ist Yoda hier, darfst du einmal pro Zug Attrition gegen dich an einem anderen Ort um 2 verringern. Dark-Seite: Besetzt du diesen Ort, wird der Spieltext der gegnerischen Yoda’s Hut aufgehoben."
     },
     {
       "id": "Light:708",
@@ -860,7 +881,8 @@
         "printableSlipType": "ERRATA"
       },
       "set": "4",
-      "gempId": "4_20"
+      "gempId": "4_20",
+      "explanationDe": "Spiele diesen Immediate Effect während deines Zuges, unmittelbar nachdem ein Spieler eine Karte in einen Used Pile gelegt hat. Alle Used Piles werden sofort unter die jeweiligen Reserve Decks zurückgeführt. Sobald danach ein Spieler mindestens eine Karte in einen Used Pile legt, wird der Effect aufgehoben."
     },
     {
       "id": "Light:745",
@@ -898,7 +920,8 @@
         "printableSlipType": "ERRATA"
       },
       "set": "4",
-      "gempId": "4_21"
+      "gempId": "4_21",
+      "explanationDe": "Lege den Effect auf den Tisch. Sense und Alter werden zu Lost Interrupts. Gelingt einem Spieler ein Destiny-Draw für Sense oder Alter, verliert dieser Spieler zusätzlich 2 Force. Immun gegen Alter."
     },
     {
       "id": "Light:752",
@@ -931,7 +954,8 @@
         "type": "Jedi Test #3"
       },
       "set": "4",
-      "gempId": "4_76"
+      "gempId": "4_76",
+      "explanationDe": "Jedi-Test 3. Lege ihn an Dagobah: Jungle oder Dagobah: Cave aus. Wähle einen Mentor auf Dagobah und einen Schüler mit abgeschlossenem Test 2. Der Versuch ist am Ende deines Zuges möglich, wenn der Schüler am Test anwesend ist und keine deiner Karten in diesem Zug an Kämpfen, Force Drains oder Jedi-Tests teilgenommen hat. Ziehe Trainings-Destiny: Destiny + Ability des Schülers muss größer als 14 sein. Bei Erfolg kommt der Test auf den Schüler; du darfst anschließend gegnerische Destiny-Draws jeweils um 1 verringern."
     },
     {
       "id": "Light:780",
@@ -965,7 +989,8 @@
         "type": "Device"
       },
       "set": "4",
-      "gempId": "4_9"
+      "gempId": "4_9",
+      "explanationDe": "Bringe das Device an einem deiner R-Einheit-Droiden an. In jeder Kontrollphase darfst du 1 Force nutzen, um die oberste Karte des gegnerischen Reserve Decks anzusehen. Auf Dagobah darf sich dieser Droide außerdem kostenlos bewegen."
     },
     {
       "id": "Light:814",
@@ -1003,7 +1028,8 @@
         "printableSlipType": "ERRATA"
       },
       "set": "4",
-      "gempId": "4_49"
+      "gempId": "4_49",
+      "explanationDe": "USED: Hebe Limited Resources auf. LOST: Nutze 3 Force, um einen Effect beliebiger Art aus deinem Lost Pile auf die Hand zurückzuholen."
     },
     {
       "id": "Light:817",
@@ -1042,7 +1068,8 @@
         "printableSlipType": "ERRATA"
       },
       "set": "4",
-      "gempId": "4_50"
+      "gempId": "4_50",
+      "explanationDe": "In der gegnerischen Kontrollphase: Hat der Gegner mindestens zwei Großkampfschiffe gemeinsam an einem System oder Sektor, ziehe Destiny. Ist Destiny −1 kleiner als die Anzahl dieser Schiffe, dürfen sie sich bis zum Ende deines nächsten Zuges weder bewegen noch an Kämpfen teilnehmen."
     },
     {
       "id": "Light:838",
@@ -1077,7 +1104,8 @@
         "uniqueness": "<>"
       },
       "set": "4",
-      "gempId": "4_22"
+      "gempId": "4_22",
+      "explanationDe": "Nutze 2 Force, um den Effect an einer äußeren Planeten-Site auszulegen, an der du einen Rebellen oder Alien hast. Dort darfst du Charaktere auch ohne eigene Presence und ungeachtet örtlicher Ausspielbeschränkungen ausspielen."
     },
     {
       "id": "Light:957",
@@ -1112,7 +1140,8 @@
         "uniqueness": "*"
       },
       "set": "4",
-      "gempId": "4_23"
+      "gempId": "4_23",
+      "explanationDe": "Lege den Effect auf deine Tischseite. Du darfst jederzeit 3 Force nutzen, um die oberste Karte deines Reserve Decks auf die Hand zu ziehen. Ist sie eine Weltraumkreatur, darfst du sie sofort kostenlos ausspielen."
     },
     {
       "id": "Light:976",
@@ -1147,7 +1176,8 @@
         "type": "Interrupt"
       },
       "set": "4",
-      "gempId": "4_51"
+      "gempId": "4_51",
+      "explanationDe": "Hast du einen Charakter mit Ability > 4 im Spiel, nutze 3 Force, um einen deiner vermissten Charaktere deiner Wahl wiederzufinden. ODER sieh während einer beliebigen Kontrollphase die oberste Karte deines Lost Piles an. Ist sie ein Charakter mit Ability < 3, nimm ihn auf die Hand."
     },
     {
       "id": "Light:1071",
@@ -1183,7 +1213,8 @@
         "printableSlipType": "ERRATA"
       },
       "set": "4",
-      "gempId": "4_77"
+      "gempId": "4_77",
+      "explanationDe": "Jedi-Test 1. Lege ihn an einer Dagobah-Site aus und wähle dort einen Mentor und einen Schüler. Den Schüler darfst du auch direkt aus der Hand dort ausspielen; örtliche Ausspielbeschränkungen werden dafür ignoriert, die normalen Force-Kosten bleiben. Mentor: eigener Charakter mit Ability > 2. Schüler: eigener Nicht-Droiden- und Nicht-Jedi-Charakter mit geringerer Ability als der Mentor. Sind beide zu Beginn deiner Kontrollphase am Test anwesend, ziehe Trainings-Destiny. Destiny + Ability des Schülers muss größer als 12 sein. Bei Erfolg kommt der Test auf den Schüler; sämtliche gegnerischen Force-Drain-Boni werden aufgehoben. Nach jedem abgeschlossenen Jedi-Test darfst du eine Handkarte gegen einen Jedi-Test aus deinem Lost Pile tauschen."
     },
     {
       "id": "Light:1084",
@@ -1217,7 +1248,8 @@
         "type": "Effect"
       },
       "set": "4",
-      "gempId": "4_24"
+      "gempId": "4_24",
+      "explanationDe": "Lege den Effect auf ein gelandetes Raumschiff außerhalb einer Docking Bay. Es darf sich nicht bewegen. ODER lege ihn auf ein Raumschiff oder Fahrzeug auf Dagobah. Dieses darf sich nicht bewegen und versinkt zu Beginn deiner nächsten Kontrollphase unter dem Lost Pile seines Besitzers."
     },
     {
       "id": "Light:1108",
@@ -1255,7 +1287,8 @@
         "printableSlipType": "ERRATA"
       },
       "set": "4",
-      "gempId": "4_10"
+      "gempId": "4_10",
+      "explanationDe": "Nutze 1 Force, um das Device an einem deiner Charaktere, Fahrzeuge oder Raumschiffe anzubringen; auf Han oder dem Falcon ist es kostenlos. Befindet es sich an Bord eines Fahrzeugs oder Raumschiffs, darfst du 1 Force nutzen, um einen darauf zielenden Interrupt oder Effect beliebiger Art aufzuheben, sofern dieser nicht gegen Alter oder Control immun ist."
     },
     {
       "id": "Light:1140",
@@ -1290,7 +1323,8 @@
         "uniqueness": "*"
       },
       "set": "4",
-      "gempId": "4_25"
+      "gempId": "4_25",
+      "explanationDe": "Nutze 2 Force und lege den Effect auf deine Tischseite. Du darfst jederzeit einen Kartentyp nennen. Nutze dann Force einzeln und decke jede benutzte Karte auf, bis du eine Karte dieses Typs findest und auf die Hand nimmst oder dein Force Pile leer ist."
     },
     {
       "id": "Light:1212",
@@ -1325,7 +1359,8 @@
         "type": "Interrupt"
       },
       "set": "4",
-      "gempId": "4_52"
+      "gempId": "4_52",
+      "explanationDe": "Nutze 3 Force. Bestimme für einen Interrupt oder Utinni Effect mit ausdrücklich genanntem Ziel ein anderes zulässiges Ziel derselben Machtseite. ODER versetze einen an einer Location liegenden Effect auf eine andere zulässige Location; gegen Alter immune Effects sind davon ausgenommen."
     },
     {
       "id": "Light:1303",
@@ -1359,7 +1394,8 @@
         "type": "Effect"
       },
       "set": "4",
-      "gempId": "4_26"
+      "gempId": "4_26",
+      "explanationDe": "Lege den Effect auf einen Effect oder Utinni Effect, der nicht gegen Alter immun ist. In jeder Nachziehphase seines Besitzers muss dieser entweder 1 Force verlieren oder den betroffenen Effect freiwillig aufheben, sofern du einen Asteroidensektor besetzt. Diese Karte selbst ist immun gegen Alter."
     },
     {
       "id": "Light:1332",
@@ -1392,7 +1428,8 @@
         "type": "Jedi Test #5"
       },
       "set": "4",
-      "gempId": "4_78"
+      "gempId": "4_78",
+      "explanationDe": "Jedi-Test 5. Lege ihn an einer Dagobah-Site aus und wähle einen Mentor auf Dagobah sowie einen Schüler mit abgeschlossenem Test 4. Ist der Schüler zu Beginn deiner Kontrollphase am Test anwesend, beginne die Meditation: Drehe ihn um; er darf sich nicht bewegen und hat Power 0. Am Ende deines nächsten Zuges wird er wieder aufgerichtet und der Test auf ihn gelegt. Er ist dann immun gegen Attrition < 4. Decke die obersten zwei Karten deines Reserve Decks auf und lege eine davon umgedreht auf den Schüler. Vor jeder späteren Destiny-Ziehung darfst du stattdessen diese Karte verwenden; sie bleibt zur erneuten Nutzung liegen."
     },
     {
       "id": "Light:1384",
@@ -1427,7 +1464,8 @@
         "type": "Interrupt"
       },
       "set": "4",
-      "gempId": "4_53"
+      "gempId": "4_53",
+      "explanationDe": "Nutze X Force; X = 7 − Ability deines Charakters mit der höchsten Ability im Spiel. Durchsuche deinen Used Pile und nimm eine beliebige Karte auf die Hand. Danach mischen und abheben lassen."
     },
     {
       "id": "Light:1464",
@@ -1462,7 +1500,8 @@
         "uniqueness": "**"
       },
       "set": "4",
-      "gempId": "4_11"
+      "gempId": "4_11",
+      "explanationDe": "Bringe das Device an einem deiner Raumjäger an. In jeder Kontrollphase darfst du ein anwesendes gegnerisches Großkampfschiff als Ziel wählen. Dein Jäger haftet dann verdeckt daran und bewegt sich automatisch mit ihm. Du darfst ihn jederzeit ablösen, auch wenn das Ziel gerade eine Bewegung beginnt."
     },
     {
       "id": "Light:1512",
@@ -1497,7 +1536,8 @@
         "type": "Interrupt"
       },
       "set": "4",
-      "gempId": "4_54"
+      "gempId": "4_54",
+      "explanationDe": "USED: Hebe Silence Is Golden oder Shut Him Up Or Shut Him Down auf. LOST: Durchsuche deinen Used Pile und nimm einen Droiden, ein Device oder Stone Pile auf die Hand. Danach mischen und abheben lassen."
     },
     {
       "id": "Light:1550",
@@ -1532,7 +1572,8 @@
         "type": "Interrupt"
       },
       "set": "4",
-      "gempId": "4_55"
+      "gempId": "4_55",
+      "explanationDe": "Hebe Dark Maneuvers, Emergency Deployment, Lone Pilot, I Want That Ship, Defensive Fire, Rogue Asteroid oder Take Evasive Action auf. ODER verdopple Special Modifications bis zum Zugende."
     },
     {
       "id": "Light:1585",
@@ -1567,7 +1608,8 @@
         "type": "Interrupt"
       },
       "set": "4",
-      "gempId": "4_56"
+      "gempId": "4_56",
+      "explanationDe": "Bestimme vor der Asteroiden-Destiny dieses Zuges einen gegnerischen Raumjäger, der an einem Asteroidensektor mit einem deiner Raumschiffe anwesend ist. Geht das Ziel in diesem Zug durch Asteroiden-Destiny verloren, verliert der Gegner zusätzlich Force in Höhe seines Forfeit-Werts."
     },
     {
       "id": "Light:1602",
@@ -1602,7 +1644,8 @@
         "uniqueness": "*"
       },
       "set": "4",
-      "gempId": "4_12"
+      "gempId": "4_12",
+      "explanationDe": "Bringe das Device an einem Charakter an. Dieser darf beliebig viele Devices tragen und nutzen. Er darf außerdem Yoda, Kabe oder einen beliebigen Jawa oder Ewok wie den Reiter eines Kreaturenfahrzeugs tragen. Trägt er den Mentor, erhält seine Trainings-Destiny +1."
     },
     {
       "id": "Light:1708",
@@ -1641,7 +1684,8 @@
         "printableSlipType": "ERRATA"
       },
       "set": "4",
-      "gempId": "4_57"
+      "gempId": "4_57",
+      "explanationDe": "Bestimme einen Raumjäger, der an einem Kampf an einem System oder Sektor teilnimmt. Bis zum Zugende darf er sich nicht bewegen und ist immun gegen Attrition. Wird er von einem Corellianer gesteuert, erhält er außerdem Power +2."
     },
     {
       "id": "Light:1719",
@@ -1692,7 +1736,8 @@
         "printableSlipType": "ERRATA"
       },
       "set": "4",
-      "gempId": "4_4"
+      "gempId": "4_4",
+      "explanationDe": "Lebensraum: unbegrenzt. Parasit für Raumjäger. Power und Hyperspeed des Wirts erhalten kumulativ −2 pro Mynock. Sind beide Werte unter 1, lösen sich die Mynocks einzeln in zufälliger Reihenfolge, bis diese Bedingung nicht mehr gilt; in diesem Zug dürfen sie nicht erneut anhaften. Bewegt sich wie ein Raumjäger."
     },
     {
       "id": "Light:1768",
@@ -1727,7 +1772,8 @@
         "uniqueness": "*"
       },
       "set": "4",
-      "gempId": "4_27"
+      "gempId": "4_27",
+      "explanationDe": "Schleuse den Effect in das gegnerische Reserve Deck ein. Erreicht er dessen Oberseite, wird er verloren. Jeder Spieler addiert dann bis zu drei seiner niedrigsten Charakter-Destiny-Werte im Spiel. Der Spieler mit der niedrigeren Summe verliert Force in Höhe der Differenz. Immun gegen Alter."
     },
     {
       "id": "Light:1785",
@@ -1762,7 +1808,8 @@
         "uniqueness": "*"
       },
       "set": "4",
-      "gempId": "4_28"
+      "gempId": "4_28",
+      "explanationDe": "Nutze 2 Force und lege den Effect auf deine Tischseite. Geht ein Rebell mit Ability > 2 während eines Kampfes mit einem gegnerischen Kopfgeldjäger verloren, statt gefangen genommen zu werden, verliert der Gegner 3 Force. Ist Vader im Spiel, geht außerdem ein von dir gewählter Kopfgeldjäger aus diesem Kampf verloren."
     },
     {
       "id": "Light:1799",
@@ -1812,7 +1859,8 @@
         "printableSlipType": "ERRATA"
       },
       "set": "4",
-      "gempId": "4_5"
+      "gempId": "4_5",
+      "explanationDe": "Ferocity = Destiny −4. Lebensraum: Planeten-Sites außer Hoth und Tatooine sowie Dark Waters. Absorbiert kumulativ ein anwesendes Dark-Side-Force-Icon, das dadurch vorübergehend aufgehoben wird. Kein Parasit."
     },
     {
       "id": "Light:1808",
@@ -1847,7 +1895,8 @@
         "uniqueness": "*"
       },
       "set": "4",
-      "gempId": "4_29"
+      "gempId": "4_29",
+      "explanationDe": "Nutze 4 Force, um den Effect an einer beliebigen Site auszulegen, falls der Gegner mindestens 3 Force mehr als du generiert. An dieser Site, benachbarten Sites und jeder Site mit Obi-Wan dürfen Spieler Force nur mit eigener Presence aktivieren."
     },
     {
       "id": "Light:1856",
@@ -1882,7 +1931,8 @@
         "uniqueness": "*"
       },
       "set": "4",
-      "gempId": "4_30"
+      "gempId": "4_30",
+      "explanationDe": "Nutze 2 Force und lege den Effect auf die gegnerische Tischseite. Am Ende jeder gegnerischen Kampfphase: Hat nicht an jedem Ort, an dem dann beide Spieler Presence haben, ein Kampf stattgefunden, verliert der Gegner 3 Force."
     },
     {
       "id": "Light:1920",
@@ -1916,7 +1966,8 @@
         "type": "Effect"
       },
       "set": "4",
-      "gempId": "4_31"
+      "gempId": "4_31",
+      "explanationDe": "Lege den Effect auf den Tisch. Alle Used Piles werden offen gedreht. Auch später dort abgelegte Karten liegen offen; Spieler müssen ihre Nutzung zusagen, bevor die Karten aufgedeckt werden. Beim regulären Zurückführen unter das Reserve Deck werden diese Karten wieder verdeckt."
     },
     {
       "id": "Light:1926",
@@ -1950,7 +2001,8 @@
         "type": "Device"
       },
       "set": "4",
-      "gempId": "4_13"
+      "gempId": "4_13",
+      "explanationDe": "Bringe das Device an einem Krieger an. Feuert er ein Blastergewehr oder eine Artilleriewaffe ab, erhält jede Destiny-Ziehung dieser Waffe +1. Außerdem darfst du einem anwesenden Droiden Power +1 geben."
     },
     {
       "id": "Light:1976",
@@ -1984,7 +2036,8 @@
         "type": "Effect"
       },
       "set": "4",
-      "gempId": "4_32"
+      "gempId": "4_32",
+      "explanationDe": "Lege den Effect auf deine Tischseite. Einmal während jeder deiner Nachziehphasen darfst du 2 Force nutzen, deinen Lost Pile nach einem beliebigen Blaster durchsuchen und ihn sofort kostenlos ausspielen."
     },
     {
       "id": "Light:2014",
@@ -2024,7 +2077,8 @@
         "uniqueness": "*"
       },
       "set": "4",
-      "gempId": "4_90"
+      "gempId": "4_90",
+      "explanationDe": "Light-Seite: Kontrollierst du das System, erhalten alle gegnerischen Trooper Forfeit −1 und Destiny −1. Dark-Seite: Kontrollierst du das System, darfst du dein konvertiertes Raithal-System wieder nach oben legen."
     },
     {
       "id": "Light:2037",
@@ -2061,7 +2115,8 @@
         "printableSlipType": "ERRATA"
       },
       "set": "4",
-      "gempId": "4_14"
+      "gempId": "4_14",
+      "explanationDe": "Bringe das Device an deinem Piloten-Charakter an. Steuert er einen Raumjäger, ein Kampffahrzeug oder ein Shuttlefahrzeug, gilt er als passender Pilot: Maneuver +2, insgesamt höchstens +2 aus diesem passenden Pilotenbonus, und ein Battle-Destiny-Draw, falls er sonst keinen ziehen könnte."
     },
     {
       "id": "Light:2055",
@@ -2099,7 +2154,8 @@
         "printableSlipType": "ERRATA"
       },
       "set": "4",
-      "gempId": "4_58"
+      "gempId": "4_58",
+      "explanationDe": "Nutze 3 Force. Jeder Spieler legt seine Hand, soweit möglich, auf sein Reserve Deck, dann seinen Used Pile darauf und mischt. Anschließend zieht jeder aus seinem Reserve Deck so viele Karten, wie er gerade aus der Hand auf dieses Deck gelegt hat."
     },
     {
       "id": "Light:2078",
@@ -2137,7 +2193,8 @@
         "printableSlipType": "ERRATA"
       },
       "set": "4",
-      "gempId": "4_33"
+      "gempId": "4_33",
+      "explanationDe": "Lege den Effect auf Leia. Einmal während jeder deiner Kontrollphasen darfst du 3 Force nutzen, um 1 Force zurückzuholen. Ist Leia Schülerin, erhält sie außerdem Trainings-Destiny +1."
     },
     {
       "id": "Light:2089",
@@ -2173,7 +2230,8 @@
         "uniqueness": "*"
       },
       "set": "4",
-      "gempId": "4_34"
+      "gempId": "4_34",
+      "explanationDe": "Spiele diesen Utinni Effect nach einem gerade gewonnenen Kampf auf Vader und bestimme einen Imperialen aus diesem Kampf als Ziel. Vader und das Ziel erhalten Power −4 und Forfeit −4. Erreicht das Ziel Vader, wird der Effect verloren und du ziehst Destiny. Bei Destiny > 2 geht das Ziel verloren."
     },
     {
       "id": "Light:2104",
@@ -2210,7 +2268,8 @@
         "printableSlipType": "ERRATA"
       },
       "set": "4",
-      "gempId": "4_15"
+      "gempId": "4_15",
+      "explanationDe": "Bringe das Device an einem R-Einheit-Droiden an; er erhält die Diebesfähigkeit. Einmal während jeder deiner Kontrollphasen darfst du 1 Force nutzen, um eine anwesende Waffe oder ein Device als Ziel zu wählen. Ziehe Destiny: Bei Destiny > 2 wird das Ziel gestohlen und darf anschließend kostenlos weitergegeben werden. Der Droide darf nicht durch Disarmed entwaffnet werden."
     },
     {
       "id": "Light:2124",
@@ -2248,7 +2307,8 @@
         "printableSlipType": "ERRATA"
       },
       "set": "4",
-      "gempId": "4_35"
+      "gempId": "4_35",
+      "explanationDe": "Lege den Effect an einem Asteroidensektor aus und bestimme seine anfängliche Richtung. In jeder Bewegungsphase zieht er zum nächsten benachbarten Asteroidensektor und kehrt nötigenfalls die Richtung um. An seinem Ort erhält Asteroiden-Destiny +2. Raumschiffwaffen dürfen ihn mit Verteidigungswert 3 als Ziel wählen."
     },
     {
       "id": "Light:2143",
@@ -2284,7 +2344,8 @@
         "uniqueness": "*"
       },
       "set": "4",
-      "gempId": "4_36"
+      "gempId": "4_36",
+      "explanationDe": "Lege den Utinni Effect an einem Big One aus. X ist das Doppelte der Asteroidensektoren an diesem System. Bestimme einen Raumjäger am verwandten Planetensystem als Ziel. Erreicht er den Effect, verschiebe diesen zum Planetensystem. Kehrt der Jäger danach zum System zurück, wird der Effect verloren und du holst X Force zurück."
     },
     {
       "id": "Light:2184",
@@ -2319,7 +2380,8 @@
         "uniqueness": "*"
       },
       "set": "4",
-      "gempId": "4_37"
+      "gempId": "4_37",
+      "explanationDe": "Lege den Effect auf die gegnerische Tischseite. Gegnerische Piloten außer Vader, die an Sites anwesend sind, dürfen ihre Ability nicht für Battle Destiny verwenden. Der Effect wird aufgehoben, sobald der Gegner keine Piloten mehr an Sites hat."
     },
     {
       "id": "Light:2257",
@@ -2355,7 +2417,8 @@
         "uniqueness": "*"
       },
       "set": "4",
-      "gempId": "4_59"
+      "gempId": "4_59",
+      "explanationDe": "Nur mit einem eigenen Droiden im Spiel: Hebe einen gerade begonnenen Kreaturenangriff auf. ODER bewege sofort eine gegnerische Kreatur, die nicht an einem Wirt haftet, an einen benachbarten Ort; ihr Lebensraum muss die Bewegung erlauben."
     },
     {
       "id": "Light:2272",
@@ -2388,7 +2451,8 @@
         "type": "Jedi Test #4"
       },
       "set": "4",
-      "gempId": "4_79"
+      "gempId": "4_79",
+      "explanationDe": "Jedi-Test 4. Lege ihn an Dagobah: Swamp oder Dagobah: Bog Clearing aus. Wähle einen Mentor auf Dagobah und einen Schüler mit abgeschlossenem Test 3. Ist der Schüler zu Beginn deiner Kontrollphase am Test anwesend, ziehe Trainings-Destiny: Destiny + seine Ability muss größer als 15 sein. Bei Erfolg kommt der Test auf den Schüler; er ist immun gegen Attrition < 3. Einmal während jeder deiner Kontrollphasen darfst du danach 2 Force nutzen, dein Reserve Deck nach einer beliebigen Karte durchsuchen und diese auf die Hand nehmen. Anschließend mischen und abheben lassen."
     },
     {
       "id": "Light:2286",
@@ -2423,7 +2487,8 @@
         "uniqueness": "*"
       },
       "set": "4",
-      "gempId": "4_38"
+      "gempId": "4_38",
+      "explanationDe": "Lege den Effect auf einen Schmuggler. Du darfst 2 Force nutzen, um Limited Resources aufzuheben. Wurde der Schmuggler von Rycar Ryjerd ausgebildet und steuert er ein Schiff, das Kessel Run, Rycar’s Run oder The First Transport Is Away abschließt, darf dabei zurückgeholte Force auf die Hand genommen werden."
     },
     {
       "id": "Light:2304",
@@ -2476,7 +2541,8 @@
       "gempId": "4_1",
       "personas": [
         "Luke"
-      ]
+      ],
+      "explanationDe": "Darf nur auf Dagobah oder Cloud City ausgespielt werden. Gibt dem Fahrzeug oder Raumschiff, das er steuert, Power +2. Einmal pro Partie darfst du während deiner Ausspielen-Phase ein Lichtschwert kostenlos aus deinem Reserve Deck auf Luke ausspielen; danach neu mischen. Immun gegen Attrition < 4."
     },
     {
       "id": "Light:2313",
@@ -2521,7 +2587,8 @@
         "printableSlipType": "ERRATA"
       },
       "set": "4",
-      "gempId": "4_6"
+      "gempId": "4_6",
+      "explanationDe": "Ferocity = zwei Destiny-Ziehungen. Lebensraum: Big One; seine Cave wird dann zum Belly. Greift Raumjäger an. Besiegte Karten werden gefressen oder in den Belly versetzt; der Gegner des Opfers entscheidet. Einmal pro Zug darf das Maul geöffnet oder geschlossen werden."
     },
     {
       "id": "Light:2344",
@@ -2556,7 +2623,8 @@
         "type": "Interrupt"
       },
       "set": "4",
-      "gempId": "4_60"
+      "gempId": "4_60",
+      "explanationDe": "USED: Hebe Awwww, Cannot Get Your Ship Out auf. LOST: Nutze 1 Force und ziehe Destiny. Ist sie kleiner als die Ability deines Charakters mit der höchsten Ability im Spiel, durchsuche deinen Used Pile nach einem Raumschiff und nimm es auf die Hand. Danach mischen und abheben lassen."
     },
     {
       "id": "Light:2352",
@@ -2594,7 +2662,8 @@
         "printableSlipType": "ERRATA"
       },
       "set": "4",
-      "gempId": "4_39"
+      "gempId": "4_39",
+      "explanationDe": "Nutze 2 Force und lege den Effect an einer beliebigen Dagobah-Site aus. Wähle zufällig zwei gegnerische Handkarten und lege sie ungesehen verdeckt darunter. Verlässt der Effect den Tisch, kehren sie auf die gegnerische Hand zurück. Der Effect wird aufgehoben, wenn der Gegner die Site besetzt."
     },
     {
       "id": "Light:2539",
@@ -2629,7 +2698,8 @@
         "uniqueness": "*"
       },
       "set": "4",
-      "gempId": "4_40"
+      "gempId": "4_40",
+      "explanationDe": "Nutze 3 Force und lege den Effect auf deine Tischseite; mit C-3PO im Spiel ist das Ausspielen kostenlos. Hast du in einem Kampf einen Protokolldroiden an Bord eines Raumschiffs oder Fahrzeugs, darfst du X Force nutzen, um deinen Battle Damage um X zu verringern; mit einem Nav-Computer-Charakter an Bord um X +1."
     },
     {
       "id": "Light:2561",
@@ -2665,7 +2735,8 @@
         "uniqueness": "*"
       },
       "set": "4",
-      "gempId": "4_61"
+      "gempId": "4_61",
+      "explanationDe": "Nutze 1 Force und bestimme ein Raumschiff an einem Asteroidensektor oder einem zerstörten System als Ziel. Bis zum Zugende darfst du Destiny-Gesamtsummen, die sich gegen Armor oder Maneuver dieses Schiffs richten, um 2 erhöhen."
     },
     {
       "id": "Light:2573",
@@ -2700,7 +2771,8 @@
         "type": "Interrupt"
       },
       "set": "4",
-      "gempId": "4_62"
+      "gempId": "4_62",
+      "explanationDe": "Verliere während eines Kampfes X Force, um die Attrition gegen dich um X zu verringern. ODER hebe This Is Just Wrong auf."
     },
     {
       "id": "Light:2574",
@@ -2735,7 +2807,8 @@
         "type": "Interrupt"
       },
       "set": "4",
-      "gempId": "4_63"
+      "gempId": "4_63",
+      "explanationDe": "Versetze einen Raumjäger kostenlos von einem Big One zur verwandten Site oder zurück. Ein geschlossenes Space-Slug-Maul wird dabei geöffnet. Ist ein Schmuggler an Bord, ist der Jäger bis zum Ende deines nächsten Zuges immun gegen Attrition und erhält Asteroiden-Destiny −5. ODER hebe Corrosive Damage auf."
     },
     {
       "id": "Light:2585",
@@ -2770,7 +2843,8 @@
         "type": "Interrupt"
       },
       "set": "4",
-      "gempId": "4_64"
+      "gempId": "4_64",
+      "explanationDe": "Am Ende der Nachziehphase eines beliebigen Spielers legt dieser seinen Used Pile offen auf sein Reserve Deck und mischt es; danach abheben lassen. Werden diese offenen Karten später aus dem Reserve Deck entfernt, gelten sie wieder als normale Karten und bleiben nicht offen."
     },
     {
       "id": "Light:2605",
@@ -2806,7 +2880,8 @@
         "uniqueness": "*"
       },
       "set": "4",
-      "gempId": "4_65"
+      "gempId": "4_65",
+      "explanationDe": "Hast du ein einzelnes Fahrzeug oder einen einzelnen Raumjäger in einem Kampf oder Attack Run an Beggar’s Canyon, Cloud City, Death Star: Trench oder einem Asteroidensektor, nutze 1 Force. Am Ende dieses Kampfes oder Attack Runs muss der Gegner zwei teilnehmende Fahrzeuge oder Raumjäger forfeiten."
     },
     {
       "id": "Light:2629",
@@ -2841,7 +2916,8 @@
         "type": "Interrupt"
       },
       "set": "4",
-      "gempId": "4_66"
+      "gempId": "4_66",
+      "explanationDe": "Hebe ein Hologramm auf. ODER nutze 3 Force und ziehe Destiny. Addiere 1 je Asteroidensektor im Spiel. Bei einer Gesamtsumme > 3 wird die imperiale Holotable-Site zerstört; der Gegner verliert 4 Force."
     },
     {
       "id": "Light:2643",
@@ -2876,7 +2952,8 @@
         "type": "Interrupt"
       },
       "set": "4",
-      "gempId": "4_67"
+      "gempId": "4_67",
+      "explanationDe": "Durchsuche deinen Force Pile und nimm eine beliebige Karte auf die Hand. Danach mischen und abheben lassen."
     },
     {
       "id": "Light:2718",
@@ -2927,7 +3004,8 @@
         "printableSlipType": "ERRATA"
       },
       "set": "4",
-      "gempId": "4_7"
+      "gempId": "4_7",
+      "explanationDe": "Lebensraum: Planeten-Sites außer Hoth. Parasit für Nicht-Droiden-Charaktere. X beginnt bei 0. Ziehe in jeder Bewegungsphase Destiny; jedes Mal, wenn sie die Ability des Wirts übertrifft, steigt X um 1. Der Wirt erhält Power −X und wird bei Power 0 gefressen."
     },
     {
       "id": "Light:2722",
@@ -2963,7 +3041,8 @@
         "uniqueness": "**"
       },
       "set": "4",
-      "gempId": "4_68"
+      "gempId": "4_68",
+      "explanationDe": "Nenne einen Interrupt. Der Gegner deckt seinen gesamten Used Pile ohne Mischen auf. Wähle danach: USED: Der Gegner verliert 1 Force je gefundenem Exemplar dieses Interrupts. LOST: Jedes gefundene Exemplar wird verloren."
     },
     {
       "id": "Light:2741",
@@ -2998,7 +3077,8 @@
         "uniqueness": "*"
       },
       "set": "4",
-      "gempId": "4_41"
+      "gempId": "4_41",
+      "explanationDe": "Lege den Effect an einer beliebigen Location aus. Jeder Spieler muss überall 1 zusätzliche Force nutzen, wenn er einen Kampf oder Force Drain beginnt. Der Effect wird aufgehoben, wenn der Gegner seinen Standort kontrolliert."
     },
     {
       "id": "Light:2749",
@@ -3034,7 +3114,8 @@
         "uniqueness": "*"
       },
       "set": "4",
-      "gempId": "4_69"
+      "gempId": "4_69",
+      "explanationDe": "USED: Durchsuche dein Reserve Deck nach Collision! oder Egregious Pilot Error und nimm die Karte auf die Hand. Danach mischen und abheben lassen. LOST: Beginnt der Gegner gerade einen Kampf mit mindestens zwei Großkampfschiffen an einem System, an dem du nur einen einzelnen Raumjäger hast, erhältst du zwei zusätzliche Battle-Destiny-Draws."
     },
     {
       "id": "Light:2752",
@@ -3069,7 +3150,8 @@
         "type": "Interrupt"
       },
       "set": "4",
-      "gempId": "4_70"
+      "gempId": "4_70",
+      "explanationDe": "USED: Hebe Res Luk Ra’auf auf. LOST: Sind zwei Kopfgeldjäger oder ein Imperialer und ein Kopfgeldjäger gemeinsam in einem Kampf, nutze 2 Force und ziehe zweimal Destiny. Ziehe die Summe von der gegnerischen Attrition und Gesamt-Power ab; beide Werte können nicht unter 0 fallen."
     },
     {
       "id": "Light:2799",
@@ -3105,7 +3187,8 @@
         "uniqueness": "*"
       },
       "set": "4",
-      "gempId": "4_71"
+      "gempId": "4_71",
+      "explanationDe": "Wurde einer deiner Charaktere gerade von Dragonsnake, Rancor, Sarlacc, Dianoga oder Wampa besiegt, wird er statt gefressen nach Möglichkeit an eine benachbarte Site geschleudert und damit dorthin versetzt."
     },
     {
       "id": "Light:2800",
@@ -3144,7 +3227,8 @@
         "printableSlipType": "ERRATA"
       },
       "set": "4",
-      "gempId": "4_42"
+      "gempId": "4_42",
+      "explanationDe": "Lege den Utinni Effect auf den Emperor oder ein beliebiges System. Bestimme einen Charakter mit dem Wort „Emperor“ in seiner Lore als Ziel. Dieser darf seine Ability nicht für Battle Destiny verwenden und zählt nicht als Charakter mit der höchsten Ability. Der Effect wird aufgehoben, sobald das Ziel ihn erreicht."
     },
     {
       "id": "Light:2865",
@@ -3190,7 +3274,8 @@
       "gempId": "4_2",
       "personas": [
         "Yoda"
-      ]
+      ],
+      "explanationDe": "Yoda darf nur auf Dagobah ausgespielt werden, sich danach aber auch anderswohin bewegen. Als Mentor gibt er Trainings-Destiny +1. Wo er anwesend ist, finden keine Kämpfe oder Angriffe statt, solange dort kein Dark-Side-Charakter mit Ability > 3 anwesend ist. Yoda ist immun gegen Attrition."
     },
     {
       "id": "Light:2867",
@@ -3226,7 +3311,8 @@
         "uniqueness": "*"
       },
       "set": "4",
-      "gempId": "4_72"
+      "gempId": "4_72",
+      "explanationDe": "Lege während des gegnerischen Zuges bis zu vier Karten aus deiner Hand oben auf deinen Force Pile."
     },
     {
       "id": "Light:2871",
@@ -3262,7 +3348,8 @@
         "uniqueness": "*"
       },
       "set": "4",
-      "gempId": "4_73"
+      "gempId": "4_73",
+      "explanationDe": "Ist Yoda verloren, nutze 1 Force, um ihn aus deinem Lost Pile zurückzuholen. ODER nutze 3 Force, durchsuche dein Reserve Deck nach Yoda und nimm ihn auf die Hand. Danach mischen und abheben lassen."
     },
     {
       "id": "Light:2872",
@@ -3297,7 +3384,8 @@
         "uniqueness": "*"
       },
       "set": "4",
-      "gempId": "4_43"
+      "gempId": "4_43",
+      "explanationDe": "Bringe das Device an Yoda an. Du darfst dort, wo er anwesend ist, Kämpfe und Angriffe beginnen. ODER nutze 2 Force und bringe es an einem deiner Charaktere mit Ability > 3 an. Dieser ist immun gegen Attrition. Wo er anwesend ist, dürfen Kämpfe und Angriffe nur begonnen werden, wenn dort ein gegnerischer Charakter mit Ability > 3 anwesend ist."
     },
     {
       "id": "Light:2873",
@@ -3332,7 +3420,8 @@
         "uniqueness": "*"
       },
       "set": "4",
-      "gempId": "4_44"
+      "gempId": "4_44",
+      "explanationDe": "Lege den Effect auf einen Charakter. Auf einem Mentor gibt er Trainings-Destiny +1. Liegt er auf Yoda, darfst du den Effect verlieren, dein Reserve Deck nach einer Karte mit „levitation“ im Titel durchsuchen und sie auf die Hand nehmen. Danach mischen und abheben lassen."
     },
     {
       "id": "Light:2880",
@@ -3371,7 +3460,8 @@
         "printableSlipType": "ERRATA"
       },
       "set": "4",
-      "gempId": "4_74"
+      "gempId": "4_74",
+      "explanationDe": "Setze zu Beginn des Damage-Segments eines Kampfes, bevor Karten forfeitet wurden, die gesamte Attrition beider Seiten auf 0."
     },
     {
       "id": "Dark:4",
@@ -3406,7 +3496,8 @@
         "uniqueness": "*"
       },
       "set": "4",
-      "gempId": "4_114"
+      "gempId": "4_114",
+      "explanationDe": "Schleuse den Effect in das gegnerische Reserve Deck ein. Erreicht er dessen Oberseite, wird er verloren. Jeder Spieler addiert dann bis zu drei seiner niedrigsten Charakter-Destiny-Werte im Spiel. Der Spieler mit der niedrigeren Summe verliert Force in Höhe der Differenz. Immun gegen Alter."
     },
     {
       "id": "Dark:9",
@@ -3460,7 +3551,8 @@
       "gempId": "4_91",
       "personas": [
         "4-LOM"
-      ]
+      ],
+      "explanationDe": "Deine Gesamt-Power an derselben Site steigt um 1 je dort anwesendem eigenen Alien-Droiden-Paar. Einmal pro Kampf darf 4-LOM, wenn er mit Zuckuss anwesend ist, 1 Force nutzen, einen beliebigen Used Pile durchsuchen und einen Charakter daraus in den Lost Pile verschieben. Er darf Kämpfe beginnen und angegriffen werden."
     },
     {
       "id": "Dark:11",
@@ -3506,7 +3598,8 @@
       "gempId": "4_174",
       "personas": [
         "4-LOM's Concussion Rifle"
-      ]
+      ],
+      "explanationDe": "Nutze 4 Force, um die Waffe an deinem Krieger auszuspielen; auf 4-LOM ist sie kostenlos. Sie darf kostenlos einen Charakter oder eine Kreatur an derselben Site oder einer bis zu zwei Sites entfernten äußeren Site als Ziel wählen. Ziehe Destiny; mit angebrachtem Blaster Scope +1. Das Ziel wird getroffen, wenn Gesamt-Destiny − Entfernung größer als sein Verteidigungswert ist."
     },
     {
       "id": "Dark:17",
@@ -3542,7 +3635,8 @@
         "uniqueness": "*"
       },
       "set": "4",
-      "gempId": "4_136"
+      "gempId": "4_136",
+      "explanationDe": "USED: Sieh die Karten im gegnerischen Force Pile an, ordne sie beliebig neu und lege sie zurück. LOST: Durchsuche dein Reserve Deck nach Dark Forces und nimm die Karte auf die Hand. Danach mischen und abheben lassen."
     },
     {
       "id": "Dark:112",
@@ -3582,7 +3676,8 @@
         "uniqueness": "*"
       },
       "set": "4",
-      "gempId": "4_154"
+      "gempId": "4_154",
+      "explanationDe": "Dark-Seite: Beginnt der Gegner hier einen Kampf, dürfen deine Raumschiffe als React zum nächstgelegenen verwandten Asteroidensektor oder von dort hierher ziehen. Light-Seite: Kontrollierst du das System, erhalten alle gegnerischen Ugnaughts im Spiel Forfeit −1."
     },
     {
       "id": "Dark:121",
@@ -3618,7 +3713,8 @@
         "uniqueness": "*"
       },
       "set": "4",
-      "gempId": "4_137"
+      "gempId": "4_137",
+      "explanationDe": "Am Ende einer beliebigen Kampfphase darfst du einen deiner Imperialen mit Ability < 6 verlieren, der einen von dir in diesem Zug verlorenen Kampf überlebt hat. Aktiviere dann bis zu seinem Forfeit-Wert oder bis zur Höhe deines Battle Damage aus diesem Kampf Force; wähle eine dieser beiden Grenzen."
     },
     {
       "id": "Dark:148",
@@ -3657,7 +3753,8 @@
         "uniqueness": "<><><>"
       },
       "set": "4",
-      "gempId": "4_155"
+      "gempId": "4_155",
+      "explanationDe": "Beide Textseiten: Hier gelten die Asteroidenregeln. Dark-Seite: Kontrollierst du diesen Sektor, darfst du einen Force Drain am verwandten System aufheben."
     },
     {
       "id": "Dark:176",
@@ -3708,7 +3805,8 @@
         "uniqueness": "*"
       },
       "set": "4",
-      "gempId": "4_166"
+      "gempId": "4_166",
+      "explanationDe": "Kapazität: 6 Piloten, 8 Passagiere, 2 Fahrzeuge und 4 TIEs. Kann an andere Schiffe andocken. Der permanente Pilot stellt Ability 2 bereit. Asteroiden-Destiny gegen Avenger erhält −2."
     },
     {
       "id": "Dark:181",
@@ -3742,7 +3840,8 @@
         "type": "Effect"
       },
       "set": "4",
-      "gempId": "4_115"
+      "gempId": "4_115",
+      "explanationDe": "Lege den Effect auf ein gelandetes Raumschiff außerhalb einer Docking Bay. Es darf sich nicht bewegen. ODER lege ihn auf ein Raumschiff oder Fahrzeug auf Dagobah. Dieses darf sich nicht bewegen und versinkt zu Beginn deiner nächsten Kontrollphase im Used Pile seines Besitzers."
     },
     {
       "id": "Dark:185",
@@ -3777,7 +3876,8 @@
         "uniqueness": "*"
       },
       "set": "4",
-      "gempId": "4_116"
+      "gempId": "4_116",
+      "explanationDe": "Lege den Effect auf die gegnerische Tischseite. Luke, Leia, Han, Chewie, Lando, Yoda und Obi-Wan kosten beim Ausspielen jeweils 2 Force mehr. Außerdem darf der Gegner keine Karten mit den Wörtern „bad feeling“ im Titel spielen."
     },
     {
       "id": "Dark:235",
@@ -3816,7 +3916,8 @@
         "uniqueness": "<>"
       },
       "set": "4",
-      "gempId": "4_156"
+      "gempId": "4_156",
+      "explanationDe": "Beide Textseiten: Hier gelten die Asteroidenregeln. Dark-Seite: Wenn du kontrollierst, erhält dein Force Drain hier +1 je Asteroid Field am selben System. Light-Seite: Wenn du kontrollierst, erhält dein Force Drain hier +1."
     },
     {
       "id": "Dark:237",
@@ -3861,7 +3962,8 @@
         "uniqueness": "<>"
       },
       "set": "4",
-      "gempId": "4_157"
+      "gempId": "4_157",
+      "explanationDe": "Beide Textseiten: Hier gelten die Höhlenregeln. Dark-Seite: Kontrollierst du diesen Ort, darfst du Force Drains am System aufheben, das mit dem zugehörigen Big One verwandt ist."
     },
     {
       "id": "Dark:296",
@@ -3912,7 +4014,8 @@
         "printableSlipType": "ERRATA"
       },
       "set": "4",
-      "gempId": "4_108"
+      "gempId": "4_108",
+      "explanationDe": "Ferocity = Destiny −1. Lebensraum: Dagobah. Parasit für Charaktere, die sich bewegen können. Der Gegner des Opfers versetzt Bog-wing und Wirt um bis zu zwei Sites. Danach löst sich der Bog-wing ab."
     },
     {
       "id": "Dark:299",
@@ -3948,7 +4051,8 @@
         "uniqueness": "<>"
       },
       "set": "4",
-      "gempId": "4_117"
+      "gempId": "4_117",
+      "explanationDe": "Lege den Effect an einer nicht ausschließlich inneren Planeten-Site außer Dagobah aus. Zu Beginn deiner Bewegungsphase darfst du ihn an eine benachbarte nicht ausschließlich innere Site versetzen. Deine Bomber an einem verwandten System, das du kontrollierst, dürfen zu dieser Site ziehen. Am Ende deiner Kampfphase müssen sie, falls möglich, zum System zurückkehren."
     },
     {
       "id": "Dark:308",
@@ -4002,7 +4106,8 @@
       "gempId": "4_92",
       "personas": [
         "Bossk"
-      ]
+      ],
+      "explanationDe": "Gibt dem Fahrzeug oder Raumschiff, das er steuert, Power +2. Steuert er Hound’s Tooth, zieht er eine Battle Destiny, falls sonst keine möglich wäre. In Kämpfen an derselben Site erhält die Attrition gegen den Gegner +1. Ist Bossk anwesend, darf er Chewies Forfeit dort auf 0 setzen."
     },
     {
       "id": "Dark:312",
@@ -4041,7 +4146,8 @@
       "gempId": "4_175",
       "personas": [
         "Bossk's Mortar Gun"
-      ]
+      ],
+      "explanationDe": "Ausspielen auf Bossk kostet 2 Force, auf einem anderen Krieger 4 Force. Feuern kostet 2 Force: Ziehe Destiny. Bei Destiny > 0 geht eine Karte deiner Wahl mit diesem Destiny-Wert an derselben Site verloren. Bei Destiny = 0 explodiert die Waffe und der schießende Krieger geht verloren."
     },
     {
       "id": "Dark:336",
@@ -4076,7 +4182,8 @@
         "uniqueness": "*"
       },
       "set": "4",
-      "gempId": "4_118"
+      "gempId": "4_118",
+      "explanationDe": "Lege den Effect auf deine Tischseite. Schüler erhalten Trainings-Destiny −X; X = Ability des Schülers − Nummer des Jedi-Tests, mindestens 0. Einmal pro Zug darfst du außerdem 2 Force nutzen, um die oberste Karte des gegnerischen Force Piles auf dessen Reserve Deck zu legen."
     },
     {
       "id": "Dark:366",
@@ -4132,6 +4239,7 @@
       },
       "set": "4",
       "gempId": "4_93",
+      "explanationDe": "Gibt dem Fahrzeug oder Raumschiff, das er steuert, Power +2. Steuert er Avenger, ist das Schiff außerdem immun gegen Attrition < 4. Geeignete Utinni Effects dürfen auf Needa umgelenkt werden. Nimmt Needa an einem Kampf teil, dürfen deine anderen nicht getroffenen Charaktere dort nicht forfeitet werden.",
       "preErrata": {
         "sourceId": 20020,
         "gametext": "Adds 2 to power of anything he pilots. When piloting Avenger, that starship is also immune to attrition < 4. You may re-target applicable Utinni Effects to Needa. If in a battle where you choose to forfeit characters, you must forfeit Needa first."
@@ -4171,7 +4279,8 @@
         "uniqueness": "*"
       },
       "set": "4",
-      "gempId": "4_138"
+      "gempId": "4_138",
+      "explanationDe": "USED: Hebe eine Asteroiden-Destiny auf und lasse sie erneut ziehen. LOST: Verliere 1 Force. Der Gegner deckt die oberste Karte von Reserve Deck, Force Pile und Used Pile auf. Unter diesen Karten gehen alle mit dem niedrigsten Destiny-Wert größer als 0 verloren."
     },
     {
       "id": "Dark:490",
@@ -4216,7 +4325,8 @@
         "printableSlipType": "ERRATA"
       },
       "set": "4",
-      "gempId": "4_94"
+      "gempId": "4_94",
+      "explanationDe": "Gibt dem Fahrzeug oder Raumschiff, das er steuert, Power +2. Dieses Fahrzeug oder Schiff bewegt sich außerdem kostenlos."
     },
     {
       "id": "Dark:491",
@@ -4267,7 +4377,8 @@
         "printableSlipType": "ERRATA"
       },
       "set": "4",
-      "gempId": "4_95"
+      "gempId": "4_95",
+      "explanationDe": "Gibt dem Fahrzeug oder Raumschiff, das er steuert, Power +2. Einmal während jeder deiner Kontrollphasen darf er an Bord eines Star Destroyers oder an einer Docking Bay 1 Force nutzen, dein Reserve Deck nach einem TIE durchsuchen und ihn auf die Hand nehmen. Danach neu mischen."
     },
     {
       "id": "Dark:495",
@@ -4312,7 +4423,8 @@
         "uniqueness": "*"
       },
       "set": "4",
-      "gempId": "4_96"
+      "gempId": "4_96",
+      "explanationDe": "An Bord der Executor, auch an einer Executor-Site, darf er einmal während jeder deiner Ausspielen-Phasen 2 Force nutzen, dein Reserve Deck nach einer Executor-Site durchsuchen und sie auf die Hand nehmen. Danach mischen und abheben lassen."
     },
     {
       "id": "Dark:501",
@@ -4360,7 +4472,8 @@
         "printableSlipType": "ERRATA"
       },
       "set": "4",
-      "gempId": "4_97"
+      "gempId": "4_97",
+      "explanationDe": "Gibt dem Fahrzeug oder Raumschiff, das er steuert, Power +1 und Maneuver +1. Der Gegner darf keine React-Bewegung zu Nemets Standort oder von dort weg durchführen."
     },
     {
       "id": "Dark:520",
@@ -4395,7 +4508,8 @@
         "type": "Interrupt"
       },
       "set": "4",
-      "gempId": "4_139"
+      "gempId": "4_139",
+      "explanationDe": "Hebe eine Sense- oder Alter-Karte auf; diese Variante ist immun gegen Sense. ODER hebe einen Immediate Effect, einen Mobile Effect oder einen Force Drain auf."
     },
     {
       "id": "Dark:538",
@@ -4440,7 +4554,8 @@
         "uniqueness": "*"
       },
       "set": "4",
-      "gempId": "4_98"
+      "gempId": "4_98",
+      "explanationDe": "Power +1 an jeder Executor-Site. An Detention Block Corridor hebt er den Spieltext von Detention Block Control Room auf. Er darf 1 Force nutzen, dein Reserve Deck nach IT-O oder Hypo durchsuchen und die Karte auf die Hand nehmen. Danach mischen und abheben lassen."
     },
     {
       "id": "Dark:551",
@@ -4485,7 +4600,8 @@
         "uniqueness": "*"
       },
       "set": "4",
-      "gempId": "4_99"
+      "gempId": "4_99",
+      "explanationDe": "Er darf 1 Force nutzen, dein Reserve Deck nach Spice Mines Of Kessel oder Detention Block Corridor durchsuchen und die Karte auf die Hand nehmen. Danach mischen und abheben lassen. Befindet er sich an einer mobilen Site, ist We Have A Prisoner ein Used Interrupt."
     },
     {
       "id": "Dark:554",
@@ -4520,7 +4636,8 @@
         "uniqueness": "<>"
       },
       "set": "4",
-      "gempId": "4_119"
+      "gempId": "4_119",
+      "explanationDe": "Lege den Effect an Space Slug Belly aus. Am Ende jedes Spielerzuges verliert der aktive Spieler 1 Force für jeden seiner dort anwesenden Charaktere und jedes seiner dort anwesenden Raumschiffe. Der Effect wird aufgehoben, wenn der Space Slug verloren geht."
     },
     {
       "id": "Dark:599",
@@ -4563,7 +4680,8 @@
         "uniqueness": "*"
       },
       "set": "4",
-      "gempId": "4_158"
+      "gempId": "4_158",
+      "explanationDe": "Dark-Seite: Hat der Gegner hier Presence, werden deine Force-Icons hier aufgehoben. Light-Seite: In jeder deiner Kontrollphasen verlierst du 1 Force, falls Yoda im Spiel, aber nicht auf Dagobah ist."
     },
     {
       "id": "Dark:688",
@@ -4599,7 +4717,8 @@
         "uniqueness": "*"
       },
       "set": "4",
-      "gempId": "4_140"
+      "gempId": "4_140",
+      "explanationDe": "Hebe Rogue Asteroid auf. ODER wähle zufällig eine gegnerische Handkarte und lege sie ungesehen in den gegnerischen Used Pile."
     },
     {
       "id": "Dark:700",
@@ -4655,7 +4774,8 @@
       "gempId": "4_100",
       "personas": [
         "Dengar"
-      ]
+      ],
+      "explanationDe": "Gibt dem Fahrzeug oder Raumschiff, das er steuert, Power +2. Dengar erhält Power +1 für jeden anwesenden gegnerischen Charakter. Ist er anwesend, darf er Hans Forfeit auf 0 setzen."
     },
     {
       "id": "Dark:704",
@@ -4700,7 +4820,8 @@
       "gempId": "4_176",
       "personas": [
         "Dengar's Blaster Carbine"
-      ]
+      ],
+      "explanationDe": "Ausspielen auf Dengar kostet 1 Force, auf deinem anderen Krieger 3 Force. Für 1 Force darf die Waffe einen Charakter, eine Kreatur oder ein Fahrzeug als Ziel wählen. Ziehe Destiny. Das Ziel wird getroffen, wenn Destiny +1 seinen Verteidigungswert übertrifft. Trifft Dengar das Ziel, wird dessen Forfeit auf 0 gesetzt."
     },
     {
       "id": "Dark:771",
@@ -4743,7 +4864,8 @@
         "uniqueness": "<>"
       },
       "set": "4",
-      "gempId": "4_109"
+      "gempId": "4_109",
+      "explanationDe": "Ferocity = 3 + Destiny. Lebensraum: Sümpfe, Dschungel und Dark Waters. Darf Droiden angreifen. Besiegte Droiden werden an eine benachbarte äußere Site versetzt; der Gegner des Opfers bestimmt die Site."
     },
     {
       "id": "Dark:906",
@@ -4797,7 +4919,8 @@
       "gempId": "4_167",
       "personas": [
         "Executor"
-      ]
+      ],
+      "explanationDe": "Unbegrenzte Kapazität für Piloten, Passagiere, Fahrzeuge und Raumjäger. Kann an andere Schiffe andocken. Die permanenten Piloten stellen zusammen Ability 3 bereit. Immun gegen Attrition < 12."
     },
     {
       "id": "Dark:907",
@@ -4845,7 +4968,8 @@
       "gempId": "4_159",
       "personas": [
         "Executor"
-      ]
+      ],
+      "explanationDe": "Dark-Seite: Besetzt du diese Site mit Tarkin, Piett oder einem Admiral, dürfen deine Raumschiffe als React zum selben System ziehen. Light-Seite: Kontrollierst du diese Site, dürfen deine Raumschiffe als React vom System der Executor wegziehen."
     },
     {
       "id": "Dark:908",
@@ -4893,7 +5017,8 @@
       "gempId": "4_160",
       "personas": [
         "Executor"
-      ]
+      ],
+      "explanationDe": "Dark-Seite: Ist hier ein imperialer Anführer, erhält Executor Power +1 je Executor-Site im Spiel. Light-Seite: Kontrollierst du diese Site, darfst nur du Executor während der gegnerischen Bewegungsphase bewegen."
     },
     {
       "id": "Dark:910",
@@ -4943,7 +5068,8 @@
       "gempId": "4_161",
       "personas": [
         "Executor"
-      ]
+      ],
+      "explanationDe": "Dark-Seite: Hast du Vader oder den Emperor im Spiel, erhältst du hier Force-Generierung +1; mit beiden +2. Light-Seite: Kontrollierst du diese Site, erhält dein Force Drain hier +1."
     },
     {
       "id": "Dark:911",
@@ -4991,7 +5117,8 @@
       "gempId": "4_162",
       "personas": [
         "Executor"
-      ]
+      ],
+      "explanationDe": "Dark-Seite: Während deiner Bewegungsphase darfst du kostenlos zwischen hier und der Executor-Karte oder einer beliebigen Executor-Site ziehen. Light-Seite: Kontrollierst du diese Site, wird der gegnerische Spieltext von Main Corridor aufgehoben."
     },
     {
       "id": "Dark:912",
@@ -5039,7 +5166,8 @@
       "gempId": "4_163",
       "personas": [
         "Executor"
-      ]
+      ],
+      "explanationDe": "Dark-Seite: Ist Vader hier allein, darf er einmal pro Zug seine Ability für Battle Destiny an einem beliebigen System einsetzen. Light-Seite: Besetzt du diese Site, wird der gegnerische Spieltext von Meditation Chamber aufgehoben."
     },
     {
       "id": "Dark:918",
@@ -5078,7 +5206,8 @@
         "printableSlipType": "ERRATA"
       },
       "set": "4",
-      "gempId": "4_120"
+      "gempId": "4_120",
+      "explanationDe": "Lege den Utinni Effect an Dagobah: Cave aus und bestimme einen Schüler auf Dagobah als Ziel. Sämtliche Jedi-Test-Spieltexte werden ausgesetzt. Ist das Ziel während einer beliebigen Kampfphase hier anwesend, zieht der Gegner Destiny. Bei Destiny < 4 holst du 2 Force zurück; bei Destiny = 0 geht außerdem der Schüler verloren. Andernfalls wird der Effect aufgehoben."
     },
     {
       "id": "Dark:929",
@@ -5114,7 +5243,8 @@
         "uniqueness": "*"
       },
       "set": "4",
-      "gempId": "4_141"
+      "gempId": "4_141",
+      "explanationDe": "Der Gegner entscheidet: Entweder verliert er 2 Force aus seiner Hand oder 1 Force von der Oberseite seines Reserve Decks."
     },
     {
       "id": "Dark:937",
@@ -5151,7 +5281,8 @@
         "printableSlipType": "ERRATA"
       },
       "set": "4",
-      "gempId": "4_121"
+      "gempId": "4_121",
+      "explanationDe": "Lege den Effect auf einen Imperialen mit Ability < 5, der mit Vader, dem Emperor oder einem deiner Admiräle, Generäle oder Moffs anwesend ist. Er erhält die Anführerfähigkeit, Power +1 und Immunität gegen Demotion, Report To Lord Vader sowie What Is Thy Bidding, My Master? Der Effect ist immun gegen Alter."
     },
     {
       "id": "Dark:951",
@@ -5189,7 +5320,8 @@
         "printableSlipType": "ERRATA"
       },
       "set": "4",
-      "gempId": "4_122"
+      "gempId": "4_122",
+      "explanationDe": "Nutze 2 Force und lege den Effect auf deinen Star Destroyer. Deine anderen Raumschiffe dürfen kostenlos als React zum selben System oder Sektor ziehen. Geht das Zielschiff verloren, verlierst du X Force; X ist sein Armor-Wert. Immun gegen dein eigenes Alter."
     },
     {
       "id": "Dark:991",
@@ -5228,7 +5360,8 @@
         "printableSlipType": "ERRATA"
       },
       "set": "4",
-      "gempId": "4_142"
+      "gempId": "4_142",
+      "explanationDe": "Sieh während deiner Kontrollphase die gegnerische Hand an. Bestimme eine Nicht-Interrupt-Karte daraus als Ziel, deren Ausspielkosten kleiner als die Gesamtzahl der Light-Side-Force-Icons im Spiel sind. Der Gegner muss bis zum Ende deines nächsten Zuges eine Karte dieses Titels ausspielen oder nach Möglichkeit eine solche Karte aus seiner Hand verlieren."
     },
     {
       "id": "Dark:1115",
@@ -5265,7 +5398,8 @@
         "printableSlipType": "ERRATA"
       },
       "set": "4",
-      "gempId": "4_123"
+      "gempId": "4_123",
+      "explanationDe": "Lege den Effect auf einen beliebigen Charakter; seine Trainings-Destiny-Ziehungen erhalten −2. ODER lege ihn auf einen gegnerischen Piloten an einer Site. In jeder gegnerischen Bewegungsphase muss der Gegner diesen Charakter bewegen, ihn verlieren oder 1 Force verlieren."
     },
     {
       "id": "Dark:1150",
@@ -5306,7 +5440,8 @@
         "printableSlipType": "ERRATA"
       },
       "set": "4",
-      "gempId": "4_143"
+      "gempId": "4_143",
+      "explanationDe": "USED: Hebe Transmission Terminated auf. LOST: Nimm einen Imperialen oder Visage Of The Emperor aus deinem Used Pile auf die Hand; danach neu mischen."
     },
     {
       "id": "Dark:1185",
@@ -5360,7 +5495,8 @@
       "gempId": "4_168",
       "personas": [
         "Hound's Tooth"
-      ]
+      ],
+      "explanationDe": "Kapazität: 1 Pilot, der Schmuggler oder Kopfgeldjäger sein muss, 6 Passagiere und 1 Fahrzeug. Mit Bossk als Pilot immun gegen Attrition < 4. Wird wie ein Raumjäger ausgespielt und bewegt. Kann an andere Schiffe andocken."
     },
     {
       "id": "Dark:1221",
@@ -5395,7 +5531,8 @@
         "uniqueness": "*"
       },
       "set": "4",
-      "gempId": "4_124"
+      "gempId": "4_124",
+      "explanationDe": "Lege den Effect auf ein gegnerisches einzigartiges Raumschiff mit einem Einzigartigkeitspunkt an einem Ort, den du nicht besetzt. Wird das Schiff von einem Traktorstrahl oder einer Ionenkanone als Ziel gewählt, erhält es Maneuver −2. Wird es gefangen genommen oder verloren, wird der Effect verloren und der Gegner verliert 3 Force; beim Falcon 5 Force."
     },
     {
       "id": "Dark:1244",
@@ -5451,7 +5588,8 @@
       "gempId": "4_169",
       "personas": [
         "IG-2000"
-      ]
+      ],
+      "explanationDe": "Kapazität: 1 Pilot, der Schmuggler oder Kopfgeldjäger sein muss, und 2 Passagiere. Mit IG-88 als Pilot Maneuver +3 und immun gegen Attrition < 3. Ion Cannon darf an Bord ausgespielt werden."
     },
     {
       "id": "Dark:1245",
@@ -5509,7 +5647,8 @@
       "gempId": "4_101",
       "personas": [
         "IG-88"
-      ]
+      ],
+      "explanationDe": "Gibt dem Fahrzeug oder Raumschiff, das er steuert, Power +2. Er darf einen von ihm getroffenen Charakter an derselben Site sofort durch Attentat verlieren lassen. Darf zwei unterschiedliche Waffen nutzen, Kämpfe beginnen und angegriffen werden. Immun gegen Restraining Bolt und Kauf."
     },
     {
       "id": "Dark:1249",
@@ -5545,7 +5684,8 @@
         "uniqueness": "*"
       },
       "set": "4",
-      "gempId": "4_177"
+      "gempId": "4_177",
+      "explanationDe": "Auf IG-88 kostenlos ausspielen oder auf einem anderen Kopfgeldjäger für 2 Force. Für 3 Force darf die Waffe einen Nicht-Droiden-Charakter als Ziel wählen. Ziehe Destiny. Ist Destiny +1 größer als dessen Ability, werden seine Power, sein Forfeit und seine persönliche Landspeed bis zum Ende deines nächsten Zuges auf 0 gesetzt."
     },
     {
       "id": "Dark:1251",
@@ -5587,7 +5727,8 @@
         "printableSlipType": "ERRATA"
       },
       "set": "4",
-      "gempId": "4_178"
+      "gempId": "4_178",
+      "explanationDe": "Ausspielen auf IG-88 kostet 1 Force, auf deinem anderen Krieger 4 Force. Gibt Power +2. Für X Force darf die Waffe X Nicht-Droiden-Charaktere oder Kreaturen als Ziele wählen. Ziehe für jedes Ziel Destiny: Bei 0 erhält der Charakter bis zum Zugende Power −1 und Forfeit −1. Ist Destiny −1 größer als der Verteidigungswert, wird das Ziel getroffen."
     },
     {
       "id": "Dark:1255",
@@ -5623,7 +5764,8 @@
         "uniqueness": "*"
       },
       "set": "4",
-      "gempId": "4_144"
+      "gempId": "4_144",
+      "explanationDe": "Hat der Gegner gerade Force zurückgeholt, muss er X Force verlieren. X ist die Hälfte der zurückgeholten Karten, aufgerundet."
     },
     {
       "id": "Dark:1273",
@@ -5668,7 +5810,8 @@
         "printableSlipType": "ERRATA"
       },
       "set": "4",
-      "gempId": "4_102"
+      "gempId": "4_102",
+      "explanationDe": "Gibt dem Fahrzeug oder Raumschiff, das er steuert, Power +2. Steuert er einen Star Destroyer, zieht er außerdem eine Battle Destiny, falls sonst keine möglich wäre."
     },
     {
       "id": "Dark:1450",
@@ -5706,7 +5849,8 @@
         "printableSlipType": "ERRATA"
       },
       "set": "4",
-      "gempId": "4_125"
+      "gempId": "4_125",
+      "explanationDe": "Schleuse den Effect in das gegnerische Reserve Deck ein. Erreicht er dessen Oberseite, wird er verloren; der Gegner darf für den Rest dieses Zuges keine Kämpfe beginnen. Immun gegen Alter."
     },
     {
       "id": "Dark:1470",
@@ -5741,7 +5885,8 @@
         "type": "Interrupt"
       },
       "set": "4",
-      "gempId": "4_145"
+      "gempId": "4_145",
+      "explanationDe": "Nutze während deiner Kontrollphase 1 Force, um einen deiner Charaktere mit Dagobah-Icon und Ability > 1 zu einer Location mit Cloud-City-Icon zu versetzen, an der du Presence hast. Ist das Ziel eine Cloud-City-Site, ist die Bewegung kostenlos und eigene Presence dort nicht erforderlich."
     },
     {
       "id": "Dark:1524",
@@ -5789,7 +5934,8 @@
         "uniqueness": "*"
       },
       "set": "4",
-      "gempId": "4_103"
+      "gempId": "4_103",
+      "explanationDe": "An einer Site zieht er eine Battle Destiny, falls sonst keine möglich wäre. Immun gegen Attrition < X; X ist die Anzahl der anwesenden gegnerischen Aliens."
     },
     {
       "id": "Dark:1538",
@@ -5831,7 +5977,8 @@
         "uniqueness": "*"
       },
       "set": "4",
-      "gempId": "4_104"
+      "gempId": "4_104",
+      "explanationDe": "An einer Death-Star- oder Executor-Site darfst du dort Trooper kostenlos ausspielen; sie erhalten dort Power +1 und Forfeit +1. Außerdem darfst du 1 Force nutzen, dein Reserve Deck nach Tactical Support durchsuchen und die Karte auf die Hand nehmen. Danach mischen und abheben lassen."
     },
     {
       "id": "Dark:1542",
@@ -5873,7 +6020,8 @@
         "uniqueness": "*"
       },
       "set": "4",
-      "gempId": "4_105"
+      "gempId": "4_105",
+      "explanationDe": "Power +2 an einer Executor-Site, an derselben Site wie Tarkin oder Chief Bast oder wenn der Death Star zerstört wurde. Fear Will Keep Them In Line erhält Destiny +2 und erhöht, wenn es deine Power um 1 erhöht, zusätzlich die Attrition gegen den Gegner um 1."
     },
     {
       "id": "Dark:1569",
@@ -5911,7 +6059,8 @@
         "printableSlipType": "ERRATA"
       },
       "set": "4",
-      "gempId": "4_126"
+      "gempId": "4_126",
+      "explanationDe": "Lege den Effect auf den Tisch. Am Ende der Ausspielen-Phase jedes Spielers verliert dieser 1 Force, falls er keine Location ausgespielt hat. Spielt ein Spieler mindestens drei Locations in einem Zug aus, wird der Effect aufgehoben."
     },
     {
       "id": "Dark:1583",
@@ -5949,7 +6098,8 @@
         "printableSlipType": "ERRATA"
       },
       "set": "4",
-      "gempId": "4_127"
+      "gempId": "4_127",
+      "explanationDe": "Wurde gerade ein Pilot an einem System oder Sektor verloren, lege den Effect an dieser Location aus und den Piloten darauf. In jeder Bewegungsphase darf ihn ein hier anwesendes Großkampfschiff retten oder gefangen nehmen. Außerhalb von Kämpfen darf er von Waffen so als Ziel gewählt werden, als wäre er anwesend; behandle ihn als Raumjäger mit Verteidigungswert 0. Ohne Piloten auf ihm geht der Effect verloren."
     },
     {
       "id": "Dark:1682",
@@ -6003,7 +6153,8 @@
       "gempId": "4_170",
       "personas": [
         "Mist Hunter"
-      ]
+      ],
+      "explanationDe": "Kapazität: 2 Piloten, von denen einer Schmuggler oder Kopfgeldjäger sein muss, und 3 Passagiere. Mit Zuckuss als Pilot immun gegen Attrition < 3. Kann an andere Schiffe andocken."
     },
     {
       "id": "Dark:1710",
@@ -6038,7 +6189,8 @@
         "uniqueness": "*"
       },
       "set": "4",
-      "gempId": "4_128"
+      "gempId": "4_128",
+      "explanationDe": "Lege den Effect auf einen Rebellen. Am Ende jeder gegnerischen Kampfphase verliert der Gegner 4 Force, falls du an dem Ort, an dem der Rebell Presence hat, selbst Presence hast und dort kein Kampf stattgefunden hat."
     },
     {
       "id": "Dark:1718",
@@ -6089,7 +6241,8 @@
         "printableSlipType": "ERRATA"
       },
       "set": "4",
-      "gempId": "4_110"
+      "gempId": "4_110",
+      "explanationDe": "Lebensraum: unbegrenzt. Parasit für Raumjäger. Power und Hyperspeed des Wirts erhalten kumulativ −2 pro Mynock. Sind beide Werte unter 1, lösen sich die Mynocks einzeln in zufälliger Reihenfolge, bis diese Bedingung nicht mehr gilt; in diesem Zug dürfen sie nicht erneut anhaften. Bewegt sich wie ein Raumjäger."
     },
     {
       "id": "Dark:1934",
@@ -6123,7 +6276,8 @@
         "type": "Effect"
       },
       "set": "4",
-      "gempId": "4_129"
+      "gempId": "4_129",
+      "explanationDe": "Nutze 3 Force und lege den Effect auf den Tisch. Getroffene Karten dürfen nicht zum Erfüllen von Attrition verwendet werden. Immun gegen Alter."
     },
     {
       "id": "Dark:1961",
@@ -6158,7 +6312,8 @@
         "type": "Weapon"
       },
       "set": "4",
-      "gempId": "4_179"
+      "gempId": "4_179",
+      "explanationDe": "Bringe die Waffe an einem Bomber an. Ist der Bomber bei einem Force Drain anwesend, darfst du eine verwandte innere Site als Ziel wählen. Ziehe Destiny: Bei Destiny > 4 stürzt die Site ein. ODER feuere in einem Bombing-Run-Kampf und ziehe Destiny. Alle Charaktere, Raumschiffe und Fahrzeuge an derselben Site mit genau diesem Destiny-Wert gehen verloren."
     },
     {
       "id": "Dark:1967",
@@ -6211,7 +6366,8 @@
       "gempId": "4_171",
       "personas": [
         "Punishing One"
-      ]
+      ],
+      "explanationDe": "Kapazität: 1 Pilot, der Schmuggler oder Kopfgeldjäger sein muss, und 1 Passagier. Mit Dengar als Pilot immun gegen Attrition < 3. Gemeinsames Ausspielen mit Dengar kostet 3 Force weniger. Boosted TIE Cannon darf an Bord ausgespielt werden."
     },
     {
       "id": "Dark:2013",
@@ -6251,7 +6407,8 @@
         "uniqueness": "*"
       },
       "set": "4",
-      "gempId": "4_164"
+      "gempId": "4_164",
+      "explanationDe": "Dark-Seite: Alle deine Trooper erhalten Destiny +1; wenn du kontrollierst, +2 statt +1. Tactical Support ist ein Used Interrupt. Light-Seite: Besetzt du das System, wird der gegnerische Raithal-Spieltext aufgehoben."
     },
     {
       "id": "Dark:2091",
@@ -6290,7 +6447,8 @@
         "printableSlipType": "ERRATA"
       },
       "set": "4",
-      "gempId": "4_146"
+      "gempId": "4_146",
+      "explanationDe": "Verteidigt ein Kopfgeldjäger einen Kampf allein, erhältst du eine zusätzliche Battle Destiny. ODER verteidigt Bossk, Greedo oder Boba Fett allein, erhältst du zwei zusätzliche Battle-Destiny-Draws."
     },
     {
       "id": "Dark:2123",
@@ -6328,7 +6486,8 @@
         "printableSlipType": "ERRATA"
       },
       "set": "4",
-      "gempId": "4_130"
+      "gempId": "4_130",
+      "explanationDe": "Lege den Effect an einem Asteroidensektor aus und bestimme seine anfängliche Richtung. In jeder Bewegungsphase zieht er zum nächsten benachbarten Asteroidensektor und kehrt nötigenfalls die Richtung um. An seinem Ort erhält Asteroiden-Destiny +2. Raumschiffwaffen dürfen ihn mit Verteidigungswert 3 als Ziel wählen."
     },
     {
       "id": "Dark:2261",
@@ -6366,7 +6525,8 @@
         "printableSlipType": "ERRATA"
       },
       "set": "4",
-      "gempId": "4_131"
+      "gempId": "4_131",
+      "explanationDe": "Lege den Effect auf deine Tischseite. Einmal pro Zug darfst du 1 Force verlieren, um die oberste Karte deines Reserve Decks auf die Hand zu ziehen. Ist sie eine Weltraumkreatur, darfst du sie sofort kostenlos ausspielen."
     },
     {
       "id": "Dark:2262",
@@ -6402,7 +6562,8 @@
         "uniqueness": "*"
       },
       "set": "4",
-      "gempId": "4_147"
+      "gempId": "4_147",
+      "explanationDe": "Hebe Death Star Plans, The Professor, Bacta Tank, How Did We Get Into This Mess?, Shoo! Shoo! oder Thank The Maker auf."
     },
     {
       "id": "Dark:2281",
@@ -6452,7 +6613,8 @@
         "printableSlipType": "ERRATA"
       },
       "set": "4",
-      "gempId": "4_111"
+      "gempId": "4_111",
+      "explanationDe": "Ferocity = Destiny −3. Lebensraum: Planeten-Sites außer Hoth und Tatooine sowie Dark Waters. Absorbiert kumulativ ein anwesendes Light-Side-Force-Icon, das dadurch vorübergehend aufgehoben wird. Kein Parasit."
     },
     {
       "id": "Dark:2302",
@@ -6487,7 +6649,8 @@
         "type": "Interrupt"
       },
       "set": "4",
-      "gempId": "4_148"
+      "gempId": "4_148",
+      "explanationDe": "Verliere während eines Kampfes 1 Force. Erhöhe die Attrition gegen den Gegner kumulativ um 1."
     },
     {
       "id": "Dark:2312",
@@ -6532,7 +6695,8 @@
         "printableSlipType": "ERRATA"
       },
       "set": "4",
-      "gempId": "4_112"
+      "gempId": "4_112",
+      "explanationDe": "Ferocity = zwei Destiny-Ziehungen. Lebensraum: Big One; seine Cave wird dann zum Belly. Greift Raumjäger an. Besiegte Karten werden gefressen oder in den Belly versetzt; der Gegner des Opfers entscheidet. Einmal pro Zug darf das Maul geöffnet oder geschlossen werden."
     },
     {
       "id": "Dark:2343",
@@ -6579,7 +6743,8 @@
         "uniqueness": "***"
       },
       "set": "4",
-      "gempId": "4_165"
+      "gempId": "4_165",
+      "explanationDe": "Dark-Seite: Deine TIEs kosten hier beim Ausspielen 2 Force weniger. Shuttling, Transfer, Einsteigen und Aussteigen sind hier kostenlos. Light-Seite: Vom zugehörigen Star Destroyer gefangene Raumschiffe werden hierher gebracht und dürfen mit Besieged belagert werden. Immun gegen Revolution."
     },
     {
       "id": "Dark:2369",
@@ -6613,7 +6778,8 @@
         "type": "Effect"
       },
       "set": "4",
-      "gempId": "4_132"
+      "gempId": "4_132",
+      "explanationDe": "Lege den Effect auf einen Effect oder Utinni Effect, der nicht gegen Alter immun ist. In jeder Nachziehphase seines Besitzers muss dieser entweder 1 Force verlieren oder den betroffenen Effect freiwillig aufheben, sofern du einen Asteroidensektor besetzt. Diese Karte selbst ist immun gegen Alter."
     },
     {
       "id": "Dark:2401",
@@ -6649,7 +6815,8 @@
         "uniqueness": "*"
       },
       "set": "4",
-      "gempId": "4_149"
+      "gempId": "4_149",
+      "explanationDe": "Hebe Egregious Pilot Error, Out Of Nowhere, Collision! oder Don’t Get Cocky auf. ODER nutze 1 Force, um alle Asteroiden-Destiny-Ziehungen gegen dich bis zum Zugende um 3 zu verringern."
     },
     {
       "id": "Dark:2518",
@@ -6683,7 +6850,8 @@
         "type": "Effect"
       },
       "set": "4",
-      "gempId": "4_133"
+      "gempId": "4_133",
+      "explanationDe": "Lege den Effect auf deine Tischseite. Einmal pro Zug darfst du die obersten drei Karten deines Reserve Decks ansehen und zwei davon deiner Wahl in deinen Lost Pile legen."
     },
     {
       "id": "Dark:2551",
@@ -6718,7 +6886,8 @@
         "uniqueness": "*"
       },
       "set": "4",
-      "gempId": "4_134"
+      "gempId": "4_134",
+      "explanationDe": "Lege den Effect auf den Tisch. Sense und Alter werden zu Lost Interrupts. Gelingt einem Spieler ein Destiny-Draw für Sense oder Alter, verliert dieser Spieler zusätzlich 2 Force. Immun gegen Alter."
     },
     {
       "id": "Dark:2580",
@@ -6753,7 +6922,8 @@
         "type": "Interrupt"
       },
       "set": "4",
-      "gempId": "4_150"
+      "gempId": "4_150",
+      "explanationDe": "USED: Hebe Nabrun Leids auf. LOST: Hebe während deiner Bewegungsphase Landing Claw auf. ODER hebe Hyper Escape, Closer?! oder eine React-Aktion auf."
     },
     {
       "id": "Dark:2597",
@@ -6801,7 +6971,8 @@
         "printableSlipType": "ERRATA"
       },
       "set": "4",
-      "gempId": "4_172"
+      "gempId": "4_172",
+      "explanationDe": "Kostet beim Ausspielen am selben System wie ein imperiales Großkampfschiff 1 Force weniger. Kapazität: 1 Pilot. Boosted TIE Cannon darf an Bord ausgespielt werden."
     },
     {
       "id": "Dark:2598",
@@ -6849,7 +7020,8 @@
         "type": "Starship"
       },
       "set": "4",
-      "gempId": "4_173"
+      "gempId": "4_173",
+      "explanationDe": "Power +2 während eines Bombing-Run-Kampfes. Der permanente Pilot stellt Ability 1 bereit. Du darfst während deines Zuges jederzeit 1 Force nutzen, um eine anwesende Orbital Mine zu entschärfen und sie entweder verlieren zu lassen oder auf die Hand zurückzunehmen."
     },
     {
       "id": "Dark:2669",
@@ -6887,7 +7059,8 @@
         "printableSlipType": "ERRATA"
       },
       "set": "4",
-      "gempId": "4_151"
+      "gempId": "4_151",
+      "explanationDe": "Nutze 3 Force. Jeder Spieler legt seine Hand, soweit möglich, auf sein Reserve Deck, dann seinen Used Pile darauf und mischt. Anschließend zieht jeder aus seinem Reserve Deck so viele Karten, wie er gerade aus der Hand auf dieses Deck gelegt hat."
     },
     {
       "id": "Dark:2677",
@@ -6923,7 +7096,8 @@
         "uniqueness": "*"
       },
       "set": "4",
-      "gempId": "4_152"
+      "gempId": "4_152",
+      "explanationDe": "Nutze 2 Force, durchsuche dein Reserve Deck nach einem Interrupt und nimm ihn auf die Hand. Danach mischen und abheben lassen."
     },
     {
       "id": "Dark:2717",
@@ -6974,7 +7148,8 @@
         "printableSlipType": "ERRATA"
       },
       "set": "4",
-      "gempId": "4_113"
+      "gempId": "4_113",
+      "explanationDe": "Lebensraum: Planeten-Sites außer Hoth. Greift einen Charakter durch Anhaften an. X beginnt bei 0. Ziehe in jeder Bewegungsphase Destiny; jedes Mal, wenn sie die Ability des Charakters übertrifft, steigt X um 1. Der Charakter erhält Power −X und wird bei Power 0 gefressen."
     },
     {
       "id": "Dark:2721",
@@ -7012,7 +7187,8 @@
         "uniqueness": "*"
       },
       "set": "4",
-      "gempId": "4_135"
+      "gempId": "4_135",
+      "explanationDe": "Verliere 2 Force, um den Effect an Executor: Holotheatre oder Death Star: Conference Room auszulegen. Am Ende jedes Spielerzuges muss jeder Spieler 1 Force verlieren. Der Effect wird aufgehoben, wenn der Gegner seinen Standort kontrolliert. Immun gegen Alter."
     },
     {
       "id": "Dark:2728",
@@ -7048,7 +7224,8 @@
         "uniqueness": "**"
       },
       "set": "4",
-      "gempId": "4_153"
+      "gempId": "4_153",
+      "explanationDe": "Nenne einen Interrupt. Der Gegner deckt seinen gesamten Used Pile ohne Mischen auf. Wähle danach: USED: Der Gegner verliert 1 Force je gefundenem Exemplar dieses Interrupts. LOST: Jedes gefundene Exemplar wird verloren."
     },
     {
       "id": "Dark:2739",
@@ -7093,7 +7270,8 @@
         "printableSlipType": "ERRATA"
       },
       "set": "4",
-      "gempId": "4_106"
+      "gempId": "4_106",
+      "explanationDe": "Gibt dem Fahrzeug oder Raumschiff, das er steuert, Power +2. Er darf 1 Force nutzen und einen Traktorstrahl, Our First Catch Of The Day oder Besieged aus deinem Reserve Deck auf die Hand nehmen. Danach neu mischen."
     },
     {
       "id": "Dark:2912",
@@ -7152,7 +7330,8 @@
       "gempId": "4_107",
       "personas": [
         "Zuckuss"
-      ]
+      ],
+      "explanationDe": "Gibt dem Fahrzeug oder Raumschiff, das er steuert, Power +2. Darf sich kostenlos als React bewegen. Einmal pro Kampf darf er 1 Force nutzen, um den Forfeit-Wert eines Aliens mit Ability < 3 an derselben Site für den Rest des Zuges auf 0 zu setzen. Immun gegen Attrition < 3."
     },
     {
       "id": "Dark:2915",
@@ -7197,7 +7376,8 @@
       "gempId": "4_180",
       "personas": [
         "Zuckuss' Snare Rifle"
-      ]
+      ],
+      "explanationDe": "Auf Zuckuss kostenlos ausspielen oder für 1 Force auf einem anderen Kopfgeldjäger. Für 2 Force darf die Waffe einen Charakter oder eine Kreatur als Ziel wählen. Ziehe Destiny. Ein Charakter wird gefangen genommen, wenn Destiny −1 seinen Verteidigungswert übertrifft. Eine Kreatur geht verloren, wenn Destiny +1 ihren Verteidigungswert übertrifft."
     }
   ]
 }

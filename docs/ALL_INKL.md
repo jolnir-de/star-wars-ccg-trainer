@@ -28,6 +28,7 @@ node scripts/import_premiere.mjs --edition a-new-hope --check
 node scripts/import_premiere.mjs --edition hoth --check
 node scripts/import_premiere.mjs --edition dagobah --check
 node scripts/import_premiere.mjs --edition cloud-city --check
+node scripts/import_premiere.mjs --edition jabbas-palace --check
 node scripts/build-deck-overview.mjs --check
 node --test
 npm run test:browser
@@ -36,7 +37,7 @@ node scripts/build-web.mjs --output dist/all-inkl-release
 
 Das Ausgabeverzeichnis muss leer sein. Für ein weiteres Release einen neuen Verzeichnisnamen verwenden. Der Builder kopiert ausschließlich freigegebene Dateien, kompaktiert JSON, vereinheitlicht Zeilenenden und versieht CSS, Engine und Daten mit einem Inhalts-Hash. HTML verweist auf genau diese Dateien. `release.json` enthält Version, Releasekennung, Prüfsummen und Größen. Keine privaten Berichte, Schlüssel, Repository-Metadaten oder Testdateien werden übernommen.
 
-GitHub Actions prüft zusätzlich alle sieben Browserabläufe und stellt dasselbe Paket als Artefakt **all-inkl-web-release** bereit. Die bisherige GitHub-Pages-Vorschau verwendet ebenfalls den Paket-Builder. Verbindliches Veröffentlichungsziel ist seit dem 18.11.2026 **https://www.starwarsccg.de/**: Nach bestandenen Tests jede Änderung direkt vom Laptop per SSH/SFTP veröffentlichen und öffentlich prüfen, ohne erneut nach Zustimmung zu fragen. Der eingerichtete SSH-Schlüssel bleibt auf dem Laptop; GitHub Actions erhält keinen privaten Schlüssel. Die GitHub-Pages-Veröffentlichung bleibt eine zusätzliche Vorschau. Kein direkter main-Push, Force-Push oder automatischer Merge.
+GitHub Actions prüft zusätzlich alle acht Browserabläufe und stellt dasselbe Paket als Artefakt **all-inkl-web-release** bereit. Die bisherige GitHub-Pages-Vorschau verwendet ebenfalls den Paket-Builder. Verbindliches Veröffentlichungsziel ist seit dem 18.11.2026 **https://www.starwarsccg.de/**: Nach bestandenen Tests jede Änderung direkt vom Laptop per SSH/SFTP veröffentlichen und öffentlich prüfen, ohne erneut nach Zustimmung zu fragen. Der eingerichtete SSH-Schlüssel bleibt auf dem Laptop; GitHub Actions erhält keinen privaten Schlüssel. Die GitHub-Pages-Veröffentlichung bleibt eine zusätzliche Vorschau. Kein direkter main-Push, Force-Push oder automatischer Merge.
 
 ## ALL-INKL einrichten
 

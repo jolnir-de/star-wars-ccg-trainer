@@ -51,8 +51,9 @@ battleDestinyDrawCount=function(side,site,ability,...rest){
  const all=dagoUnits().filter(entry=>entry.side===side&&!entry.unavailable&&entry.slot===site),suppressed=new Set();
  for(const entry of all){if(dagoEffects('Light:2184',PremiereGame.otherSide(side)).length&&isSite(state.locations[site])&&entry.card.pilot&&!/darth vader/.test(dagoTitle(entry.card)))suppressed.add(entry.card);if(dagoEffects('Light:2800').some(effect=>effect.target===entry.card))suppressed.add(entry.card);if(entry.carriers.some(ship=>dagoEffects('Light:151').some(effect=>effect.target===ship)))suppressed.add(entry.card);}
  const adjusted=Math.max(0,ability-[...suppressed].reduce((sum,card)=>sum+(dagoTimingBase.cardAbility(card)??0),0));
- if(dagoCompleted(PremiereGame.otherSide(side),2)&&adjusted<6)return 0;
- let draws;dagoSuppressedDestiny=suppressed;try{draws=dagoTimingBase.battleDraws(side,site,adjusted,...rest);}finally{dagoSuppressedDestiny=null;}
+ const testTwo=dagoCompleted(PremiereGame.otherSide(side),2);
+ if(testTwo&&adjusted<6&&!dagoTrainingRevision())return 0;
+ let draws;dagoSuppressedDestiny=suppressed;try{draws=dagoTimingBase.battleDraws(side,site,adjusted,rest[0],testTwo&&dagoTrainingRevision()?6:0);}finally{dagoSuppressedDestiny=null;}
  if(!draws&&all.some(entry=>entry.card.id==='Dark:1524'&&isSite(state.locations[site])||entry.card.id==='Dark:1273'&&entry.carriers.some(ship=>/Star Destroyer/.test(ship.subType))||entry.card.attachments?.some(card=>card.id==='Light:2037')&&entry.carriers.some(host=>['Starship','Vehicle'].includes(host.type))||entry.card.id==='Dark:308'&&entry.carriers.some(ship=>ship.id==='Dark:1185')))draws=1;
  return draws;
 };

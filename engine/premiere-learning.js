@@ -138,6 +138,12 @@ const PremiereLearning = (() => {
   ];
 
   function cardGuide(card, effects) {
+    const jediTest=Number(card.type?.match(/^Jedi Test #([1-5])$/)?.[1]);
+    if(jediTest)return {
+      explanation:card.texts?.explanationDe||card.gametext,
+      timing:'Auslegen in deiner Ausspielen-Phase. '+(jediTest===3?'Versuch am Ende eines eigenen Zuges ohne Kampf, Force Drain oder anderen Jedi-Test.':'Versuch zu Beginn deiner Kontrollphase, bevor du andere reguläre Aktionen ausführst.'),
+      example:jediTest===1?'Wähle Great Warrior in deiner Hand. Unter der Playmat wählst du Trainingsort, Mentor und Schüler. Zum Beispiel: Yoda als Mentor, Son Of Skywalker als Schüler. Beide müssen zum Versuch am Test anwesend sein.':jediTest===2?'Nach bestandenem Test 1 spielst du A Jedi’s Strength aus deiner Hand auf eine unbesetzte Dagobah-Site. Bewege den Schüler dorthin. Zu Beginn einer späteren Kontrollphase klickst du in deinem Spielbereich auf „Jedi-Test 2 versuchen“.':'Die Ausbildung zeigt den aktuellen Test, seinen Standort und den nächsten Schritt. Die Tests 1 bis 5 werden einzeln in Reihenfolge gespielt; der nächste Test wird nicht automatisch aus dem Deck genommen.'
+    };
     const [timing, example] = typeRules[card.type] ?? ['Beim genannten Auslöser', 'Prüfe den Spieltext und wähle ein angebotenes Ziel.'];
     const eventTiming = effects.map(rule => timings.find(([match]) => match.test(rule.event))?.[1] ??
       (rule.duration === 'continuous' ? 'Solange die genannte Bedingung erfüllt ist' : timing));

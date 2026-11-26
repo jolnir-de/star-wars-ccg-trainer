@@ -415,6 +415,7 @@ test('V2 starts, handles unavailable images and stays playable at desktop and na
     assert.equal(await battle.locator('[aria-current="step"]').textContent(), 'Power & Destiny');
     assert.match(await battle.locator('#battlePriority').textContent(), /Priorität: Light Side · Du bist dran/);
     await battle.getByRole('checkbox', {name: 'Bot automatisch', exact: true}).uncheck();
+    await battle.getByRole('checkbox', {name: 'Gegnerische Verluste automatisch', exact: true}).uncheck();
     await battle.getByRole('button', {name: 'Light verzichtet'}).click();
     await battle.getByRole('button', {name: 'Bot-Entscheidung zeigen'}).click();
     assert.equal(await battle.locator('[aria-current="step"]').textContent(), 'Schaden');

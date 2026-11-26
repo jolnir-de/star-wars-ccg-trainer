@@ -458,7 +458,7 @@ test('V2 starts, handles unavailable images and stays playable at desktop and na
       loseTableCard('Dark', 0, escort);
       presentGame();
     });
-    const release = page.locator('.light-hand').getByRole('region', {name: 'Gefangenenentscheidung'});
+    const release = page.locator('#extraActionDialog').getByRole('region', {name: 'Gefangenenentscheidung'});
     assert.ok(await release.isVisible());
     await release.getByRole('button', {name: /Rally/}).click();
     assert.equal(await release.isVisible(), false);

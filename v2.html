@@ -711,7 +711,7 @@ function expireCardPeek(box){
  if(peek)setTimeout(()=>peek.remove(),Math.max(0,state.pendingCardView.expiresAt-Date.now()));
 }
 
-let extraActionSource=null,extraActionAnchor=null,extraActionKey=null,extraActionDismissed=null,extraActionMode=null,extraActionResult=null;
+let extraActionSource=null,extraActionAnchor=null,extraActionKey=null,extraActionDismissed=null,extraActionMode=null,extraActionResult=null,extraActionWanted=false;
 function restoreExtraAction(){
  if(extraActionAnchor){extraActionAnchor.replaceWith(extraActionSource);extraActionAnchor=null;extraActionSource=null;}
 }
@@ -721,6 +721,12 @@ function closeExtraAction(){
 }
 function openExtraAction(mode=null){extraActionMode=mode;extraActionDismissed=null;render();}
 function selectJediTest(index,gameId,revision){closeExtraAction();return select(index,gameId,revision);}
+function syncExtraActionDialog(){
+ const dialog=el('extraActionDialog');
+ const otherDialog=['cardInspector','movementDialog','starterDeckDialog','battlePreview','battleAnalysis','gameReview'].some(id=>el(id).open);
+ if(extraActionWanted&&extraActionDismissed!==extraActionKey&&!otherDialog){if(!dialog.open)dialog.showModal();}
+ else if(!extraActionWanted&&dialog.open)dialog.close();
+}
 function renderExtraAction(available){
  const dialog=el('extraActionDialog'),body=el('extraActionBody');
  // Small rule-only test hosts have no DOM relocation API. In the browser we
@@ -751,9 +757,7 @@ function renderExtraAction(available){
  }
  el('extraActionTitle').textContent=deployment?'Jedi-Test auslegen':jedi||!pending?'Jedi-Ausbildung':state.pendingCustody?.length?'Gefangenenentscheidung':window?'Antwortfenster':state.pendingForceLoss?'Force-Verlust':state.pendingReserveSearch?'Reserve Deck durchsuchen':'Regelentscheidung';
  el('extraActionHint').textContent=pending?(available.length?'Wähle die nächste zulässige Aktion. Die Entscheidung bleibt beim Schließen offen.':el('autoBot').checked?'Der Bot entscheidet automatisch.':'Zeige die nächste Entscheidung des Bots.'):'Trainingsversuche, Ergebnisse und der nächste Jedi-Test.';
- const otherDialog=['cardInspector','movementDialog','starterDeckDialog','battlePreview','battleAnalysis','gameReview'].some(id=>el(id).open);
- if(wanted&&extraActionDismissed!==extraActionKey&&!otherDialog){if(!dialog.open)dialog.showModal();}
- else if(!wanted&&dialog.open)dialog.close();
+ extraActionWanted=wanted;syncExtraActionDialog();
 }
 
 function renderControlPanel(available=legalActions(state,playerSide()),box=el('controlPanel'),react=reactResponse()){
@@ -2683,7 +2687,7 @@ presentGame=()=>{
  if(battleOnPlaymat!==battleSession||battleSession?.resolved||state?.gameWinner)battleOnPlaymat=null;
  el('returnToBattle').hidden=!battleOnPlaymat;
  if(shownGame!==currentGame()){
-  restoreExtraAction();extraActionMode=null;extraActionDismissed=null;extraActionResult=null;
+  restoreExtraAction();extraActionMode=null;extraActionDismissed=null;extraActionResult=null;extraActionWanted=false;
   if(el('extraActionDialog').open)el('extraActionDialog').close();
   selected=-1;
   selectedTableCard=null;
@@ -2699,6 +2703,7 @@ presentGame=()=>{
  if(battleSession&&!state?.gameWinner&&!launchOpen){
   if(!battleOnPlaymat)renderBattle();
  }else closeBattle();
+ syncExtraActionDialog();
  renderLaunch();
  scheduleAutomaticBot();
 };
@@ -3264,13 +3269,15 @@ try{el('autoBot').checked=localStorage.getItem(autoBotKey)==='1';}catch{el('auto
 el('autoBotBattle').checked=el('autoBot').checked;
 el('autoBot').onchange=()=>setAutoBot(el('autoBot').checked);
 el('autoBotBattle').onchange=()=>setAutoBot(el('autoBotBattle').checked);
-el('cardInspector').onclose=scheduleAutomaticBot;
-el('starterDeckDialog').onclose=scheduleAutomaticBot;
-el('movementDialog').onclose=scheduleAutomaticBot;
-el('gameReview').onclose=scheduleAutomaticBot;
+const afterAuxiliaryDialog=()=>{syncExtraActionDialog();scheduleAutomaticBot();};
+el('cardInspector').onclose=afterAuxiliaryDialog;
+el('starterDeckDialog').onclose=afterAuxiliaryDialog;
+el('movementDialog').onclose=afterAuxiliaryDialog;
+el('gameReview').onclose=afterAuxiliaryDialog;
 el('viewBattlePlaymat').onclick=showBattlePlaymat;
 el('returnToBattle').onclick=returnToBattle;
-el('battlePreview').onclose=scheduleAutomaticBot;
+el('battlePreview').onclose=afterAuxiliaryDialog;
+el('battleAnalysis').onclose=afterAuxiliaryDialog;
 el('extraActionDialog').oncancel=event=>{event.preventDefault();closeExtraAction();};
 el('extraActionDialog').onclose=scheduleAutomaticBot;
 el('autoBotDamage').onchange=scheduleAutomaticBot;

@@ -93,6 +93,13 @@ test('All five tests can be played in sequence through actions, including moveme
 });
 
 const uiSpec={name:'Jedi selector',format:'premiere-a-new-hope-hoth-dagobah',rulesVersion:35,phase:2,setup:`locations(['Light:598','Light:602','Light:600','Light:601','Light:603','Dark:599']);put('Light',0,'Light:2865');put('Light',0,'Light:1803');put('Light',0,'Light:2304');hand('Light','Light:1071','Light:1495','Light:30');`};
+test('Unaffordable pupil quotes keep stable target IDs beside other affordable mentor pairs',async()=>{
+ const h=await savedPosition(uiSpec);h.run(`state.used.push(...state.force.splice(2));select(0);const related=o=>o.mode==='dago:testDeploy';const quoted=unaffordableCardOffers('Light',related,legalActions(state,'Light').filter(related)).find(o=>o.option.mentor.id==='Light:2865'&&o.option.apprentice.id==='Light:1495');`);
+ assert.equal(h.run(`!!quoted`),true);assert.match(h.run(`quoted.reason`),/Benötigt 3 Force.*2 Force/);
+ h.run(`setJediChoice('apprentice',state.hand[1].instanceId);`);assert.match(h.elements.get('playmatSelection').innerHTML,/Benötigt 3 Force/);
+ h.run(`state.force.push(state.used.pop());state.game.revision++;render();`);assert.equal(h.run(`JSON.stringify(legalActions(state,'Light').find(o=>o.mode==='dago:testDeploy'&&o.mentor.id==='Light:2865'&&o.apprentice.id==='Light:1495').args)===JSON.stringify(quoted.option.args)`),true);
+ assert.equal(h.elements.get('playmatSelection').innerHTML.includes('<button disabled>Jedi-Test 1 auslegen'),false);
+});
 test('UI offers explicit mentor/student choices, marks a paired hand deployment playable and explains Test two',async()=>{
  const h=await savedPosition(uiSpec);h.run(`select(0);`);const markup=h.elements.get('playmatSelection').innerHTML;
  assert.match(markup,/aria-label="Mentor wählen"/);assert.match(markup,/aria-label="Schüler wählen"/);assert.match(markup,/Yoda/);assert.match(markup,/Obi-Wan/);

@@ -16,7 +16,7 @@ function dagoJediTargets(side,number,site){
   if(tests.some(card=>card.dagobahJediTest===number)||number>1&&!tests.some(card=>card.dagobahJediTest===number-1))continue;
   if(number===1&&!apprentice.inHand&&apprentice.slot!==site)continue;
   const cost=apprentice.inHand?crewDeployCost(apprentice.card,side,state.locations[site]):0;
-  if(cost>forceBudget(side)||apprentice.inHand&&!withinDeploymentLimit(apprentice.card,side))continue;
+  if(!dagoTrainingRevision()&&cost>forceBudget(side)||apprentice.inHand&&!withinDeploymentLimit(apprentice.card,side))continue;
   pairs.push({mentor,apprentice,cost});
  }
  return pairs;
@@ -28,13 +28,15 @@ function dagoJediOptions(side){
   const number=DagobahRules.testNumber(card);if(!number)return;
   state.locations.forEach((loc,site)=>{
    if(!isSite(loc)||!DagobahRules.dagobah(loc)||number===2&&PremiereGame.sides.some(actor=>PremiereLocations.occupy(state,actor,site,cardAbility)===true)||number===3&&!/dagobah: (jungle|cave)$/.test(dagoTitle(loc))||number===4&&!/dagobah: (swamp|bog clearing)$/.test(dagoTitle(loc)))return;
-   for(const [pairIndex,pair] of dagoJediTargets(side,number,site).entries())options.push(dagoOption(card,'testDeploy',[index,site,pairIndex],'Mentor: '+pair.mentor.card.name+' → Schüler: '+pair.apprentice.card.name+(pair.apprentice.inHand?' (aus der Hand)':'')+' bei '+loc.name,{site,cost:pair.cost,mentor:pair.mentor.card,apprentice:pair.apprentice.card,resolve(){
+   for(const [pairIndex,pair] of dagoJediTargets(side,number,site).entries()){
+    if(pair.cost>forceBudget(side))continue;
+    options.push(dagoOption(card,'testDeploy',[index,site,pairIndex],'Mentor: '+pair.mentor.card.name+' → Schüler: '+pair.apprentice.card.name+(pair.apprentice.inHand?' (aus der Hand)':'')+' bei '+loc.name,{site,cost:pair.cost,mentor:pair.mentor.card,apprentice:pair.apprentice.card,resolve(){
     own.hand.splice(own.hand.indexOf(card),1);spendForce(side,pair.cost);
     if(pair.apprentice.inHand){own.hand.splice(own.hand.indexOf(pair.apprentice.card),1);own.board[site].push(pair.apprentice.card);openDeploymentReaction(side,[pair.apprentice.card]);}
     pair.apprentice.card.dagobahApprentice=true;pair.apprentice.card.dagobahMentorId=pair.mentor.card.instanceId;
     (state.tableEffects??=[]).push({card,site,target:pair.apprentice.card,mentor:pair.mentor.card,apprentice:pair.apprentice.card,dagobah:true});
     log(card.name+' richtet sich an '+pair.apprentice.card.name+' mit Mentor '+pair.mentor.card.name+'.');return true;
-   }}));
+   }}));}
   });
  });
  if(state.phase===1&&state.dagobahTrainingWindow===turn)for(const effect of state.tableEffects??[]){

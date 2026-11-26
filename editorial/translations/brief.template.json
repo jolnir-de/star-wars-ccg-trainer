@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "project_id": "starwarsccg",
+  "batch_id": "SWCCG-ENDE-001",
+  "source_language": "en",
+  "target_language": "de-DE",
+  "content_kind": "game_text",
+  "glossary_version": "swccg-en-de-provisional-1",
+  "model_transfer_authorized": false,
+  "contains_private_print_texts": false,
+  "contains_personal_data": false,
+  "publish": false,
+  "approved_sources": [],
+  "cards": []
+}

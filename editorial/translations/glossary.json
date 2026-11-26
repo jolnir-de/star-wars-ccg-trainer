@@ -1,0 +1,14 @@
+{
+  "version": "swccg-en-de-provisional-1",
+  "status": "provisional_requires_operator_review",
+  "official_translation_claimed": false,
+  "rules": [
+    "Keep English card names and supplied protected fragments exactly unchanged.",
+    "Do not simplify timing, costs, optionality, limits, conditions or exceptions.",
+    "Translate game text separately from lore or explanatory commentary.",
+    "Keep original numeric notation and supplied symbol placeholders."
+  ],
+  "keep_english": ["Force", "Destiny", "Lost Pile", "Reserve Deck", "Used Pile", "Force Pile"],
+  "proposed_language_guidance": {"may": "darf (optional)", "must": "muss", "may not": "darf nicht"},
+  "note": "Working glossary only. No historical official German SWCCG terminology verified or inferred."
+}

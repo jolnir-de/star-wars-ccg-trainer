@@ -1,0 +1,12 @@
+{
+  "classification": "synthetic_created_for_this_test_not_original_card_text",
+  "source": {"id": "SYNTHETIC-SOURCE", "project_id": "starwarsccg", "data_class": "synthetic", "approved": true, "approval_reference": "Synthetic fixture only; no real card or model transfer"},
+  "card": {
+    "card_id": "SYNTHETIC-001",
+    "card_name_en": "SYNTHETIC_CARD_A",
+    "source_id": "SYNTHETIC-SOURCE",
+    "text_en": "During this turn, {{TARGET_1}} gains power +2. You may spend 1 Force. You may not repeat this action during the same turn.",
+    "protected_fragments": ["{{TARGET_1}}", "Force"]
+  },
+  "translation_de": "Während dieses Zuges erhält {{TARGET_1}} Stärke +2. Du darfst 1 Force ausgeben. Du darfst diese Aktion während desselben Zuges nicht wiederholen."
+}

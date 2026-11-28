@@ -1,4 +1,4 @@
-<!doctype html><html lang="de"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>SWCCG Trainer V3 · Starter</title><link rel="icon" type="image/svg+xml" sizes="any" href="assets/favicon.svg"><link rel="stylesheet" href="assets/edition-banners.css"><link rel="stylesheet" href="assets/playfield-views.css"><link rel="stylesheet" href="assets/version-picker.css"><style>
+<!doctype html><html lang="de"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>SWCCG Trainer V3 · Starter</title><link rel="icon" type="image/svg+xml" sizes="any" href="assets/favicon.svg"><link rel="stylesheet" href="assets/edition-banners.css"><link rel="stylesheet" href="assets/playfield-views.css"><link rel="stylesheet" href="assets/version-picker.css"><link rel="stylesheet" href="v3/assets/drain-explanation.css"><style>
 :root{color-scheme:dark;--gold:#f3cf7a;--frame:#50617a;--ink:#e7edf9}
 *{box-sizing:border-box}
 body{
@@ -218,7 +218,7 @@ a{color:#b6d8ff}
 .deck-card-link:hover,.deck-card-link:focus-visible{color:#ffe2a6}
 .deck-card-link:focus-visible{outline:2px solid #eac977;outline-offset:3px}
 html{scrollbar-gutter:stable}
-html:has(#cardInspector[open],#battlePreview[open],#battleAnalysis[open],#movementDialog[open],#extraActionDialog[open]){overflow:hidden}
+html:has(#cardInspector[open],#battlePreview[open],#battleAnalysis[open],#movementDialog[open],#extraActionDialog[open],#drainCalculationDialog[open]){overflow:hidden}
 #movementDialog[open]{display:flex;flex-direction:column;gap:10px;overflow:hidden}
 #movementOptions{min-height:0;overflow:auto;overscroll-behavior:contain;padding:2px;overflow-wrap:anywhere}
 #movementOptions details{padding:7px;border:1px solid #526782;border-radius:7px;margin-bottom:5px}
@@ -594,6 +594,7 @@ html:has(#cardInspector[open],#battlePreview[open],#battleAnalysis[open],#moveme
   </header>
   <div id="cardInspectorBody" tabindex="0"></div>
 </dialog>
+<dialog id="drainCalculationDialog" class="game-dialog" aria-labelledby="drainCalculationTitle"><header class="dialog-header"><h2 id="drainCalculationTitle">Force-Drain-Berechnung</h2><form method="dialog"><button autofocus>Schließen</button></form></header><div id="drainCalculationBody"></div></dialog>
 <dialog id="extraActionDialog" class="game-dialog" aria-labelledby="extraActionTitle">
   <header class="dialog-header"><h2 id="extraActionTitle">Regelentscheidung</h2><button type="button" onclick="closeExtraAction()">Playmat ansehen</button></header>
   <p id="extraActionHint" class="hint"></p>
@@ -607,9 +608,9 @@ html:has(#cardInspector[open],#battlePreview[open],#battleAnalysis[open],#moveme
   <div id="movementOptions"></div>
   <p id="movementStatus" class="hint movement-status" role="status" hidden></p>
 </dialog>
-<script src="v3/assets/playfield-views.js"></script><script src="assets/edition-banners.js"></script><script src="v3/engine/premiere-data.js?v=2.15.41"></script><script src="v3/engine/premiere-game.js?v=2.15.41"></script><script src="v3/engine/premiere-battle.js?v=2.15.41"></script><script src="v3/engine/premiere-units.js?v=2.15.41"></script><script src="v3/engine/premiere-locations.js?v=2.15.41"></script><script src="v3/engine/premiere-weapons.js?v=2.15.41"></script><script src="v3/engine/premiere-card-rules.js?v=2.15.41"></script><script src="v3/engine/premiere-bot.js?v=2.15.41"></script><script src="v3/engine/premiere-learning.js?v=2.15.29"></script><script src="v3/engine/premiere-session.js?v=2.15.41"></script><script>
+<script src="v3/assets/playfield-views.js"></script><script src="assets/edition-banners.js"></script><script src="v3/engine/premiere-data.js?v=2.15.41"></script><script src="v3/engine/premiere-game.js?v=2.15.41"></script><script src="v3/engine/premiere-battle.js?v=2.15.41"></script><script src="v3/engine/premiere-units.js?v=2.15.41"></script><script src="v3/engine/drain-explanation.js"></script><script src="v3/engine/premiere-locations.js?v=2.15.41"></script><script src="v3/engine/premiere-weapons.js?v=2.15.41"></script><script src="v3/engine/premiere-card-rules.js?v=2.15.41"></script><script src="v3/engine/premiere-bot.js?v=2.15.41"></script><script src="v3/engine/premiere-learning.js?v=2.15.29"></script><script src="v3/engine/premiere-session.js?v=2.15.41"></script><script src="v3/assets/drain-explanation.js"></script><script>
 const german=['Aktivieren','Kontrolle','Ausspielen','Kampf','Bewegung','Nachziehen'];
-const trainerVersion='3.0.0-preview.1';
+const trainerVersion='3.0.0-preview.2';
 const lessonCompleteMessage='Übung abgeschlossen. Du kannst die Partie weiterspielen oder die Übung neu starten.';
 let supplementalCatalog=[];
 const cardBackUrls={
@@ -674,7 +675,7 @@ function responseMarkup(window,available){
   :window.kind==='react'?'React':window.kind==='battle'?'Battle':titles[window.kind]??'Force Drain';
  const loc=state.locations[window.site];
  const description='<b>Antwortfenster · '+escapeHTML(title)+(loc?' bei '+escapeHTML(loc.name):'')+'</b><p>Priorität: '+window.priority+'</p>'
-  +(window.kind==='destiny'?'<p>'+escapeHTML(window.draw.card.name)+' · '+(window.draw.cancelled?'aufgehoben':window.draw.value??'unbekannt')+'</p>':'');
+  +(window.kind==='destiny'?'<p>'+escapeHTML(window.draw.card.name)+' · '+(window.draw.cancelled?'aufgehoben':window.draw.value??'unbekannt')+'</p>':'')+drainResponseMarkup(window);
  if(window.priority===botSide()){
   const option=botPromptAction();
   return description+(battleOnPlaymat?ruleButton(option,'Antwort des Bots zeigen'):botRuleButton(option,'Antwort des Bots zeigen'));
@@ -724,7 +725,7 @@ function openExtraAction(mode=null){extraActionMode=mode;extraActionDismissed=nu
 function selectJediTest(index,gameId,revision){closeExtraAction();return select(index,gameId,revision);}
 function syncExtraActionDialog(){
  const dialog=el('extraActionDialog');
- const otherDialog=['cardInspector','movementDialog','starterDeckDialog','battlePreview','battleAnalysis','gameReview'].some(id=>el(id).open);
+ const otherDialog=['drainCalculationDialog','cardInspector','movementDialog','starterDeckDialog','battlePreview','battleAnalysis','gameReview'].some(id=>el(id).open);
  if(extraActionWanted&&extraActionDismissed!==extraActionKey&&!otherDialog){if(!dialog.open)dialog.showModal();}
  else if(!extraActionWanted&&dialog.open)dialog.close();
 }
@@ -810,7 +811,7 @@ function renderControlPanel(available=legalActions(state,playerSide()),box=el('c
   if(pending.reason==='drain'&&box===el('controlPanel')){
    const loc=state.locations[pending.locationIndex];
    drainArea.innerHTML='<b id="drainLossTitle">Force Drain'+(loc?' · '+escapeHTML(loc.name):'')+'</b>'
-    +'<p>Wähle Karten für deinen Lost Pile. Noch '+pending.remaining+' Force.</p><div class="pile-action">'+choices+'</div>';
+    +pendingDrainExplanationMarkup(pending)+'<p>Wähle Karten für deinen Lost Pile. Noch '+pending.remaining+' Force.</p><div class="pile-action">'+choices+'</div>';
    box.innerHTML='';box.style.display='none';
    drainArea.hidden=false;
    if(focusDrain)drainArea.focus();
@@ -2421,6 +2422,7 @@ function renderPlaymatColumn(loc,i,startsGroup,available=legalActions(state,play
  +locationConditionsMarkup(i)
  +(PremiereLocations.prison(loc)?'<span class="custody-label">Gefängnis</span>':'')
  +(loc?.id==='Light:672'?'<span class="custody-label">Light-Kontrolle befreit Gefangene auf dem Todesstern</span>':'')
+ +drainExplanationTrigger(i,!!drains)
  +(drains?'<div class="playmat-drain-actions" role="group" aria-label="Force Drain bei '+escapeHTML(loc.name)+'">'+drains+'</div>':'')
  +(actions?'<div class="playmat-actions">'+actions+'</div>':'')+movementTrigger(i,available)+'</div>'
  +zone(own)+'</div>';
@@ -2607,6 +2609,7 @@ function render(){
  renderLearning();
  globalThis.PremiereTableViews?.update(view);
  renderExtraAction(available);
+ if(el('drainCalculationDialog').open)renderDrainCalculation();
 }
 
 function runBotStep(action){
@@ -2618,7 +2621,7 @@ function runBotStep(action){
 const autoBotKey='swccg.v3.autoBot';
 let autoBotTimer=null;
 const automaticBot=()=>el('autoBot').checked&&!replayingGame&&!setupDecks&&state&&!state.gameWinner&&
- !launchOpen&&!battleOnPlaymat&&!el('battlePreview').open&&!el('cardInspector').open&&!el('starterDeckDialog').open&&!el('movementDialog').open&&!el('gameReview').open;
+ !launchOpen&&!battleOnPlaymat&&!el('battlePreview').open&&!el('cardInspector').open&&!el('starterDeckDialog').open&&!el('movementDialog').open&&!el('gameReview').open&&!el('drainCalculationDialog').open;
 
 function offTurnBotInterrupt(available){
  if(!plannedBot()||(currentGame()?.cardRulesVersion??0)<23||state.activeSide!==playerSide()||pendingActionReason())return null;
@@ -2647,7 +2650,7 @@ function automaticBotAction(){
 
 function automaticBotDamageAction(){
  if(!el('autoBotDamage').checked||replayingGame||launchOpen||!state||state.gameWinner||setupDecks||battleSession?.segment!=='damage'||
-  ['cardInspector','movementDialog','starterDeckDialog','gameReview'].some(id=>el(id).open))return null;
+  ['drainCalculationDialog','cardInspector','movementDialog','starterDeckDialog','gameReview'].some(id=>el(id).open))return null;
  const offers=legalActions(state,botSide());
  if(!offers.length){
   // Damage priority alternates after every loss. Passing an empty player debt
@@ -2692,7 +2695,7 @@ presentGame=()=>{
   if(el('extraActionDialog').open)el('extraActionDialog').close();
   selected=-1;
   selectedTableCard=null;
-  shownGame=currentGame();
+  shownGame=currentGame();shownDrainSite=null;if(el('drainCalculationDialog').open)el('drainCalculationDialog').close();
   closeCard();
   if(el('movementDialog').open)el('movementDialog').close();
  }
@@ -3274,6 +3277,7 @@ const afterAuxiliaryDialog=()=>{syncExtraActionDialog();scheduleAutomaticBot();}
 el('cardInspector').onclose=afterAuxiliaryDialog;
 el('starterDeckDialog').onclose=afterAuxiliaryDialog;
 el('movementDialog').onclose=afterAuxiliaryDialog;
+el('drainCalculationDialog').onclose=()=>{shownDrainSite=null;afterAuxiliaryDialog();};
 el('gameReview').onclose=afterAuxiliaryDialog;
 el('viewBattlePlaymat').onclick=showBattlePlaymat;
 el('returnToBattle').onclick=returnToBattle;

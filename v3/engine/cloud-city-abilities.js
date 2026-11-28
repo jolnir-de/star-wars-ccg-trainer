@@ -36,11 +36,13 @@ const ccAbilityBase={suppressed:PremiereUnits.textSuppressed,move:hothMovementAl
 PremiereUnits.textSuppressed=function(card){return ccAbilityBase.suppressed(card)||cloudCityEnabled()&&card?.cloudCityInsultTurn===state.game.timing.turn;};
 hothMovementAllowed=function(side,card,from,to,kind){if(!ccAbilityBase.move(side,card,from,to,kind))return false;return !cloudCityEnabled()||card?.type!=='Character'||!state.locations[to]?.locationTags?.includes('Mobile')||!ccAt(PremiereGame.otherSide(side),from,'Dark:355');};
 travelOptions=function(card,side,from,to,react=false){const choices=ccAbilityBase.travel(card,side,from,to,react);return cloudCityEnabled()&&card.type==='Starship'&&[from,to].some(slot=>ccUnits().some(entry=>entry.side===side&&entry.slot===slot&&!entry.unavailable&&ccOn(entry.card,'Dark:492')))?choices.map(option=>['Landen','Starten'].includes(option.kind)?{...option,cost:0}:option):choices;};
-forceDrainEffects=function(side,slot){const plan=ccAbilityBase.drain(side,slot);if(!plan||!cloudCityEnabled())return plan;let bonus=0;const loc=state.locations[slot];
- if(CloudCityRules.cloud(loc))bonus+=Math.min(1,ccUnits().filter(entry=>entry.side===side&&!entry.unavailable&&['Light:2592','Dark:2591'].includes(entry.card.id)&&ccText(entry.card)&&isSite(state.locations[entry.slot])&&ccPlanet(state.locations[entry.slot])===ccPlanet(loc)).length);
- if(loc.side!==side&&PremiereLocations.conditions(state,slot,side).scompLink&&ccPresent(side,slot).some(card=>['Light:434','Dark:430'].includes(card.id)&&ccText(card)))bonus++;
- if(dagoCompleted(PremiereGame.otherSide(side),1)||ccDecree(PremiereGame.otherSide(side)))bonus=0;
- return {...plan,modifier:plan.modifier+bonus};
+forceDrainEffects=function(side,slot){const plan=ccAbilityBase.drain(side,slot);if(!plan||!cloudCityEnabled())return plan;const rows=[],loc=state.locations[slot];
+ const tibanna=CloudCityRules.cloud(loc)&&ccUnits().find(entry=>entry.side===side&&!entry.unavailable&&['Light:2592','Dark:2591'].includes(entry.card.id)&&ccText(entry.card)&&isSite(state.locations[entry.slot])&&ccPlanet(state.locations[entry.slot])===ccPlanet(loc));
+ if(tibanna)rows.push(V3DrainTrace.term('modifier',1,tibanna.card,'Bonus am zugehörigen Cloud-Sektor',tibanna.slot));
+ const droid=loc.side!==side&&PremiereLocations.conditions(state,slot,side).scompLink&&ccPresent(side,slot).find(card=>['Light:434','Dark:430'].includes(card.id)&&ccText(card));
+ if(droid)rows.push(V3DrainTrace.term('modifier',1,droid,'Scomp-Link an gegnerischem Standort',slot));
+ const by=drainSuppressionSources(PremiereGame.otherSide(side));
+ return V3DrainTrace.modify(plan,(dagoCompleted(PremiereGame.otherSide(side),1)||ccDecree(PremiereGame.otherSide(side)))?rows.map(row=>({...row,status:'canceled',suppressedBy:by.map(V3DrainTrace.ref)})):rows);
 };
 characterTraits=function(card){const traits=ccAbilityBase.traits(card);return cloudCityEnabled()&&ccOn(card,'Dark:2661')&&ccEntry(card)&&ccPresent(ccOwner(card),ccEntry(card).slot).some(other=>other!==card&&CloudCityRules.clone(other)&&other.type==='Character')?[...new Set([...traits,'leader'])]:traits;};
 alterTarget=function(card,site){return !(cloudCityEnabled()&&['Light:917','Light:2539','Light:1643','Light:1157'].includes(card.id)&&ccEffects('Light:1145').length)&&ccAbilityBase.alter(card,site);};

@@ -19,7 +19,7 @@ PremiereUnits.canUseDevice=function(game,host,...args){return !(jpEnabled()&&hos
 const jpProjectionBase=forceDrainEffects;
 const jpProjectionLoss=dagoLoss;
 dagoLoss=function(side,amount,reason,...args){if(jpEnabled()&&jpTitle({name:reason})==='shot in the dark'&&ccEffects('Light:1956',PremiereGame.otherSide(side)).some(e=>!Number.isInteger(e.site)))amount++;return jpProjectionLoss(side,amount,reason,...args);};
-forceDrainEffects=function(side,slot){const plan=jpProjectionBase(side,slot);if(!jpEnabled()||!plan)return plan;return isHoloSite(state.locations[slot])&&ccEffects('Light:1956',side).some(e=>!Number.isInteger(e.site))?{...plan,modifier:plan.modifier+1}:plan;};
+forceDrainEffects=function(side,slot){const plan=jpProjectionBase(side,slot);if(!jpEnabled()||!plan)return plan;const effect=ccEffects('Light:1956',side).find(e=>!Number.isInteger(e.site));return isHoloSite(state.locations[slot])&&effect?V3DrainTrace.modify(plan,[V3DrainTrace.term('modifier',1,effect.card,'Globale Projection am Holosite')]):plan;};
 // Insert losses use several legacy reasons; their originating interrupt remains
 // in the response stack, so cap the complete loss before individual card choices.
 const jpInsertLossBase=beginForceLoss;

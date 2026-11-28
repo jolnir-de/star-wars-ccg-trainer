@@ -121,17 +121,22 @@ function dagoEffectTiming(event,tasks){
 }
 function dagoDrainPlan(side,slot,plan){
  if(dagoTitle(state.locations[slot])==='dagobah'||dagoUnits().some(entry=>entry.slot===slot&&entry.card.concealed&&(entry.card.controller??entry.card.owner??entry.card.side)!==side))return null;
- const own=side.toLowerCase(),loc=state.locations[slot];let modifier=plan.modifier;
- if(dagoLocationText(slot)&&DagobahRules.asteroid(loc)&&dagoTitle(loc)==='big one')modifier+=side===dagoLocationPlayer(slot,state.locations[slot].side)?dagoSectors(dagoSystemSlot(slot)).filter(i=>/asteroid field/.test(dagoTitle(state.locations[i]))).length:loc.id==='Light:236'?1:0;
- if(loc?.id==='Dark:910'&&side===dagoLocationPlayer(slot,'Light'))modifier++;
- if(dagoCompleted(PremiereGame.otherSide(side),1)){
-  // Cancel each bonus individually: a +2 and a -1 leave the -1 intact.
-  const penalties=PremiereLocations.rulesAt(state,slot,side,'forceDrain').reduce((sum,rule)=>sum+Math.min(0,rule.amount),0)+PremiereLocations.effectsAt(state,slot).reduce((sum,effect)=>sum+Math.min(0,effect.drainModifier?.[side]??0),0);
-  const generator=PremiereLocations.ruleAt(state,slot,side,'hothGeneratorDrainPenalty')&&state.locations.some(HothRules.generator)?-1:0;
-  const waters=PremiereLocations.effectsAt(state,slot).some(effect=>activeCardRules(effect.card,'locationEffect').some(rule=>rule.darkWaters)&&(effect.card.owner??effect.card.side)!==side)?-1:0;
-  return {...plan,base:PremiereLocations.icons(state,slot,PremiereGame.otherSide(side)),modifier:penalties+generator+waters,optional:0,weapons:[]};
+ const loc=state.locations[slot],rows=[];
+ if(dagoLocationText(slot)&&DagobahRules.asteroid(loc)&&dagoTitle(loc)==='big one'){
+  const amount=side===dagoLocationPlayer(slot,loc.side)?dagoSectors(dagoSystemSlot(slot)).filter(i=>/asteroid field/.test(dagoTitle(state.locations[i]))).length:loc.id==='Light:236'?1:0;
+  rows.push(V3DrainTrace.term('modifier',amount,loc,'Big One / zugehörige Asteroidenfelder',slot));
  }
- return {...plan,modifier};
+ if(loc?.id==='Dark:910'&&side===dagoLocationPlayer(slot,'Light'))rows.push(V3DrainTrace.term('modifier',1,loc,'Standort-Spieltext',slot));
+ plan=V3DrainTrace.modify(plan,rows);
+ if(dagoCompleted(PremiereGame.otherSide(side),1)){
+  const penalties=drainRuleTerms(side,slot).filter(row=>row.amount<0);
+  for(const effect of PremiereLocations.effectsAt(state,slot))if((effect.drainModifier?.[side]??0)<0)penalties.push(V3DrainTrace.term('modifier',effect.drainModifier[side],effect.card,'Effect am Standort',slot));
+  if(PremiereLocations.ruleAt(state,slot,side,'hothGeneratorDrainPenalty')&&state.locations.some(HothRules.generator))penalties.push(...hothDrainTerms(side,slot).filter(row=>row.amount<0));
+  const waters=PremiereLocations.effectsAt(state,slot).find(effect=>activeCardRules(effect.card,'locationEffect').some(rule=>rule.darkWaters)&&(effect.card.owner??effect.card.side)!==side);
+  if(waters)penalties.push(V3DrainTrace.term('modifier',-1,waters.card,'Dark Waters am Standort',slot));
+  const icons=PremiereLocations.iconCalculation(state,slot,PremiereGame.otherSide(side));return V3DrainTrace.rebase(V3DrainTrace.replace(plan,penalties,drainSuppressionSources(PremiereGame.otherSide(side))),icons.value,icons.details);
+ }
+ return plan;
 }
 const dagoEffectBase={options:hothEffectOptions,settle:settleHothEffect,announce:announceHothEffect};
 hothEffectOptions=function(side,window=null){return dagoEffectBase.options(side,window).concat(dagobahEnabled()?dagoEffectOptions(side,window):[]);};

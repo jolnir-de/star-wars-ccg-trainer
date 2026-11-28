@@ -25,19 +25,24 @@ function jpLocationOptions(side){
 }
 ccProviders.push(jpLocationOptions);
 const jpLocationBase={drain:forceDrainEffects,total:hothBattlePower,generation:forceFromLocations,move:hothMovementAllowed,travel:travelOptions,battleCost:battleInitiationCost,drainResolve:resolveForceDrain};
-forceDrainEffects=function(side,slot){const plan=jpLocationBase.drain(side,slot);if(!jpEnabled()||!plan)return plan;const loc=state.locations[slot];let bonus=0;
- if(['Light:1358','Dark:1357'].includes(loc?.id)&&side===jpSource(slot,'Light'))bonus++;
- if(loc?.id==='Dark:1357'&&side===jpSource(slot,'Dark')&&ccPresent(side,slot).some(c=>jpSpecies(c,'gamorrean')))bonus++;
- if(['Light:1442','Dark:1750'].includes(loc?.id)&&side===jpSource(slot,loc.id==='Light:1442'?'Dark':'Light'))bonus--;
- if(loc?.id==='Light:2593'&&side===jpSource(slot,'Dark'))bonus++;
- if(loc?.id==='Dark:1355'&&side===jpSource(slot,'Light')&&ccPresent(side,slot).some(isDroid))bonus++;
- if(jpPalace(loc)&&jpAtAudience(side,'Dark:1003'))bonus++;
- if(jpAtAudience(side,'Light:2507')&&ccPresent(side,slot).some(c=>c.subType==='Alien'&&JabbasPalaceRules.nonunique(c)))bonus++;
- if(CloudCityRules.city(loc)&&jpAll(side,'Light:1964').some(e=>sitePlanet(state.locations[e.slot])==='bespin'))bonus++;
- if(jpAll(side,'Light:128').some(e=>sitePlanet(state.locations[e.slot])==='tatooine')&&isExteriorPlanetSite(loc)){const vapor=ccPresent(side,slot).some(c=>jpTitle(c)==='vaporator'),hydro=ccPresent(side,slot).some(c=>jpTitle(c)==='hydroponics station');bonus+=Number(vapor)+Number(hydro);}
- if(jpTitle(loc)==='alderaan')bonus+=jpAll(side,'Light:2420').some(e=>sitePlanet(state.locations[e.slot])==='yavin 4')?state.locations.filter((l,i)=>sitePlanet(l)==='yavin 4'&&jpControl(side,i)).length:0;
- if(dagoCompleted(PremiereGame.otherSide(side),1)||ccDecree(PremiereGame.otherSide(side)))bonus=Math.min(0,bonus);
- return {...plan,modifier:plan.modifier+bonus};
+forceDrainEffects=function(side,slot){const plan=jpLocationBase.drain(side,slot);if(!jpEnabled()||!plan)return plan;const loc=state.locations[slot],rows=[];
+ const add=(amount,card,label,sourceSite=slot)=>{if(amount)rows.push(V3DrainTrace.term('modifier',amount,card,label,sourceSite));};
+ const audience=id=>jpAll(side,id).find(e=>/audience chamber$/.test(jpTitle(state.locations[e.slot])));
+ const from=(entry,amount,label)=>{if(entry)add(amount,entry.card,label,entry.slot);};
+ if(['Light:1358','Dark:1357'].includes(loc?.id)&&side===jpSource(slot,'Light'))add(1,loc,'Palace-Standortregel');
+ if(loc?.id==='Dark:1357'&&side===jpSource(slot,'Dark')&&ccPresent(side,slot).some(c=>jpSpecies(c,'gamorrean')))add(1,loc,'Gamorrean am Standort');
+ if(['Light:1442','Dark:1750'].includes(loc?.id)&&side===jpSource(slot,loc.id==='Light:1442'?'Dark':'Light'))add(-1,loc,'Palace-Standortregel');
+ if(loc?.id==='Light:2593'&&side===jpSource(slot,'Dark'))add(1,loc,'Palace-Standortregel');
+ if(loc?.id==='Dark:1355'&&side===jpSource(slot,'Light')&&ccPresent(side,slot).some(isDroid))add(1,loc,'Droide am Standort');
+ if(jpPalace(loc))from(audience('Dark:1003'),1,'Bonus aus der Audience Chamber');
+ if(ccPresent(side,slot).some(c=>c.subType==='Alien'&&JabbasPalaceRules.nonunique(c)))from(audience('Light:2507'),1,'Bonus für nicht einzigartigen Alien');
+ if(CloudCityRules.city(loc))from(jpAll(side,'Light:1964').find(e=>sitePlanet(state.locations[e.slot])==='bespin'),1,'Bonus auf Bespin');
+ const moisture=jpAll(side,'Light:128').find(e=>sitePlanet(state.locations[e.slot])==='tatooine');
+ if(moisture&&isExteriorPlanetSite(loc))for(const title of ['vaporator','hydroponics station'])if(ccPresent(side,slot).some(c=>jpTitle(c)===title))from(moisture,1,'Bonus durch '+title+' am Drain-Ort');
+ if(jpTitle(loc)==='alderaan')from(jpAll(side,'Light:2420').find(e=>sitePlanet(state.locations[e.slot])==='yavin 4'),state.locations.filter((l,i)=>sitePlanet(l)==='yavin 4'&&jpControl(side,i)).length,'Kontrollierte Yavin-4-Standorte');
+ const by=drainSuppressionSources(PremiereGame.otherSide(side)),bonus=V3DrainTrace.sum(rows);
+ if((dagoCompleted(PremiereGame.otherSide(side),1)||ccDecree(PremiereGame.otherSide(side)))&&bonus>0)rows.push(V3DrainTrace.term('modifier',-bonus,by[0],'Palace-Bonus auf 0 begrenzt',undefined,{sources:by.map(V3DrainTrace.ref)}));
+ return V3DrainTrace.modify(plan,rows);
 };
 resolveForceDrain=function(side,slot,...args){const plan=drainPlan(side,slot),result=jpLocationBase.drainResolve(side,slot,...args);if(jpEnabled()&&plan&&ccPresent(side,slot).some(c=>c.subType==='Alien')&&(jpAtAudience(side,'Dark:1346')||jpAtAudience(side,'Light:1575')))activateReserve(side,1);return result;};
 hothBattlePower=function(side,slot){let value=jpLocationBase.total(side,slot);if(jpEnabled()&&state.locations[slot]?.id==='Light:1435'&&ccPresent(side,slot).filter(c=>c.type==='Starship').length===2)value+=2;return value;};

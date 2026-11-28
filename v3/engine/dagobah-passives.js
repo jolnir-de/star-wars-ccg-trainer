@@ -196,10 +196,10 @@ dagoImmunity=function(side,card,slot){
 const dagoDrainBefore=resolveForceDrain;
 resolveForceDrain=function(side,site,bonus){
  if(!dagobahEnabled())return dagoDrainBefore(side,site,bonus);
- const plan=forceDrainEffects(side,site);if(!plan)return;
+ const plan=forceDrainEffects(side,site);if(!plan){const item=currentDrainExplanation(side,site);if(item){item.status='canceled';item.reason='Drain nach Antworten nicht mehr zulässig (Presence oder Standortregel).';log(item.reason);}return;}
  const amount=drainAmount(plan,bonus),weapons=plan.weapons.slice(0,bonus);
  for(const {host,weapon} of weapons)if(weapon)PremiereUnits.recordWeaponUse(state,host,weapon);
- const finish=()=>{const fromReserve=PremiereLocations.entries(state,side).some(entry=>!entry.unavailable&&(entry.slot===site||adjacentSites(entry.slot,site))&&activeCardRules(entry.card,'drainFromReserve').length);log(side+' führt Force Drain '+amount+' bei '+state.locations[site].name+' aus.');beginForceLoss(PremiereGame.otherSide(side),amount,{locationIndex:site,reason:'drain',...(fromReserve?{from:'deck'}:{})});};
+ const finish=()=>{resolvedDrainExplanation(side,site,plan,bonus);const fromReserve=PremiereLocations.entries(state,side).find(entry=>!entry.unavailable&&(entry.slot===site||adjacentSites(entry.slot,site))&&activeCardRules(entry.card,'drainFromReserve').length);log(side+' führt Force Drain '+amount+' bei '+state.locations[site].name+' aus.');beginForceLoss(PremiereGame.otherSide(side),amount,{locationIndex:site,reason:'drain',...(fromReserve?{from:'deck',fromSource:V3DrainTrace.ref(fromReserve.card)}:{})});};
  if(weapons.some(item=>item.weapon&&/lightsaber/i.test(item.weapon.name)))withShipWeaponResponse({kind:'dagobahDrainEnhanced',side,site,weapons,amount},finish);else finish();
 };
 

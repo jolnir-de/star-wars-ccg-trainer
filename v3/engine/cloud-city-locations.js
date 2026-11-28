@@ -42,10 +42,14 @@ characterDeployCost=function(card,loc,side){const cost=ccLocationBase.charCost(c
 craftDeployCost=function(card,loc,side,...args){const cost=ccLocationBase.craftCost(card,loc,side,...args);return cost===null||!cloudCityEnabled()?cost:Math.max(0,cost+ccBespinDeployModifier(card,loc,side));};
 cardPowerModifier=function(card,side,slot,present){let value=ccLocationBase.power(card,side,slot,present);const loc=state.locations[slot];if(cloudCityEnabled()&&['Light:453','Dark:452'].includes(loc?.id)&&side===ccLocationSource(slot,loc.side)&&card.type==='Character'&&ownLightsaber(card))value+=2;return value;};
 hothBattlePower=function(side,slot){let value=ccLocationBase.total(side,slot);if(cloudCityEnabled()&&CloudCityRules.city(state.locations[slot]))for(const [source,loc]of state.locations.entries())if(CloudCityRules.sector(loc)&&dagoLocationText(source)&&ccControl(side,source))value+=ccPresent(side,source).filter(card=>['Vehicle','Starship'].includes(card.type)).length;return value;};
-forceDrainEffects=function(side,slot){const plan=ccLocationBase.drain(side,slot);if(!plan||!cloudCityEnabled())return plan;let modifier=ccLocationDrain(side,slot);const chosen=state.cloudCityDrainBoost;
- if(dagoCompleted(PremiereGame.otherSide(side),1))modifier=Math.min(0,modifier);
- else if(chosen?.side===side&&chosen.site===slot&&chosen.turn===state.game.timing.turn&&ccCloudDrainSource(side,chosen.source,slot))modifier++;
- return {...plan,modifier:plan.modifier+modifier};
+forceDrainEffects=function(side,slot){let plan=ccLocationBase.drain(side,slot);if(!plan||!cloudCityEnabled())return plan;
+ const modifier=ccLocationDrain(side,slot),rows=modifier?[V3DrainTrace.term('modifier',modifier,state.locations[slot],'Cloud-City-Standortregel',slot)]:[],chosen=state.cloudCityDrainBoost;
+ if(dagoCompleted(PremiereGame.otherSide(side),1)){
+  plan=V3DrainTrace.modify(plan,rows.map(row=>row.amount>0?{...row,status:'canceled',suppressedBy:drainSuppressionSources(PremiereGame.otherSide(side)).map(V3DrainTrace.ref)}:row));
+ }else{
+  if(chosen?.side===side&&chosen.site===slot&&chosen.turn===state.game.timing.turn&&ccCloudDrainSource(side,chosen.source,slot))rows.push(V3DrainTrace.term('modifier',1,state.locations[chosen.source],'Gewählter Cloud-Drain-Bonus',chosen.source));
+  plan=V3DrainTrace.modify(plan,rows);
+ }return plan;
 };
 resolveForceDrain=function(side,slot,...args){const chosen=state.cloudCityDrainBoost,apply=cloudCityEnabled()&&chosen?.side===side&&chosen.site===slot&&chosen.turn===state.game.timing.turn&&ccCloudDrainSource(side,chosen.source,slot);ccLocationBase.resolve(side,slot,...args);if(apply){ccMark(state.locations[chosen.source],'drainBoost');delete state.cloudCityDrainBoost;}};
 PremiereLocations.conditions=function(gameState,slot,side){const value=ccLocationBase.transit(gameState,slot,side),loc=gameState.locations[slot];if(cloudCityEnabled()&&gameState===state&&['Light:455','Dark:447'].includes(loc?.id)&&dagoLocationText(slot))return {...value,dockingBay:true,transitCost:side===ccLocationSource(slot,loc.side)?1:2};return value;};

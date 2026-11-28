@@ -1,6 +1,6 @@
 # V2 erhalten, V3 parallel entwickeln
 
-V2.19.3 unter `v2.html` bleibt die stabile Spielvariante. `v3.html` ist die gekennzeichnete Entwicklungsversion `3.0.0-preview.1`, zunächst mit demselben Funktionsstand. Die in [V3_TODO.md](../V3_TODO.md) beschriebenen Verbesserungen entstehen anschließend ausschließlich in V3. Der Deckeditor ist zuletzt eingeordnet.
+V2.19.3 unter `v2.html` bleibt die stabile Spielvariante. `v3.html` ist die gekennzeichnete Entwicklungsversion `3.0.0-preview.2`, mit [nachvollziehbaren Force-Drain-Berechnungen](V3_FORCE_DRAIN.md) als erster Verbesserung. Die in [V3_TODO.md](../V3_TODO.md) beschriebenen Verbesserungen entstehen anschließend ausschließlich in V3. Der Deckeditor ist zuletzt eingeordnet.
 
 ## Technische Grenze
 
@@ -17,7 +17,7 @@ Der offizielle Builder erstellt ein gemeinsames Paket mit beiden HTML-Einstiegen
 
 Die bisherigen V2-Ladebudgets gelten unverändert. V3 erhält eigene Prüfungen für höchstens 600 KiB gzip beim ersten Spielstart, 180 KiB je optionalem Dagobah-/Cloud-City-/Jabba’s-Palace-Paket und 1000 KiB für ihren gesamten Code-/Datenanteil. Beide Varianten zusammen benötigen mehr Webspace; ein einzelner Spieleinstieg lädt weiterhin nur seine eigene Variante. Gemeinsame Sammlerlisten und Banner bleiben außerhalb des jeweiligen Spielstarts.
 
-`tests/v3-isolation.test.mjs` prüft Quell- und Release-Schutz, Ressourcenpfade, Speicherformate, Ladebudgets und genau dieselben 16 öffentlichen Premiere-Drucktexte in der V3-Katalogkopie. `scripts/v3-browser-check.mjs` prüft gebaute Dateien im echten Browser: getrennte und gleichzeitig laufende Partien, Darstellungseinstellungen, Fortsetzen beider Versionen, zurückgewiesene Fremdimporte und alle sechs V3-Formate mit beiden Spielseiten. Dabei wird ein einzelner Browser-Tab mit zwei isolierten Fenstern verwendet. Die übrigen acht Browserprüfungen bleiben Teil der Abnahme.
+`tests/v3-isolation.test.mjs` prüft Quell- und Release-Schutz, Ressourcenpfade, Speicherformate, Ladebudgets und genau dieselben 16 öffentlichen Premiere-Drucktexte in der V3-Katalogkopie. `scripts/v3-browser-check.mjs` prüft gebaute Dateien im echten Browser: getrennte und gleichzeitig laufende Partien, Darstellungseinstellungen, Fortsetzen beider Versionen, zurückgewiesene Fremdimporte und alle sechs V3-Formate mit beiden Spielseiten. Dabei wird ein einzelner Browser-Tab mit zwei isolierten Fenstern verwendet. Die übrigen acht bestehenden Browserprüfungen und die neue V3-Drain-Prüfung bleiben Teil der Abnahme.
 
 Für ALL-INKL gilt weiter [ALL_INKL.md](ALL_INKL.md): getestete Assets zuerst, HTML danach, Manifest zuletzt. Das Domainverzeichnis vorher prüfen und sichern; bestehende Hash-Dateien für offene Partien erhalten. Neue V3-Verzeichnisse dürfen ausschließlich innerhalb des bestätigten Domainverzeichnisses angelegt werden. Die Startseite behält V2 als Standard und verlinkt V3 zusätzlich.
 

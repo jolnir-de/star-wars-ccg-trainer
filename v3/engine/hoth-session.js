@@ -129,13 +129,16 @@ function hothBattlePower(side,slot) {
  if(isSite(loc)&&region==='hoth'&&hothEffects('Light:2530',side).some(effect=>effect.completed))bonus+=2;
  return bonus;
 }
-function hothDrainModifier(side,slot) {
- let bonus=0;
- if(PremiereLocations.ruleAt(state,slot,side,'hothGeneratorDrainPenalty')&&state.locations.some(HothRules.generator))bonus--;
- if(PremiereLocations.ruleAt(state,slot,side,'hothImperialDrain')&&PremiereLocations.presentCards(state,side,slot).some(card=>card.subType==='Imperial'))bonus++;
- if(isSystem(state.locations[slot])&&hothEffects('Light:805',side).length)bonus+=2;
- return bonus;
+function hothDrainTerms(side,slot) {
+ const rows=[],loc=state.locations[slot],add=(amount,card,label,sourceSite=slot,via)=>rows.push(V3DrainTrace.term('modifier',amount,card,label,sourceSite,{via:V3DrainTrace.ref(via)}));
+ const generator=PremiereLocations.ruleEntriesAt(state,slot,side,'hothGeneratorDrainPenalty')[0];
+ if(generator&&state.locations.some(HothRules.generator))add(-1,generator.card,'Main Power Generators liegen aus',generator.slot,generator.via);
+ const imperial=PremiereLocations.ruleEntriesAt(state,slot,side,'hothImperialDrain')[0];
+ if(imperial&&PremiereLocations.presentCards(state,side,slot).some(card=>card.subType==='Imperial'))add(1,imperial.card,'Imperial am Standort',imperial.slot,imperial.via);
+ const effect=hothEffects('Light:805',side)[0];if(isSystem(loc)&&effect)add(2,effect.card,'Globaler System-Bonus',effect.site??null);
+ return rows;
 }
+function hothDrainModifier(side,slot){return V3DrainTrace.sum(hothDrainTerms(side,slot));}
 function hothImmunity(side,card,slot,limit) {
  if(card.hothDeltaTurn===state.game.timing.turn)return Infinity;
  if(card.id==='Light:2004')return limit;

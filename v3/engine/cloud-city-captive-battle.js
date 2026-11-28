@@ -21,7 +21,7 @@ const ccCaptiveBattleBase={settle:ccSettleBattleInterrupt,options:battleDamageOp
 ccSettleBattleInterrupt=function(frame,parent,done){
  const mode=frame.mode.slice(3),side=frame.side,x=battleSession;
  if(mode==='retrieveExact'){const own=ccOwn(side),at=own.lost.indexOf(frame.target);if(at>=0){own.lost.splice(at,1);own.used.push(frame.target);queueRuleResponse({kind:'dagobahRetrieved',side,amount:1});}done();return true;}
- if(mode==='cancelIto'){state.cloudCityNoItoTurn=state.game.timing.turn;done();return true;}
+ if(mode==='cancelIto'){state.cloudCityNoItoTurn=state.game.timing.turn;state.cloudCityNoItoSource=V3DrainTrace.ref(frame.card);done();return true;}
  if(mode==='captiveFury'){
   const records=[];for(const entry of ccUnits())if(entry.slot===frame.site)for(const captive of ccCaptives(entry.card))if((captive.owner??captive.side)===side&&!captive.frozen){records.push({card:captive,escort:entry.card,site:entry.slot});ccSetCaptives(entry.card,ccCaptives(entry.card).filter(card=>card!==captive));delete captive.captured;captive.controller=side;captive.cloudCityFury=true;ccOwn(side).board[entry.slot].push(captive);}
   state.cloudCityFury=records;done();if(!initiateBattleFor(side,frame.site))ccRestoreFury();return true;
@@ -37,5 +37,5 @@ ccSettleBattleInterrupt=function(frame,parent,done){
 };
 battleDamageOptions=function(side){const options=ccCaptiveBattleBase.options(side);return cloudCityEnabled()?options.filter(option=>!option.card?.cloudCityFury||option.kind!=='battleForfeit'||option.hit):options;};
 movementRestriction=function(card){return cloudCityEnabled()&&card.cloudCityFury?'Captive Fury verbietet freiwillige Bewegung.':ccCaptiveBattleBase.move(card);};
-forceDrainEffects=function(side,slot){const plan=ccCaptiveBattleBase.drain(side,slot);if(!plan||!cloudCityEnabled()||state.cloudCityNoItoTurn!==state.game.timing.turn)return plan;const droid=PremiereLocations.entries(state,side).some(entry=>entry.slot===slot&&!entry.unavailable&&activeCardRules(entry.card,'captiveDrain').length);return droid?{...plan,modifier:plan.modifier-ccUnits().filter(entry=>entry.slot===slot&&entry.card.captured&&!entry.card.frozen).length}:plan;};
+forceDrainEffects=function(side,slot){const plan=ccCaptiveBattleBase.drain(side,slot);if(!plan||!cloudCityEnabled()||state.cloudCityNoItoTurn!==state.game.timing.turn)return plan;const droid=PremiereLocations.entries(state,side).some(entry=>entry.slot===slot&&!entry.unavailable&&activeCardRules(entry.card,'captiveDrain').length);return droid?V3DrainTrace.modify(plan,[{...V3DrainTrace.term('modifier',-ccUnits().filter(entry=>entry.slot===slot&&entry.card.captured&&!entry.card.frozen).length,null,'Gefangenen-Bonus aufgehoben',slot),source:state.cloudCityNoItoSource}]):plan;};
 ccContinuousProviders.push(()=>{if(state.cloudCityFury&&!battleSession&&!state.pendingForceLoss&&!state.pendingCardView&&!PremiereGame.responseWindow(state.game))ccRestoreFury();});

@@ -14,13 +14,20 @@ function dagoLocationActions(side){
  }
  return out;
 }
-const dagoLocationHooks={icons:PremiereLocations.icons,generation:forceFromLocations,drawModifier:hothDrawModifier,react:reactOptions,reactDeploy:reactDeployOptions,officer:officerShipReact,cost:battleInitiationCost,drain:drainPlan,actions:dagoActionOptions,timing:dagoCheckpoint,traits:characterTraits,forfeit:cardForfeitValueAt,power:cardPowerModifier};
+const dagoLocationHooks={iconCalculation:PremiereLocations.iconCalculation,icons:PremiereLocations.icons,generation:forceFromLocations,drawModifier:hothDrawModifier,react:reactOptions,reactDeploy:reactDeployOptions,officer:officerShipReact,cost:battleInitiationCost,drain:drainPlan,actions:dagoActionOptions,timing:dagoCheckpoint,traits:characterTraits,forfeit:cardForfeitValueAt,power:cardPowerModifier};
 PremiereLocations.icons=function(gameState,slot,side){
  const original=dagoLocationHooks.icons(gameState,slot,side);if(!dagobahEnabled()||gameState!==state||original===null)return original;
  const loc=state.locations[slot];
  if(loc?.id==='Dark:599'&&side===dagoLocationPlayer(slot,'Dark')&&PremiereLocations.presence(state,PremiereGame.otherSide(side),slot,cardAbility)===true)return 0;
  const sleens=dagoUnits().filter(entry=>entry.slot===slot&&!entry.unavailable&&dagoText(entry.card)&&dagoTitle(entry.card)===(side==='Light'?'sleen':'nudj')).length;
  return Math.max(0,original-sleens);
+};
+PremiereLocations.iconCalculation=function(game,slot,side){
+ const result=dagoLocationHooks.iconCalculation(game,slot,side);if(!dagobahEnabled()||game!==state||result.value===null)return result;
+ let {value,details}=result;details=details.slice();const loc=state.locations[slot];
+ if(loc?.id==='Dark:599'&&side===dagoLocationPlayer(slot,'Dark')&&PremiereLocations.presence(state,PremiereGame.otherSide(side),slot,cardAbility)===true){details.push(V3DrainTrace.term('icons',-value,loc,'Presence in der Cave: Icons auf 0',slot));return {value:0,details};}
+ for(const entry of dagoUnits().filter(entry=>entry.slot===slot&&!entry.unavailable&&dagoText(entry.card)&&dagoTitle(entry.card)===(side==='Light'?'sleen':'nudj'))){const next=Math.max(0,value-1);details.push(V3DrainTrace.term('icons',next-value,entry.card,'Icon-Abzug durch Kreatur',slot));value=next;}
+ return {value,details};
 };
 forceFromLocations=function(side){
  const result=dagoLocationHooks.generation(side);if(!dagobahEnabled())return result;
@@ -66,7 +73,7 @@ reactOptions=function(side,window){
 };
 reactDeployOptions=function(side,window){const options=dagoLocationHooks.reactDeploy(side,window);return !dagobahEnabled()?options:options.filter(option=>!dagoNemetBlocks(side,option.from,option.to??window.site));};
 battleInitiationCost=function(slot){return dagoLocationHooks.cost(slot)+(dagobahEnabled()&&dagoEffects('Light:2741').length?1:0);};
-drainPlan=function(side,slot){const plan=dagoLocationHooks.drain(side,slot);if(!plan||!dagobahEnabled())return plan;const cost=(plan.cost??0)+(dagoEffects('Light:2741').length?1:0);return cost>forceBudget(side)?null:{...plan,cost};};
+drainPlan=function(side,slot){const plan=dagoLocationHooks.drain(side,slot);if(!plan||!dagobahEnabled())return plan;const effect=dagoEffects('Light:2741')[0],result=V3DrainTrace.cost(plan,effect?[V3DrainTrace.term('cost',1,effect.card,'Globale Ausführungskosten')]:[]);return result.cost>forceBudget(side)?null:result;};
 dagoActionOptions=function(side){return dagoLocationHooks.actions(side).concat(dagobahEnabled()&&!state.pendingCardView&&!state.pendingForceLoss&&!PremiereGame.responseWindow(state.game)?dagoLocationActions(side):[]);};
 characterTraits=function(card){const traits=dagoLocationHooks.traits(card);if(dagobahEnabled()&&card.attachments?.some(effect=>effect.id==='Dark:937'&&dagoText(effect))&&!traits.includes('leader'))return traits.concat('leader');return traits;};
 cardForfeitValueAt=function(card,side,slot){if(dagobahEnabled()&&(card.dagobahNeuralUntil>=state.game.timing.turn||card.dagobahForfeitZeroTurn===state.game.timing.turn))return 0;return dagoLocationHooks.forfeit(card,side,slot);};

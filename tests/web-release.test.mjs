@@ -57,12 +57,13 @@ test('public release is self-contained, versioned, small and excludes private ma
     const initialFiles = release.files.filter(file => file.path === 'v2.html' || gameStartup.has(file.path));
     assert.ok(initialFiles.every(file => !/jabbas-palace|cloud-city|dagobah|hoth|collector-/.test(file.path)), 'Later editions and collectors stay outside the startup bundle');
     assert.ok(initialFiles.reduce((n, f) => n + f.gzipBytes, 0) < 600 * 1024, 'Initial game code and data retain the 600 KiB gzip budget');
-    assert.ok(release.files.filter(file => /(?:engine|data)\/dagobah[.-]/.test(file.path)).reduce((n, f) => n + f.gzipBytes, 0) < 180 * 1024, 'On-demand Dagobah rules and decks: 180 KiB gzip');
-    assert.ok(release.files.filter(file => !bannerArt.includes(file)&&!coverArt.includes(file)).reduce((n, f) => n + f.gzipBytes, 0) < 1000 * 1024, 'Complete six-edition code, data and guides: 1000 KiB gzip');
+    const v2Files=release.files.filter(file=>!file.path.startsWith('v3/')&&file.path!=='v3.html');
+    assert.ok(v2Files.filter(file => /(?:engine|data)\/dagobah[.-]/.test(file.path)).reduce((n, f) => n + f.gzipBytes, 0) < 180 * 1024, 'On-demand V2 Dagobah rules and decks: 180 KiB gzip');
+    assert.ok(v2Files.filter(file => !bannerArt.includes(file)&&!coverArt.includes(file)).reduce((n, f) => n + f.gzipBytes, 0) < 1000 * 1024, 'V2 keeps its original complete-package budget: 1000 KiB gzip');
     assert.equal(release.files.filter(file=>/^engine\/cloud-city-all\./.test(file.path)).length,1,'Cloud City uses one optional script request');
-    assert.ok(release.files.filter(file=>/(?:engine|data)\/cloud-city[.-]/.test(file.path)).reduce((n,f)=>n+f.gzipBytes,0)<180*1024,'Optional Cloud City rules and decks: 180 KiB gzip');
+    assert.ok(v2Files.filter(file=>/(?:engine|data)\/cloud-city[.-]/.test(file.path)).reduce((n,f)=>n+f.gzipBytes,0)<180*1024,'Optional V2 Cloud City rules and decks: 180 KiB gzip');
     assert.equal(release.files.filter(file=>/^engine\/jabbas-palace-all\./.test(file.path)).length,1,'Jabba’s Palace uses one optional script request');
-    assert.ok(release.files.filter(file=>/(?:engine|data)\/jabbas-palace[.-]/.test(file.path)).reduce((n,f)=>n+f.gzipBytes,0)<180*1024,'Optional Jabba’s Palace rules and decks: 180 KiB gzip');
+    assert.ok(v2Files.filter(file=>/(?:engine|data)\/jabbas-palace[.-]/.test(file.path)).reduce((n,f)=>n+f.gzipBytes,0)<180*1024,'Optional V2 Jabba’s Palace rules and decks: 180 KiB gzip');
     const premierePath = release.files.find(file => /^data\/premiere\.[a-f0-9]+\.json$/.test(file.path)).path;
     const data = JSON.parse(await readFile(join(output, premierePath), 'utf8'));
     assert.equal(data.cards.filter(card => card.printText != null).length, 16);

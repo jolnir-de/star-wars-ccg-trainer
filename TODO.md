@@ -1,5 +1,9 @@
 # Offene Funktionen für den Star Wars CCG Premiere Trainer
 
+## V3 – aktuelle Weiterentwicklung
+
+V2.19.3 bleibt als stabile Spielvariante erhalten. Die separate V3-Vorschau und der vollständige priorisierte Verbesserungsplan stehen in [V3_TODO.md](V3_TODO.md). Zuerst kommen nachvollziehbare Aktionen und Berechnungen, bessere Decks/Bot-Pläne, Berater und Spielfluss. Der Deckeditor kommt ausdrücklich zuletzt. Die folgenden Abschnitte dokumentieren die bereits abgeschlossene V2-Entwicklung.
+
 ## 17. Cloud City integrieren
 
 V2.18.0 erweitert den Pool um 180 Cloud-City-Karten und acht Themendecks je Spielseite. [Regelstand und Prüfmatrix](CLOUD_CITY_REGELSTAND.md) · [Anleitung](anleitungen/cloud-city.html). Veröffentlicht auf www.starwarsccg.de; lokale und öffentliche Abnahme sind abgeschlossen.

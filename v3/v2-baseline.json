@@ -1,0 +1,810 @@
+{
+  "schema": 1,
+  "version": "2.19.3",
+  "commit": "c85d8ff9a2e864c05dc83e5394516ca6a57effa4",
+  "publishedRevision": "86c5d193b834d79d",
+  "sources": [
+    {
+      "path": "v2.html",
+      "sha256": "7340f152e5c62bb9fdd5ddae8bef70ef04299eebef9770070ca39298e0b32735"
+    },
+    {
+      "path": "assets/favicon.svg",
+      "sha256": "e04853a137e0a7955bbbe8dc70b6ced59d82a2e7c5f8e8a79f82e396de3fe8ae"
+    },
+    {
+      "path": "assets/site.css",
+      "sha256": "514c7ddd2177d738215108411523823a36cc7df804b80afa8ccf9f115a7cc42d"
+    },
+    {
+      "path": "assets/home-covers.css",
+      "sha256": "d03fc2eb52686ee48042beaad4907bcbf0f6c7f61a2df9ec13ee4184e18a8935"
+    },
+    {
+      "path": "assets/edition-banners.css",
+      "sha256": "f7cdc823ea638dda97c4d4b707085546164ef130cb0cdf4c41d23c149dfa9588"
+    },
+    {
+      "path": "assets/faction-card-backs.svg",
+      "sha256": "f7f19ed16f20111a359c7462862ddf4a20ea0ad561c3c70ed1142431ede8a18a"
+    },
+    {
+      "path": "assets/starter-covers.css",
+      "sha256": "41857932e22a1d7484985e521897116c34907d2302973f8116b2f6dccb9879c8"
+    },
+    {
+      "path": "assets/playfield-views.css",
+      "sha256": "d24bf727f65ddb1e835118e90f327bc6de7b7f3ecae4c26bc4ce879ebe2d0870"
+    },
+    {
+      "path": "assets/playfield-views.js",
+      "sha256": "3a836fce9c4da2ba10061233bfb714bb0cbd624d57d8656ac4aa7ad26ab23a8a"
+    },
+    {
+      "path": "engine/premiere-data.js",
+      "sha256": "25e122620f4a91ac98efef6c6a112cd667de357a31890af18940467c20bfa147"
+    },
+    {
+      "path": "engine/premiere-game.js",
+      "sha256": "a07240f1bda0075d41d327679bf98cb31d5683554e9953e4f22075fa680b5d6f"
+    },
+    {
+      "path": "engine/premiere-battle.js",
+      "sha256": "fb0ef0148720beb345ae9fa2fda0b0971cd56d8be5a6448105ee0f1557883a65"
+    },
+    {
+      "path": "engine/premiere-units.js",
+      "sha256": "00c3f7ad2f0ad12640b704c2d7caf0ae0eb38aab0e0a0b167a34a114c5aaa3a7"
+    },
+    {
+      "path": "engine/premiere-locations.js",
+      "sha256": "687a022ffa6b6585643059cae23f8aa52918e73c8887b5c7d8c971efc122e868"
+    },
+    {
+      "path": "engine/premiere-weapons.js",
+      "sha256": "23316c5d8bad4cac6d600063ca5eab33a092696d80c7438bbb0298e5f5f1385e"
+    },
+    {
+      "path": "engine/premiere-card-rules.js",
+      "sha256": "b1ba6f949b6757be16d64144a2471a879d048825f1ce069d897224d804fc84f2"
+    },
+    {
+      "path": "engine/premiere-bot.js",
+      "sha256": "1d22f4e8a0e40af5dba6a68b367d60499786b90a0c332c830f80f8768ad788c0"
+    },
+    {
+      "path": "engine/premiere-learning.js",
+      "sha256": "25351bd29d811429e612c7a76c98e379bcc5cc8db5fb11ac909d2a56986dba3a"
+    },
+    {
+      "path": "engine/premiere-session.js",
+      "sha256": "5b2638f1654df2b886d7395825042dc4350cc7dd93273ee537733f7954503a57"
+    },
+    {
+      "path": "engine/hoth-rules.js",
+      "sha256": "d2bb9cce1f169a7907ecc7fd1c5f1921bdf50d7ead7167b353c73b3ed5770daf"
+    },
+    {
+      "path": "engine/hoth-card-rules.js",
+      "sha256": "560c3508642267d26376303548ef329cbad275b15d33ff64b6b0a41aa49c17bf"
+    },
+    {
+      "path": "engine/hoth-session.js",
+      "sha256": "10a50b3680405972fc10f404d0be8a3a285d985b112dd227b0caa2754aef3c45"
+    },
+    {
+      "path": "engine/hoth-interrupts.js",
+      "sha256": "525a8812ae942805c2ad2d958002ad7bd69eb3ecb0a453fce64c772323462a93"
+    },
+    {
+      "path": "engine/hoth-creatures.js",
+      "sha256": "a7bd3b1fc082b842fe6bb5d0573ec494982320bdac5292e33363682af6469dd5"
+    },
+    {
+      "path": "engine/hoth-mines.js",
+      "sha256": "a3ec59569fd1e8835634419511c0b08035ee49d23582bda4b7658ca8f8fa24e7"
+    },
+    {
+      "path": "engine/hoth-timing.js",
+      "sha256": "5f6869cfe68485e89db909d236ead37a420e4c9c54d7e3946c8bcda9d31157a4"
+    },
+    {
+      "path": "engine/dagobah-rules.js",
+      "sha256": "5a4ca96845881300512667d15a5fbaaa406090cdc273e05cb06e1df36b5ab501"
+    },
+    {
+      "path": "engine/dagobah-card-rules.js",
+      "sha256": "3e40e6ac5216fe977b72a9d49f15a28d82217c3a059cf9d3f9c91dedcd5a54b2"
+    },
+    {
+      "path": "engine/dagobah-session.js",
+      "sha256": "0dfa358fe74f02b80f4047a5701330b84a8bd8b8d684e0bd80d5094f4a562ed3"
+    },
+    {
+      "path": "engine/dagobah-jedi.js",
+      "sha256": "0c1c308dac73511348b7b04cf2a05633df9bacae88033e0a4d7ff878a345dbc7"
+    },
+    {
+      "path": "engine/dagobah-space.js",
+      "sha256": "daac594d14a8dea249feec69ee2662f532f98f4c9099bcebf7a9084dd99a27ba"
+    },
+    {
+      "path": "engine/dagobah-creatures.js",
+      "sha256": "9812e52ef89474eab1a1fea1723eff4ae948c9a0a9b05de44c24bdf5c05584b4"
+    },
+    {
+      "path": "engine/dagobah-units.js",
+      "sha256": "b6b60fa281cc76f137f8b49964c8c365f85585207602c59332fd3c7dfdd78a0d"
+    },
+    {
+      "path": "engine/dagobah-effects.js",
+      "sha256": "15079c1f008874c542e92cff8731d0014ca098b1baec0bd2dc5f20509e84dc43"
+    },
+    {
+      "path": "engine/dagobah-weapons.js",
+      "sha256": "67b9166c2b539a56ebf6a4d3e586d396d0177a6344c93d6f4315d7372c19e654"
+    },
+    {
+      "path": "engine/dagobah-locations.js",
+      "sha256": "6db1a4a309dca144f227f1ca6dc5c227cab0ba53fbe72f8a31baf1d9bdee5da1"
+    },
+    {
+      "path": "engine/dagobah-interrupts.js",
+      "sha256": "792ed8cdb33dc6afb5e65242803c1d2c353f20c520123dc53fdb6550925be1cd"
+    },
+    {
+      "path": "engine/dagobah-timing.js",
+      "sha256": "1fc7eb06ae7c090be7b4d5a5dd46ec9fa0fbbe111ce76df648d30489f1ba6747"
+    },
+    {
+      "path": "engine/dagobah-abilities.js",
+      "sha256": "7d65899e3463b613d3376192e9334ddf29776a8e8bb64b86fb9e7cd3473828b1"
+    },
+    {
+      "path": "engine/dagobah-passives.js",
+      "sha256": "41cf0af914f854876cfcfcee12c4ca913571aaadb871ebaaf7abadbec6a6b17e"
+    },
+    {
+      "path": "engine/cloud-city-rules.js",
+      "sha256": "99f1b066fda90833452f0e802775acf18773b24ebe99374b138bd622ddce0645"
+    },
+    {
+      "path": "engine/cloud-city-card-rules.js",
+      "sha256": "a4f1a7514c6ba0a442696335404825e16115ba9a6b2ba551bd99b0193336a3d4"
+    },
+    {
+      "path": "engine/cloud-city-session.js",
+      "sha256": "e4224bc2b5c767864cc60b26bb0bae56dfff560680288e45c5549b5a5921c6f7"
+    },
+    {
+      "path": "engine/cloud-city-space.js",
+      "sha256": "5e506b592e1b4769a9504cbb538b6672ca8e4ec035ebb427876b36d53dabf936"
+    },
+    {
+      "path": "engine/cloud-city-sabacc.js",
+      "sha256": "d099e7a90c661f5f951f64dc872b61dd3f009675ac65c2b752b44e2af524e816"
+    },
+    {
+      "path": "engine/cloud-city-captives.js",
+      "sha256": "c2af42d6013a85b1dcdb2a3f4bdded9e1a439e47f6952a30fa32edf924b5768f"
+    },
+    {
+      "path": "engine/cloud-city-devices.js",
+      "sha256": "c0124e832357e18b2e556c178205bdfea5f010af9d9a9ee15e2fd287ca1c07cb"
+    },
+    {
+      "path": "engine/cloud-city-freezing.js",
+      "sha256": "404dc7f1a1b2134ca683f690f2c1a423f276f63a252afa2706c508f4e0a3d5e2"
+    },
+    {
+      "path": "engine/cloud-city-locations.js",
+      "sha256": "71b2fadf31a08d3f6deb9ba71ad801c244e73586cdc745b516fc3964a1f5331a"
+    },
+    {
+      "path": "engine/cloud-city-weather-vane.js",
+      "sha256": "c282948806caaf19df45c41dcad04c8091f694f3c414d98637fc66900d1e7f5b"
+    },
+    {
+      "path": "engine/cloud-city-units.js",
+      "sha256": "268a175e047e9bf6461ff6f317072999b3fb663678136765191cc9c3ac2a2082"
+    },
+    {
+      "path": "engine/cloud-city-weapons.js",
+      "sha256": "c11dd9863ac86c562152a7d3c5369fc9dcc856e5ac24f5a16d0a60a57bc88cbb"
+    },
+    {
+      "path": "engine/cloud-city-effects.js",
+      "sha256": "d60ada2058fc41392f0c2acdd9e705a913e4cf572cdb2d70822af07050beb079"
+    },
+    {
+      "path": "engine/cloud-city-abilities.js",
+      "sha256": "e6ffba09dfcfc2296d62c196b0aac633bda5b04dd93b5c6397bf4032b7b82349"
+    },
+    {
+      "path": "engine/cloud-city-reacts.js",
+      "sha256": "737e4d5ecca72db422ba2e0d962e808746f182050209e223139f8be72fd006d0"
+    },
+    {
+      "path": "engine/cloud-city-interrupts.js",
+      "sha256": "e4e5740a623025ef3cb3c42f9a29c4e40ea97b60e185ac12f0f8fa4cfdfea4c2"
+    },
+    {
+      "path": "engine/cloud-city-battle.js",
+      "sha256": "aab41e2024209828df2f1989adc720aaecb3906650bcee7a5eb11c040c026702"
+    },
+    {
+      "path": "engine/cloud-city-duels.js",
+      "sha256": "cf29db7040a7101ca052d89c00c6182461116f49ca38344c664efa40448e53c1"
+    },
+    {
+      "path": "engine/cloud-city-storage.js",
+      "sha256": "555602037236c8ea5aa89909086217ac6983ac51b2ca6c301e5c9aa7526721ff"
+    },
+    {
+      "path": "engine/cloud-city-timing.js",
+      "sha256": "1c6a340cb1331ee412471694b69067d569a786245bf82adbeeec66c5a5a37688"
+    },
+    {
+      "path": "engine/cloud-city-layout.js",
+      "sha256": "5a282379787104e0d611bee96000ccdd21ccb02d297f195d72fb2319c8ac55e4"
+    },
+    {
+      "path": "engine/cloud-city-support.js",
+      "sha256": "1d5afda4e0e85098557ef10345987396a17c057bef1044a802d2d1ce49f69002"
+    },
+    {
+      "path": "engine/cloud-city-captive-battle.js",
+      "sha256": "bb15b15e7581b19caa116915ac6ddcf4f959b390732d64712914e40470b26788"
+    },
+    {
+      "path": "engine/cloud-city-reactions.js",
+      "sha256": "cca62442e2c8637191590c153c2af584fad5ddc909a49ecaaf3edc31921a4aa4"
+    },
+    {
+      "path": "engine/cloud-city-answers.js",
+      "sha256": "d5014a6fbb76f8e0ed75461d84ce2f6ad72d584b4b4cb48cc09be8d84b8d1c42"
+    },
+    {
+      "path": "engine/cloud-city-information.js",
+      "sha256": "48b9031f2772fe0c4064f3d87bb12fb75bd003dfeb54e2ac18e0da7d5cc617c9"
+    },
+    {
+      "path": "engine/cloud-city-drains.js",
+      "sha256": "c986e7eb2af81fe3d96b8f613588c13c256a1b78563ffcbbd6e653df06560437"
+    },
+    {
+      "path": "engine/cloud-city-nabrun.js",
+      "sha256": "078497a228822d00bc6792f8c1ff5f989c645a689c05766c16fba205999e98b4"
+    },
+    {
+      "path": "engine/cloud-city-limits.js",
+      "sha256": "b7d785e8f66c284be3a8d146652826d3a0ace30f8449f0680533749df770616b"
+    },
+    {
+      "path": "engine/cloud-city-bot.js",
+      "sha256": "34e0a67bb4526302c977f69add8bc0fff137b1aaaa662de9d5b6c5b296d45e67"
+    },
+    {
+      "path": "engine/jabbas-palace-rules.js",
+      "sha256": "b103c32d25cb2d3f1597c5d88b7005be1c901b70f7d108ffd3d67f1dda91b60d"
+    },
+    {
+      "path": "engine/jabbas-palace-card-rules.js",
+      "sha256": "68c6bfa4696d40a3f8ced74b9ec5f2e510edc5ede5516d8170c47a2fcf917868"
+    },
+    {
+      "path": "engine/jabbas-palace-session.js",
+      "sha256": "30b211ce1eb8791085ee321afeb49ac8e357898e1112e351e0640e6c97a9e125"
+    },
+    {
+      "path": "engine/jabbas-palace-layout.js",
+      "sha256": "f7455cf3d36e1a125877f4b64e2239d13b48ba86899fd1393485bddffa5a62a3"
+    },
+    {
+      "path": "engine/jabbas-palace-units.js",
+      "sha256": "f893f004c5b7840e0234781d6dc4cdd41cf9f234a025d13379cb690ef53d7dbc"
+    },
+    {
+      "path": "engine/jabbas-palace-abilities.js",
+      "sha256": "8c9862bcdf5e1ddfa761cd8d0f1c5d99568609a14c42b25ca985013e94b853b8"
+    },
+    {
+      "path": "engine/jabbas-palace-locations.js",
+      "sha256": "09f6ad976d1fcebe26e4fc9a3688a8977311208e62bff5c3823e7f0aaf0db9d2"
+    },
+    {
+      "path": "engine/jabbas-palace-creatures.js",
+      "sha256": "16b009f8dd268153509ffea5db65558420a94853d01feaf73c3703835e5b7a3a"
+    },
+    {
+      "path": "engine/jabbas-palace-weapons.js",
+      "sha256": "78e3b46c2de966c46309093f0c85f068f6303eb78986a840e23b0f3e01cfa695"
+    },
+    {
+      "path": "engine/jabbas-palace-devices.js",
+      "sha256": "908facf13b91ad9eec522b7aae0ad730be6aec2b4cf0ddde770e5d4ca06c2809"
+    },
+    {
+      "path": "engine/jabbas-palace-effects.js",
+      "sha256": "8dc3c93a176b02e0b305374e2866b87ce0617d66daf4eafeb11b2a50fee8ea00"
+    },
+    {
+      "path": "engine/jabbas-palace-sabacc.js",
+      "sha256": "2d54c24c4a6d0395d4484873d46fbfd2c0b4c49748217afeb590cad1b867c267"
+    },
+    {
+      "path": "engine/jabbas-palace-interrupts.js",
+      "sha256": "a0d1ba923fadb04ee77009a442a3fb51d406905ff6cbb91cc0ef50167e3e5ce9"
+    },
+    {
+      "path": "engine/jabbas-palace-battle.js",
+      "sha256": "0612b59a7037cf01fb125f5e62fe6b3dc282ff5592f4bdc4eb2f797d92eaece5"
+    },
+    {
+      "path": "engine/jabbas-palace-captives.js",
+      "sha256": "deccccac0b9e84155da2b0fd076c2c928d2d5f11092ece21892a31e9601a9ba5"
+    },
+    {
+      "path": "engine/jabbas-palace-storage.js",
+      "sha256": "425d08379402c2d0938211926332af3ed40bde36ba215cf425f0a7850455599e"
+    },
+    {
+      "path": "engine/jabbas-palace-support.js",
+      "sha256": "2fc76b29a448725abe9bea480ed1b0da787edf6a19a81a666f9847e42d217486"
+    },
+    {
+      "path": "engine/jabbas-palace-reacts.js",
+      "sha256": "54e7c5996f6f011d0b27b69e44486a786f65d4ccc90ccdd755c3c4584449948e"
+    },
+    {
+      "path": "engine/jabbas-palace-vehicles.js",
+      "sha256": "5e854944754b958980ae4c3131fe5d2ad6bc6f684f2378e7b3eb4b90d055edc4"
+    },
+    {
+      "path": "engine/jabbas-palace-timing.js",
+      "sha256": "bf9e14a214c82c1cd5374de46376e63e3e52cf0d538a0b86046dee0aebe26209"
+    },
+    {
+      "path": "engine/jabbas-palace-combinations.js",
+      "sha256": "93b03598c694314114102729276ccdc3ddef8a921cde234b2e5ad2c1fcbbb2fa"
+    },
+    {
+      "path": "engine/jabbas-palace-answers.js",
+      "sha256": "7d4208e85650bb12a0ea013530c960de67f75177870e7c75540fc85683c40e7e"
+    },
+    {
+      "path": "engine/jabbas-palace-droids.js",
+      "sha256": "45e608e13e86d39c673ecdcd9cd290eee5e1ef560cef22288826eed003cf9576"
+    },
+    {
+      "path": "engine/jabbas-palace-numbers.js",
+      "sha256": "72128a912633e62ee9a1c80e80b3062f36435a86efa3047224d54c2cf352a2f8"
+    },
+    {
+      "path": "engine/jabbas-palace-attacks.js",
+      "sha256": "3c9727706ee38949e732e7a5b2d4bc830de66760347ec36dd9b30a4dda164d8c"
+    },
+    {
+      "path": "engine/jabbas-palace-personas.js",
+      "sha256": "833882f5b42fc182cfc814448017135ebd18938785c7a643cdf6d713427dbad8"
+    },
+    {
+      "path": "engine/jabbas-palace-choices.js",
+      "sha256": "7e71acbe2f2cb7bc6d54114916b65517415bc18beb2d5974dc38e74be42a1226"
+    },
+    {
+      "path": "engine/jabbas-palace-mindscan.js",
+      "sha256": "51866e6080d082efcf3d8cb0f0661599199d807464d85163dfe05a9d5b0e1c8d"
+    },
+    {
+      "path": "engine/jabbas-palace-bot.js",
+      "sha256": "4a3e09aecdea3fc3a4898fcf2982d494486df3804419f5d29d8498ca5921bba8"
+    },
+    {
+      "path": "data/premiere.json",
+      "sha256": "b0f963e8d6fe68ed633ac39898ddc157c2f10a99d5903faf58efce54943ee514"
+    },
+    {
+      "path": "data/a-new-hope.json",
+      "sha256": "e9d1641d45b518706b04fc55bcb7f266436ddde39aa4588c561ca29cd6f9eed6"
+    },
+    {
+      "path": "data/hoth.json",
+      "sha256": "92ab3d7a30ea0fa716ab89380a967832c22213701bf1a2446db98a7c0dabe406"
+    },
+    {
+      "path": "data/dagobah.json",
+      "sha256": "b16292d52567db205145d80c23576ba87637341cbc3110c58796e685fb3cbe10"
+    },
+    {
+      "path": "data/cloud-city.json",
+      "sha256": "6c7d508638579f412277ffb8c0af4d64d1420c56f40051590fae6ccef768362e"
+    },
+    {
+      "path": "data/jabbas-palace.json",
+      "sha256": "b8c4226409d6ed4ca9b90efdd4024fd832d26df40a4a6326e8b0f1543eee94b1"
+    },
+    {
+      "path": "data/premiere-starter-decks.json",
+      "sha256": "d1bc2f20b6317651382edad2545367528204f9ed225003d26766aef450192e9e"
+    },
+    {
+      "path": "data/premiere-themed-decks.json",
+      "sha256": "0299add34cc0d66a31a13f204c240464070fa38b5cb40c03cc57ba30cc83c934"
+    },
+    {
+      "path": "data/premiere-supplemental-cards.json",
+      "sha256": "150ed763a7e3f85a8274a3f5bc096689c89e8f1f007063b49490ee2726269115"
+    },
+    {
+      "path": "data/premiere-card-notes.json",
+      "sha256": "6b1ee000682f6c810f037ed3cf3f6dc4ea7b9cb8bde3d94ab8a7de2307a8cc2f"
+    },
+    {
+      "path": "data/play-format-decks.json",
+      "sha256": "d043850f748dc3c50b2904d8e24390c6aaf81b18a2835508f9c1d5f9b50c5b20"
+    },
+    {
+      "path": "data/hoth-decks.json",
+      "sha256": "a713c5879fc090cd08e41d8198eacf21094a7efd242cce47c21db776f548c5ec"
+    },
+    {
+      "path": "data/dagobah-decks.json",
+      "sha256": "b70489d28cbf9cf483dbeec06a2b1402b4680c25962661e955423bd70c92c7d0"
+    },
+    {
+      "path": "data/cloud-city-decks.json",
+      "sha256": "0c35ab197cb9107db75693c5c80a49d2fb8957532e5156819609ffcf016bef94"
+    },
+    {
+      "path": "data/jabbas-palace-decks.json",
+      "sha256": "5f2931f5e8be59891a3689c43a6bc9839744a43de6f60e967a212ad776e65972"
+    },
+    {
+      "path": "data/deck-overview.json",
+      "sha256": "e172ea3bb357a155c99a4cb282d9eed204fde14b4b0178bceace47b0fd2b785c"
+    },
+    {
+      "path": "assets/edition-banners.js",
+      "sha256": "159fb503b0a690b28bf1fce90f7a8586acd7f87f7aa896dc070a2d424710a581"
+    }
+  ],
+  "files": [
+    {
+      "path": "assets/edition-banners/premiere.a45b3e9b2fa9.svg",
+      "sha256": "a45b3e9b2fa948616af5a55d9879cefb0caf0b05069db1d5f14de01ca956063f"
+    },
+    {
+      "path": "assets/edition-banners/premiere-2-player.554279c02186.svg",
+      "sha256": "554279c0218626b08394768c3ef26629b25d8257d19a8bb6683879f64585e0d1"
+    },
+    {
+      "path": "assets/edition-banners/jedi-pack.9be06c41798f.svg",
+      "sha256": "9be06c41798f5c4bd4b0f15e5fe3699c1bdf97c286f11cd98dee079f98be48dd"
+    },
+    {
+      "path": "assets/edition-banners/rebel-leader.6832c10da52b.svg",
+      "sha256": "6832c10da52bef857e62f2e809441f316c5a3c025e7102184503aa4aa927e261"
+    },
+    {
+      "path": "assets/edition-banners/a-new-hope.40bb34163295.svg",
+      "sha256": "40bb34163295fdfe6022240ed17e794fc9d1170803dcd3e3799b306fcc4000d7"
+    },
+    {
+      "path": "assets/edition-banners/hoth.a8af9ef6b8b6.svg",
+      "sha256": "a8af9ef6b8b6ab27bdf15441d27f7e7237ee661e6db08575e5b3f8a62c069e77"
+    },
+    {
+      "path": "assets/edition-banners/esb-2-player.ff9a555002ef.svg",
+      "sha256": "ff9a555002ef88904d9c1dd0040b30a0d2cd21dea0b2435216feb457b16a2528"
+    },
+    {
+      "path": "assets/edition-banners/dagobah.a62d8cf9b92e.svg",
+      "sha256": "a62d8cf9b92ec76d460dc2aeed985d524e999c3dd80337ce514c7c18c5aa021d"
+    },
+    {
+      "path": "assets/edition-banners/first-anthology.9895ab7ce597.svg",
+      "sha256": "9895ab7ce5977a791ea237a96ebe36aeee2d38a28d0004ed240a062e8e7caf13"
+    },
+    {
+      "path": "assets/edition-banners/cloud-city.b8d6b72c52c5.svg",
+      "sha256": "b8d6b72c52c57386277119b428a15c101e49bcbe65ba893f5aa55ff697879c3f"
+    },
+    {
+      "path": "assets/edition-banners/jabbas-palace.7d1b3608a639.svg",
+      "sha256": "7d1b3608a63953bdf7f526cd2fb704cd675f66987398191f44475333f4f2c020"
+    },
+    {
+      "path": "assets/edition-banners/official-tournament-sealed-deck.56cfb289bb20.svg",
+      "sha256": "56cfb289bb20dcb9a720dedc309d47563809032ebe614b47e2affe7e6b8558db"
+    },
+    {
+      "path": "assets/edition-banners/second-anthology.41f2b6e25717.svg",
+      "sha256": "41f2b6e257172c29de30f2fe39b0d9d5dee49e946aabd8854c66ea3b67f6cee3"
+    },
+    {
+      "path": "assets/edition-banners/special-edition.bc2e31c39cfe.svg",
+      "sha256": "bc2e31c39cfe64951799daea4aad820f1608b9209bfaa017bfab78c24a93501a"
+    },
+    {
+      "path": "assets/edition-banners/enhanced-premiere.a83180b73fae.svg",
+      "sha256": "a83180b73faed7997acda0354aa849633c972cf0960ae45d3c7a30540e824f2a"
+    },
+    {
+      "path": "assets/edition-banners/endor.f3723015dcfd.svg",
+      "sha256": "f3723015dcfdf9c3925d234b834f13a197df83359b6767f552979723a46098a4"
+    },
+    {
+      "path": "assets/edition-banners/enhanced-cloud-city.581e95f2cde0.svg",
+      "sha256": "581e95f2cde0081d2826f07bf2649493c2c785f880ca4787566cab60268e36f0"
+    },
+    {
+      "path": "assets/edition-banners/enhanced-jabbas-palace.c2e8bb444ee6.svg",
+      "sha256": "c2e8bb444ee653fd63091d1815a85f4ced844c03e193f1056638fa0cc0cba38c"
+    },
+    {
+      "path": "assets/edition-banners/reflections.a044c7abeff7.svg",
+      "sha256": "a044c7abeff741b42bfc9e16a18ca7a71a4e4b91bbe6a7498f06762c648fa5b1"
+    },
+    {
+      "path": "assets/edition-banners/third-anthology.75680375a079.svg",
+      "sha256": "75680375a0797d614274ec341e49ea8ac6050f30fecbe34c8148d605fdd02481"
+    },
+    {
+      "path": "assets/edition-banners/death-star-ii.69b7780f6bd1.svg",
+      "sha256": "69b7780f6bd1ecb663d5f8f798bea9d1038e6f7b26f7025c5497e09b1644570a"
+    },
+    {
+      "path": "assets/edition-banners/jabbas-palace-sealed-deck.5a812f87f8e8.svg",
+      "sha256": "5a812f87f8e8455c8bafacbe127e2e8159ab7dd9edc46c07e76ac0cb47dda99f"
+    },
+    {
+      "path": "assets/edition-banners/reflections-ii.1c5deeafbfe5.svg",
+      "sha256": "1c5deeafbfe587c3ab741c8a58f4b110e262cfda69070f56031aa8ca5ac88054"
+    },
+    {
+      "path": "assets/edition-banners/tatooine.df9fdf6971f2.svg",
+      "sha256": "df9fdf6971f28fa936e239d2af1074e4c6e26c7617d7c81447e0b1db0362c120"
+    },
+    {
+      "path": "assets/edition-banners/coruscant.29e0f22a1c73.svg",
+      "sha256": "29e0f22a1c735d9fb49683aa838972f71833b331349616f5795ba67cac6bb05c"
+    },
+    {
+      "path": "assets/edition-banners/reflections-iii.da2fe1b514f9.svg",
+      "sha256": "da2fe1b514f9d1ac963fd0b8e15067191c70b87bd5dc448a12f018de65e52c51"
+    },
+    {
+      "path": "assets/edition-banners/theed-palace.fb781b1cb177.svg",
+      "sha256": "fb781b1cb177a5cd42b26e02194f96e2e6baa4c64b684a90645843f78c3261de"
+    },
+    {
+      "path": "assets/edition-banners.fb74004c3a50.js",
+      "sha256": "fb74004c3a50077f21f90d6dcdd866cb03139ca3d14bba74149e8226b6306899"
+    },
+    {
+      "path": "assets/favicon.e04853a137e0.svg",
+      "sha256": "e04853a137e0a7955bbbe8dc70b6ced59d82a2e7c5f8e8a79f82e396de3fe8ae"
+    },
+    {
+      "path": "assets/edition-banners.f7cdc823ea63.css",
+      "sha256": "f7cdc823ea638dda97c4d4b707085546164ef130cb0cdf4c41d23c149dfa9588"
+    },
+    {
+      "path": "assets/faction-card-backs.f7f19ed16f20.svg",
+      "sha256": "f7f19ed16f20111a359c7462862ddf4a20ea0ad561c3c70ed1142431ede8a18a"
+    },
+    {
+      "path": "assets/starter-covers.41857932e22a.css",
+      "sha256": "41857932e22a1d7484985e521897116c34907d2302973f8116b2f6dccb9879c8"
+    },
+    {
+      "path": "assets/playfield-views.d24bf727f65d.css",
+      "sha256": "d24bf727f65ddb1e835118e90f327bc6de7b7f3ecae4c26bc4ce879ebe2d0870"
+    },
+    {
+      "path": "assets/playfield-views.3a836fce9c4d.js",
+      "sha256": "3a836fce9c4da2ba10061233bfb714bb0cbd624d57d8656ac4aa7ad26ab23a8a"
+    },
+    {
+      "path": "engine/premiere-data.25e122620f4a.js",
+      "sha256": "25e122620f4a91ac98efef6c6a112cd667de357a31890af18940467c20bfa147"
+    },
+    {
+      "path": "engine/premiere-game.a07240f1bda0.js",
+      "sha256": "a07240f1bda0075d41d327679bf98cb31d5683554e9953e4f22075fa680b5d6f"
+    },
+    {
+      "path": "engine/premiere-battle.fb0ef0148720.js",
+      "sha256": "fb0ef0148720beb345ae9fa2fda0b0971cd56d8be5a6448105ee0f1557883a65"
+    },
+    {
+      "path": "engine/premiere-units.00c3f7ad2f0a.js",
+      "sha256": "00c3f7ad2f0ad12640b704c2d7caf0ae0eb38aab0e0a0b167a34a114c5aaa3a7"
+    },
+    {
+      "path": "engine/premiere-locations.687a022ffa6b.js",
+      "sha256": "687a022ffa6b6585643059cae23f8aa52918e73c8887b5c7d8c971efc122e868"
+    },
+    {
+      "path": "engine/premiere-weapons.23316c5d8bad.js",
+      "sha256": "23316c5d8bad4cac6d600063ca5eab33a092696d80c7438bbb0298e5f5f1385e"
+    },
+    {
+      "path": "engine/premiere-card-rules.b1ba6f949b67.js",
+      "sha256": "b1ba6f949b6757be16d64144a2471a879d048825f1ce069d897224d804fc84f2"
+    },
+    {
+      "path": "engine/premiere-bot.1d22f4e8a0e4.js",
+      "sha256": "1d22f4e8a0e40af5dba6a68b367d60499786b90a0c332c830f80f8768ad788c0"
+    },
+    {
+      "path": "engine/premiere-learning.25351bd29d81.js",
+      "sha256": "25351bd29d811429e612c7a76c98e379bcc5cc8db5fb11ac909d2a56986dba3a"
+    },
+    {
+      "path": "engine/premiere-session.5b2638f1654d.js",
+      "sha256": "5b2638f1654df2b886d7395825042dc4350cc7dd93273ee537733f7954503a57"
+    },
+    {
+      "path": "engine/hoth-rules.d2bb9cce1f16.js",
+      "sha256": "d2bb9cce1f169a7907ecc7fd1c5f1921bdf50d7ead7167b353c73b3ed5770daf"
+    },
+    {
+      "path": "engine/hoth-card-rules.560c35086422.js",
+      "sha256": "560c3508642267d26376303548ef329cbad275b15d33ff64b6b0a41aa49c17bf"
+    },
+    {
+      "path": "engine/hoth-session.10a50b368040.js",
+      "sha256": "10a50b3680405972fc10f404d0be8a3a285d985b112dd227b0caa2754aef3c45"
+    },
+    {
+      "path": "engine/hoth-interrupts.525a8812ae94.js",
+      "sha256": "525a8812ae942805c2ad2d958002ad7bd69eb3ecb0a453fce64c772323462a93"
+    },
+    {
+      "path": "engine/hoth-creatures.a7bd3b1fc082.js",
+      "sha256": "a7bd3b1fc082b842fe6bb5d0573ec494982320bdac5292e33363682af6469dd5"
+    },
+    {
+      "path": "engine/hoth-mines.a3ec59569fd1.js",
+      "sha256": "a3ec59569fd1e8835634419511c0b08035ee49d23582bda4b7658ca8f8fa24e7"
+    },
+    {
+      "path": "engine/hoth-timing.5f6869cfe684.js",
+      "sha256": "5f6869cfe68485e89db909d236ead37a420e4c9c54d7e3946c8bcda9d31157a4"
+    },
+    {
+      "path": "engine/dagobah-rules.5a4ca9684588.js",
+      "sha256": "5a4ca96845881300512667d15a5fbaaa406090cdc273e05cb06e1df36b5ab501"
+    },
+    {
+      "path": "engine/dagobah-card-rules.3e40e6ac5216.js",
+      "sha256": "3e40e6ac5216fe977b72a9d49f15a28d82217c3a059cf9d3f9c91dedcd5a54b2"
+    },
+    {
+      "path": "engine/dagobah-session.0dfa358fe74f.js",
+      "sha256": "0dfa358fe74f02b80f4047a5701330b84a8bd8b8d684e0bd80d5094f4a562ed3"
+    },
+    {
+      "path": "engine/dagobah-jedi.0c1c308dac73.js",
+      "sha256": "0c1c308dac73511348b7b04cf2a05633df9bacae88033e0a4d7ff878a345dbc7"
+    },
+    {
+      "path": "engine/dagobah-space.daac594d14a8.js",
+      "sha256": "daac594d14a8dea249feec69ee2662f532f98f4c9099bcebf7a9084dd99a27ba"
+    },
+    {
+      "path": "engine/dagobah-creatures.9812e52ef894.js",
+      "sha256": "9812e52ef89474eab1a1fea1723eff4ae948c9a0a9b05de44c24bdf5c05584b4"
+    },
+    {
+      "path": "engine/dagobah-units.b6b60fa281cc.js",
+      "sha256": "b6b60fa281cc76f137f8b49964c8c365f85585207602c59332fd3c7dfdd78a0d"
+    },
+    {
+      "path": "engine/dagobah-effects.15079c1f0088.js",
+      "sha256": "15079c1f008874c542e92cff8731d0014ca098b1baec0bd2dc5f20509e84dc43"
+    },
+    {
+      "path": "engine/dagobah-weapons.67b9166c2b53.js",
+      "sha256": "67b9166c2b539a56ebf6a4d3e586d396d0177a6344c93d6f4315d7372c19e654"
+    },
+    {
+      "path": "engine/dagobah-locations.6db1a4a309dc.js",
+      "sha256": "6db1a4a309dca144f227f1ca6dc5c227cab0ba53fbe72f8a31baf1d9bdee5da1"
+    },
+    {
+      "path": "engine/dagobah-interrupts.792ed8cdb33d.js",
+      "sha256": "792ed8cdb33dc6afb5e65242803c1d2c353f20c520123dc53fdb6550925be1cd"
+    },
+    {
+      "path": "engine/dagobah-timing.1fc7eb06ae7c.js",
+      "sha256": "1fc7eb06ae7c090be7b4d5a5dd46ec9fa0fbbe111ce76df648d30489f1ba6747"
+    },
+    {
+      "path": "engine/dagobah-abilities.7d65899e3463.js",
+      "sha256": "7d65899e3463b613d3376192e9334ddf29776a8e8bb64b86fb9e7cd3473828b1"
+    },
+    {
+      "path": "engine/dagobah-passives.41cf0af914f8.js",
+      "sha256": "41cf0af914f854876cfcfcee12c4ca913571aaadb871ebaaf7abadbec6a6b17e"
+    },
+    {
+      "path": "engine/cloud-city-all.3904129d7ec5.js",
+      "sha256": "3904129d7ec56394cf37fd42d8dc18ba59e7fd4a612c792d0616a01d18139e56"
+    },
+    {
+      "path": "engine/jabbas-palace-all.5ed0886eb00f.js",
+      "sha256": "5ed0886eb00fd10c59f1545fc1a46c48da4f5d61e5370dc5e6dcd0039e4d94bb"
+    },
+    {
+      "path": "data/premiere.6f31ba5b30b5.json",
+      "sha256": "6f31ba5b30b5ac17d32263781539ede02d8e5169b5a67b9cab1c1710697568a7"
+    },
+    {
+      "path": "data/a-new-hope.1707a5bcb8ea.json",
+      "sha256": "1707a5bcb8ea139811a7db1a4bcf3f00db4c222a83834d2aa307849ce2435730"
+    },
+    {
+      "path": "data/hoth.b9a65fe97b3a.json",
+      "sha256": "b9a65fe97b3a6ec484e812bccb1980216c804fd0e34dd69246439e05e5d86542"
+    },
+    {
+      "path": "data/dagobah.6c2378c1fc67.json",
+      "sha256": "6c2378c1fc67d174b91d367d27061ba60a205b0710906b78f7c14c0cc47a9fc1"
+    },
+    {
+      "path": "data/cloud-city.25f2dfdb7348.json",
+      "sha256": "25f2dfdb7348daadde72a798fa9310b5d972d67276edbaf1a032fa2ef4dda1be"
+    },
+    {
+      "path": "data/jabbas-palace.720d06c20e70.json",
+      "sha256": "720d06c20e707ddb1f1fb106c85d99811c8fcbbf7088f53b7b7794794541ca4c"
+    },
+    {
+      "path": "data/premiere-starter-decks.0e3d908f3a36.json",
+      "sha256": "0e3d908f3a368c3a8c07be94c30d520053579c5f7921ad1d28d8e75f5aba2414"
+    },
+    {
+      "path": "data/premiere-themed-decks.4cfdbebb1fa5.json",
+      "sha256": "4cfdbebb1fa558d9bf9bbba49102a2fa8c6ef3b1db8db6749806d24f85d5ffd5"
+    },
+    {
+      "path": "data/premiere-supplemental-cards.c30b63c42668.json",
+      "sha256": "c30b63c42668d1990c6a8b30ce9458f480e5eb10091926876f514ae5c4263b66"
+    },
+    {
+      "path": "data/premiere-card-notes.c6eb03c604ca.json",
+      "sha256": "c6eb03c604ca8d8c7caccd11fe504c77e9b6f585842ae98dbd0f2939b5b3182c"
+    },
+    {
+      "path": "data/play-format-decks.956a11f5ab6a.json",
+      "sha256": "956a11f5ab6ae3b8da97fe62bef01c8a4b67d969d0d98fea74385687c9df93a9"
+    },
+    {
+      "path": "data/hoth-decks.0fba5b80e7fc.json",
+      "sha256": "0fba5b80e7fc4708947ca98254e8e8653ae0e644f9f9fe78bba8094780c36365"
+    },
+    {
+      "path": "data/dagobah-decks.ea827bccd3f9.json",
+      "sha256": "ea827bccd3f97d9fa91d72b8db811210efec3fc07362e1266571b17886ecf66d"
+    },
+    {
+      "path": "data/cloud-city-decks.4192b4373c26.json",
+      "sha256": "4192b4373c26f9e284c13636a017fbe4940753b77e0e763565508cb5ec16b92e"
+    },
+    {
+      "path": "data/jabbas-palace-decks.bcaf622b46b2.json",
+      "sha256": "bcaf622b46b2403d3391172a466be57446f5f9ca21e959df9fa92be2e88dbdd5"
+    },
+    {
+      "path": "data/deck-overview.130f89e7d631.json",
+      "sha256": "130f89e7d6316d6b47e07aeba73ee95252f93b2112f0b42762231ba15daf0d5d"
+    },
+    {
+      "path": "v2.html",
+      "sha256": "74897f86de2c2ee1577e64f41c7316a1f9b0118c33c920c2d7fc8520e6c53f7b"
+    }
+  ]
+}

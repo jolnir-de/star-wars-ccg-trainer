@@ -1,0 +1,2125 @@
+{
+  "schema": 1,
+  "formats": {
+    "premiere-a-new-hope-hoth-dagobah": {
+      "Light": [
+        {
+          "theme": {
+            "id": "yodas-schule",
+            "name": "Yodas Schule",
+            "description": "Jedi-Ausbildung und langfristige Force-Vorteile.",
+            "cover": "Light:2865"
+          },
+          "strategy": {
+            "start": "Beginne am Dagobah-System. Es liefert während der Deploy-Phase direkt den fehlenden Trainingsort aus dem Reserve Deck.",
+            "opening": "Yoda wird Mentor und Son Of Skywalker sein Apprentice. Bezahle beide regulär, beginne mit Great Warrior und absolviere die Tests in Reihenfolge. Encampment ermöglicht Verstärkung auf Dagobah.",
+            "tactics": "Ausbildung findet zu den auf den Tests genannten Zeitpunkten statt. Halte den Apprentice aktiv und am Testort; Test 2 verlangt persönliche Landspeed. Test 5 braucht einen weiteren eigenen Zug und bietet danach eine wiederverwendbare Destiny."
+          },
+          "startingLocations": [
+            "Light:597",
+            "Light:602",
+            "Light:603",
+            "Light:598",
+            "Light:600",
+            "Light:601",
+            "Light:2447",
+            "Light:2466"
+          ],
+          "cards": [
+            {
+              "id": "Light:597",
+              "count": 1
+            },
+            {
+              "id": "Light:2865",
+              "count": 3
+            },
+            {
+              "id": "Light:2304",
+              "count": 3
+            },
+            {
+              "id": "Light:30",
+              "count": 1
+            },
+            {
+              "id": "Light:752",
+              "count": 1
+            },
+            {
+              "id": "Light:1071",
+              "count": 2
+            },
+            {
+              "id": "Light:1332",
+              "count": 1
+            },
+            {
+              "id": "Light:2272",
+              "count": 1
+            },
+            {
+              "id": "Light:157",
+              "count": 1
+            },
+            {
+              "id": "Light:2873",
+              "count": 1
+            },
+            {
+              "id": "Light:1602",
+              "count": 1
+            },
+            {
+              "id": "Light:2078",
+              "count": 1
+            },
+            {
+              "id": "Light:838",
+              "count": 5
+            },
+            {
+              "id": "Light:2871",
+              "count": 3
+            },
+            {
+              "id": "Light:602",
+              "count": 1
+            },
+            {
+              "id": "Light:603",
+              "count": 1
+            },
+            {
+              "id": "Light:598",
+              "count": 1
+            },
+            {
+              "id": "Light:600",
+              "count": 1
+            },
+            {
+              "id": "Light:601",
+              "count": 1
+            },
+            {
+              "id": "Light:1495",
+              "count": 3
+            },
+            {
+              "id": "Light:1992",
+              "count": 1
+            },
+            {
+              "id": "Light:2447",
+              "count": 1
+            },
+            {
+              "id": "Light:2466",
+              "count": 1
+            },
+            {
+              "id": "Light:2040",
+              "count": 5
+            },
+            {
+              "id": "Light:2838",
+              "count": 5
+            },
+            {
+              "id": "Light:2052",
+              "count": 4
+            },
+            {
+              "id": "Light:259",
+              "count": 2
+            },
+            {
+              "id": "Light:521",
+              "count": 2
+            },
+            {
+              "id": "Light:2217",
+              "count": 2
+            },
+            {
+              "id": "Light:95",
+              "count": 2
+            },
+            {
+              "id": "Light:265",
+              "count": 2
+            }
+          ]
+        },
+        {
+          "theme": {
+            "id": "skywalkers-erbe",
+            "name": "Skywalkers Erbe",
+            "description": "Lichtschwerter, ausgebildete Helden und kontrollierte Bodenkämpfe.",
+            "cover": "Light:2304"
+          },
+          "strategy": {
+            "start": "Docking Bay 94 bietet einen offenen Brückenkopf; suche Dagobah später für Luke und Yoda.",
+            "opening": "Baue zuerst Presence und Force auf. Son Of Skywalker deployt nur auf Dagobah oder Cloud City; setze ihn am Bog Clearing ein und hole sein Lichtschwert einmal pro Partie kostenlos aus dem Reserve Deck.",
+            "tactics": "Sammle Helden vor einem Battle und halte Force für Waffen und Reaktionen. Great Warrior reduziert gegnerische Drain-Boni, A Jedi’s Strength erschwert dessen Battle Destiny."
+          },
+          "startingLocations": [
+            "Light:2447",
+            "Light:598",
+            "Light:602",
+            "Light:2466"
+          ],
+          "cards": [
+            {
+              "id": "Light:2447",
+              "count": 1
+            },
+            {
+              "id": "Light:2304",
+              "count": 2
+            },
+            {
+              "id": "Light:2865",
+              "count": 1
+            },
+            {
+              "id": "Light:1071",
+              "count": 1
+            },
+            {
+              "id": "Light:30",
+              "count": 1
+            },
+            {
+              "id": "Light:598",
+              "count": 1
+            },
+            {
+              "id": "Light:602",
+              "count": 1
+            },
+            {
+              "id": "Light:2872",
+              "count": 1
+            },
+            {
+              "id": "Light:2873",
+              "count": 1
+            },
+            {
+              "id": "Light:976",
+              "count": 1
+            },
+            {
+              "id": "Light:1384",
+              "count": 1
+            },
+            {
+              "id": "Light:177",
+              "count": 1
+            },
+            {
+              "id": "Light:2880",
+              "count": 1
+            },
+            {
+              "id": "Light:1495",
+              "count": 3
+            },
+            {
+              "id": "Light:1803",
+              "count": 1
+            },
+            {
+              "id": "Light:1098",
+              "count": 3
+            },
+            {
+              "id": "Light:394",
+              "count": 1
+            },
+            {
+              "id": "Light:2052",
+              "count": 6
+            },
+            {
+              "id": "Light:1386",
+              "count": 1
+            },
+            {
+              "id": "Light:259",
+              "count": 6
+            },
+            {
+              "id": "Light:2466",
+              "count": 1
+            },
+            {
+              "id": "Light:2838",
+              "count": 6
+            },
+            {
+              "id": "Light:2040",
+              "count": 6
+            },
+            {
+              "id": "Light:521",
+              "count": 3
+            },
+            {
+              "id": "Light:2217",
+              "count": 3
+            },
+            {
+              "id": "Light:95",
+              "count": 3
+            },
+            {
+              "id": "Light:265",
+              "count": 3
+            }
+          ]
+        },
+        {
+          "theme": {
+            "id": "asteroidenzuflucht",
+            "name": "Asteroidenzuflucht",
+            "description": "Sektoren kontrollieren und Asteroid Sanctuary absichern.",
+            "cover": "Light:150"
+          },
+          "strategy": {
+            "start": "Beginne bei Anoat; Asteroidensektoren werden anschließend an dieses Planetensystem angelegt.",
+            "opening": "Setze zuerst bemannte Jäger ein. Lege Asteroid Field und Big One an und bringe Asteroid Sanctuary auf einen kontrollierten Sektor.",
+            "tactics": "Jeder weitere Sektor erhöht das Asteroidenrisiko und das Potenzial von Sanctuary. Setze This Is No Cave und Closer?! gezielt ein, statt riskante Jäger ohne Fluchtweg stehenzulassen."
+          },
+          "startingLocations": [
+            "Light:113",
+            "Light:1427"
+          ],
+          "cards": [
+            {
+              "id": "Light:113",
+              "count": 2
+            },
+            {
+              "id": "Light:149",
+              "count": 6
+            },
+            {
+              "id": "Light:236",
+              "count": 1
+            },
+            {
+              "id": "Light:238",
+              "count": 1
+            },
+            {
+              "id": "Light:150",
+              "count": 5
+            },
+            {
+              "id": "Light:151",
+              "count": 1
+            },
+            {
+              "id": "Light:2124",
+              "count": 1
+            },
+            {
+              "id": "Light:1719",
+              "count": 1
+            },
+            {
+              "id": "Light:2313",
+              "count": 1
+            },
+            {
+              "id": "Light:424",
+              "count": 3
+            },
+            {
+              "id": "Light:2574",
+              "count": 1
+            },
+            {
+              "id": "Light:2561",
+              "count": 1
+            },
+            {
+              "id": "Light:1585",
+              "count": 1
+            },
+            {
+              "id": "Light:2838",
+              "count": 6
+            },
+            {
+              "id": "Light:2907",
+              "count": 5
+            },
+            {
+              "id": "Light:2040",
+              "count": 6
+            },
+            {
+              "id": "Light:2057",
+              "count": 1
+            },
+            {
+              "id": "Light:1427",
+              "count": 1
+            },
+            {
+              "id": "Light:1084",
+              "count": 1
+            },
+            {
+              "id": "Light:2605",
+              "count": 1
+            },
+            {
+              "id": "Light:2629",
+              "count": 1
+            },
+            {
+              "id": "Light:2052",
+              "count": 3
+            },
+            {
+              "id": "Light:259",
+              "count": 2
+            },
+            {
+              "id": "Light:521",
+              "count": 2
+            },
+            {
+              "id": "Light:2217",
+              "count": 2
+            },
+            {
+              "id": "Light:95",
+              "count": 2
+            },
+            {
+              "id": "Light:265",
+              "count": 2
+            }
+          ]
+        },
+        {
+          "theme": {
+            "id": "schmugglerrouten",
+            "name": "Schmugglerrouten",
+            "description": "Falcon, Schmuggler und belohnte Flüge durch die Asteroiden.",
+            "cover": "Light:1677"
+          },
+          "strategy": {
+            "start": "Beginne am Kessel-System. Ergänze einen Außenposten und eine bemannte Falcon.",
+            "opening": "Han und Chewie bilden den mobilen Kern. Rüste deine Jäger aus, bevor du sie in die Asteroidensektoren schickst. Rycar’s Run verlangt Hin- und Rückweg.",
+            "tactics": "Sichere den Rückflug und halte Force für Antworten zurück. Landing Claw schützt einen Jäger durch Verbergen; löse sie rechtzeitig, wenn du wieder Präsenz brauchst."
+          },
+          "startingLocations": [
+            "Light:1427",
+            "Light:113",
+            "Light:2447",
+            "Light:2466"
+          ],
+          "cards": [
+            {
+              "id": "Light:1427",
+              "count": 1
+            },
+            {
+              "id": "Light:113",
+              "count": 1
+            },
+            {
+              "id": "Light:149",
+              "count": 1
+            },
+            {
+              "id": "Light:236",
+              "count": 1
+            },
+            {
+              "id": "Light:238",
+              "count": 1
+            },
+            {
+              "id": "Light:2143",
+              "count": 1
+            },
+            {
+              "id": "Light:2286",
+              "count": 1
+            },
+            {
+              "id": "Light:2574",
+              "count": 1
+            },
+            {
+              "id": "Light:424",
+              "count": 1
+            },
+            {
+              "id": "Light:2749",
+              "count": 1
+            },
+            {
+              "id": "Light:817",
+              "count": 1
+            },
+            {
+              "id": "Light:1550",
+              "count": 1
+            },
+            {
+              "id": "Light:1464",
+              "count": 1
+            },
+            {
+              "id": "Light:1098",
+              "count": 3
+            },
+            {
+              "id": "Light:394",
+              "count": 3
+            },
+            {
+              "id": "Light:1677",
+              "count": 3
+            },
+            {
+              "id": "Light:2040",
+              "count": 6
+            },
+            {
+              "id": "Light:2057",
+              "count": 1
+            },
+            {
+              "id": "Light:2325",
+              "count": 1
+            },
+            {
+              "id": "Light:2447",
+              "count": 1
+            },
+            {
+              "id": "Light:2466",
+              "count": 1
+            },
+            {
+              "id": "Light:2838",
+              "count": 6
+            },
+            {
+              "id": "Light:2907",
+              "count": 4
+            },
+            {
+              "id": "Light:2052",
+              "count": 3
+            },
+            {
+              "id": "Light:259",
+              "count": 3
+            },
+            {
+              "id": "Light:521",
+              "count": 3
+            },
+            {
+              "id": "Light:2217",
+              "count": 3
+            },
+            {
+              "id": "Light:95",
+              "count": 3
+            },
+            {
+              "id": "Light:265",
+              "count": 3
+            }
+          ]
+        },
+        {
+          "theme": {
+            "id": "droidenwerkstatt",
+            "name": "Droidenwerkstatt",
+            "description": "Droiden, Devices und wiederverwendbare Ausrüstung.",
+            "cover": "Light:1992"
+          },
+          "strategy": {
+            "start": "Beginne bei Docking Bay 94 und halte einen zweiten Ort als Ausweichbasis.",
+            "opening": "Setze einen Piloten und einen R-Droiden ein, bevor du den Jäger vollständig ausrüstest. Astromech Translator ermöglicht dem Astromech, ein unbemanntes Schiff zu bewegen.",
+            "tactics": "Retractable Arm stiehlt Ausrüstung nach erfolgreicher Destiny. The Professor spart Battle Damage mit einem Protokolldroiden an Bord. Levitation und Quick Draw bringen passende Karten zurück."
+          },
+          "startingLocations": [
+            "Light:2447",
+            "Light:2466",
+            "Light:2849"
+          ],
+          "cards": [
+            {
+              "id": "Light:2447",
+              "count": 1
+            },
+            {
+              "id": "Light:155",
+              "count": 1
+            },
+            {
+              "id": "Light:780",
+              "count": 1
+            },
+            {
+              "id": "Light:1108",
+              "count": 1
+            },
+            {
+              "id": "Light:1602",
+              "count": 1
+            },
+            {
+              "id": "Light:1926",
+              "count": 1
+            },
+            {
+              "id": "Light:2037",
+              "count": 1
+            },
+            {
+              "id": "Light:2104",
+              "count": 1
+            },
+            {
+              "id": "Light:1512",
+              "count": 1
+            },
+            {
+              "id": "Light:1976",
+              "count": 1
+            },
+            {
+              "id": "Light:814",
+              "count": 1
+            },
+            {
+              "id": "Light:957",
+              "count": 1
+            },
+            {
+              "id": "Light:2539",
+              "count": 1
+            },
+            {
+              "id": "Light:2344",
+              "count": 1
+            },
+            {
+              "id": "Light:2643",
+              "count": 1
+            },
+            {
+              "id": "Light:1992",
+              "count": 3
+            },
+            {
+              "id": "Light:343",
+              "count": 3
+            },
+            {
+              "id": "Light:1995",
+              "count": 1
+            },
+            {
+              "id": "Light:2040",
+              "count": 6
+            },
+            {
+              "id": "Light:2052",
+              "count": 6
+            },
+            {
+              "id": "Light:2838",
+              "count": 6
+            },
+            {
+              "id": "Light:259",
+              "count": 6
+            },
+            {
+              "id": "Light:265",
+              "count": 3
+            },
+            {
+              "id": "Light:2466",
+              "count": 1
+            },
+            {
+              "id": "Light:2849",
+              "count": 1
+            },
+            {
+              "id": "Light:521",
+              "count": 3
+            },
+            {
+              "id": "Light:2217",
+              "count": 3
+            },
+            {
+              "id": "Light:95",
+              "count": 3
+            }
+          ]
+        },
+        {
+          "theme": {
+            "id": "leben-im-sumpf",
+            "name": "Leben im Sumpf",
+            "description": "Dagobahs Kreaturen und langsam aufgebaute Außenposten.",
+            "cover": "Light:1799"
+          },
+          "strategy": {
+            "start": "Beginne am Dagobah-System und lege passende Habitate aus dem Reserve Deck aus.",
+            "opening": "Kreaturen ersetzen keine Charakter-Presence. Baue deshalb parallel einen besetzten Außenposten auf und setze Encampment ein, um zusätzliche Charaktere nach Dagobah zu bringen.",
+            "tactics": "Kreaturen greifen nach ihren eigenen Regeln an. Parasiten schwächen Träger; Bog-wings verlagern ihre Opfer. Yoda verhindert viele Angriffe an seinem Ort, daher Kreaturen und Ausbildungsort bewusst trennen."
+          },
+          "startingLocations": [
+            "Light:597",
+            "Light:598",
+            "Light:600",
+            "Light:601",
+            "Light:602",
+            "Light:2447",
+            "Light:2466"
+          ],
+          "cards": [
+            {
+              "id": "Light:597",
+              "count": 1
+            },
+            {
+              "id": "Light:297",
+              "count": 5
+            },
+            {
+              "id": "Light:1799",
+              "count": 5
+            },
+            {
+              "id": "Light:1719",
+              "count": 4
+            },
+            {
+              "id": "Light:2718",
+              "count": 4
+            },
+            {
+              "id": "Light:2313",
+              "count": 2
+            },
+            {
+              "id": "Light:149",
+              "count": 1
+            },
+            {
+              "id": "Light:236",
+              "count": 1
+            },
+            {
+              "id": "Light:238",
+              "count": 1
+            },
+            {
+              "id": "Light:2257",
+              "count": 1
+            },
+            {
+              "id": "Light:258",
+              "count": 1
+            },
+            {
+              "id": "Light:2799",
+              "count": 1
+            },
+            {
+              "id": "Light:2352",
+              "count": 1
+            },
+            {
+              "id": "Light:598",
+              "count": 1
+            },
+            {
+              "id": "Light:600",
+              "count": 1
+            },
+            {
+              "id": "Light:601",
+              "count": 1
+            },
+            {
+              "id": "Light:602",
+              "count": 1
+            },
+            {
+              "id": "Light:838",
+              "count": 4
+            },
+            {
+              "id": "Light:2865",
+              "count": 1
+            },
+            {
+              "id": "Light:2304",
+              "count": 1
+            },
+            {
+              "id": "Light:2052",
+              "count": 6
+            },
+            {
+              "id": "Light:2447",
+              "count": 1
+            },
+            {
+              "id": "Light:2466",
+              "count": 1
+            },
+            {
+              "id": "Light:2040",
+              "count": 2
+            },
+            {
+              "id": "Light:259",
+              "count": 2
+            },
+            {
+              "id": "Light:2838",
+              "count": 2
+            },
+            {
+              "id": "Light:521",
+              "count": 2
+            },
+            {
+              "id": "Light:2217",
+              "count": 2
+            },
+            {
+              "id": "Light:95",
+              "count": 2
+            },
+            {
+              "id": "Light:265",
+              "count": 2
+            }
+          ]
+        },
+        {
+          "theme": {
+            "id": "ruhe-in-der-macht",
+            "name": "Ruhe in der Macht",
+            "description": "Kontrollierte Force-Verluste und starke Reaktionskarten.",
+            "cover": "Light:1803"
+          },
+          "strategy": {
+            "start": "Mos Eisley bietet einen Ausgangspunkt für einen gestaffelten Bodenaufbau.",
+            "opening": "Sichere deine Force-Generierung und lege die dauerhaften Effekte aus. Halte Force für Control und andere Antworten frei; Wars Not Make One Great verteuert auch deine eigenen Aktionen.",
+            "tactics": "Insert-Effekte wirken erst beim Erreichen der Reserve-Oberseite. Vergleiche sichtbare Charakter-Destiny für Never Tell Me The Odds und vermeide Kämpfe, die nur gegnerische Bounty Hunter belohnen."
+          },
+          "startingLocations": [
+            "Light:2466",
+            "Light:2447",
+            "Light:2849"
+          ],
+          "cards": [
+            {
+              "id": "Light:2466",
+              "count": 1
+            },
+            {
+              "id": "Light:111",
+              "count": 1
+            },
+            {
+              "id": "Light:745",
+              "count": 1
+            },
+            {
+              "id": "Light:1768",
+              "count": 1
+            },
+            {
+              "id": "Light:1785",
+              "count": 1
+            },
+            {
+              "id": "Light:1808",
+              "count": 1
+            },
+            {
+              "id": "Light:1856",
+              "count": 1
+            },
+            {
+              "id": "Light:1920",
+              "count": 1
+            },
+            {
+              "id": "Light:2741",
+              "count": 1
+            },
+            {
+              "id": "Light:2089",
+              "count": 1
+            },
+            {
+              "id": "Light:2800",
+              "count": 1
+            },
+            {
+              "id": "Light:521",
+              "count": 4
+            },
+            {
+              "id": "Light:2752",
+              "count": 1
+            },
+            {
+              "id": "Light:2573",
+              "count": 1
+            },
+            {
+              "id": "Light:1803",
+              "count": 2
+            },
+            {
+              "id": "Light:1495",
+              "count": 3
+            },
+            {
+              "id": "Light:1098",
+              "count": 3
+            },
+            {
+              "id": "Light:394",
+              "count": 1
+            },
+            {
+              "id": "Light:1992",
+              "count": 1
+            },
+            {
+              "id": "Light:2052",
+              "count": 6
+            },
+            {
+              "id": "Light:2447",
+              "count": 1
+            },
+            {
+              "id": "Light:2849",
+              "count": 1
+            },
+            {
+              "id": "Light:259",
+              "count": 6
+            },
+            {
+              "id": "Light:265",
+              "count": 3
+            },
+            {
+              "id": "Light:2040",
+              "count": 6
+            },
+            {
+              "id": "Light:2838",
+              "count": 6
+            },
+            {
+              "id": "Light:2217",
+              "count": 2
+            },
+            {
+              "id": "Light:95",
+              "count": 2
+            }
+          ]
+        },
+        {
+          "theme": {
+            "id": "rebellen-durchhaltewillen",
+            "name": "Rebellischer Durchhaltewille",
+            "description": "Flexible Verstärkung, Rettung und planbare Destiny.",
+            "cover": "Light:1495"
+          },
+          "strategy": {
+            "start": "Docking Bay 94 verbindet den Bodenkern mit deinen Jägern.",
+            "opening": "Setze günstige Presence ein und verwende den Rest der Force für Verstärkung und Antworten. Leere deine Hand nicht blind; Yoda Stew und Recoil In Fear verändern deine verfügbaren Ressourcen.",
+            "tactics": "Visored Vision nutzt bekannte Interrupt-Kopien im Used Pile. Moving To Attack Position schützt einen Jäger vor Attrition, verhindert aber weitere Bewegung im selben Zug."
+          },
+          "startingLocations": [
+            "Light:2447",
+            "Light:2466",
+            "Light:2849",
+            "Light:2014"
+          ],
+          "cards": [
+            {
+              "id": "Light:2447",
+              "count": 1
+            },
+            {
+              "id": "Light:708",
+              "count": 1
+            },
+            {
+              "id": "Light:1140",
+              "count": 1
+            },
+            {
+              "id": "Light:1212",
+              "count": 1
+            },
+            {
+              "id": "Light:1303",
+              "count": 1
+            },
+            {
+              "id": "Light:2055",
+              "count": 1
+            },
+            {
+              "id": "Light:2585",
+              "count": 1
+            },
+            {
+              "id": "Light:2722",
+              "count": 1
+            },
+            {
+              "id": "Light:2867",
+              "count": 1
+            },
+            {
+              "id": "Light:1708",
+              "count": 1
+            },
+            {
+              "id": "Light:2871",
+              "count": 1
+            },
+            {
+              "id": "Light:2880",
+              "count": 1
+            },
+            {
+              "id": "Light:1495",
+              "count": 3
+            },
+            {
+              "id": "Light:1098",
+              "count": 1
+            },
+            {
+              "id": "Light:394",
+              "count": 1
+            },
+            {
+              "id": "Light:1803",
+              "count": 1
+            },
+            {
+              "id": "Light:1992",
+              "count": 1
+            },
+            {
+              "id": "Light:343",
+              "count": 1
+            },
+            {
+              "id": "Light:2052",
+              "count": 6
+            },
+            {
+              "id": "Light:2040",
+              "count": 6
+            },
+            {
+              "id": "Light:2838",
+              "count": 6
+            },
+            {
+              "id": "Light:2057",
+              "count": 1
+            },
+            {
+              "id": "Light:2466",
+              "count": 1
+            },
+            {
+              "id": "Light:2849",
+              "count": 1
+            },
+            {
+              "id": "Light:2014",
+              "count": 1
+            },
+            {
+              "id": "Light:2184",
+              "count": 1
+            },
+            {
+              "id": "Light:259",
+              "count": 6
+            },
+            {
+              "id": "Light:521",
+              "count": 3
+            },
+            {
+              "id": "Light:2217",
+              "count": 3
+            },
+            {
+              "id": "Light:95",
+              "count": 3
+            },
+            {
+              "id": "Light:265",
+              "count": 2
+            }
+          ]
+        }
+      ],
+      "Dark": [
+        {
+          "theme": {
+            "id": "kopfgeldjaeger-gilde",
+            "name": "Kopfgeldjäger-Gilde",
+            "description": "Bewaffnete Bounty Hunter und ihre persönlichen Schiffe.",
+            "cover": "Dark:308"
+          },
+          "strategy": {
+            "start": "Docking Bay 94 bietet einen Bodenstart für die Gilde.",
+            "opening": "Kombiniere Zuckuss und 4-LOM am Boden und rüste deine Jäger gezielt mit persönlichen Waffen aus. Ein passender Pilot verschafft den Schiffen ihre gedruckten Vorteile.",
+            "tactics": "IG-88 kann Getroffene sofort verlieren lassen. Bossks Mortar Gun trifft genau eine Karte mit passender Destiny; die Null gefährdet den Schützen. Spare Force für Waffen und Fangaktionen."
+          },
+          "startingLocations": [
+            "Dark:2446",
+            "Dark:2465",
+            "Dark:1426"
+          ],
+          "cards": [
+            {
+              "id": "Dark:2446",
+              "count": 2
+            },
+            {
+              "id": "Dark:9",
+              "count": 1
+            },
+            {
+              "id": "Dark:308",
+              "count": 3
+            },
+            {
+              "id": "Dark:700",
+              "count": 1
+            },
+            {
+              "id": "Dark:1245",
+              "count": 3
+            },
+            {
+              "id": "Dark:2912",
+              "count": 3
+            },
+            {
+              "id": "Dark:11",
+              "count": 1
+            },
+            {
+              "id": "Dark:312",
+              "count": 1
+            },
+            {
+              "id": "Dark:704",
+              "count": 1
+            },
+            {
+              "id": "Dark:1249",
+              "count": 1
+            },
+            {
+              "id": "Dark:1251",
+              "count": 1
+            },
+            {
+              "id": "Dark:2915",
+              "count": 1
+            },
+            {
+              "id": "Dark:1185",
+              "count": 1
+            },
+            {
+              "id": "Dark:1244",
+              "count": 1
+            },
+            {
+              "id": "Dark:1682",
+              "count": 3
+            },
+            {
+              "id": "Dark:1967",
+              "count": 1
+            },
+            {
+              "id": "Dark:2091",
+              "count": 1
+            },
+            {
+              "id": "Dark:1279",
+              "count": 6
+            },
+            {
+              "id": "Dark:2355",
+              "count": 6
+            },
+            {
+              "id": "Dark:2465",
+              "count": 1
+            },
+            {
+              "id": "Dark:1426",
+              "count": 1
+            },
+            {
+              "id": "Dark:1264",
+              "count": 4
+            },
+            {
+              "id": "Dark:2600",
+              "count": 4
+            },
+            {
+              "id": "Dark:520",
+              "count": 3
+            },
+            {
+              "id": "Dark:2216",
+              "count": 3
+            },
+            {
+              "id": "Dark:94",
+              "count": 3
+            },
+            {
+              "id": "Dark:264",
+              "count": 3
+            }
+          ]
+        },
+        {
+          "theme": {
+            "id": "executors-kommando",
+            "name": "Executors Kommando",
+            "description": "Kommandostationen und Großkampfschiffe mit vielseitiger Besatzung.",
+            "cover": "Dark:906"
+          },
+          "strategy": {
+            "start": "Starte am Kessel-System und baue die Executor samt Kommandostruktur auf.",
+            "opening": "Bringe erst genügend Force und eine einsatzfähige Flotte auf den Tisch. Gherant sucht Executor-Sites; unter Deck stationierte Charaktere verstärken das Schiff nicht als Brückenpiloten.",
+            "tactics": "Lieutenant Suba unterstützt Trooper an Executor-Sites. Control Station, Comm Station und Meditation Chamber belohnen die jeweils passenden Besatzungen. Schütze das Flaggschiff vor seinem zusätzlichen Force-Verlust."
+          },
+          "startingLocations": [
+            "Dark:1426",
+            "Dark:2343",
+            "Dark:2446",
+            "Dark:2465"
+          ],
+          "cards": [
+            {
+              "id": "Dark:1426",
+              "count": 1
+            },
+            {
+              "id": "Dark:906",
+              "count": 2
+            },
+            {
+              "id": "Dark:907",
+              "count": 1
+            },
+            {
+              "id": "Dark:908",
+              "count": 1
+            },
+            {
+              "id": "Dark:910",
+              "count": 1
+            },
+            {
+              "id": "Dark:911",
+              "count": 1
+            },
+            {
+              "id": "Dark:912",
+              "count": 1
+            },
+            {
+              "id": "Dark:495",
+              "count": 1
+            },
+            {
+              "id": "Dark:501",
+              "count": 1
+            },
+            {
+              "id": "Dark:538",
+              "count": 1
+            },
+            {
+              "id": "Dark:551",
+              "count": 1
+            },
+            {
+              "id": "Dark:1273",
+              "count": 3
+            },
+            {
+              "id": "Dark:1538",
+              "count": 1
+            },
+            {
+              "id": "Dark:1542",
+              "count": 1
+            },
+            {
+              "id": "Dark:2739",
+              "count": 1
+            },
+            {
+              "id": "Dark:951",
+              "count": 1
+            },
+            {
+              "id": "Dark:2343",
+              "count": 1
+            },
+            {
+              "id": "Dark:2355",
+              "count": 6
+            },
+            {
+              "id": "Dark:1061",
+              "count": 1
+            },
+            {
+              "id": "Dark:634",
+              "count": 1
+            },
+            {
+              "id": "Dark:723",
+              "count": 3
+            },
+            {
+              "id": "Dark:2446",
+              "count": 1
+            },
+            {
+              "id": "Dark:2465",
+              "count": 1
+            },
+            {
+              "id": "Dark:1279",
+              "count": 6
+            },
+            {
+              "id": "Dark:2597",
+              "count": 3
+            },
+            {
+              "id": "Dark:2598",
+              "count": 3
+            },
+            {
+              "id": "Dark:1264",
+              "count": 3
+            },
+            {
+              "id": "Dark:2600",
+              "count": 3
+            },
+            {
+              "id": "Dark:520",
+              "count": 3
+            },
+            {
+              "id": "Dark:2216",
+              "count": 2
+            },
+            {
+              "id": "Dark:94",
+              "count": 2
+            },
+            {
+              "id": "Dark:264",
+              "count": 2
+            }
+          ]
+        },
+        {
+          "theme": {
+            "id": "imperiale-bomberstaffel",
+            "name": "Imperiale Bomberstaffel",
+            "description": "Gezielte Bombardierung und begleitende TIEs.",
+            "cover": "Dark:2598"
+          },
+          "strategy": {
+            "start": "Beginne am Kessel-System; Bombing Run braucht ein verwandtes nicht-interiores Planetensite.",
+            "opening": "Kontrolliere zuerst das System und bringe TIE-Bomber mit Proton Bombs in Stellung. Brandei sucht TIEs; Piloten geben den Avengern Einsatzfähigkeit.",
+            "tactics": "Bombardiere geschützte Ziele erst nach Prüfung der Schilde. Bombing Runs sind besondere reguläre Bewegungen; ihre nächste Battle-Phase endet mit dem kostenlosen Rückflug, sofern der Bomber dazu noch fähig ist."
+          },
+          "startingLocations": [
+            "Dark:1426",
+            "Dark:2343",
+            "Dark:2446",
+            "Dark:2465"
+          ],
+          "cards": [
+            {
+              "id": "Dark:1426",
+              "count": 1
+            },
+            {
+              "id": "Dark:2598",
+              "count": 6
+            },
+            {
+              "id": "Dark:1961",
+              "count": 6
+            },
+            {
+              "id": "Dark:299",
+              "count": 5
+            },
+            {
+              "id": "Dark:2597",
+              "count": 6
+            },
+            {
+              "id": "Dark:491",
+              "count": 1
+            },
+            {
+              "id": "Dark:490",
+              "count": 1
+            },
+            {
+              "id": "Dark:1538",
+              "count": 1
+            },
+            {
+              "id": "Dark:2343",
+              "count": 1
+            },
+            {
+              "id": "Dark:17",
+              "count": 1
+            },
+            {
+              "id": "Dark:2401",
+              "count": 1
+            },
+            {
+              "id": "Dark:2580",
+              "count": 1
+            },
+            {
+              "id": "Dark:1279",
+              "count": 6
+            },
+            {
+              "id": "Dark:2355",
+              "count": 6
+            },
+            {
+              "id": "Dark:2446",
+              "count": 1
+            },
+            {
+              "id": "Dark:2465",
+              "count": 1
+            },
+            {
+              "id": "Dark:1264",
+              "count": 3
+            },
+            {
+              "id": "Dark:2600",
+              "count": 3
+            },
+            {
+              "id": "Dark:520",
+              "count": 3
+            },
+            {
+              "id": "Dark:2216",
+              "count": 2
+            },
+            {
+              "id": "Dark:94",
+              "count": 2
+            },
+            {
+              "id": "Dark:264",
+              "count": 2
+            }
+          ]
+        },
+        {
+          "theme": {
+            "id": "avengers-asteroidenjagd",
+            "name": "Avengers Asteroidenjagd",
+            "description": "Großkampfschiffe und Asteroiden als Jagdgebiet.",
+            "cover": "Dark:176"
+          },
+          "strategy": {
+            "start": "Beginne bei Anoat und lege die Sektoren an das Planetensystem.",
+            "opening": "Avenger reduziert das eigene Asteroidenrisiko; Needa ergänzt Attrition-Immunität. Bewahre trotzdem Force für Close Call und Take Evasive Action auf.",
+            "tactics": "Rogue Asteroid wandert während jeder Bewegungsphase. Mynocks bedrohen gegnerische Jäger, können aber auch eigene Schiffe erwischen. Ein Slug verwandelt die Höhle in einen riskanten Belly."
+          },
+          "startingLocations": [
+            "Dark:112",
+            "Dark:2446",
+            "Dark:1426"
+          ],
+          "cards": [
+            {
+              "id": "Dark:112",
+              "count": 1
+            },
+            {
+              "id": "Dark:176",
+              "count": 3
+            },
+            {
+              "id": "Dark:366",
+              "count": 2
+            },
+            {
+              "id": "Dark:148",
+              "count": 6
+            },
+            {
+              "id": "Dark:235",
+              "count": 1
+            },
+            {
+              "id": "Dark:237",
+              "count": 1
+            },
+            {
+              "id": "Dark:2123",
+              "count": 1
+            },
+            {
+              "id": "Dark:1718",
+              "count": 4
+            },
+            {
+              "id": "Dark:2312",
+              "count": 1
+            },
+            {
+              "id": "Dark:554",
+              "count": 1
+            },
+            {
+              "id": "Dark:421",
+              "count": 1
+            },
+            {
+              "id": "Dark:2401",
+              "count": 1
+            },
+            {
+              "id": "Dark:1221",
+              "count": 1
+            },
+            {
+              "id": "Dark:1583",
+              "count": 1
+            },
+            {
+              "id": "Dark:2597",
+              "count": 5
+            },
+            {
+              "id": "Dark:1279",
+              "count": 6
+            },
+            {
+              "id": "Dark:491",
+              "count": 1
+            },
+            {
+              "id": "Dark:2446",
+              "count": 1
+            },
+            {
+              "id": "Dark:1426",
+              "count": 1
+            },
+            {
+              "id": "Dark:2355",
+              "count": 6
+            },
+            {
+              "id": "Dark:1264",
+              "count": 3
+            },
+            {
+              "id": "Dark:2600",
+              "count": 3
+            },
+            {
+              "id": "Dark:520",
+              "count": 3
+            },
+            {
+              "id": "Dark:2216",
+              "count": 2
+            },
+            {
+              "id": "Dark:94",
+              "count": 2
+            },
+            {
+              "id": "Dark:264",
+              "count": 2
+            }
+          ]
+        },
+        {
+          "theme": {
+            "id": "der-dunkle-pfad",
+            "name": "Der dunkle Pfad",
+            "description": "Reserve-Kontrolle, Insert-Effekte und Trainingsstörung.",
+            "cover": "Dark:2518"
+          },
+          "strategy": {
+            "start": "Starte bei Mos Eisley und sichere eine kleine günstige Bodentruppe.",
+            "opening": "Lege The Dark Path aus und stelle deine Reserve für kommende Destiny-Ziehungen ein. Die dafür verlorenen Karten bleiben echte Kosten, deshalb den Life-Force-Vorrat beobachten.",
+            "tactics": "Broken Concentration stört die Ausbildung, Knowledge And Defense verhindert nach dem Aufdecken neue Battles. Imbalance reagiert auf gegnerische Rückholung; Control hält wichtige Antworten offen."
+          },
+          "startingLocations": [
+            "Dark:2465",
+            "Dark:2446",
+            "Dark:1426"
+          ],
+          "cards": [
+            {
+              "id": "Dark:2465",
+              "count": 1
+            },
+            {
+              "id": "Dark:4",
+              "count": 1
+            },
+            {
+              "id": "Dark:1450",
+              "count": 1
+            },
+            {
+              "id": "Dark:2518",
+              "count": 1
+            },
+            {
+              "id": "Dark:2551",
+              "count": 1
+            },
+            {
+              "id": "Dark:336",
+              "count": 1
+            },
+            {
+              "id": "Dark:185",
+              "count": 1
+            },
+            {
+              "id": "Dark:991",
+              "count": 1
+            },
+            {
+              "id": "Dark:929",
+              "count": 1
+            },
+            {
+              "id": "Dark:688",
+              "count": 1
+            },
+            {
+              "id": "Dark:2677",
+              "count": 1
+            },
+            {
+              "id": "Dark:2669",
+              "count": 1
+            },
+            {
+              "id": "Dark:2728",
+              "count": 1
+            },
+            {
+              "id": "Dark:1255",
+              "count": 1
+            },
+            {
+              "id": "Dark:520",
+              "count": 6
+            },
+            {
+              "id": "Dark:634",
+              "count": 1
+            },
+            {
+              "id": "Dark:1061",
+              "count": 1
+            },
+            {
+              "id": "Dark:2912",
+              "count": 3
+            },
+            {
+              "id": "Dark:1245",
+              "count": 3
+            },
+            {
+              "id": "Dark:2355",
+              "count": 6
+            },
+            {
+              "id": "Dark:1279",
+              "count": 6
+            },
+            {
+              "id": "Dark:2446",
+              "count": 1
+            },
+            {
+              "id": "Dark:1426",
+              "count": 1
+            },
+            {
+              "id": "Dark:1470",
+              "count": 1
+            },
+            {
+              "id": "Dark:1524",
+              "count": 1
+            },
+            {
+              "id": "Dark:1264",
+              "count": 4
+            },
+            {
+              "id": "Dark:2600",
+              "count": 3
+            },
+            {
+              "id": "Dark:2216",
+              "count": 3
+            },
+            {
+              "id": "Dark:94",
+              "count": 3
+            },
+            {
+              "id": "Dark:264",
+              "count": 3
+            }
+          ]
+        },
+        {
+          "theme": {
+            "id": "die-pruefung-der-hoehle",
+            "name": "Die Prüfung der Höhle",
+            "description": "Dagobahs Kreaturen, Fallen und Druck auf den Apprentice.",
+            "cover": "Dark:918"
+          },
+          "strategy": {
+            "start": "Die Dagobah-Höhle stört den Gegner; normale imperiale Truppen deployen zunächst an anderen Orten.",
+            "opening": "Wähle für Kreaturen passende Habitate. Failure At The Cave braucht einen gegnerischen Apprentice auf Dagobah; ohne dieses Ziel setzt du auf Force-Druck und eigenständige Boden-Presence.",
+            "tactics": "Vine Snakes schwächen Charaktere über mehrere Bewegungsphasen. He Is Not Ready behindert Piloten oder Training. Setze Visage Of The Emperor erst ein, wenn du den beidseitigen Force-Verlust tragen kannst."
+          },
+          "startingLocations": [
+            "Dark:599",
+            "Dark:2446",
+            "Dark:2465",
+            "Dark:1426"
+          ],
+          "cards": [
+            {
+              "id": "Dark:599",
+              "count": 2
+            },
+            {
+              "id": "Dark:918",
+              "count": 1
+            },
+            {
+              "id": "Dark:1115",
+              "count": 1
+            },
+            {
+              "id": "Dark:1710",
+              "count": 1
+            },
+            {
+              "id": "Dark:2721",
+              "count": 1
+            },
+            {
+              "id": "Dark:296",
+              "count": 5
+            },
+            {
+              "id": "Dark:771",
+              "count": 5
+            },
+            {
+              "id": "Dark:2281",
+              "count": 5
+            },
+            {
+              "id": "Dark:2717",
+              "count": 5
+            },
+            {
+              "id": "Dark:181",
+              "count": 1
+            },
+            {
+              "id": "Dark:2261",
+              "count": 1
+            },
+            {
+              "id": "Dark:2369",
+              "count": 1
+            },
+            {
+              "id": "Dark:1569",
+              "count": 1
+            },
+            {
+              "id": "Dark:2355",
+              "count": 6
+            },
+            {
+              "id": "Dark:2912",
+              "count": 3
+            },
+            {
+              "id": "Dark:9",
+              "count": 1
+            },
+            {
+              "id": "Dark:2446",
+              "count": 1
+            },
+            {
+              "id": "Dark:2465",
+              "count": 1
+            },
+            {
+              "id": "Dark:1426",
+              "count": 1
+            },
+            {
+              "id": "Dark:1279",
+              "count": 3
+            },
+            {
+              "id": "Dark:1264",
+              "count": 3
+            },
+            {
+              "id": "Dark:2600",
+              "count": 3
+            },
+            {
+              "id": "Dark:520",
+              "count": 2
+            },
+            {
+              "id": "Dark:2216",
+              "count": 2
+            },
+            {
+              "id": "Dark:94",
+              "count": 2
+            },
+            {
+              "id": "Dark:264",
+              "count": 2
+            }
+          ]
+        },
+        {
+          "theme": {
+            "id": "imperiale-patrouille",
+            "name": "Imperiale Patrouille",
+            "description": "Trooper, abgestimmte Offiziere und Kontrolle wichtiger Systeme.",
+            "cover": "Dark:1538"
+          },
+          "strategy": {
+            "start": "Beginne bei Raithal und ergänze ein Death-Star- oder Executor-Site für Subas Truppenvorteile.",
+            "opening": "Suba macht Trooper am richtigen Site kostenlos und stärker. Raithal verbessert ihre Destiny, benötigt aber Schutz vor gegnerischer Besetzung.",
+            "tactics": "Commander Nemet verhindert gegnerische Reacts am eigenen Ort. Precision Targeting trennt Treffer von der Bezahlung von Attrition. Apology Accepted kann einen überlebenden Imperialen nach einer Niederlage in Aktivierung umwandeln."
+          },
+          "startingLocations": [
+            "Dark:2013",
+            "Dark:2446",
+            "Dark:2465"
+          ],
+          "cards": [
+            {
+              "id": "Dark:2013",
+              "count": 2
+            },
+            {
+              "id": "Dark:1538",
+              "count": 3
+            },
+            {
+              "id": "Dark:1273",
+              "count": 1
+            },
+            {
+              "id": "Dark:490",
+              "count": 1
+            },
+            {
+              "id": "Dark:501",
+              "count": 1
+            },
+            {
+              "id": "Dark:538",
+              "count": 1
+            },
+            {
+              "id": "Dark:551",
+              "count": 1
+            },
+            {
+              "id": "Dark:1542",
+              "count": 1
+            },
+            {
+              "id": "Dark:937",
+              "count": 1
+            },
+            {
+              "id": "Dark:1934",
+              "count": 1
+            },
+            {
+              "id": "Dark:121",
+              "count": 1
+            },
+            {
+              "id": "Dark:1150",
+              "count": 1
+            },
+            {
+              "id": "Dark:2262",
+              "count": 1
+            },
+            {
+              "id": "Dark:2355",
+              "count": 6
+            },
+            {
+              "id": "Dark:1279",
+              "count": 6
+            },
+            {
+              "id": "Dark:1061",
+              "count": 1
+            },
+            {
+              "id": "Dark:634",
+              "count": 1
+            },
+            {
+              "id": "Dark:2446",
+              "count": 1
+            },
+            {
+              "id": "Dark:2465",
+              "count": 1
+            },
+            {
+              "id": "Dark:910",
+              "count": 1
+            },
+            {
+              "id": "Dark:911",
+              "count": 1
+            },
+            {
+              "id": "Dark:1264",
+              "count": 6
+            },
+            {
+              "id": "Dark:2600",
+              "count": 4
+            },
+            {
+              "id": "Dark:520",
+              "count": 4
+            },
+            {
+              "id": "Dark:2216",
+              "count": 4
+            },
+            {
+              "id": "Dark:94",
+              "count": 4
+            },
+            {
+              "id": "Dark:264",
+              "count": 4
+            }
+          ]
+        },
+        {
+          "theme": {
+            "id": "droiden-auf-menschenjagd",
+            "name": "Droiden auf Menschenjagd",
+            "description": "IG-88 und 4-LOM mit gezielten Waffen und Raumunterstützung.",
+            "cover": "Dark:1245"
+          },
+          "strategy": {
+            "start": "Beginne am Docking Bay 94 und stationiere die Jagddroiden vor dem ersten Angriff.",
+            "opening": "4-LOM darf auch ohne eigene Ability Battles führen. Mit Zuckuss kann er Charaktere aus Used Piles in Lost verschieben; IG-88 trägt zwei unterschiedliche Waffen.",
+            "tactics": "Wähle Ziele vor dem Feuern der Pulse Cannon sorgfältig aus. Neural Inhibitor setzt Charakterwerte zeitweise auf null, statt den Gegner zu treffen. Persönliche Schiffe bilden eine zweite Front."
+          },
+          "startingLocations": [
+            "Dark:2446",
+            "Dark:2465",
+            "Dark:1426"
+          ],
+          "cards": [
+            {
+              "id": "Dark:2446",
+              "count": 2
+            },
+            {
+              "id": "Dark:9",
+              "count": 3
+            },
+            {
+              "id": "Dark:1245",
+              "count": 3
+            },
+            {
+              "id": "Dark:2912",
+              "count": 3
+            },
+            {
+              "id": "Dark:1244",
+              "count": 1
+            },
+            {
+              "id": "Dark:1682",
+              "count": 1
+            },
+            {
+              "id": "Dark:11",
+              "count": 1
+            },
+            {
+              "id": "Dark:1249",
+              "count": 3
+            },
+            {
+              "id": "Dark:1251",
+              "count": 2
+            },
+            {
+              "id": "Dark:2915",
+              "count": 1
+            },
+            {
+              "id": "Dark:2739",
+              "count": 1
+            },
+            {
+              "id": "Dark:2091",
+              "count": 1
+            },
+            {
+              "id": "Dark:2302",
+              "count": 1
+            },
+            {
+              "id": "Dark:2580",
+              "count": 1
+            },
+            {
+              "id": "Dark:2355",
+              "count": 6
+            },
+            {
+              "id": "Dark:1279",
+              "count": 6
+            },
+            {
+              "id": "Dark:2465",
+              "count": 1
+            },
+            {
+              "id": "Dark:1426",
+              "count": 1
+            },
+            {
+              "id": "Dark:1264",
+              "count": 4
+            },
+            {
+              "id": "Dark:2600",
+              "count": 4
+            },
+            {
+              "id": "Dark:520",
+              "count": 4
+            },
+            {
+              "id": "Dark:2216",
+              "count": 4
+            },
+            {
+              "id": "Dark:94",
+              "count": 3
+            },
+            {
+              "id": "Dark:264",
+              "count": 3
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

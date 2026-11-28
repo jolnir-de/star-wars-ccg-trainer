@@ -1,0 +1,605 @@
+{
+  "schema": 1,
+  "formats": {
+    "premiere-a-new-hope-hoth": {
+      "light": [
+        {
+          "id": "rogue-hoth",
+          "name": "Rogue Squadron",
+          "cover": {
+            "id": "Light:498",
+            "name": "•Commander Luke Skywalker",
+            "image": "https://res.starwarsccg.org/cards/Hoth-Light/large/commanderlukeskywalker.gif"
+          }
+        },
+        {
+          "id": "echo-verteidigung",
+          "name": "Verteidigung von Echo Base",
+          "cover": {
+            "id": "Light:1018",
+            "name": "•General Carlist Rieekan",
+            "image": "https://res.starwarsccg.org/cards/Hoth-Light/large/generalcarlistrieekan.gif"
+          }
+        },
+        {
+          "id": "evakuierung-hoth",
+          "name": "Der erste Transport",
+          "cover": {
+            "id": "Light:1665",
+            "name": "Medium Transport",
+            "image": "https://res.starwarsccg.org/cards/Hoth-Light/large/mediumtransport.gif"
+          }
+        },
+        {
+          "id": "suchtrupp-hoth",
+          "name": "Suchtrupp im Schneesturm",
+          "cover": {
+            "id": "Light:2911",
+            "name": "•Zev Senesca",
+            "image": "https://res.starwarsccg.org/cards/Hoth-Light/large/zevsenesca.gif"
+          }
+        },
+        {
+          "id": "echo-sanitaet",
+          "name": "Droiden und Sanität",
+          "cover": {
+            "id": "Light:5300",
+            "name": "•2-1B (Too-Onebee)",
+            "image": "https://res.starwarsccg.org/cards/Hoth-Light/large/21btooonebee.gif"
+          }
+        },
+        {
+          "id": "hoth-gegenangriff",
+          "name": "Skywalkers Gegenangriff",
+          "cover": {
+            "id": "Light:498",
+            "name": "•Commander Luke Skywalker",
+            "image": "https://res.starwarsccg.org/cards/Hoth-Light/large/commanderlukeskywalker.gif"
+          }
+        },
+        {
+          "id": "ionenschild-hoth",
+          "name": "Ionenfeuer über Hoth",
+          "cover": {
+            "id": "Light:1910",
+            "name": "•Planet Defender Ion Cannon",
+            "image": "https://res.starwarsccg.org/cards/Hoth-Light/large/planetdefenderioncannon.gif"
+          }
+        },
+        {
+          "id": "nordgrat-hoth",
+          "name": "Patrouille am Nordgrat",
+          "cover": {
+            "id": "Light:2045",
+            "name": "•••Rebel Scout",
+            "image": "https://res.starwarsccg.org/cards/Hoth-Light/large/rebelscout.gif"
+          }
+        }
+      ],
+      "dark": [
+        {
+          "id": "blizzard-offensive",
+          "name": "Blizzard-Offensive",
+          "cover": {
+            "id": "Dark:267",
+            "name": "•Blizzard 1",
+            "image": "https://res.starwarsccg.org/cards/Hoth-Dark/large/blizzard1.gif"
+          }
+        },
+        {
+          "id": "schneesturmtruppen",
+          "name": "Schneesturmtruppen",
+          "cover": {
+            "id": "Dark:2296",
+            "name": "•••Snowtrooper Officer",
+            "image": "https://res.starwarsccg.org/cards/Hoth-Dark/large/snowtrooperofficer.gif"
+          }
+        },
+        {
+          "id": "sondenjagd",
+          "name": "Sondenjagd",
+          "cover": {
+            "id": "Dark:1950",
+            "name": "Probe Droid",
+            "image": "https://res.starwarsccg.org/cards/Hoth-Dark/large/probedroid.gif"
+          }
+        },
+        {
+          "id": "tyrants-blockade",
+          "name": "Tyrants Blockade",
+          "cover": {
+            "id": "Dark:2657",
+            "name": "•Tyrant",
+            "image": "https://res.starwarsccg.org/cards/Hoth-Dark/large/tyrant.gif"
+          }
+        },
+        {
+          "id": "nacht-auf-hoth",
+          "name": "Nacht über Hoth",
+          "cover": {
+            "id": "Dark:1240",
+            "name": "•Ice Storm",
+            "image": "https://res.starwarsccg.org/cards/Hoth-Dark/large/icestorm.gif"
+          }
+        },
+        {
+          "id": "wampa-revier",
+          "name": "Im Revier der Wampas",
+          "cover": {
+            "id": "Dark:2737",
+            "name": "Wampa",
+            "image": "https://res.starwarsccg.org/cards/Hoth-Dark/large/wampa.gif"
+          }
+        },
+        {
+          "id": "imperiale-sabotage",
+          "name": "Imperiale Sabotage",
+          "cover": {
+            "id": "Dark:1253",
+            "name": "•Image Of The Dark Lord",
+            "image": "https://res.starwarsccg.org/cards/Hoth-Dark/large/imageofthedarklord.gif"
+          }
+        },
+        {
+          "id": "imperiale-einsatzgruppe",
+          "name": "Imperiale Einsatzgruppe",
+          "cover": {
+            "id": "Dark:1029",
+            "name": "•General Veers",
+            "image": "https://res.starwarsccg.org/cards/Hoth-Dark/large/generalveers.gif"
+          }
+        }
+      ]
+    },
+    "premiere-a-new-hope-hoth-dagobah": {
+      "light": [
+        {
+          "id": "yodas-schule",
+          "name": "Yodas Schule",
+          "cover": {
+            "id": "Light:2865",
+            "name": "•Yoda",
+            "image": "https://res.starwarsccg.org/cards/Dagobah-Light/large/yoda.gif"
+          }
+        },
+        {
+          "id": "skywalkers-erbe",
+          "name": "Skywalkers Erbe",
+          "cover": {
+            "id": "Light:2304",
+            "name": "•Son Of Skywalker",
+            "image": "https://res.starwarsccg.org/cards/Dagobah-Light/large/sonofskywalker.gif"
+          }
+        },
+        {
+          "id": "asteroidenzuflucht",
+          "name": "Asteroidenzuflucht",
+          "cover": {
+            "id": "Light:150",
+            "name": "<>Asteroid Sanctuary",
+            "image": "https://res.starwarsccg.org/cards/Dagobah-Light/large/asteroidsanctuary.gif"
+          }
+        },
+        {
+          "id": "schmugglerrouten",
+          "name": "Schmugglerrouten",
+          "cover": {
+            "id": "Light:1677",
+            "name": "•Millennium Falcon",
+            "image": "https://res.starwarsccg.org/cards/Premiere-Light/large/millenniumfalcon.gif"
+          }
+        },
+        {
+          "id": "droidenwerkstatt",
+          "name": "Droidenwerkstatt",
+          "cover": {
+            "id": "Light:1992",
+            "name": "•R2-D2 (Artoo-Detoo)",
+            "image": "https://res.starwarsccg.org/cards/ANewHope-Light/large/r2d2.gif"
+          }
+        },
+        {
+          "id": "leben-im-sumpf",
+          "name": "Leben im Sumpf",
+          "cover": {
+            "id": "Light:1799",
+            "name": "Nudj",
+            "image": "https://res.starwarsccg.org/cards/Dagobah-Light/large/nudj.gif"
+          }
+        },
+        {
+          "id": "ruhe-in-der-macht",
+          "name": "Ruhe in der Macht",
+          "cover": {
+            "id": "Light:1803",
+            "name": "•Obi-Wan Kenobi",
+            "image": "https://res.starwarsccg.org/cards/Premiere-Light/large/obiwankenobi.gif"
+          }
+        },
+        {
+          "id": "rebellen-durchhaltewillen",
+          "name": "Rebellischer Durchhaltewille",
+          "cover": {
+            "id": "Light:1495",
+            "name": "•Leia Organa",
+            "image": "https://res.starwarsccg.org/cards/Premiere-Light/large/leiaorgana.gif"
+          }
+        }
+      ],
+      "dark": [
+        {
+          "id": "kopfgeldjaeger-gilde",
+          "name": "Kopfgeldjäger-Gilde",
+          "cover": {
+            "id": "Dark:308",
+            "name": "•Bossk",
+            "image": "https://res.starwarsccg.org/cards/Dagobah-Dark/large/bossk.gif"
+          }
+        },
+        {
+          "id": "executors-kommando",
+          "name": "Executors Kommando",
+          "cover": {
+            "id": "Dark:906",
+            "name": "•Executor",
+            "image": "https://res.starwarsccg.org/cards/Dagobah-Dark/large/executor.gif"
+          }
+        },
+        {
+          "id": "imperiale-bomberstaffel",
+          "name": "Imperiale Bomberstaffel",
+          "cover": {
+            "id": "Dark:2598",
+            "name": "TIE Bomber",
+            "image": "https://res.starwarsccg.org/cards/Dagobah-Dark/large/tiebomber.gif"
+          }
+        },
+        {
+          "id": "avengers-asteroidenjagd",
+          "name": "Avengers Asteroidenjagd",
+          "cover": {
+            "id": "Dark:176",
+            "name": "•Avenger",
+            "image": "https://res.starwarsccg.org/cards/Dagobah-Dark/large/avenger.gif"
+          }
+        },
+        {
+          "id": "der-dunkle-pfad",
+          "name": "Der dunkle Pfad",
+          "cover": {
+            "id": "Dark:2518",
+            "name": "The Dark Path",
+            "image": "https://res.starwarsccg.org/cards/Dagobah-Dark/large/thedarkpath.gif"
+          }
+        },
+        {
+          "id": "die-pruefung-der-hoehle",
+          "name": "Die Prüfung der Höhle",
+          "cover": {
+            "id": "Dark:918",
+            "name": "•Failure At The Cave",
+            "image": "https://res.starwarsccg.org/cards/Dagobah-Dark/large/failureatthecave.gif"
+          }
+        },
+        {
+          "id": "imperiale-patrouille",
+          "name": "Imperiale Patrouille",
+          "cover": {
+            "id": "Dark:1538",
+            "name": "•Lieutenant Suba",
+            "image": "https://res.starwarsccg.org/cards/Dagobah-Dark/large/lieutenantsuba.gif"
+          }
+        },
+        {
+          "id": "droiden-auf-menschenjagd",
+          "name": "Droiden auf Menschenjagd",
+          "cover": {
+            "id": "Dark:1245",
+            "name": "•IG-88",
+            "image": "https://res.starwarsccg.org/cards/Dagobah-Dark/large/ig88.gif"
+          }
+        }
+      ]
+    },
+    "premiere-a-new-hope-hoth-dagobah-cloud-city": {
+      "light": [
+        {
+          "id": "cloud-city-landos-gasgeschaeft",
+          "name": "Landos Gasgeschäft",
+          "cover": {
+            "id": "Light:1466",
+            "name": "•Lando Calrissian",
+            "image": "https://res.starwarsccg.org/cards/CloudCity-Light/large/landocalrissian.gif"
+          }
+        },
+        {
+          "id": "cloud-city-lobots-stadtwache",
+          "name": "Lobots Stadtwache",
+          "cover": {
+            "id": "Light:1562",
+            "name": "•Lobot",
+            "image": "https://res.starwarsccg.org/cards/CloudCity-Light/large/lobot.gif"
+          }
+        },
+        {
+          "id": "cloud-city-skywalkers-mut",
+          "name": "Skywalkers Mut",
+          "cover": {
+            "id": "Light:1593",
+            "name": "•Luke Skywalker",
+            "image": "https://res.starwarsccg.org/cards/Premiere-Light/large/lukeskywalker.gif"
+          }
+        },
+        {
+          "id": "cloud-city-falcon-rettungskommando",
+          "name": "Falcon-Rettungskommando",
+          "cover": {
+            "id": "Light:360",
+            "name": "•Captain Han Solo",
+            "image": "https://res.starwarsccg.org/cards/CloudCity-Light/large/captainhansolo.gif"
+          }
+        },
+        {
+          "id": "cloud-city-droiden-im-untergrund",
+          "name": "Droiden im Untergrund",
+          "cover": {
+            "id": "Light:592",
+            "name": "•Cyborg Construct",
+            "image": "https://res.starwarsccg.org/cards/CloudCity-Light/large/cyborgconstruct.gif"
+          }
+        },
+        {
+          "id": "cloud-city-sabacc-und-schmuggler",
+          "name": "Sabacc und Schmuggler",
+          "cover": {
+            "id": "Light:2631",
+            "name": "•Treva Horme",
+            "image": "https://res.starwarsccg.org/cards/CloudCity-Light/large/trevahorme.gif"
+          }
+        },
+        {
+          "id": "cloud-city-flucht-aus-der-wolkenstadt",
+          "name": "Flucht aus der Wolkenstadt",
+          "cover": {
+            "id": "Light:2779",
+            "name": "•Weather Vane",
+            "image": "https://res.starwarsccg.org/cards/CloudCity-Light/large/weathervane.gif"
+          }
+        },
+        {
+          "id": "cloud-city-hoffnung-ueber-bespin",
+          "name": "Hoffnung über Bespin",
+          "cover": {
+            "id": "Light:332",
+            "name": "•Bright Hope",
+            "image": "https://res.starwarsccg.org/cards/CloudCity-Light/large/brighthope.gif"
+          }
+        }
+      ],
+      "dark": [
+        {
+          "id": "cloud-city-fetts-kopfgeldjagd",
+          "name": "Fetts Kopfgeldjagd",
+          "cover": {
+            "id": "Dark:287",
+            "name": "•Boba Fett",
+            "image": "https://res.starwarsccg.org/cards/CloudCity-Dark/large/bobafett.gif"
+          }
+        },
+        {
+          "id": "cloud-city-vaders-entscheidung",
+          "name": "Vaders Entscheidung",
+          "cover": {
+            "id": "Dark:879",
+            "name": "•Epic Duel",
+            "image": "https://res.starwarsccg.org/cards/CloudCity-Dark/large/epicduel.gif"
+          }
+        },
+        {
+          "id": "cloud-city-ein-dunkler-deal",
+          "name": "Ein dunkler Deal",
+          "cover": {
+            "id": "Dark:614",
+            "name": "•Dark Deal",
+            "image": "https://res.starwarsccg.org/cards/CloudCity-Dark/large/darkdeal.gif"
+          }
+        },
+        {
+          "id": "cloud-city-landos-falsches-spiel",
+          "name": "Landos falsches Spiel",
+          "cover": {
+            "id": "Dark:1465",
+            "name": "•Lando Calrissian",
+            "image": "https://res.starwarsccg.org/cards/CloudCity-Dark/large/landocalrissian.gif"
+          }
+        },
+        {
+          "id": "cloud-city-karbonit-protokoll",
+          "name": "Karbonit-Protokoll",
+          "cover": {
+            "id": "Dark:379",
+            "name": "Carbon-Freezing",
+            "image": "https://res.starwarsccg.org/cards/CloudCity-Dark/large/carbonfreezing.gif"
+          }
+        },
+        {
+          "id": "cloud-city-die-schatten-des-turms",
+          "name": "Die Schatten des Turms",
+          "cover": {
+            "id": "Dark:1320",
+            "name": "•Interrogation Array",
+            "image": "https://res.starwarsccg.org/cards/CloudCity-Dark/large/interrogationarray.gif"
+          }
+        },
+        {
+          "id": "cloud-city-obsidian-patrouille",
+          "name": "Obsidian-Patrouille",
+          "cover": {
+            "id": "Dark:1817",
+            "name": "•Obsidian 7",
+            "image": "https://res.starwarsccg.org/cards/CloudCity-Dark/large/obsidian7.gif"
+          }
+        },
+        {
+          "id": "cloud-city-bewils-korridorfalle",
+          "name": "Bewils Korridorfalle",
+          "cover": {
+            "id": "Dark:355",
+            "name": "•Captain Bewil",
+            "image": "https://res.starwarsccg.org/cards/CloudCity-Dark/large/captainbewil.gif"
+          }
+        }
+      ]
+    },
+    "premiere-a-new-hope-hoth-dagobah-cloud-city-jabbas-palace": {
+      "light": [
+        {
+          "id": "jabbas-palace-palastbotschafter",
+          "name": "Die Palastbotschafter",
+          "cover": {
+            "id": "Light:1012",
+            "name": "•Garon Nas Tal",
+            "image": "https://res.starwarsccg.org/cards/JabbasPalace-Light/large/garonnastal.gif"
+          }
+        },
+        {
+          "id": "jabbas-palace-artoos-geheimplan",
+          "name": "Artoos Geheimplan",
+          "cover": {
+            "id": "Light:136",
+            "name": "•Artoo",
+            "image": "https://res.starwarsccg.org/cards/JabbasPalace-Light/large/artoo.gif"
+          }
+        },
+        {
+          "id": "jabbas-palace-oolas-palastintrige",
+          "name": "Oolas Palastintrige",
+          "cover": {
+            "id": "Light:1842",
+            "name": "•Oola",
+            "image": "https://res.starwarsccg.org/cards/JabbasPalace-Light/large/oola.gif"
+          }
+        },
+        {
+          "id": "jabbas-palace-jawas-in-der-duenensee",
+          "name": "Jawas in der Dünensee",
+          "cover": {
+            "id": "Light:1988",
+            "name": "•R'kik D'nec, Hero Of The Dune Sea",
+            "image": "https://res.starwarsccg.org/cards/JabbasPalace-Light/large/rkikdnecheroofthedunesea.gif"
+          }
+        },
+        {
+          "id": "jabbas-palace-musik-aus-der-wueste",
+          "name": "Musik aus der Wüste",
+          "cover": {
+            "id": "Light:784",
+            "name": "•Droopy McCool",
+            "image": "https://res.starwarsccg.org/cards/JabbasPalace-Light/large/droopymccool.gif"
+          }
+        },
+        {
+          "id": "jabbas-palace-leias-befreiung",
+          "name": "Leias Befreiung",
+          "cover": {
+            "id": "Light:1945",
+            "name": "•Princess Leia Organa",
+            "image": "https://res.starwarsccg.org/cards/JabbasPalace-Light/large/princessleiaorgana.gif"
+          }
+        },
+        {
+          "id": "jabbas-palace-sabacc-am-hof",
+          "name": "Sabacc am Hof",
+          "cover": {
+            "id": "Light:722",
+            "name": "Devaronian",
+            "image": "https://res.starwarsccg.org/cards/JabbasPalace-Light/large/devaronian.gif"
+          }
+        },
+        {
+          "id": "jabbas-palace-thryss-rueckkehr",
+          "name": "Thryss’ Rückkehr",
+          "cover": {
+            "id": "Light:1964",
+            "name": "•Pucumir Thryss",
+            "image": "https://res.starwarsccg.org/cards/JabbasPalace-Light/large/pucumirthryss.gif"
+          }
+        }
+      ],
+      "dark": [
+        {
+          "id": "jabbas-palace-jabbas-verbrecherhof",
+          "name": "Jabbas Verbrecherhof",
+          "cover": {
+            "id": "Dark:1346",
+            "name": "•Jabba The Hutt",
+            "image": "https://res.starwarsccg.org/cards/JabbasPalace-Dark/large/jabbathehutt.gif"
+          }
+        },
+        {
+          "id": "jabbas-palace-bibs-torwaechter",
+          "name": "Bibs Torwächter",
+          "cover": {
+            "id": "Dark:232",
+            "name": "•Bib Fortuna",
+            "image": "https://res.starwarsccg.org/cards/JabbasPalace-Dark/large/bibfortuna.gif"
+          }
+        },
+        {
+          "id": "jabbas-palace-baradas-skiffgarde",
+          "name": "Baradas Skiffgarde",
+          "cover": {
+            "id": "Dark:196",
+            "name": "•Barada",
+            "image": "https://res.starwarsccg.org/cards/JabbasPalace-Dark/large/barada.gif"
+          }
+        },
+        {
+          "id": "jabbas-palace-dengars-kerkerjagd",
+          "name": "Dengars Kerkerjagd",
+          "cover": {
+            "id": "Dark:700",
+            "name": "•Dengar",
+            "image": "https://res.starwarsccg.org/cards/Dagobah-Dark/large/dengar.gif"
+          }
+        },
+        {
+          "id": "jabbas-palace-malakilis-bestien",
+          "name": "Malakilis Bestien",
+          "cover": {
+            "id": "Dark:1633",
+            "name": "•Malakili",
+            "image": "https://res.starwarsccg.org/cards/JabbasPalace-Dark/large/malakili.gif"
+          }
+        },
+        {
+          "id": "jabbas-palace-wittins-wuestenhandel",
+          "name": "Wittins Wüstenhandel",
+          "cover": {
+            "id": "Dark:2817",
+            "name": "•Wittin",
+            "image": "https://res.starwarsccg.org/cards/JabbasPalace-Dark/large/wittin.gif"
+          }
+        },
+        {
+          "id": "jabbas-palace-ree-yees-letzter-trick",
+          "name": "Ree-Yees’ letzter Trick",
+          "cover": {
+            "id": "Dark:2077",
+            "name": "•Ree-Yees",
+            "image": "https://res.starwarsccg.org/cards/JabbasPalace-Dark/large/reeyees.gif"
+          }
+        },
+        {
+          "id": "jabbas-palace-werkstatt-der-schatten",
+          "name": "Werkstatt der Schatten",
+          "cover": {
+            "id": "Dark:887",
+            "name": "•EV-9D9",
+            "image": "https://res.starwarsccg.org/cards/JabbasPalace-Dark/large/ev9d9.gif"
+          }
+        }
+      ]
+    }
+  }
+}

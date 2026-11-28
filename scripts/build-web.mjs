@@ -19,7 +19,7 @@ export const v2SourceAssets = ['assets/favicon.svg', 'assets/site.css', 'assets/
   ...['premiere', 'a-new-hope', 'hoth','dagobah','cloud-city','jabbas-palace', 'premiere-starter-decks', 'premiere-themed-decks',
     'premiere-supplemental-cards', 'premiere-card-notes', 'play-format-decks','hoth-decks','dagobah-decks','cloud-city-decks','jabbas-palace-decks','deck-overview'].map(name => `data/${name}.json`)];
 const digest = body => createHash('sha256').update(body).digest('hex');
-export const v3SourceAssets=v2SourceAssets.filter(path=>/^(engine|data)\//.test(path)||path==='assets/playfield-views.js').map(path=>'v3/'+path);
+export const v3SourceAssets=v2SourceAssets.filter(path=>/^(engine|data)\//.test(path)||path==='assets/playfield-views.js').map(path=>'v3/'+path).concat(['v3/engine/drain-explanation.js','v3/assets/drain-explanation.css','v3/assets/drain-explanation.js']);
 const bundles=[{files:cloudCityModules,prefix:'engine/cloud-city-all'},{files:jabbasPalaceModules,prefix:'engine/jabbas-palace-all'},
   {files:cloudCityModules.map(path=>'v3/'+path),prefix:'v3/engine/cloud-city-all'},
   {files:jabbasPalaceModules.map(path=>'v3/'+path),prefix:'v3/engine/jabbas-palace-all'}];

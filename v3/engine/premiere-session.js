@@ -131,9 +131,9 @@ function drainPlan(side,i){
  participants.push(...(state.locationWeapons?.[i]??[]).filter(card=>(card.controller??card.side)===side));
  participants.push(...PremiereLocations.effectsAt(state,i).flatMap(effect=>effect.siteDevice&&effect.card.side===side?[effect.card]:[]));
  if(participants.some(card=>state.drainedCardsThisTurn?.includes(card)))return null;
- const cost=musicianDrainCost(side,i);
+ const costRows=musicianDrainTerms(side,i),cost=V3DrainTrace.sum(costRows);
  if(cost&&cost>forceBudget(side))return null;
- return {...plan,participants,...(cost?{cost}:{})};
+ return {...V3DrainTrace.cost(plan,costRows),participants};
 }
 
 function siteEntries(slot){
@@ -141,27 +141,28 @@ function siteEntries(slot){
   entry.slot===slot&&!entry.unavailable&&PremiereUnits.active(entry.card));
 }
 
-function musicianDrainCost(side,site){
- return PremiereLocations.entries(state,PremiereGame.otherSide(side)).filter(entry=>!entry.unavailable&&
-  adjacentSites(entry.slot,site)&&activeCardRules(entry.card,'musicianDrainTax').length).reduce((total,source)=>{
-   const musicians=PremiereLocations.physicalPlace(source);
-   return total+siteEntries(source.slot).filter(entry=>entry.card!==source.card&&PremiereLocations.physicalPlace(entry)===musicians&&
-    characterTraits(entry.card).includes('musician')).length;
-  },0);
+function musicianDrainTerms(side,site){
+ return PremiereLocations.entries(state,PremiereGame.otherSide(side)).filter(entry=>!entry.unavailable&&adjacentSites(entry.slot,site)&&activeCardRules(entry.card,'musicianDrainTax').length).map(source=>{
+  const place=PremiereLocations.physicalPlace(source),amount=siteEntries(source.slot).filter(entry=>entry.card!==source.card&&PremiereLocations.physicalPlace(entry)===place&&characterTraits(entry.card).includes('musician')).length;
+  return V3DrainTrace.term('cost',amount,source.card,'Ausführungskosten: andere Musiker',source.slot);
+ });
 }
-
+function musicianDrainCost(side,site){return V3DrainTrace.sum(musicianDrainTerms(side,site));}
 function forceDrainEffects(side,slot){
- const plan=PremiereLocations.drain(state,side,slot,cardAbility);
- if(!plan)return null;
- const proficiency=PremiereLocations.presentCards(state,side,slot).flatMap(host=>saberTraining(host)?[{host}]:[]);
- const prisonDroid=side==='Dark'&&locationTitle(state.locations[slot])==='death star: detention block corridor'&&
-  PremiereLocations.entries(state,side).some(entry=>entry.slot===slot&&!entry.unavailable&&activeCardRules(entry.card,'captiveDrain').length);
- const captives=prisonDroid?PremiereLocations.entries(state,'Dark').filter(entry=>
-  entry.captive&&entry.card.type==='Character'&&entry.slot===slot&&!(typeof cloudCityEnabled==='function'&&cloudCityEnabled()&&entry.card.frozen)).length:0;
- const waters=PremiereLocations.effectsAt(state,slot).some(effect=>
-  activeCardRules(effect.card,'locationEffect').some(rule=>rule.darkWaters)&&(effect.card.owner??effect.card.side)!==side);
- return {...plan,modifier:plan.modifier+(hothEnabled()?hothDrainModifier(side,slot):0)+(side==='Dark'?(state.locations[slot]?.bluffs??[]).length:0)+hypoDrainBonus(side,slot)+necklaceCarriers(side,slot).length+captives-Number(waters),
-  optional:plan.optional+proficiency.length,weapons:plan.weapons.concat(proficiency)};
+ let plan=PremiereLocations.drain(state,side,slot,cardAbility);if(!plan)return null;
+ const present=PremiereLocations.presentCards(state,side,slot),rows=hothEnabled()?hothDrainTerms(side,slot):[];
+ const add=(amount,card,label)=>{if(amount)rows.push(V3DrainTrace.term('modifier',amount,card,label,slot));};
+ const proficiency=present.flatMap(host=>saberTraining(host)?[{host}]:[]);
+ const prisonDroid=side==='Dark'&&locationTitle(state.locations[slot])==='death star: detention block corridor'&&PremiereLocations.entries(state,side).find(entry=>entry.slot===slot&&!entry.unavailable&&activeCardRules(entry.card,'captiveDrain').length);
+ const captives=prisonDroid?PremiereLocations.entries(state,'Dark').filter(entry=>entry.captive&&entry.card.type==='Character'&&entry.slot===slot&&!(typeof cloudCityEnabled==='function'&&cloudCityEnabled()&&entry.card.frozen)).length:0;
+ const waters=PremiereLocations.effectsAt(state,slot).find(effect=>activeCardRules(effect.card,'locationEffect').some(rule=>rule.darkWaters)&&(effect.card.owner??effect.card.side)!==side);
+ if(side==='Dark')add((state.locations[slot]?.bluffs??[]).length,state.locations[slot],'Bluff-Karten (Identitäten bleiben verdeckt)');
+ const hypo=PremiereLocations.entries(state,side).find(entry=>!entry.unavailable&&entry.slot===slot&&entry.card.hypoDrainTurn===state.game?.timing.turn&&activeCardRules(entry.card,'hypo').length);if(hypo)add(1,hypo.card,'Hypo: Bonus in diesem Zug');
+ for(const {card}of necklaceCarriers(side,slot))add(1,card,'Getragene Kette');
+ if(prisonDroid)add(captives,prisonDroid.card,'Gefangene Charaktere: '+captives);
+ if(waters)add(-1,waters.card,'Dark Waters am Standort');
+ plan=V3DrainTrace.modify(plan,rows);
+ return V3DrainTrace.optional(plan,proficiency.map(({host})=>V3DrainTrace.term('optional',1,host.attachments.find(card=>activeCardRules(card,'saberTraining').length),'Freiwilliger Proficiency-Bonus',slot)),proficiency);
 }
 
 function necklaceCarriers(side,slot){
@@ -213,6 +214,7 @@ function loseForceForDrain(side,zone,index){
  }
  if(zone==='hand'||!PremiereGame.lostPileFaceDown(state,side))queueCharacterLoss(side,card);
  if(zone==='hand'||!PremiereGame.lostPileFaceDown(state,side))queueMemorialLoss(side,card,pending.locationIndex);
+ if(pending.drainExplanationId){const item=state.drainExplanations?.find(item=>item.id===pending.drainExplanationId);if(item)item.paid++;}
  pending.remaining--;
  if(Number.isInteger(pending.amount))pending.amount--;
  const label=forceLossReason(pending.reason);
@@ -243,7 +245,8 @@ function botPayDrainLoss(){
 function initiateForceDrain(side,i,bonus=0){
  const plan=drainPlan(side,i);
  if(!plan||!Number.isInteger(bonus)||bonus<0||bonus>plan.optional)return false;
- if(plan.cost){spendForce(side,plan.cost);log(side+' verwendet '+plan.cost+' Force für Ickabel G’ont.');}
+ announceDrainExplanation(side,i,plan,bonus);
+ if(plan.cost){spendForce(side,plan.cost);log(side+' verwendet '+plan.cost+' Force für die Drain-Ausführung.');}
  (state.drainedSitesThisTurn??=[]).push(i);
  if(plan.participants)(state.drainedCardsThisTurn??=[]).push(...plan.participants);
  log(side+' initiiert einen Force Drain bei '+state.locations[i].name+' ('+drainAmount(plan,bonus)+' Force).');
@@ -252,17 +255,20 @@ function initiateForceDrain(side,i,bonus=0){
 }
 function resolveForceDrain(side,i,bonus){
  const plan=forceDrainEffects(side,i);
- if(!plan)return;
+ if(!plan){const item=currentDrainExplanation(side,i);if(item){item.status='canceled';item.reason='Drain nach Antworten nicht mehr zulässig (Presence oder Standortregel).';log(item.reason);}return;}
+ resolvedDrainExplanation(side,i,plan,bonus);
  const amount=drainAmount(plan,bonus);
  for(const {host,weapon} of plan.weapons.slice(0,bonus))if(weapon)PremiereUnits.recordWeaponUse(state,host,weapon);
  log(side+' führt Force Drain '+amount+' bei '+state.locations[i].name+' aus.');
- const fromReserve=PremiereLocations.entries(state,side).some(({card,slot,unavailable})=>!unavailable&&
+ const fromReserve=PremiereLocations.entries(state,side).find(({card,slot,unavailable})=>!unavailable&&
   (slot===i||adjacentSites(slot,i))&&activeCardRules(card,'drainFromReserve').length);
- beginForceLoss(PremiereGame.otherSide(side),amount,{locationIndex:i,reason:'drain',...(fromReserve?{from:'deck'}:{})});
+ beginForceLoss(PremiereGame.otherSide(side),amount,{locationIndex:i,reason:'drain',...(fromReserve?{from:'deck',fromSource:V3DrainTrace.ref(fromReserve.card)}:{})});
 }
 function beginForceLoss(payer,amount,terms){
+ const input=amount;
  if(terms.reason!=='reegesk')amount=forceLossAfterDoomed(payer,amount);
  const loss=capForceLoss(payer,amount);
+ if(terms.reason==='drain')recordDrainLoss(terms,payer,input,amount,loss);
  if(loss>0){
   state.pendingForceLoss={payer,remaining:loss,amount,...terms};
   log(payer+' muss '+loss+' Force verlieren.');
@@ -345,6 +351,7 @@ function capForceLoss(side,amount){
 function finishPendingForceLoss(pending){
  if(state.pendingForceLoss!==pending)return;
  state.pendingForceLoss=null;
+ if(pending.drainExplanationId){const item=state.drainExplanations?.find(item=>item.id===pending.drainExplanationId);if(item)item.status='complete';}
  if(pending.reason==='battleDamage')endBattleTiming(pending.locationIndex);
  if(pending.reason==='drain')finishNecklaceDrain(PremiereGame.otherSide(pending.payer),pending.locationIndex);
  if(pending.after)pending.after();
@@ -410,6 +417,8 @@ function openBattleForceLossResponse(side,debt,key){
 
 function settleLossAdjustment(frame,parent){
  const {side,card,debt,key,amount}=frame;
+ const targetDebt=frame.interrupt==='reduceForceLoss'?debt:parent?.debt;
+ const item=targetDebt?.drainExplanationId&&state.drainExplanations?.find(item=>item.id===targetDebt.drainExplanationId),previousRemaining=targetDebt?.remaining;
  const piles=PremiereGame.zones(state,side);
  (card.subType==='Used'?piles.used:piles.lost).push(card);
  if(frame.interrupt==='reduceForceLoss'){
@@ -421,6 +430,11 @@ function settleLossAdjustment(frame,parent){
   adjustForceLoss(parent.side,parent.debt,parent.key,1);
   if(parent.key==='damage')parent.debt.forceOnly=(parent.debt.forceOnly??0)+1;
   PremiereGame.cancelResponse(state.game,parent);
+ }
+ if(item&&Number.isInteger(previousRemaining)){
+  const change=targetDebt.remaining-previousRemaining;
+  item.loss.rows.push(V3DrainTrace.term('loss',change,card,'Verlust nach Antwort geändert'));
+  item.loss.amount=item.paid+targetDebt.remaining;
  }
  log(card.name+' · '+(frame.interrupt==='reduceForceLoss'?'Force-Verlust −'+amount:'Force-Verlust +'+amount)+'.');
  settleCancelledResponse(state.game);
@@ -4728,7 +4742,7 @@ function settlePileInterrupt(frame){
    state.pendingCardView={...view,mode:'beruOrder',side:state.activeSide,publicView:true};
    return;
   case 'doomed':
-   state.doomedTurn=state.game.timing.turn;
+   state.doomedTurn=state.game.timing.turn;state.doomedSource=V3DrainTrace.ref(frame.card);
    finishPileInterrupt(frame);
    return;
   case 'trashCompactor':
@@ -9830,7 +9844,8 @@ function unaffordableCardOffers(side,related,available){
  });
 }
 
-function executeAction(action){
+function executeAction(action){return withDrainAction(action,()=>executeActionWithoutTrace(action));}
+function executeActionWithoutTrace(action){
  if(hothEnabled()&&action.kind==='hothAction')return playHothAction(action.side,...action.args);
  const {kind,side,args,plan,ships,card}=action;
  switch(kind){

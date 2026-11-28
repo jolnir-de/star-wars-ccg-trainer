@@ -39,9 +39,9 @@ test('The combined release preserves every stable V2 game file and bounds indepe
  try{
   const release=await buildWeb(output),files=new Map(release.files.map(file=>[file.path,file]));
   for(const file of lock.files)assert.equal(files.get(file.path)?.sha256,file.sha256,'Published V2 file changed: '+file.path);
-  assert.deepEqual(release.variants,{v2:{version:'2.19.3',entry:'v2.html',status:'stable'},v3:{version:'3.0.0-preview.1',entry:'v3.html',status:'preview'}});
+  assert.deepEqual(release.variants,{v2:{version:'2.19.3',entry:'v2.html',status:'stable'},v3:{version:'3.0.0-preview.2',entry:'v3.html',status:'preview'}});
   assert.equal(files.has('v3/v2-baseline.json'),false);assert.equal(files.has('V3_TODO.md'),false);
-  const game=await readFile(join(output,'v3.html'),'utf8');assert.equal((game.match(/<script src="v3\/engine\/[^\"]+\.[a-f0-9]{12}\.js"/g)??[]).length,10);
+  const game=await readFile(join(output,'v3.html'),'utf8');assert.equal((game.match(/<script src="v3\/engine\/[^\"]+\.[a-f0-9]{12}\.js"/g)??[]).length,11);
   const startup=new Set([...game.matchAll(/(?:src|href)="((?:v3\/engine|v3\/assets|assets)\/[^"?]+)(?:\?[^\"]*)?"/g)].map(m=>m[1]));
   for(const name of ['premiere','premiere-starter-decks','premiere-themed-decks','premiere-supplemental-cards','play-format-decks','a-new-hope','deck-overview'])startup.add(release.files.find(f=>new RegExp('^v3/data/'+name+'\\.[a-f0-9]+\\.json$').test(f.path)).path);
   const initial=release.files.filter(f=>f.path==='v3.html'||startup.has(f.path));

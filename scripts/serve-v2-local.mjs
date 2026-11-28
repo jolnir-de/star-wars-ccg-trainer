@@ -37,7 +37,7 @@ export function startLocalV2Server({port = 8000, reportPath = defaultReport, sit
       return;
     }
     const asset = route === '/' ? '/index.html' : route === '/anleitungen/' ? '/anleitungen/index.html' : route;
-    if (!privateReport && !/^\/(?:v[23]\.html|index\.html|editionen\.html|release\.json|anleitungen\/(?:index|schnellstart|spielzug|kampf|a-new-hope|hoth|dagobah|cloud-city|jabbas-palace)\.html|assets\/(?:site|collectors|edition-banners|playfield-views|starter-covers|home-covers|version-picker)(?:\.[a-f0-9]{12})?\.(?:css|js)|assets\/favicon(?:\.[a-f0-9]{12})?\.svg|assets\/faction-card-backs(?:\.[a-f0-9]{12})?\.svg|assets\/edition-banners\/[a-z0-9-]+(?:\.[a-f0-9]{12})?\.svg|(?:v3\/)?engine\/[\w-]+(?:\.[a-f0-9]{12})?\.js|(?:v3\/)?data\/[\w-]+(?:\.[a-f0-9]{12})?\.json|v3\/assets\/playfield-views(?:\.[a-f0-9]{12})?\.js|data\/SWCCGPC-LICENSE\.txt)$/.test(asset)||asset==='/v3/v2-baseline.json') {
+    if (!privateReport && !/^\/(?:v[23]\.html|index\.html|editionen\.html|release\.json|anleitungen\/(?:index|schnellstart|spielzug|kampf|a-new-hope|hoth|dagobah|cloud-city|jabbas-palace)\.html|assets\/(?:site|collectors|edition-banners|playfield-views|starter-covers|home-covers|version-picker)(?:\.[a-f0-9]{12})?\.(?:css|js)|assets\/favicon(?:\.[a-f0-9]{12})?\.svg|assets\/faction-card-backs(?:\.[a-f0-9]{12})?\.svg|assets\/edition-banners\/[a-z0-9-]+(?:\.[a-f0-9]{12})?\.svg|(?:v3\/)?engine\/[\w-]+(?:\.[a-f0-9]{12})?\.js|(?:v3\/)?data\/[\w-]+(?:\.[a-f0-9]{12})?\.json|v3\/assets\/(?:playfield-views(?:\.[a-f0-9]{12})?\.js|drain-explanation(?:\.[a-f0-9]{12})?\.(?:js|css))|data\/SWCCGPC-LICENSE\.txt)$/.test(asset)||asset==='/v3/v2-baseline.json') {
       response.writeHead(404).end();
       return;
     }

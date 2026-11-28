@@ -1,4 +1,5 @@
 const PremiereLocations = (() => {
+  const V3DrainTrace = typeof module !== 'undefined' ? require('./drain-explanation.js') : globalThis.V3DrainTrace;
   const units = typeof PremiereUnits === 'undefined' ? require('./premiere-units.js') : PremiereUnits;
   const bothSides = ['Light', 'Dark'];
   const opposite = side => side === 'Light' ? 'Dark' : 'Light';
@@ -108,7 +109,7 @@ const PremiereLocations = (() => {
       ? opposite(side) : side;
   }
 
-  function rulesAt(state, slot, side, event) {
+  function ruleEntriesAt(state, slot, side, event) {
     if(state.locations?.[slot]?.collapsed || state.locations?.[slot]?.blownAway)return [];
     if(typeof dagobahLocationTextCancelled==='function'&&dagobahLocationTextCancelled(state,slot))return [];
     const registry = typeof PremiereCardRules === 'undefined' ? require('./premiere-card-rules.js') : PremiereCardRules;
@@ -117,7 +118,7 @@ const PremiereLocations = (() => {
     const activeRules = (location, textSide) => registry.effects(location,event).filter(rule => rule.printedSide===textSide &&
       (!rule.printedClause || (location.gametext ?? '').split(/[.!?]\s+/).some(line =>
         line.trim().replace(/[.!?]$/, '').toLowerCase() === (textSide + ': ' + rule.printedClause).toLowerCase())));
-    const local = units.textSuppressed(card)?[]:activeRules(card,printed);
+    const local = units.textSuppressed(card)?[]:activeRules(card,printed).map(rule=>({rule,card,slot}));
     if(version<21||!card||system(card)||event==='dockingTransit'||!state.locationEffects) return local;
     const order=state.locationOrder??state.locations.map((_,index)=>index),position=order.indexOf(slot);
     if(position<0)return local;
@@ -126,25 +127,33 @@ const PremiereLocations = (() => {
       if(!source||system(source)||region(source)!==region(card)||units.textSuppressed(source))return [];
       const modifier=effectsAt(state,neighbor).find(({card})=>card.id==='Dark:914'&&!units.textSuppressed(card));
       if(!modifier||printedSide(state,neighbor,modifier.card.side)!==side)return [];
-      return activeRules(source,modifier.card.side);
+      return activeRules(source,modifier.card.side).map(rule=>({rule,card:source,slot:neighbor,via:modifier.card}));
     });
     return local.concat(expanded);
   }
+
+  function rulesAt(state,slot,side,event){return ruleEntriesAt(state,slot,side,event).map(entry=>entry.rule);}
 
   function ruleAt(state, slot, side, event) {
     return rulesAt(state,slot,side,event)[0];
   }
 
-  function icons(state, slot, side) {
-    const card = state.locations[slot];
-    if(card?.collapsed || card?.blownAway)return 0;
-    const printed = card?.icons?.[printedSide(state, slot, side).toLowerCase()];
-    if (!Number.isInteger(printed)) return null;
-    const effects = effectsAt(state, slot);
-    const bothSidesBonus = Math.max(0, ...effects.map(effect => effect.iconBonus ?? 0));
-    const value=Math.max(0, printed + bothSidesBonus + effects.reduce((sum, effect) => sum + (effect.icons?.[side] ?? 0), 0));
-    return typeof jpIconValue==='function'?jpIconValue(state,slot,side,value):value;
+  function iconCalculation(state,slot,side){
+    const card=state.locations[slot],details=[];
+    if(card?.collapsed||card?.blownAway)return {value:0,details};
+    const printedSideValue=printedSide(state,slot,side),printed=card?.icons?.[printedSideValue.toLowerCase()];
+    if(!Number.isInteger(printed))return {value:null,details};
+    details.push(V3DrainTrace.term('icons',printed,card,'Gedruckte '+printedSideValue+'-Icons',slot));
+    const effects=effectsAt(state,slot);
+    if(printedSideValue!==side){const revolution=effects.find(effect=>effect.card.id==='Light:2110');details.push(V3DrainTrace.term('note',0,revolution?.card,'Revolution vertauscht die Icon-Seiten',slot));}
+    const bothSidesBonus=Math.max(0,...effects.map(effect=>effect.iconBonus??0)),source=effects.find(effect=>effect.iconBonus===bothSidesBonus);
+    if(bothSidesBonus)details.push(V3DrainTrace.term('icons',bothSidesBonus,source?.card,'Zusätzliche Icons für beide Seiten',slot));
+    for(const effect of effects)if(effect.icons?.[side])details.push(V3DrainTrace.term('icons',effect.icons[side],effect.card,'Icon-Änderung',slot));
+    const raw=printed+bothSidesBonus+effects.reduce((sum,effect)=>sum+(effect.icons?.[side]??0),0),value=Math.max(0,raw);
+    if(raw<0)details.push(V3DrainTrace.term('icons',-raw,null,'Icons mindestens 0',slot));
+    return typeof jpIconCalculation==='function'?jpIconCalculation(state,slot,side,{value,details}):{value,details};
   }
+  function icons(state,slot,side){return iconCalculation(state,slot,side).value;}
 
   function nightEffectsAt(state, slot) {
     const site = state.locations[slot];
@@ -192,23 +201,21 @@ const PremiereLocations = (() => {
     if (effects.some(effect => effect.drainForbiddenFor === side)) return null;
     const base = icons(state, slot, opposing);
     if (base === null) return null;
-    let modifier = rulesAt(state, slot, side, 'forceDrain').reduce((sum,rule)=>sum+rule.amount,0);
-    const controlledSiteBonus = ruleAt(state, slot, side, 'controlSiteDrain');
-    if (controlledSiteBonus) {
-      modifier += state.locations.filter((card, index) => card && !system(card) && region(card) === controlledSiteBonus.region &&
-        control(state, side, index, ability) === true).length;
-    }
-    modifier += effects.reduce((sum, effect) => sum + (effect.drainModifier?.[side] ?? 0), 0);
+    let plan=V3DrainTrace.base(base,location,side,slot,iconCalculation(state,slot,opposite(side)).details);
+    plan=V3DrainTrace.modify(plan,ruleEntriesAt(state,slot,side,'forceDrain').map(entry=>V3DrainTrace.term('modifier',entry.rule.amount,entry.card,'Standort-Spieltext',entry.slot,{via:V3DrainTrace.ref(entry.via)})));
+    const controlled=ruleEntriesAt(state,slot,side,'controlSiteDrain')[0];
+    if(controlled){const amount=state.locations.filter((card,index)=>card&&!system(card)&&region(card)===controlled.rule.region&&control(state,side,index,ability)===true).length;plan=V3DrainTrace.modify(plan,[V3DrainTrace.term('modifier',amount,controlled.card,'Kontrollierte Sites',controlled.slot)]);}
+    plan=V3DrainTrace.modify(plan,effects.filter(effect=>effect.drainModifier?.[side]).map(effect=>V3DrainTrace.term('modifier',effect.drainModifier[side],effect.card,'Effect am Standort',slot)));
     const present = presentCards(state, side, slot);
     const weapons = present.flatMap(host=>{
       const eligible=(host.weapons??[]).filter(weapon=>lightsabers.has(weapon.id)&&units.canUseWeapon(state,host,weapon));
       return (units.usesMultipleWeapons(host)?eligible:eligible.slice(0,1)).map(weapon=>({host,weapon}));
     });
-    return {base, modifier, optional:weapons.length, weapons};
+    return V3DrainTrace.optional(plan,weapons.map(({weapon})=>V3DrainTrace.term('optional',1,weapon,'Freiwilliger Lichtschwert-Bonus',slot)),weapons);
   }
 
   return {aboard, activeCards, at, cardsOnTable, entries, physicalPlace, conditions, control, drain, effectsAt, forceGeneration, hothMarker, icons, presence, prison,
-    findEntry: find, nightEffectsAt, occupy: presence, present, presentAt, presentCards, printedSide, ruleAt, rulesAt};
+    findEntry: find, nightEffectsAt, occupy: presence, present, presentAt, presentCards, printedSide, iconCalculation, ruleAt, rulesAt, ruleEntriesAt};
 })();
 
 if (typeof module !== 'undefined') module.exports = PremiereLocations;

@@ -1,11 +1,14 @@
 'use strict';
-function jpIconValue(game,slot,side,value){
- if(!jpEnabled()||game!==state||!isSite(game.locations[slot]))return value;
- let bonus=0;for(const e of jpUnits())if(e.slot===slot&&!e.unavailable&&e.card.id==='Light:1339'&&jpLive(e.card)&&/jungle|forest|swamp/.test(jpTitle(game.locations[slot])))bonus++;
- const monk=jpAll(null,'Light:183').some(e=>e.slot===slot);
- if(monk){const other=PremiereGame.otherSide(side),printed=game.locations[slot].icons?.[PremiereLocations.printedSide(game,slot,other).toLowerCase()]??0,effects=PremiereLocations.effectsAt(game,slot),otherValue=printed+Math.max(0,...effects.map(e=>e.iconBonus??0))+effects.reduce((n,e)=>n+(e.icons?.[other]??0),0);value=Math.max(value,otherValue);}
- return value+bonus;
+function jpIconCalculation(game,slot,side,plan){
+ if(!jpEnabled()||game!==state||!isSite(game.locations[slot]))return plan;
+ let {value,details}=plan;details=details.slice();
+ const ithorians=jpUnits().filter(e=>e.slot===slot&&!e.unavailable&&e.card.id==='Light:1339'&&jpLive(e.card)&&/jungle|forest|swamp/.test(jpTitle(game.locations[slot])));
+ const monk=jpAll(null,'Light:183').find(e=>e.slot===slot);
+ if(monk){const other=PremiereGame.otherSide(side),printed=game.locations[slot].icons?.[PremiereLocations.printedSide(game,slot,other).toLowerCase()]??0,effects=PremiereLocations.effectsAt(game,slot),otherValue=printed+Math.max(0,...effects.map(e=>e.iconBonus??0))+effects.reduce((n,e)=>n+(e.icons?.[other]??0),0),next=Math.max(value,otherValue);details.push(V3DrainTrace.term('icons',next-value,monk.card,'Icon-Ausgleich durch B’omarr Monk',slot));value=next;}
+ for(const entry of ithorians){value++;details.push(V3DrainTrace.term('icons',1,entry.card,'Zusätzliches Icon im Jungle / Forest / Swamp',slot));}
+ return {value,details};
 }
+function jpIconValue(game,slot,side,value){return jpIconCalculation(game,slot,side,{value,details:[]}).value;}
 const jpSupportBase={revolution:revolutionOptions,ability:battleAbilityAt,equip:weaponDeployCost,cost:crewDeployCost,stats:craftStats,travel:travelOptions,deploy:openDeploymentReaction,automated:automatedDeployOptions,seekerMoves:seekerMoves,targets:automatedTargets,loss:loseOwnedCard,battle:initiateBattleFor,immunity:battleImmunity,power:cardPowerModifier,forfeit:cardForfeitValueAt};
 const jpTransferOptions=weaponEffectOptions;
 weaponEffectOptions=function(side){

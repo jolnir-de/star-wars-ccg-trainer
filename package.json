@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "test": "node --test",
-    "test:browser": "node --test --test-concurrency=1 scripts/v2-browser-check.mjs scripts/site-browser-check.mjs scripts/playfield-browser-check.mjs scripts/dagobah-browser-check.mjs scripts/cloud-city-browser-check.mjs scripts/jabbas-palace-browser-check.mjs scripts/hand-advice-browser-check.mjs scripts/jedi-training-browser-check.mjs scripts/v3-browser-check.mjs"
+    "test:browser": "node --test --test-concurrency=1 scripts/v2-browser-check.mjs scripts/site-browser-check.mjs scripts/playfield-browser-check.mjs scripts/dagobah-browser-check.mjs scripts/cloud-city-browser-check.mjs scripts/jabbas-palace-browser-check.mjs scripts/hand-advice-browser-check.mjs scripts/jedi-training-browser-check.mjs scripts/v3-browser-check.mjs scripts/v3-force-drain-browser-check.mjs"
   },
   "devDependencies": {
     "playwright-core": "1.65.1"

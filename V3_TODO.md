@@ -1,6 +1,6 @@
 # V3 – Spielverständnis, Decks und Spielfluss
 
-V3 wird parallel zu V2 entwickelt. V2.19.3 bleibt unter `v2.html` der Standard; die Vorschau liegt unter `v3.html`. Beide besitzen eigene Regelmodule, Kataloge, Deckdefinitionen, Autosaves und Darstellungseinstellungen. Die Vorschau startet mit dem Funktionsstand von V2.19.3. Die folgenden Verbesserungen sind damit noch nicht umgesetzt.
+V3 wird parallel zu V2 entwickelt. V2.19.3 bleibt unter `v2.html` der Standard; die Vorschau liegt unter `v3.html`. Beide besitzen eigene Regelmodule, Kataloge, Deckdefinitionen, Autosaves und Darstellungseinstellungen. Die Vorschau baut auf dem Funktionsstand von V2.19.3 auf. Force-Drain-Berechnungen sind als erste V3-Verbesserung umgesetzt; der folgende Plan zeigt den weiteren Stand.
 
 ## 0. Sichere Parallelversion
 
@@ -12,12 +12,12 @@ V3 wird parallel zu V2 entwickelt. V2.19.3 bleibt unter `v2.html` der Standard; 
 
 ## 1. Aktionen und Berechnungen nachvollziehen – zuerst Force Drain
 
-- [ ] Force Drain aus dem tatsächlich ausgeführten Regelpfad erklären: Grundwert, einzelne Boni/Abzüge, freiwillige Boni, Grenzen, Zurücksetzungen und Aufhebungen.
-- [ ] Jede Änderung mit anklickbarer Quellkarte und Wirkungsort belegen; globale und lokale Quellen unterscheiden.
-- [ ] Ausführungskosten und verursachten Force-Verlust getrennt anzeigen.
-- [ ] Während eines Antwortfensters Änderungen erklären und nach Abschluss das tatsächliche Ergebnis im Zugprotokoll erhalten.
+- [x] Force Drain aus dem tatsächlich ausgeführten Regelpfad erklären: Grundwert, einzelne Boni/Abzüge, freiwillige Boni, Grenzen, Zurücksetzungen und Aufhebungen.
+- [x] Jede Änderung mit anklickbarer Quellkarte und Wirkungsort belegen; globale und lokale Quellen unterscheiden.
+- [x] Ausführungskosten und verursachten Force-Verlust getrennt anzeigen.
+- [x] Während eines Antwortfensters Änderungen erklären und nach Abschluss das tatsächliche Ergebnis im Zugprotokoll erhalten.
 - [ ] Dasselbe Quellenmodell für Power, Ability, Deploy-/Bewegungskosten, Waffen und Attrition ausbauen; keine zweite unabhängige Regelberechnung in der Oberfläche.
-- [ ] Kombinationen, aufgehobene positive Boni, negative Modifikatoren, beide Spielseiten und Fortsetzen während einer Antwort prüfen.
+- [x] Kombinationen, aufgehobene positive Boni, negative Modifikatoren, beide Spielseiten und Fortsetzen während einer Antwort prüfen.
 
 ## 2. Vorhandene Decks und Bot-Pläne verbessern
 

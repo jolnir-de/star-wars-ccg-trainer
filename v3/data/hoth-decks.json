@@ -1,0 +1,2349 @@
+{
+  "schema": 1,
+  "formats": {
+    "premiere-a-new-hope-hoth": {
+      "Light": [
+        {
+          "theme": {
+            "id": "rogue-hoth",
+            "name": "Rogue Squadron",
+            "description": "Harpunen und abgestimmte Piloten stoppen schwere Walker.",
+            "cover": "Light:498"
+          },
+          "strategy": {
+            "start": "Beginne am North Ridge; der äußere Marker erlaubt später den Generator mit seinem Energieschild.",
+            "opening": "Bring zuerst einen günstigen Scout oder Trooper und danach einen bemannten T-47 ins Spiel. Setze Luke, Zev und die übrigen passenden Piloten auf ihre Rogue-Fahrzeuge; Kanoniere gehören auf die Passagierplätze.",
+            "tactics": "Halte Force für Power Harpoon und One More Pass frei. Greife Walker mit Harpunen an und nutze die Maneuver-Boni deiner Piloten. Attack Pattern Delta verstärkt die anderen T-47s; vor dem Battle lohnt es sich, mehrere Speeder am selben Ort zu sammeln."
+          },
+          "startingLocations": [
+            "Light:5590",
+            "Light:5591",
+            "Light:5582",
+            "Light:5586",
+            "Light:1173"
+          ],
+          "cards": [
+            {
+              "id": "Light:498",
+              "count": 1
+            },
+            {
+              "id": "Light:595",
+              "count": 1
+            },
+            {
+              "id": "Light:707",
+              "count": 1
+            },
+            {
+              "id": "Light:2911",
+              "count": 1
+            },
+            {
+              "id": "Light:2796",
+              "count": 1
+            },
+            {
+              "id": "Light:2128",
+              "count": 1
+            },
+            {
+              "id": "Light:2045",
+              "count": 6
+            },
+            {
+              "id": "Light:2126",
+              "count": 2
+            },
+            {
+              "id": "Light:2786",
+              "count": 1
+            },
+            {
+              "id": "Light:2119",
+              "count": 1
+            },
+            {
+              "id": "Light:2120",
+              "count": 1
+            },
+            {
+              "id": "Light:2121",
+              "count": 1
+            },
+            {
+              "id": "Light:2294",
+              "count": 3
+            },
+            {
+              "id": "Light:1929",
+              "count": 2
+            },
+            {
+              "id": "Light:793",
+              "count": 2
+            },
+            {
+              "id": "Light:167",
+              "count": 2
+            },
+            {
+              "id": "Light:1836",
+              "count": 1
+            },
+            {
+              "id": "Light:1589",
+              "count": 1
+            },
+            {
+              "id": "Light:615",
+              "count": 2
+            },
+            {
+              "id": "Light:1330",
+              "count": 1
+            },
+            {
+              "id": "Light:2734",
+              "count": 1
+            },
+            {
+              "id": "Light:1165",
+              "count": 4
+            },
+            {
+              "id": "Light:811",
+              "count": 2
+            },
+            {
+              "id": "Light:5590",
+              "count": 1
+            },
+            {
+              "id": "Light:5591",
+              "count": 1
+            },
+            {
+              "id": "Light:5582",
+              "count": 1
+            },
+            {
+              "id": "Light:5586",
+              "count": 1
+            },
+            {
+              "id": "Light:1173",
+              "count": 1
+            },
+            {
+              "id": "Light:807",
+              "count": 11
+            },
+            {
+              "id": "Light:259",
+              "count": 2
+            },
+            {
+              "id": "Light:808",
+              "count": 1
+            },
+            {
+              "id": "Light:2671",
+              "count": 1
+            },
+            {
+              "id": "Light:161",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "theme": {
+            "id": "echo-verteidigung",
+            "name": "Verteidigung von Echo Base",
+            "description": "Troopers, Artillerie und Echo Base Operations sichern den Schild.",
+            "cover": "Light:1018"
+          },
+          "strategy": {
+            "start": "Beginne am North Ridge; der äußere Marker erlaubt später den Generator mit seinem Energieschild.",
+            "opening": "Besetze mehrere Echo-Sites mit Echo Base Troopers. Der Officer verbilligt weitere Troopers; bring Rieekan und Bren hinter den Schild, bevor du in teure Artillerie investierst.",
+            "tactics": "Echo Base Operations benötigt drei besetzte Echo-Sites. Artillerie braucht neben einem Warrior auch Energie: am Generator ist sie verfügbar, sonst helfen Power Droids. Artillery Remote ersetzt den Warrior am Geschütz, nicht die Energieversorgung."
+          },
+          "startingLocations": [
+            "Light:5590",
+            "Light:1171",
+            "Light:1173",
+            "Light:1169",
+            "Light:5586",
+            "Light:5591",
+            "Light:5582"
+          ],
+          "cards": [
+            {
+              "id": "Light:1018",
+              "count": 1
+            },
+            {
+              "id": "Light:1621",
+              "count": 1
+            },
+            {
+              "id": "Light:2249",
+              "count": 1
+            },
+            {
+              "id": "Light:2606",
+              "count": 1
+            },
+            {
+              "id": "Light:808",
+              "count": 3
+            },
+            {
+              "id": "Light:807",
+              "count": 15
+            },
+            {
+              "id": "Light:2045",
+              "count": 6
+            },
+            {
+              "id": "Light:815",
+              "count": 2
+            },
+            {
+              "id": "Light:161",
+              "count": 2
+            },
+            {
+              "id": "Light:1044",
+              "count": 1
+            },
+            {
+              "id": "Light:1664",
+              "count": 1
+            },
+            {
+              "id": "Light:135",
+              "count": 2
+            },
+            {
+              "id": "Light:811",
+              "count": 3
+            },
+            {
+              "id": "Light:1165",
+              "count": 4
+            },
+            {
+              "id": "Light:805",
+              "count": 1
+            },
+            {
+              "id": "Light:920",
+              "count": 1
+            },
+            {
+              "id": "Light:615",
+              "count": 2
+            },
+            {
+              "id": "Light:2671",
+              "count": 2
+            },
+            {
+              "id": "Light:2734",
+              "count": 1
+            },
+            {
+              "id": "Light:1171",
+              "count": 1
+            },
+            {
+              "id": "Light:1173",
+              "count": 1
+            },
+            {
+              "id": "Light:1169",
+              "count": 1
+            },
+            {
+              "id": "Light:5586",
+              "count": 1
+            },
+            {
+              "id": "Light:5590",
+              "count": 1
+            },
+            {
+              "id": "Light:5591",
+              "count": 1
+            },
+            {
+              "id": "Light:5582",
+              "count": 1
+            },
+            {
+              "id": "Light:259",
+              "count": 2
+            },
+            {
+              "id": "Light:2294",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "theme": {
+            "id": "evakuierung-hoth",
+            "name": "Der erste Transport",
+            "description": "Transporte bergen Passagiere, während die Ionenkanone den Rückzug deckt.",
+            "cover": "Light:1665"
+          },
+          "strategy": {
+            "start": "Beginne am North Ridge; der äußere Marker erlaubt später den Generator mit seinem Energieschild.",
+            "opening": "Sichere Echo Docking Bay und suche Medium Transport, einen Piloten und Passagiere zusammen. Lege Evacuation Control an deine War Room und bring das Hoth-System oder Ord Mantell als erreichbares Ziel ins Spiel.",
+            "tactics": "The First Transport Is Away! belohnt die Ankunft eines von Hoth kommenden Transports am gewählten System. Volle Passagierplätze erhöhen die Rückholung. Planet Defender Ion Cannon hält Capitals auf Abstand; ein kostenloser Flug ist nützlicher als ein aussichtsloser Kampf."
+          },
+          "startingLocations": [
+            "Light:5590",
+            "Light:1163",
+            "Light:1854",
+            "Light:1173",
+            "Light:1169",
+            "Light:5586"
+          ],
+          "cards": [
+            {
+              "id": "Light:1665",
+              "count": 3
+            },
+            {
+              "id": "Light:2413",
+              "count": 1
+            },
+            {
+              "id": "Light:2618",
+              "count": 1
+            },
+            {
+              "id": "Light:2782",
+              "count": 1
+            },
+            {
+              "id": "Light:2004",
+              "count": 2
+            },
+            {
+              "id": "Light:498",
+              "count": 1
+            },
+            {
+              "id": "Light:1018",
+              "count": 1
+            },
+            {
+              "id": "Light:807",
+              "count": 15
+            },
+            {
+              "id": "Light:808",
+              "count": 2
+            },
+            {
+              "id": "Light:2045",
+              "count": 7
+            },
+            {
+              "id": "Light:815",
+              "count": 1
+            },
+            {
+              "id": "Light:1910",
+              "count": 1
+            },
+            {
+              "id": "Light:135",
+              "count": 1
+            },
+            {
+              "id": "Light:889",
+              "count": 1
+            },
+            {
+              "id": "Light:2530",
+              "count": 2
+            },
+            {
+              "id": "Light:2383",
+              "count": 2
+            },
+            {
+              "id": "Light:920",
+              "count": 1
+            },
+            {
+              "id": "Light:1330",
+              "count": 1
+            },
+            {
+              "id": "Light:1836",
+              "count": 1
+            },
+            {
+              "id": "Light:1163",
+              "count": 1
+            },
+            {
+              "id": "Light:1854",
+              "count": 1
+            },
+            {
+              "id": "Light:1173",
+              "count": 1
+            },
+            {
+              "id": "Light:1169",
+              "count": 1
+            },
+            {
+              "id": "Light:5586",
+              "count": 1
+            },
+            {
+              "id": "Light:5590",
+              "count": 1
+            },
+            {
+              "id": "Light:259",
+              "count": 2
+            },
+            {
+              "id": "Light:1165",
+              "count": 2
+            },
+            {
+              "id": "Light:2294",
+              "count": 1
+            },
+            {
+              "id": "Light:615",
+              "count": 1
+            },
+            {
+              "id": "Light:2671",
+              "count": 1
+            },
+            {
+              "id": "Light:811",
+              "count": 1
+            },
+            {
+              "id": "Light:161",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "theme": {
+            "id": "suchtrupp-hoth",
+            "name": "Suchtrupp im Schneesturm",
+            "description": "Scouts, Sensoren und Tauntauns finden Vermisste und bewahren sie vor Kälte.",
+            "cover": "Light:2911"
+          },
+          "strategy": {
+            "start": "Beginne am North Ridge; der äußere Marker erlaubt später den Generator mit seinem Energieschild.",
+            "opening": "Lege Survival Gear auf wichtige Characters und stelle Scouts sowie Rogue 2 an benachbarten Markern bereit. Sensor Array benötigt einen passenden R-Unit-Droid. Spiele Nightfall und Frostbite erst, wenn deine eigene Gruppe geschützt ist.",
+            "tactics": "Bilde Suchgruppen in Control; Scouts zählen stärker, Sensor Array und die mit suchenden Rogue-2-Piloten geben weitere Boni. Gefundene Characters schließen sich an, aber die Suchgruppe darf danach nicht einfach weiterziehen. Halte Tauntauns als Wetterschutz und Fluchtmöglichkeit bereit."
+          },
+          "startingLocations": [
+            "Light:5590",
+            "Light:5582",
+            "Light:5591",
+            "Light:5586",
+            "Light:1173",
+            "Light:1163"
+          ],
+          "cards": [
+            {
+              "id": "Light:2911",
+              "count": 1
+            },
+            {
+              "id": "Light:2045",
+              "count": 7
+            },
+            {
+              "id": "Light:2483",
+              "count": 3
+            },
+            {
+              "id": "Light:2480",
+              "count": 3
+            },
+            {
+              "id": "Light:2120",
+              "count": 1
+            },
+            {
+              "id": "Light:2004",
+              "count": 1
+            },
+            {
+              "id": "Light:1990",
+              "count": 2
+            },
+            {
+              "id": "Light:1165",
+              "count": 5
+            },
+            {
+              "id": "Light:1220",
+              "count": 2
+            },
+            {
+              "id": "Light:1773",
+              "count": 2
+            },
+            {
+              "id": "Light:1902",
+              "count": 1
+            },
+            {
+              "id": "Light:987",
+              "count": 1
+            },
+            {
+              "id": "Light:1778",
+              "count": 2
+            },
+            {
+              "id": "Light:1241",
+              "count": 1
+            },
+            {
+              "id": "Light:736",
+              "count": 1
+            },
+            {
+              "id": "Light:2481",
+              "count": 1
+            },
+            {
+              "id": "Light:5590",
+              "count": 1
+            },
+            {
+              "id": "Light:5582",
+              "count": 1
+            },
+            {
+              "id": "Light:5591",
+              "count": 1
+            },
+            {
+              "id": "Light:5586",
+              "count": 1
+            },
+            {
+              "id": "Light:1173",
+              "count": 1
+            },
+            {
+              "id": "Light:1163",
+              "count": 1
+            },
+            {
+              "id": "Light:807",
+              "count": 12
+            },
+            {
+              "id": "Light:259",
+              "count": 2
+            },
+            {
+              "id": "Light:2294",
+              "count": 1
+            },
+            {
+              "id": "Light:615",
+              "count": 1
+            },
+            {
+              "id": "Light:808",
+              "count": 1
+            },
+            {
+              "id": "Light:2671",
+              "count": 1
+            },
+            {
+              "id": "Light:811",
+              "count": 1
+            },
+            {
+              "id": "Light:161",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "theme": {
+            "id": "echo-sanitaet",
+            "name": "Droiden und Sanität",
+            "description": "Medical Droids und Bacta Tank erhalten deine Besatzungen; Minen sichern freie Zugänge.",
+            "cover": "Light:5300"
+          },
+          "strategy": {
+            "start": "Beginne am North Ridge; der äußere Marker erlaubt später den Generator mit seinem Energieschild.",
+            "opening": "Sichere das Medical Lab mit günstigen Troopers und Droids. Spiele einen Medical Droid mit dem Ortsrabatt und stelle die übrigen Droids zu K-3PO, damit dessen Power und Leader-Fähigkeit nützen.",
+            "tactics": "2-1B und FX-7 retten verlorene Non-Droids; WED rettet getroffene Craft gegen Force-Verlust. Bacta Tank hält einen Patienten für spätere Rückkehr auf die Hand. Ein Mining Droid ermöglicht Minen an Außen-Sites: achte darauf, dass auch deine eigenen Ankömmlinge betroffen sein können."
+          },
+          "startingLocations": [
+            "Light:5590",
+            "Light:1174",
+            "Light:1171",
+            "Light:1169",
+            "Light:5586"
+          ],
+          "cards": [
+            {
+              "id": "Light:5300",
+              "count": 1
+            },
+            {
+              "id": "Light:1001",
+              "count": 2
+            },
+            {
+              "id": "Light:1404",
+              "count": 1
+            },
+            {
+              "id": "Light:815",
+              "count": 2
+            },
+            {
+              "id": "Light:1997",
+              "count": 1
+            },
+            {
+              "id": "Light:2004",
+              "count": 1
+            },
+            {
+              "id": "Light:2782",
+              "count": 1
+            },
+            {
+              "id": "Light:2836",
+              "count": 1
+            },
+            {
+              "id": "Light:1556",
+              "count": 2
+            },
+            {
+              "id": "Light:808",
+              "count": 2
+            },
+            {
+              "id": "Light:807",
+              "count": 14
+            },
+            {
+              "id": "Light:2045",
+              "count": 6
+            },
+            {
+              "id": "Light:184",
+              "count": 2
+            },
+            {
+              "id": "Light:2481",
+              "count": 1
+            },
+            {
+              "id": "Light:1307",
+              "count": 2
+            },
+            {
+              "id": "Light:2710",
+              "count": 1
+            },
+            {
+              "id": "Light:1990",
+              "count": 1
+            },
+            {
+              "id": "Light:1165",
+              "count": 3
+            },
+            {
+              "id": "Light:811",
+              "count": 2
+            },
+            {
+              "id": "Light:1902",
+              "count": 1
+            },
+            {
+              "id": "Light:1330",
+              "count": 1
+            },
+            {
+              "id": "Light:1773",
+              "count": 1
+            },
+            {
+              "id": "Light:1174",
+              "count": 1
+            },
+            {
+              "id": "Light:1171",
+              "count": 1
+            },
+            {
+              "id": "Light:1169",
+              "count": 1
+            },
+            {
+              "id": "Light:5590",
+              "count": 1
+            },
+            {
+              "id": "Light:5586",
+              "count": 1
+            },
+            {
+              "id": "Light:259",
+              "count": 2
+            },
+            {
+              "id": "Light:2294",
+              "count": 1
+            },
+            {
+              "id": "Light:615",
+              "count": 1
+            },
+            {
+              "id": "Light:2671",
+              "count": 1
+            },
+            {
+              "id": "Light:161",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "theme": {
+            "id": "hoth-gegenangriff",
+            "name": "Skywalkers Gegenangriff",
+            "description": "Luke, Han und Chewie kombinieren Battle Destiny mit gezielten Angriffen auf Walker.",
+            "cover": "Light:498"
+          },
+          "strategy": {
+            "start": "Beginne am North Ridge; der äußere Marker erlaubt später den Generator mit seinem Energieschild.",
+            "opening": "Baue erst Force und eine stabile Hoth-Presence auf. Bringe Luke mit Anakin’s Lightsaber sowie Han und Chewie an einen gemeinsamen Angriffsort; spiele nicht alle teuren Hauptfiguren ohne Force-Reserve aus.",
+            "tactics": "Rug Hug addiert mit Luke und Chewie Battle Destiny, mit Rebel und Alien alternativ Power. I Thought They Smelled Bad On The Outside schützt vor Wetter; It Can Wait wirft einen gerade ausgespielten gegnerischen Schlüsselträger zurück. Der Dagobah-Interrupt bleibt ohne späteren Zielort unspielbar."
+          },
+          "startingLocations": [
+            "Light:5590",
+            "Light:5582",
+            "Light:1173",
+            "Light:5586"
+          ],
+          "cards": [
+            {
+              "id": "Light:498",
+              "count": 1
+            },
+            {
+              "id": "Light:1098",
+              "count": 1
+            },
+            {
+              "id": "Light:394",
+              "count": 1
+            },
+            {
+              "id": "Light:1495",
+              "count": 1
+            },
+            {
+              "id": "Light:2658",
+              "count": 1
+            },
+            {
+              "id": "Light:1391",
+              "count": 1
+            },
+            {
+              "id": "Light:1621",
+              "count": 1
+            },
+            {
+              "id": "Light:808",
+              "count": 2
+            },
+            {
+              "id": "Light:807",
+              "count": 15
+            },
+            {
+              "id": "Light:2045",
+              "count": 6
+            },
+            {
+              "id": "Light:109",
+              "count": 1
+            },
+            {
+              "id": "Light:515",
+              "count": 2
+            },
+            {
+              "id": "Light:2671",
+              "count": 3
+            },
+            {
+              "id": "Light:2137",
+              "count": 2
+            },
+            {
+              "id": "Light:2805",
+              "count": 1
+            },
+            {
+              "id": "Light:2881",
+              "count": 1
+            },
+            {
+              "id": "Light:615",
+              "count": 2
+            },
+            {
+              "id": "Light:1330",
+              "count": 1
+            },
+            {
+              "id": "Light:2888",
+              "count": 1
+            },
+            {
+              "id": "Light:1220",
+              "count": 1
+            },
+            {
+              "id": "Light:1165",
+              "count": 3
+            },
+            {
+              "id": "Light:811",
+              "count": 2
+            },
+            {
+              "id": "Light:2480",
+              "count": 1
+            },
+            {
+              "id": "Light:2294",
+              "count": 2
+            },
+            {
+              "id": "Light:5590",
+              "count": 1
+            },
+            {
+              "id": "Light:5582",
+              "count": 1
+            },
+            {
+              "id": "Light:1173",
+              "count": 1
+            },
+            {
+              "id": "Light:5586",
+              "count": 1
+            },
+            {
+              "id": "Light:259",
+              "count": 2
+            },
+            {
+              "id": "Light:161",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "theme": {
+            "id": "ionenschild-hoth",
+            "name": "Ionenfeuer über Hoth",
+            "description": "Toryn Farr und Artillerie am Generator schützen das Hoth-System.",
+            "cover": "Light:1910"
+          },
+          "strategy": {
+            "start": "Beginne am North Ridge; der äußere Marker erlaubt später den Generator mit seinem Energieschild.",
+            "opening": "Baue die Ion Cannon an einer Außen-Rebel-Base-Site mit Energie und Warrior auf. Toryn gehört an eine War Room desselben Planeten; die Kanone selbst bleibt an der Außen-Site.",
+            "tactics": "Nutze die Kanone während eines passenden Battles oder über Evacuation Control in Move. Ionentreffer setzen Power und Hyperspeed des Capitals auf null und entfernen seine Waffen. Die übrige Artillerie und Transporter sichern unterschiedliche Angriffswinkel, statt alles an einem Ort zu stapeln."
+          },
+          "startingLocations": [
+            "Light:5590",
+            "Light:1163",
+            "Light:1169",
+            "Light:1173",
+            "Light:5586"
+          ],
+          "cards": [
+            {
+              "id": "Light:2618",
+              "count": 1
+            },
+            {
+              "id": "Light:2413",
+              "count": 1
+            },
+            {
+              "id": "Light:2004",
+              "count": 1
+            },
+            {
+              "id": "Light:2782",
+              "count": 1
+            },
+            {
+              "id": "Light:2126",
+              "count": 1
+            },
+            {
+              "id": "Light:595",
+              "count": 1
+            },
+            {
+              "id": "Light:2796",
+              "count": 1
+            },
+            {
+              "id": "Light:498",
+              "count": 1
+            },
+            {
+              "id": "Light:815",
+              "count": 2
+            },
+            {
+              "id": "Light:807",
+              "count": 15
+            },
+            {
+              "id": "Light:808",
+              "count": 2
+            },
+            {
+              "id": "Light:1910",
+              "count": 1
+            },
+            {
+              "id": "Light:1044",
+              "count": 1
+            },
+            {
+              "id": "Light:1664",
+              "count": 1
+            },
+            {
+              "id": "Light:135",
+              "count": 2
+            },
+            {
+              "id": "Light:811",
+              "count": 2
+            },
+            {
+              "id": "Light:889",
+              "count": 1
+            },
+            {
+              "id": "Light:1665",
+              "count": 2
+            },
+            {
+              "id": "Light:2838",
+              "count": 1
+            },
+            {
+              "id": "Light:2383",
+              "count": 2
+            },
+            {
+              "id": "Light:1330",
+              "count": 1
+            },
+            {
+              "id": "Light:920",
+              "count": 1
+            },
+            {
+              "id": "Light:2734",
+              "count": 1
+            },
+            {
+              "id": "Light:1163",
+              "count": 1
+            },
+            {
+              "id": "Light:1169",
+              "count": 1
+            },
+            {
+              "id": "Light:1173",
+              "count": 1
+            },
+            {
+              "id": "Light:5586",
+              "count": 1
+            },
+            {
+              "id": "Light:5590",
+              "count": 1
+            },
+            {
+              "id": "Light:2045",
+              "count": 4
+            },
+            {
+              "id": "Light:259",
+              "count": 2
+            },
+            {
+              "id": "Light:1165",
+              "count": 2
+            },
+            {
+              "id": "Light:2294",
+              "count": 1
+            },
+            {
+              "id": "Light:615",
+              "count": 1
+            },
+            {
+              "id": "Light:2671",
+              "count": 1
+            },
+            {
+              "id": "Light:161",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "theme": {
+            "id": "nordgrat-hoth",
+            "name": "Patrouille am Nordgrat",
+            "description": "Bewegliche Scouts und Cal Alder sichern Außenposten und unterstützen benachbarte Kämpfe.",
+            "cover": "Light:2045"
+          },
+          "strategy": {
+            "start": "Beginne am North Ridge; der äußere Marker erlaubt später den Generator mit seinem Energieschild.",
+            "opening": "Verteile günstige Scouts auf gut drainende Außenorte. Stelle Cal Alder so auf, dass deine Vehicles sich kostenlos in seine Richtung bewegen können; halte eine Reserve für Verstärkungs-Reacts bereit.",
+            "tactics": "Rebel Scout und Trooper Officer verstärken bedrohte Sites. Verlege Speeder und Tauntauns gezielt, statt jeden Kampf anzunehmen. Sensor- und Perimeter-Prüfungen liefern Informationen; Minen brauchen einen Mining Droid und bedrohen auch eigene Bewegung."
+          },
+          "startingLocations": [
+            "Light:5590",
+            "Light:1854",
+            "Light:5582",
+            "Light:5586"
+          ],
+          "cards": [
+            {
+              "id": "Light:345",
+              "count": 1
+            },
+            {
+              "id": "Light:1391",
+              "count": 1
+            },
+            {
+              "id": "Light:2128",
+              "count": 1
+            },
+            {
+              "id": "Light:2836",
+              "count": 1
+            },
+            {
+              "id": "Light:2606",
+              "count": 1
+            },
+            {
+              "id": "Light:1621",
+              "count": 1
+            },
+            {
+              "id": "Light:2045",
+              "count": 7
+            },
+            {
+              "id": "Light:2483",
+              "count": 1
+            },
+            {
+              "id": "Light:2480",
+              "count": 2
+            },
+            {
+              "id": "Light:807",
+              "count": 14
+            },
+            {
+              "id": "Light:808",
+              "count": 2
+            },
+            {
+              "id": "Light:1556",
+              "count": 1
+            },
+            {
+              "id": "Light:2710",
+              "count": 1
+            },
+            {
+              "id": "Light:1307",
+              "count": 1
+            },
+            {
+              "id": "Light:515",
+              "count": 1
+            },
+            {
+              "id": "Light:1165",
+              "count": 4
+            },
+            {
+              "id": "Light:811",
+              "count": 2
+            },
+            {
+              "id": "Light:1902",
+              "count": 1
+            },
+            {
+              "id": "Light:1773",
+              "count": 1
+            },
+            {
+              "id": "Light:2805",
+              "count": 1
+            },
+            {
+              "id": "Light:1220",
+              "count": 1
+            },
+            {
+              "id": "Light:920",
+              "count": 1
+            },
+            {
+              "id": "Light:167",
+              "count": 1
+            },
+            {
+              "id": "Light:2294",
+              "count": 3
+            },
+            {
+              "id": "Light:1854",
+              "count": 1
+            },
+            {
+              "id": "Light:5590",
+              "count": 1
+            },
+            {
+              "id": "Light:5582",
+              "count": 1
+            },
+            {
+              "id": "Light:5586",
+              "count": 1
+            },
+            {
+              "id": "Light:259",
+              "count": 2
+            },
+            {
+              "id": "Light:615",
+              "count": 1
+            },
+            {
+              "id": "Light:2671",
+              "count": 1
+            },
+            {
+              "id": "Light:161",
+              "count": 1
+            }
+          ]
+        }
+      ],
+      "Dark": [
+        {
+          "theme": {
+            "id": "blizzard-offensive",
+            "name": "Blizzard-Offensive",
+            "description": "Veers, AT-ATs und präzise Kanonen bedrohen den Hauptgenerator.",
+            "cover": "Dark:267"
+          },
+          "strategy": {
+            "start": "Beginne am North Ridge außerhalb des Energieschilds; baue Force auf und setze deine Kampfgruppe dort ein.",
+            "opening": "Beginne außerhalb des Schilds und besetze den Nordgrat mit einem bemannten Walker. Setze Veers möglichst auf Blizzard 1, einen AT-AT Driver auf weitere Fahrzeuge und Kanoniere auf Passagierplätze.",
+            "tactics": "AT-AT Cannon und Electro-Rangefinder eröffnen den Schuss auf Main Power Generators in Control. Kontrollierte Hoth-Sites und genau ein gewählter Pilot erhöhen den Wert. Spare Force für die Kanone und den Vormarsch; Trample und Barrage räumen gezielt die Gegenwehr aus dem Weg."
+          },
+          "startingLocations": [
+            "Dark:6358",
+            "Dark:6354",
+            "Dark:6353",
+            "Dark:1168",
+            "Dark:1172"
+          ],
+          "cards": [
+            {
+              "id": "Dark:1029",
+              "count": 1
+            },
+            {
+              "id": "Dark:160",
+              "count": 5
+            },
+            {
+              "id": "Dark:1272",
+              "count": 3
+            },
+            {
+              "id": "Dark:62",
+              "count": 1
+            },
+            {
+              "id": "Dark:2295",
+              "count": 17
+            },
+            {
+              "id": "Dark:2296",
+              "count": 2
+            },
+            {
+              "id": "Dark:267",
+              "count": 1
+            },
+            {
+              "id": "Dark:269",
+              "count": 2
+            },
+            {
+              "id": "Dark:274",
+              "count": 1
+            },
+            {
+              "id": "Dark:272",
+              "count": 1
+            },
+            {
+              "id": "Dark:158",
+              "count": 2
+            },
+            {
+              "id": "Dark:823",
+              "count": 2
+            },
+            {
+              "id": "Dark:2422",
+              "count": 1
+            },
+            {
+              "id": "Dark:2627",
+              "count": 2
+            },
+            {
+              "id": "Dark:584",
+              "count": 1
+            },
+            {
+              "id": "Dark:733",
+              "count": 1
+            },
+            {
+              "id": "Dark:2732",
+              "count": 1
+            },
+            {
+              "id": "Dark:2736",
+              "count": 1
+            },
+            {
+              "id": "Dark:466",
+              "count": 1
+            },
+            {
+              "id": "Dark:684",
+              "count": 1
+            },
+            {
+              "id": "Dark:2399",
+              "count": 2
+            },
+            {
+              "id": "Dark:1285",
+              "count": 2
+            },
+            {
+              "id": "Dark:6358",
+              "count": 1
+            },
+            {
+              "id": "Dark:6354",
+              "count": 1
+            },
+            {
+              "id": "Dark:6353",
+              "count": 1
+            },
+            {
+              "id": "Dark:1168",
+              "count": 1
+            },
+            {
+              "id": "Dark:1172",
+              "count": 1
+            },
+            {
+              "id": "Dark:1264",
+              "count": 2
+            },
+            {
+              "id": "Dark:894",
+              "count": 1
+            },
+            {
+              "id": "Dark:2645",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "theme": {
+            "id": "schneesturmtruppen",
+            "name": "Schneesturmtruppen",
+            "description": "Offiziere führen Snowtroopers als Verstärkung zu konzentrierten Bodenangriffen.",
+            "cover": "Dark:2296"
+          },
+          "strategy": {
+            "start": "Beginne am North Ridge außerhalb des Energieschilds; baue Force auf und setze deine Kampfgruppe dort ein.",
+            "opening": "Nutze den Snowtrooper Officer, um Snowtroopers günstiger nachzuziehen. Tactical Support findet bis zu drei Troopers, kostet jedoch echten Force-Verlust. Schiebe die Gruppe am Boden unter den Schild.",
+            "tactics": "Der Officer ermöglicht Verstärkungs-Reacts. Konzentriere Troopers für kontrollierte Battles und sichere freie Sites für Drains. E-web braucht Warrior und Energie; Portable Fusion Generator liefert Energie und unterstützt Blaster-/Artillerie-Draws."
+          },
+          "startingLocations": [
+            "Dark:6358",
+            "Dark:6353",
+            "Dark:1170",
+            "Dark:1172",
+            "Dark:1168"
+          ],
+          "cards": [
+            {
+              "id": "Dark:2296",
+              "count": 3
+            },
+            {
+              "id": "Dark:2295",
+              "count": 22
+            },
+            {
+              "id": "Dark:160",
+              "count": 3
+            },
+            {
+              "id": "Dark:1272",
+              "count": 2
+            },
+            {
+              "id": "Dark:1000",
+              "count": 1
+            },
+            {
+              "id": "Dark:1029",
+              "count": 1
+            },
+            {
+              "id": "Dark:272",
+              "count": 1
+            },
+            {
+              "id": "Dark:269",
+              "count": 2
+            },
+            {
+              "id": "Dark:894",
+              "count": 3
+            },
+            {
+              "id": "Dark:1925",
+              "count": 2
+            },
+            {
+              "id": "Dark:158",
+              "count": 1
+            },
+            {
+              "id": "Dark:2399",
+              "count": 3
+            },
+            {
+              "id": "Dark:1285",
+              "count": 2
+            },
+            {
+              "id": "Dark:327",
+              "count": 1
+            },
+            {
+              "id": "Dark:1270",
+              "count": 1
+            },
+            {
+              "id": "Dark:2736",
+              "count": 1
+            },
+            {
+              "id": "Dark:2627",
+              "count": 1
+            },
+            {
+              "id": "Dark:2645",
+              "count": 2
+            },
+            {
+              "id": "Dark:1826",
+              "count": 1
+            },
+            {
+              "id": "Dark:6358",
+              "count": 1
+            },
+            {
+              "id": "Dark:6353",
+              "count": 1
+            },
+            {
+              "id": "Dark:1170",
+              "count": 1
+            },
+            {
+              "id": "Dark:1172",
+              "count": 1
+            },
+            {
+              "id": "Dark:1168",
+              "count": 1
+            },
+            {
+              "id": "Dark:1264",
+              "count": 2
+            }
+          ]
+        },
+        {
+          "theme": {
+            "id": "sondenjagd",
+            "name": "Sondenjagd",
+            "description": "Piett und Stalker setzen Probe Droids ein, lesen Hände und öffnen günstige Deploys.",
+            "cover": "Dark:1950"
+          },
+          "strategy": {
+            "start": "Beginne am North Ridge außerhalb des Energieschilds; baue Force auf und setze deine Kampfgruppe dort ein.",
+            "opening": "Bringe zuerst Stalker oder einen anderen Star Destroyer auf den Tisch, damit Probe Droids überhaupt deployen dürfen. Piett findet weitere Probes im Reserve; Stalker ermöglicht kostenlose Deploys zu Sites seines Systems.",
+            "tactics": "Probe Droid und Probe Antennae sehen zufällige Handkarten, ohne die gesamte Hand offenzulegen. Probe Telemetry entfernt nur nicht-einzigartige Lost-Pile-Karten oder erleichtert Deploy auf dem erkundeten Planeten. That’s It, The Rebels Are There! verlegt ein Schiff zum zugehörigen System."
+          },
+          "startingLocations": [
+            "Dark:6358",
+            "Dark:1162",
+            "Dark:6354",
+            "Dark:1172"
+          ],
+          "cards": [
+            {
+              "id": "Dark:368",
+              "count": 1
+            },
+            {
+              "id": "Dark:1950",
+              "count": 3
+            },
+            {
+              "id": "Dark:1272",
+              "count": 2
+            },
+            {
+              "id": "Dark:2295",
+              "count": 18
+            },
+            {
+              "id": "Dark:2296",
+              "count": 2
+            },
+            {
+              "id": "Dark:1557",
+              "count": 2
+            },
+            {
+              "id": "Dark:2339",
+              "count": 1
+            },
+            {
+              "id": "Dark:272",
+              "count": 1
+            },
+            {
+              "id": "Dark:1949",
+              "count": 3
+            },
+            {
+              "id": "Dark:1952",
+              "count": 2
+            },
+            {
+              "id": "Dark:1306",
+              "count": 1
+            },
+            {
+              "id": "Dark:2709",
+              "count": 1
+            },
+            {
+              "id": "Dark:1953",
+              "count": 2
+            },
+            {
+              "id": "Dark:2511",
+              "count": 1
+            },
+            {
+              "id": "Dark:513",
+              "count": 1
+            },
+            {
+              "id": "Dark:18",
+              "count": 1
+            },
+            {
+              "id": "Dark:2266",
+              "count": 1
+            },
+            {
+              "id": "Dark:2399",
+              "count": 2
+            },
+            {
+              "id": "Dark:1285",
+              "count": 2
+            },
+            {
+              "id": "Dark:1826",
+              "count": 1
+            },
+            {
+              "id": "Dark:1162",
+              "count": 1
+            },
+            {
+              "id": "Dark:6358",
+              "count": 1
+            },
+            {
+              "id": "Dark:6354",
+              "count": 1
+            },
+            {
+              "id": "Dark:1172",
+              "count": 1
+            },
+            {
+              "id": "Dark:160",
+              "count": 3
+            },
+            {
+              "id": "Dark:1264",
+              "count": 2
+            },
+            {
+              "id": "Dark:269",
+              "count": 1
+            },
+            {
+              "id": "Dark:894",
+              "count": 1
+            },
+            {
+              "id": "Dark:2645",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "theme": {
+            "id": "tyrants-blockade",
+            "name": "Tyrants Blockade",
+            "description": "Lennox und Cabbel verstärken Tyrant; Tractor Beams fangen gegnerische Schiffe.",
+            "cover": "Dark:2657"
+          },
+          "strategy": {
+            "start": "Beginne am North Ridge außerhalb des Energieschilds; baue Force auf und setze deine Kampfgruppe dort ein.",
+            "opening": "Bringe Tyrant mit Lennox und Cabbel ans Hoth-System. Ozzel erleichtert Capital-Deploys; mit weiteren Schiffen und Death Squadron wächst die Power am System.",
+            "tactics": "Tractor Beams fangen passende Schiffe, Lennox erlaubt einen Einsatz in eigener Control. Deflector Shield Generators und Cabbel erhöhen Tyrants Armor; Captain Lennox und Our First Catch Of The Day verstärken die Fangversuche. Behalte Force zum Abwehren gegnerischer Ionenschüsse."
+          },
+          "startingLocations": [
+            "Dark:6358",
+            "Dark:1162",
+            "Dark:1853",
+            "Dark:1172"
+          ],
+          "cards": [
+            {
+              "id": "Dark:363",
+              "count": 1
+            },
+            {
+              "id": "Dark:1521",
+              "count": 1
+            },
+            {
+              "id": "Dark:62",
+              "count": 1
+            },
+            {
+              "id": "Dark:368",
+              "count": 1
+            },
+            {
+              "id": "Dark:1272",
+              "count": 3
+            },
+            {
+              "id": "Dark:2295",
+              "count": 18
+            },
+            {
+              "id": "Dark:2296",
+              "count": 2
+            },
+            {
+              "id": "Dark:2657",
+              "count": 1
+            },
+            {
+              "id": "Dark:2339",
+              "count": 1
+            },
+            {
+              "id": "Dark:1291",
+              "count": 1
+            },
+            {
+              "id": "Dark:2700",
+              "count": 1
+            },
+            {
+              "id": "Dark:634",
+              "count": 1
+            },
+            {
+              "id": "Dark:692",
+              "count": 2
+            },
+            {
+              "id": "Dark:2620",
+              "count": 2
+            },
+            {
+              "id": "Dark:1327",
+              "count": 1
+            },
+            {
+              "id": "Dark:1869",
+              "count": 2
+            },
+            {
+              "id": "Dark:513",
+              "count": 1
+            },
+            {
+              "id": "Dark:18",
+              "count": 1
+            },
+            {
+              "id": "Dark:651",
+              "count": 2
+            },
+            {
+              "id": "Dark:1285",
+              "count": 2
+            },
+            {
+              "id": "Dark:2399",
+              "count": 2
+            },
+            {
+              "id": "Dark:1226",
+              "count": 1
+            },
+            {
+              "id": "Dark:1162",
+              "count": 1
+            },
+            {
+              "id": "Dark:1853",
+              "count": 1
+            },
+            {
+              "id": "Dark:1172",
+              "count": 1
+            },
+            {
+              "id": "Dark:6358",
+              "count": 1
+            },
+            {
+              "id": "Dark:160",
+              "count": 3
+            },
+            {
+              "id": "Dark:1264",
+              "count": 2
+            },
+            {
+              "id": "Dark:269",
+              "count": 1
+            },
+            {
+              "id": "Dark:894",
+              "count": 1
+            },
+            {
+              "id": "Dark:2645",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "theme": {
+            "id": "nacht-auf-hoth",
+            "name": "Nacht über Hoth",
+            "description": "Schneestürme und Kälte setzen ungeschützte Characters und Speeder unter Druck.",
+            "cover": "Dark:1240"
+          },
+          "strategy": {
+            "start": "Beginne am North Ridge außerhalb des Energieschilds; baue Force auf und setze deine Kampfgruppe dort ein.",
+            "opening": "Bringe das Hoth-System und Sunsdown zusammen, bevor du auf Frostbite und Exposure setzt. Deine Troopers und Walker brauchen eine sichere Aufstellung außerhalb der nächtlichen Marker oder hinter dem Schild.",
+            "tactics": "Frostbite bestraft ungeschützte Characters am Zugende; vermisste kosten doppelt. Ice Storm und He Hasn’t Come Back Yet schaffen solche Ziele. Too Cold For Speeders trifft nachts auch eigene Nicht-Creature-Vehicles: stelle sie vorher um."
+          },
+          "startingLocations": [
+            "Dark:6358",
+            "Dark:6359",
+            "Dark:6354",
+            "Dark:1172",
+            "Dark:1162"
+          ],
+          "cards": [
+            {
+              "id": "Dark:2296",
+              "count": 2
+            },
+            {
+              "id": "Dark:2295",
+              "count": 17
+            },
+            {
+              "id": "Dark:160",
+              "count": 3
+            },
+            {
+              "id": "Dark:1272",
+              "count": 2
+            },
+            {
+              "id": "Dark:1950",
+              "count": 1
+            },
+            {
+              "id": "Dark:1000",
+              "count": 1
+            },
+            {
+              "id": "Dark:1029",
+              "count": 1
+            },
+            {
+              "id": "Dark:269",
+              "count": 2
+            },
+            {
+              "id": "Dark:272",
+              "count": 1
+            },
+            {
+              "id": "Dark:274",
+              "count": 1
+            },
+            {
+              "id": "Dark:986",
+              "count": 1
+            },
+            {
+              "id": "Dark:2373",
+              "count": 2
+            },
+            {
+              "id": "Dark:1240",
+              "count": 1
+            },
+            {
+              "id": "Dark:2615",
+              "count": 1
+            },
+            {
+              "id": "Dark:2541",
+              "count": 1
+            },
+            {
+              "id": "Dark:1142",
+              "count": 1
+            },
+            {
+              "id": "Dark:913",
+              "count": 2
+            },
+            {
+              "id": "Dark:916",
+              "count": 2
+            },
+            {
+              "id": "Dark:465",
+              "count": 2
+            },
+            {
+              "id": "Dark:2353",
+              "count": 1
+            },
+            {
+              "id": "Dark:1114",
+              "count": 1
+            },
+            {
+              "id": "Dark:1285",
+              "count": 2
+            },
+            {
+              "id": "Dark:2399",
+              "count": 2
+            },
+            {
+              "id": "Dark:1949",
+              "count": 1
+            },
+            {
+              "id": "Dark:6359",
+              "count": 1
+            },
+            {
+              "id": "Dark:6354",
+              "count": 1
+            },
+            {
+              "id": "Dark:6358",
+              "count": 1
+            },
+            {
+              "id": "Dark:1172",
+              "count": 1
+            },
+            {
+              "id": "Dark:1162",
+              "count": 1
+            },
+            {
+              "id": "Dark:1264",
+              "count": 2
+            },
+            {
+              "id": "Dark:894",
+              "count": 1
+            },
+            {
+              "id": "Dark:2645",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "theme": {
+            "id": "wampa-revier",
+            "name": "Im Revier der Wampas",
+            "description": "Wampas bedrohen vereinzelte Characters; Frozen Dinner und Yaggle Gakkle verstärken die Jagd.",
+            "cover": "Dark:2737"
+          },
+          "strategy": {
+            "start": "Beginne am North Ridge außerhalb des Energieschilds; baue Force auf und setze deine Kampfgruppe dort ein.",
+            "opening": "Wampa Cave ist der wichtigste sichere Deploy-Ort; andere Marker müssen für Wampa unbesetzt sein. Stelle deine eigenen Characters getrennt auf, damit deine Wampas nicht sie als Beute wählen.",
+            "tactics": "Frozen Dinner verhindert die Flucht eines isolierten Characters in der Cave. Bei einem gewonnenen Wampa-Angriff entscheidet der Gegner zwischen Fressen und möglichem Versetzen zur Cave. Yaggle Gakkle frisst Creature Vehicles; Wetter und Missing erhöhen den Druck, ersetzen aber keine Force-Drains."
+          },
+          "startingLocations": [
+            "Dark:6358",
+            "Dark:1162",
+            "Dark:6359",
+            "Dark:6354",
+            "Dark:1172"
+          ],
+          "cards": [
+            {
+              "id": "Dark:2737",
+              "count": 3
+            },
+            {
+              "id": "Dark:2295",
+              "count": 17
+            },
+            {
+              "id": "Dark:2296",
+              "count": 2
+            },
+            {
+              "id": "Dark:160",
+              "count": 3
+            },
+            {
+              "id": "Dark:1272",
+              "count": 2
+            },
+            {
+              "id": "Dark:1950",
+              "count": 1
+            },
+            {
+              "id": "Dark:1000",
+              "count": 1
+            },
+            {
+              "id": "Dark:269",
+              "count": 2
+            },
+            {
+              "id": "Dark:272",
+              "count": 1
+            },
+            {
+              "id": "Dark:990",
+              "count": 2
+            },
+            {
+              "id": "Dark:1240",
+              "count": 1
+            },
+            {
+              "id": "Dark:1142",
+              "count": 1
+            },
+            {
+              "id": "Dark:1706",
+              "count": 1
+            },
+            {
+              "id": "Dark:2572",
+              "count": 1
+            },
+            {
+              "id": "Dark:2842",
+              "count": 2
+            },
+            {
+              "id": "Dark:2353",
+              "count": 1
+            },
+            {
+              "id": "Dark:465",
+              "count": 1
+            },
+            {
+              "id": "Dark:1114",
+              "count": 1
+            },
+            {
+              "id": "Dark:913",
+              "count": 1
+            },
+            {
+              "id": "Dark:916",
+              "count": 1
+            },
+            {
+              "id": "Dark:1285",
+              "count": 2
+            },
+            {
+              "id": "Dark:2399",
+              "count": 2
+            },
+            {
+              "id": "Dark:650",
+              "count": 1
+            },
+            {
+              "id": "Dark:2373",
+              "count": 1
+            },
+            {
+              "id": "Dark:1162",
+              "count": 1
+            },
+            {
+              "id": "Dark:6359",
+              "count": 1
+            },
+            {
+              "id": "Dark:6354",
+              "count": 1
+            },
+            {
+              "id": "Dark:6358",
+              "count": 1
+            },
+            {
+              "id": "Dark:1172",
+              "count": 1
+            },
+            {
+              "id": "Dark:1264",
+              "count": 2
+            },
+            {
+              "id": "Dark:894",
+              "count": 1
+            },
+            {
+              "id": "Dark:2645",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "theme": {
+            "id": "imperiale-sabotage",
+            "name": "Imperiale Sabotage",
+            "description": "Utinni Effects binden wichtige Figuren; Domination und Spionage bremsen die gegnerische Force.",
+            "cover": "Dark:1253"
+          },
+          "strategy": {
+            "start": "Beginne am North Ridge außerhalb des Energieschilds; baue Force auf und setze deine Kampfgruppe dort ein.",
+            "opening": "Baue mit günstigen Troopers und Probe Droids Presence auf und erkunde die gegnerischen Schlüsselträger. Spiele teure Utinni Effects gezielt, statt Force in Ziele zu binden, die bereits am geforderten Ort stehen.",
+            "tactics": "Death Mark zwingt Smuggler, Meteor Impact hält einen Character am Planeten und Weapon Malfunction bindet eine Waffe bis zur Bay-Ankunft. Image Of The Dark Lord und Domination stören Force-Generierung. Halte Antworten wie Oh Switch Off und Turn It Off für wichtige gegnerische Aktionen zurück."
+          },
+          "startingLocations": [
+            "Dark:6358",
+            "Dark:1168",
+            "Dark:1170",
+            "Dark:1172"
+          ],
+          "cards": [
+            {
+              "id": "Dark:634",
+              "count": 1
+            },
+            {
+              "id": "Dark:368",
+              "count": 1
+            },
+            {
+              "id": "Dark:1950",
+              "count": 2
+            },
+            {
+              "id": "Dark:2295",
+              "count": 18
+            },
+            {
+              "id": "Dark:2296",
+              "count": 2
+            },
+            {
+              "id": "Dark:62",
+              "count": 1
+            },
+            {
+              "id": "Dark:1272",
+              "count": 2
+            },
+            {
+              "id": "Dark:1521",
+              "count": 1
+            },
+            {
+              "id": "Dark:272",
+              "count": 1
+            },
+            {
+              "id": "Dark:269",
+              "count": 2
+            },
+            {
+              "id": "Dark:1253",
+              "count": 1
+            },
+            {
+              "id": "Dark:1270",
+              "count": 2
+            },
+            {
+              "id": "Dark:1673",
+              "count": 1
+            },
+            {
+              "id": "Dark:2098",
+              "count": 1
+            },
+            {
+              "id": "Dark:2772",
+              "count": 1
+            },
+            {
+              "id": "Dark:650",
+              "count": 1
+            },
+            {
+              "id": "Dark:2572",
+              "count": 1
+            },
+            {
+              "id": "Dark:1226",
+              "count": 1
+            },
+            {
+              "id": "Dark:1552",
+              "count": 1
+            },
+            {
+              "id": "Dark:1953",
+              "count": 1
+            },
+            {
+              "id": "Dark:2209",
+              "count": 1
+            },
+            {
+              "id": "Dark:1826",
+              "count": 1
+            },
+            {
+              "id": "Dark:2645",
+              "count": 2
+            },
+            {
+              "id": "Dark:1949",
+              "count": 1
+            },
+            {
+              "id": "Dark:158",
+              "count": 1
+            },
+            {
+              "id": "Dark:1168",
+              "count": 1
+            },
+            {
+              "id": "Dark:1170",
+              "count": 1
+            },
+            {
+              "id": "Dark:1172",
+              "count": 1
+            },
+            {
+              "id": "Dark:6358",
+              "count": 1
+            },
+            {
+              "id": "Dark:160",
+              "count": 3
+            },
+            {
+              "id": "Dark:1264",
+              "count": 2
+            },
+            {
+              "id": "Dark:2399",
+              "count": 1
+            },
+            {
+              "id": "Dark:1285",
+              "count": 1
+            },
+            {
+              "id": "Dark:894",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "theme": {
+            "id": "imperiale-einsatzgruppe",
+            "name": "Imperiale Einsatzgruppe",
+            "description": "Eine gemischte Kampfgruppe nutzt Verstärkungen, Reaktionen und Battle-Interrupts.",
+            "cover": "Dark:1029"
+          },
+          "strategy": {
+            "start": "Beginne am North Ridge außerhalb des Energieschilds; baue Force auf und setze deine Kampfgruppe dort ein.",
+            "opening": "Verbinde einen bemannten Walker mit einer bezahlbaren Troopergruppe und sichere zunächst einen drainenden Außenort. Setze passende Piloten und Kanoniere ein; Combat Vehicle-Piloten verlieren als isolierte Bodenkämpfer viel Nutzen.",
+            "tactics": "Comscan antwortet auf gegnerische Reacts mit regulärer Bewegung. Walker-Interrupts räumen einzelne Hindernisse ab; Used/Lost-Modi bieten unterschiedliche Kosten und Stärken. Spare Furry Fury und Scruffy-Looking Nerf Herder für die passenden gegnerischen Figuren."
+          },
+          "startingLocations": [
+            "Dark:6358",
+            "Dark:6354",
+            "Dark:1172",
+            "Dark:1853"
+          ],
+          "cards": [
+            {
+              "id": "Dark:1029",
+              "count": 1
+            },
+            {
+              "id": "Dark:62",
+              "count": 1
+            },
+            {
+              "id": "Dark:160",
+              "count": 4
+            },
+            {
+              "id": "Dark:2296",
+              "count": 2
+            },
+            {
+              "id": "Dark:2295",
+              "count": 18
+            },
+            {
+              "id": "Dark:1272",
+              "count": 2
+            },
+            {
+              "id": "Dark:1950",
+              "count": 1
+            },
+            {
+              "id": "Dark:1000",
+              "count": 1
+            },
+            {
+              "id": "Dark:634",
+              "count": 1
+            },
+            {
+              "id": "Dark:269",
+              "count": 2
+            },
+            {
+              "id": "Dark:274",
+              "count": 1
+            },
+            {
+              "id": "Dark:272",
+              "count": 1
+            },
+            {
+              "id": "Dark:158",
+              "count": 1
+            },
+            {
+              "id": "Dark:894",
+              "count": 2
+            },
+            {
+              "id": "Dark:1925",
+              "count": 1
+            },
+            {
+              "id": "Dark:692",
+              "count": 1
+            },
+            {
+              "id": "Dark:995",
+              "count": 1
+            },
+            {
+              "id": "Dark:2187",
+              "count": 1
+            },
+            {
+              "id": "Dark:2209",
+              "count": 1
+            },
+            {
+              "id": "Dark:733",
+              "count": 1
+            },
+            {
+              "id": "Dark:513",
+              "count": 1
+            },
+            {
+              "id": "Dark:684",
+              "count": 1
+            },
+            {
+              "id": "Dark:466",
+              "count": 1
+            },
+            {
+              "id": "Dark:1869",
+              "count": 1
+            },
+            {
+              "id": "Dark:2645",
+              "count": 2
+            },
+            {
+              "id": "Dark:2399",
+              "count": 2
+            },
+            {
+              "id": "Dark:1285",
+              "count": 2
+            },
+            {
+              "id": "Dark:6358",
+              "count": 1
+            },
+            {
+              "id": "Dark:6354",
+              "count": 1
+            },
+            {
+              "id": "Dark:1172",
+              "count": 1
+            },
+            {
+              "id": "Dark:1853",
+              "count": 1
+            },
+            {
+              "id": "Dark:1264",
+              "count": 2
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

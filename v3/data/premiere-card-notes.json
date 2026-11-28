@@ -1,0 +1,73 @@
+{
+  "Light:259": {"explanationDe": "Für 1 Force auf einen eigenen Warrior ausspielen. Im Waffen-Segment kostet der Schuss 1 Force. Ein Charakter wird getroffen, wenn die Waffen-Destiny seinen Verteidigungswert übersteigt."},
+  "Light:265": {"explanationDe": "Für 2 Force auf einen eigenen Warrior ausspielen. Ein Schuss kostet 2 Force. Für den Treffervergleich zählt die gezogene Waffen-Destiny plus 1."},
+  "Light:530": {
+    "printText": "May add 3 pilots, 4 passengers and 1 vehicle. Has ship-docking capability. Permanent pilot aboard provides ability of 1.",
+    "printSource": "https://res.starwarsccg.org/cards/Premiere-Light/large/corelliancorvette.gif"
+  },
+  "Light:1045": {
+    "printText": "May add 2 pilots or passengers. Must have pilot aboard to use power, maneuver or hyperspeed.",
+    "printSource": "https://res.starwarsccg.org/cards/Premiere-Light/large/gold1.gif"
+  },
+  "Light:1995": {
+    "printText": "While aboard a starfighter, adds 1 to power, maneuver and hyperspeed.",
+    "printSource": "https://res.starwarsccg.org/cards/Premiere-Light/large/r2x2.gif"
+  },
+  "Light:2052": {
+    "printText": "Deploys free to same site as one of your Rebels with ability > 2.",
+    "printSource": "https://res.starwarsccg.org/cards/Premiere-Light/large/rebeltrooper.gif"
+  },
+  "Light:2057": {
+    "printText": "May add 1 pilot. Must have pilot aboard to use power, maneuver or hyperspeed.",
+    "printSource": "https://res.starwarsccg.org/cards/Premiere-Light/large/red1.gif"
+  },
+  "Light:2250": {
+    "printText": "May move to an adjacent site as a 'react'.",
+    "printSource": "https://res.starwarsccg.org/cards/Premiere-Light/large/shistavanenwolfman.gif"
+  },
+  "Light:2838": {
+    "printText": "Permanent pilot aboard provides ability of 1.",
+    "printSource": "https://res.starwarsccg.org/cards/Premiere-Light/large/xwing.gif"
+  },
+  "Light:2907": {
+    "printText": "May add 1 pilot or passenger. Permanent pilot aboard provides ability of 1.",
+    "printSource": "https://res.starwarsccg.org/cards/Premiere-Light/large/ywing.gif"
+  },
+  "Dark:247": {
+    "printText": "May add 1 pilot. Must have pilot aboard to use power or maneuver.",
+    "printSource": "https://res.starwarsccg.org/cards/Premiere-Dark/large/black2.gif"
+  },
+  "Dark:249": {
+    "printText": "May add 1 pilot. Must have pilot aboard to use power or maneuver.",
+    "printSource": "https://res.starwarsccg.org/cards/Premiere-Dark/large/black3.gif"
+  },
+  "Dark:264": {"explanationDe": "Für 2 Force auf einen eigenen Warrior ausspielen. Ein Schuss kostet 2 Force. Für den Treffervergleich zählt die gezogene Waffen-Destiny plus 1."},
+  "Dark:1264": {"explanationDe": "Für 1 Force auf einen eigenen Warrior ausspielen und für 1 Force feuern. Die Waffen-Destiny muss größer sein als der Verteidigungswert des Ziels."},
+  "Dark:191": {"explanationDe": "Ein Kreaturenfahrzeug mit Ability ½ und Maneuver 2. An einem Außen-Site erhält ein anwesender Tusken Raider durch den Bantha zusätzliche Power. Als Fahrzeugziel verteidigt er sich mit Maneuver."},
+  "Dark:478": {
+    "printText": "Power +1 if at the same site with Tarkin, Chief Bast or General Dodonna.",
+    "printSource": "https://res.starwarsccg.org/cards/Premiere-Dark/large/colonelwullfyularen.gif"
+  },
+  "Dark:634": {"explanationDe": "Vader erhöht jeden tatsächlichen Dark-Side-Battle-Destiny-Draw seiner Schlacht um 1. In derselben Schlacht ist er gegen Attrition unter 5 immun."},
+  "Dark:816": {"explanationDe": "EG-6 hat den Sonderwert Destiny 0. Wird er als Dark-Side-Battle-Destiny gezogen, kann sein Kartentext die anwesende Dark Power einmal pro Schlacht verdoppeln."},
+  "Dark:1027": {
+    "printText": "Tagge's forfeit +1 for each Imperial trooper, of any kind, present with him at a site.",
+    "printSource": "https://res.starwarsccg.org/cards/Premiere-Dark/large/generaltagge.gif"
+  },
+  "Dark:2355": {
+    "printText": "Deploys free to same site as one of your Imperials with ability > 2.",
+    "printSource": "https://res.starwarsccg.org/cards/Premiere-Dark/large/stormtrooper.gif"
+  },
+  "Dark:2595": {
+    "printText": "Permanent pilot aboard provides ability of 1.",
+    "printSource": "https://res.starwarsccg.org/cards/Premiere-Dark/large/tieadvancedx1.gif"
+  },
+  "Dark:2600": {
+    "printText": "Deploy -1 to same system as any Imperial capital starship. Permanent pilot aboard provides ability of 1.",
+    "printSource": "https://res.starwarsccg.org/cards/Premiere-Dark/large/tiefighter.gif"
+  },
+  "Dark:2602": {
+    "printText": "May add 1 pilot and 1 passenger, or 2 passengers. Permanent pilot aboard provides ability of 1.",
+    "printSource": "https://res.starwarsccg.org/cards/Premiere-Dark/large/tiescout.gif"
+  }
+}

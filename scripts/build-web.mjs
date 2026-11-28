@@ -5,13 +5,13 @@ import {resolve, dirname, relative, sep} from 'node:path';
 import {fileURLToPath, pathToFileURL} from 'node:url';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
-export const webPages = ['index.html', 'v2.html', 'editionen.html', 'anleitungen/index.html',
+export const webPages = ['index.html', 'v2.html', 'v3.html', 'editionen.html', 'anleitungen/index.html',
   'anleitungen/schnellstart.html', 'anleitungen/spielzug.html', 'anleitungen/kampf.html',
   'anleitungen/a-new-hope.html','anleitungen/hoth.html','anleitungen/dagobah.html','anleitungen/cloud-city.html','anleitungen/jabbas-palace.html'];
 const cloudCityModules=['rules','card-rules','session','space','sabacc','captives','devices','freezing','locations','weather-vane','units','weapons','effects','abilities','reacts','interrupts','battle','duels','storage','timing','layout','support','captive-battle','reactions','answers','information','drains','nabrun','limits','bot'].map(name=>`engine/cloud-city-${name}.js`);
 const jabbasPalaceModules=["rules","card-rules","session","layout","units","abilities","locations","creatures","weapons","devices","effects","sabacc","interrupts","battle","captives","storage","support","reacts","vehicles","timing","combinations","answers","droids","numbers","attacks","personas","choices","mindscan","bot"].map(name=>`engine/jabbas-palace-${name}.js`);
 // Deliberate allowlist: never collect arbitrary JSON, local reports, credentials or the checkout.
-const sourceAssets = ['assets/favicon.svg', 'assets/site.css', 'assets/home-covers.css', 'assets/edition-banners.css', 'assets/faction-card-backs.svg', 'assets/starter-covers.css', 'assets/playfield-views.css', 'assets/playfield-views.js', ...['data', 'game', 'battle', 'units', 'locations',
+export const v2SourceAssets = ['assets/favicon.svg', 'assets/site.css', 'assets/home-covers.css', 'assets/edition-banners.css', 'assets/faction-card-backs.svg', 'assets/starter-covers.css', 'assets/playfield-views.css', 'assets/playfield-views.js', ...['data', 'game', 'battle', 'units', 'locations',
   'weapons', 'card-rules', 'bot', 'learning', 'session'].map(name => `engine/premiere-${name}.js`),
   ...['rules','card-rules','session','interrupts','creatures','mines','timing'].map(name=>`engine/hoth-${name}.js`),
   ...['rules','card-rules','session','jedi','space','creatures','units','effects','weapons','locations','interrupts','timing','abilities','passives'].map(name=>`engine/dagobah-${name}.js`),
@@ -19,6 +19,10 @@ const sourceAssets = ['assets/favicon.svg', 'assets/site.css', 'assets/home-cove
   ...['premiere', 'a-new-hope', 'hoth','dagobah','cloud-city','jabbas-palace', 'premiere-starter-decks', 'premiere-themed-decks',
     'premiere-supplemental-cards', 'premiere-card-notes', 'play-format-decks','hoth-decks','dagobah-decks','cloud-city-decks','jabbas-palace-decks','deck-overview'].map(name => `data/${name}.json`)];
 const digest = body => createHash('sha256').update(body).digest('hex');
+export const v3SourceAssets=v2SourceAssets.filter(path=>/^(engine|data)\//.test(path)||path==='assets/playfield-views.js').map(path=>'v3/'+path);
+const bundles=[{files:cloudCityModules,prefix:'engine/cloud-city-all'},{files:jabbasPalaceModules,prefix:'engine/jabbas-palace-all'},
+  {files:cloudCityModules.map(path=>'v3/'+path),prefix:'v3/engine/cloud-city-all'},
+  {files:jabbasPalaceModules.map(path=>'v3/'+path),prefix:'v3/engine/jabbas-palace-all'}];
 
 export async function buildWeb(output) {
   output = resolve(output);
@@ -45,21 +49,15 @@ export async function buildWeb(output) {
     if (!/^[a-z0-9-]+$/.test(e.id)) throw new Error('Ungültige Banner-Edition.');
     return `assets/edition-banners/${e.id}.svg`;
   });
-  for (const source of [...bannerFiles, 'assets/edition-banners.js', ...sourceAssets, ...collectorFiles, 'data/editions.json', 'assets/collectors.css', 'assets/collectors.js']) {
+  for (const source of [...bannerFiles, 'assets/edition-banners.js', ...v2SourceAssets, ...v3SourceAssets, 'assets/version-picker.css', ...collectorFiles, 'data/editions.json', 'assets/collectors.css', 'assets/collectors.js']) {
     // One optional request instead of thirty serial script requests. All original
     // URLs map to this bundle; the existing script loader deduplicates the URL.
-    if(jabbasPalaceModules.includes(source)){
+    const bundle=bundles.find(group=>group.files.includes(source));
+    if(bundle){
       if(mapping.has(source))continue;
-      const body=(await Promise.all(jabbasPalaceModules.map(path=>readFile(resolve(root,path),'utf8')))).map(text=>text.replaceAll('\r\n','\n')).join('\n;\n');
-      const path=`engine/jabbas-palace-all.${digest(body).slice(0,12)}.js`;
-      for(const original of jabbasPalaceModules)mapping.set(original,path);
-      await emit(path,body,'asset');continue;
-    }
-    if(cloudCityModules.includes(source)){
-      if(mapping.has(source))continue;
-      const body=(await Promise.all(cloudCityModules.map(path=>readFile(resolve(root,path),'utf8')))).map(text=>text.replaceAll('\r\n','\n')).join('\n;\n');
-      const path=`engine/cloud-city-all.${digest(body).slice(0,12)}.js`;
-      for(const original of cloudCityModules)mapping.set(original,path);
+      const body=(await Promise.all(bundle.files.map(path=>readFile(resolve(root,path),'utf8')))).map(text=>text.replaceAll('\r\n','\n')).join('\n;\n');
+      const path=`${bundle.prefix}.${digest(body).slice(0,12)}.js`;
+      for(const original of bundle.files)mapping.set(original,path);
       await emit(path,body,'asset');continue;
     }
     let body = (await readFile(resolve(root, source), 'utf8')).replaceAll('\r\n', '\n');
@@ -71,7 +69,8 @@ export async function buildWeb(output) {
   }
   for (const page of webPages) {
     let body = (await readFile(resolve(root, page), 'utf8')).replaceAll('\r\n', '\n');
-    for (const [source, target] of mapping) {
+    // Rewrite the isolated V3 namespace before its shorter V2 suffixes.
+    for (const [source, target] of [...mapping].sort((a,b)=>b[0].length-a[0].length)) {
       body = body.replaceAll(source, target);
       // Content hashes replace the development query version.
       body = body.replaceAll(new RegExp(target.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '\\?v=[\\d.]+', 'g'), target);
@@ -83,7 +82,8 @@ export async function buildWeb(output) {
   }
   const version = (await readFile(resolve(root, 'v2.html'), 'utf8')).match(/const trainerVersion='([^']+)'/)[1];
   const revision = digest(files.map(file => file.path + ':' + file.sha256).join('\n')).slice(0, 16);
-  const manifest = {schema: 1, version, revision, files};
+  const v3Version=(await readFile(resolve(root,'v3.html'),'utf8')).match(/const trainerVersion='([^']+)'/)[1];
+  const manifest = {schema: 1, version, revision, variants:{v2:{version,entry:'v2.html',status:'stable'},v3:{version:v3Version,entry:'v3.html',status:'preview'}}, files};
   await writeFile(resolve(output, 'release.json'), JSON.stringify(manifest, null, 2) + '\n');
   return manifest;
 }

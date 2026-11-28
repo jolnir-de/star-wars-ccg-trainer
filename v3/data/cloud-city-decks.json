@@ -1,0 +1,3355 @@
+{
+  "schema": 1,
+  "formats": {
+    "premiere-a-new-hope-hoth-dagobah-cloud-city": {
+      "Light": [
+        {
+          "theme": {
+            "id": "cloud-city-landos-gasgeschaeft",
+            "name": "Landos Gasgeschäft",
+            "description": "Lando, Minen und Bespin finanzieren eine breite Cloud-City-Präsenz.",
+            "cover": "Light:1466"
+          },
+          "strategy": {
+            "start": "Sichere zunächst eine Site für Lando und ein zweites Einkommen. Spiele Bespin und den Stadtsektor erst, wenn du sie auch besetzen kannst.",
+            "opening": "Tibanna Gas Miners aktivieren zusätzliche Force; Beldon’s Eye verdoppelt diese Aktivierung und macht ihren Deploy an Stadt-Sites kostenlos. Halte Kebyc bei deinen Sites, bevor du aus den Wolken drainst.",
+            "tactics": "Miners addieren den Drain-Bonus nicht mehrfach. Verteile sie für Einkommen, behalte aber genug Presence gegen den nächsten Angriff. Lando wird stärker, je mehr Cloud-City-Locations du kontrollierst."
+          },
+          "startingLocations": [
+            "Light:448",
+            "Light:459",
+            "Light:455",
+            "Light:2849",
+            "Light:226"
+          ],
+          "cards": [
+            {
+              "id": "Light:448",
+              "count": 1
+            },
+            {
+              "id": "Light:459",
+              "count": 1
+            },
+            {
+              "id": "Light:464",
+              "count": 1
+            },
+            {
+              "id": "Light:2849",
+              "count": 1
+            },
+            {
+              "id": "Light:226",
+              "count": 1
+            },
+            {
+              "id": "Light:229",
+              "count": 1
+            },
+            {
+              "id": "Light:455",
+              "count": 1
+            },
+            {
+              "id": "Light:1419",
+              "count": 2
+            },
+            {
+              "id": "Light:2592",
+              "count": 4
+            },
+            {
+              "id": "Light:2810",
+              "count": 2
+            },
+            {
+              "id": "Light:1466",
+              "count": 2
+            },
+            {
+              "id": "Light:2631",
+              "count": 1
+            },
+            {
+              "id": "Light:2052",
+              "count": 1
+            },
+            {
+              "id": "Light:2040",
+              "count": 1
+            },
+            {
+              "id": "Light:360",
+              "count": 1
+            },
+            {
+              "id": "Light:1593",
+              "count": 1
+            },
+            {
+              "id": "Light:2640",
+              "count": 1
+            },
+            {
+              "id": "Light:436",
+              "count": 1
+            },
+            {
+              "id": "Light:434",
+              "count": 1
+            },
+            {
+              "id": "Light:1562",
+              "count": 1
+            },
+            {
+              "id": "Light:394",
+              "count": 1
+            },
+            {
+              "id": "Light:2838",
+              "count": 2
+            },
+            {
+              "id": "Light:2907",
+              "count": 2
+            },
+            {
+              "id": "Light:426",
+              "count": 1
+            },
+            {
+              "id": "Light:1677",
+              "count": 1
+            },
+            {
+              "id": "Light:332",
+              "count": 1
+            },
+            {
+              "id": "Light:2073",
+              "count": 1
+            },
+            {
+              "id": "Light:259",
+              "count": 1
+            },
+            {
+              "id": "Light:428",
+              "count": 1
+            },
+            {
+              "id": "Light:1603",
+              "count": 1
+            },
+            {
+              "id": "Light:109",
+              "count": 1
+            },
+            {
+              "id": "Light:592",
+              "count": 1
+            },
+            {
+              "id": "Light:217",
+              "count": 2
+            },
+            {
+              "id": "Light:1112",
+              "count": 2
+            },
+            {
+              "id": "Light:2779",
+              "count": 1
+            },
+            {
+              "id": "Light:583",
+              "count": 1
+            },
+            {
+              "id": "Light:261",
+              "count": 2
+            },
+            {
+              "id": "Light:922",
+              "count": 1
+            },
+            {
+              "id": "Light:1206",
+              "count": 1
+            },
+            {
+              "id": "Light:1828",
+              "count": 1
+            },
+            {
+              "id": "Light:2285",
+              "count": 1
+            },
+            {
+              "id": "Light:2387",
+              "count": 1
+            },
+            {
+              "id": "Light:2217",
+              "count": 1
+            },
+            {
+              "id": "Light:95",
+              "count": 1
+            },
+            {
+              "id": "Light:521",
+              "count": 1
+            },
+            {
+              "id": "Light:433",
+              "count": 1
+            },
+            {
+              "id": "Light:749",
+              "count": 1
+            },
+            {
+              "id": "Light:2758",
+              "count": 1
+            },
+            {
+              "id": "Light:377",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "theme": {
+            "id": "cloud-city-lobots-stadtwache",
+            "name": "Lobots Stadtwache",
+            "description": "Lobot und seine Stadtwache verstärken bedrohte Sites durch Reacts.",
+            "cover": "Light:1562"
+          },
+          "strategy": {
+            "start": "Starte an einer Stadt-Site mit Scomp link. Lobot darf ausschließlich als React deployen; plane deine Eröffnung zunächst mit Troopern und dem Wrist Comlink.",
+            "opening": "Lobot macht Cloud City Troopers an derselben Stadt-Site kostenlos und stärker. Ein Comlink auf einem Charakter erlaubt ihnen, bei passendem Antwortfenster zur bedrohten Site zu reagieren.",
+            "tactics": "Halte Force für Reacts frei und bündele die Verteidigung am Scomp link. Gehe erst nach einem erfolgreichen Abwehrkampf zu benachbarten Sites über."
+          },
+          "startingLocations": [
+            "Light:455",
+            "Light:438",
+            "Light:448",
+            "Light:459",
+            "Light:226"
+          ],
+          "cards": [
+            {
+              "id": "Light:455",
+              "count": 1
+            },
+            {
+              "id": "Light:226",
+              "count": 1
+            },
+            {
+              "id": "Light:229",
+              "count": 1
+            },
+            {
+              "id": "Light:438",
+              "count": 1
+            },
+            {
+              "id": "Light:464",
+              "count": 1
+            },
+            {
+              "id": "Light:448",
+              "count": 1
+            },
+            {
+              "id": "Light:459",
+              "count": 1
+            },
+            {
+              "id": "Light:434",
+              "count": 3
+            },
+            {
+              "id": "Light:436",
+              "count": 4
+            },
+            {
+              "id": "Light:1562",
+              "count": 2
+            },
+            {
+              "id": "Light:2640",
+              "count": 2
+            },
+            {
+              "id": "Light:1992",
+              "count": 1
+            },
+            {
+              "id": "Light:2052",
+              "count": 1
+            },
+            {
+              "id": "Light:2040",
+              "count": 1
+            },
+            {
+              "id": "Light:360",
+              "count": 1
+            },
+            {
+              "id": "Light:1593",
+              "count": 1
+            },
+            {
+              "id": "Light:2592",
+              "count": 1
+            },
+            {
+              "id": "Light:1466",
+              "count": 1
+            },
+            {
+              "id": "Light:2810",
+              "count": 1
+            },
+            {
+              "id": "Light:1419",
+              "count": 1
+            },
+            {
+              "id": "Light:2838",
+              "count": 2
+            },
+            {
+              "id": "Light:2907",
+              "count": 2
+            },
+            {
+              "id": "Light:426",
+              "count": 1
+            },
+            {
+              "id": "Light:1677",
+              "count": 1
+            },
+            {
+              "id": "Light:332",
+              "count": 1
+            },
+            {
+              "id": "Light:2073",
+              "count": 1
+            },
+            {
+              "id": "Light:428",
+              "count": 2
+            },
+            {
+              "id": "Light:1476",
+              "count": 2
+            },
+            {
+              "id": "Light:780",
+              "count": 1
+            },
+            {
+              "id": "Light:392",
+              "count": 1
+            },
+            {
+              "id": "Light:1157",
+              "count": 1
+            },
+            {
+              "id": "Light:2779",
+              "count": 1
+            },
+            {
+              "id": "Light:583",
+              "count": 1
+            },
+            {
+              "id": "Light:1112",
+              "count": 1
+            },
+            {
+              "id": "Light:414",
+              "count": 1
+            },
+            {
+              "id": "Light:612",
+              "count": 1
+            },
+            {
+              "id": "Light:640",
+              "count": 1
+            },
+            {
+              "id": "Light:1549",
+              "count": 1
+            },
+            {
+              "id": "Light:1897",
+              "count": 1
+            },
+            {
+              "id": "Light:2252",
+              "count": 1
+            },
+            {
+              "id": "Light:2217",
+              "count": 1
+            },
+            {
+              "id": "Light:95",
+              "count": 1
+            },
+            {
+              "id": "Light:521",
+              "count": 1
+            },
+            {
+              "id": "Light:433",
+              "count": 1
+            },
+            {
+              "id": "Light:261",
+              "count": 1
+            },
+            {
+              "id": "Light:749",
+              "count": 1
+            },
+            {
+              "id": "Light:2758",
+              "count": 1
+            },
+            {
+              "id": "Light:377",
+              "count": 1
+            },
+            {
+              "id": "Light:1042",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "theme": {
+            "id": "cloud-city-skywalkers-mut",
+            "name": "Skywalkers Mut",
+            "description": "Luke und Leia gewinnen Kämpfe mit passenden Waffen und gezielten Destiny-Antworten.",
+            "cover": "Light:1593"
+          },
+          "strategy": {
+            "start": "Wähle eine Site, an der Luke oder Leia früh Presence sichern können. Vermeide zunächst Vader, bis eine passende Waffe oder Antwort bereitliegt.",
+            "opening": "Courage Of A Skywalker erhöht die Power, entfernt aber Immunität und den Ability-Beitrag zur Battle Destiny. Luke’s Blaster nimmt dem Ziel zeitweise Immunität.",
+            "tactics": "Glancing Blow und Higher Ground entscheiden enge Duelle; benutze sie im richtigen Fenster. Mit Obi-Wan und seinem Lichtschwert kannst du einem regulären oder Epic Duel begegnen."
+          },
+          "startingLocations": [
+            "Light:453",
+            "Light:2859",
+            "Light:455",
+            "Light:438",
+            "Light:226"
+          ],
+          "cards": [
+            {
+              "id": "Light:453",
+              "count": 1
+            },
+            {
+              "id": "Light:2859",
+              "count": 1
+            },
+            {
+              "id": "Light:226",
+              "count": 1
+            },
+            {
+              "id": "Light:229",
+              "count": 1
+            },
+            {
+              "id": "Light:455",
+              "count": 1
+            },
+            {
+              "id": "Light:438",
+              "count": 1
+            },
+            {
+              "id": "Light:464",
+              "count": 1
+            },
+            {
+              "id": "Light:1943",
+              "count": 3
+            },
+            {
+              "id": "Light:1803",
+              "count": 1
+            },
+            {
+              "id": "Light:1593",
+              "count": 2
+            },
+            {
+              "id": "Light:2052",
+              "count": 2
+            },
+            {
+              "id": "Light:2040",
+              "count": 2
+            },
+            {
+              "id": "Light:360",
+              "count": 1
+            },
+            {
+              "id": "Light:2640",
+              "count": 1
+            },
+            {
+              "id": "Light:436",
+              "count": 1
+            },
+            {
+              "id": "Light:2592",
+              "count": 1
+            },
+            {
+              "id": "Light:1466",
+              "count": 1
+            },
+            {
+              "id": "Light:2810",
+              "count": 1
+            },
+            {
+              "id": "Light:434",
+              "count": 1
+            },
+            {
+              "id": "Light:1419",
+              "count": 1
+            },
+            {
+              "id": "Light:1562",
+              "count": 1
+            },
+            {
+              "id": "Light:394",
+              "count": 1
+            },
+            {
+              "id": "Light:2838",
+              "count": 2
+            },
+            {
+              "id": "Light:2907",
+              "count": 2
+            },
+            {
+              "id": "Light:426",
+              "count": 1
+            },
+            {
+              "id": "Light:1677",
+              "count": 1
+            },
+            {
+              "id": "Light:332",
+              "count": 1
+            },
+            {
+              "id": "Light:2073",
+              "count": 1
+            },
+            {
+              "id": "Light:1603",
+              "count": 2
+            },
+            {
+              "id": "Light:1813",
+              "count": 1
+            },
+            {
+              "id": "Light:109",
+              "count": 1
+            },
+            {
+              "id": "Light:259",
+              "count": 1
+            },
+            {
+              "id": "Light:66",
+              "count": 1
+            },
+            {
+              "id": "Light:1493",
+              "count": 2
+            },
+            {
+              "id": "Light:2670",
+              "count": 2
+            },
+            {
+              "id": "Light:2779",
+              "count": 1
+            },
+            {
+              "id": "Light:418",
+              "count": 1
+            },
+            {
+              "id": "Light:578",
+              "count": 2
+            },
+            {
+              "id": "Light:1042",
+              "count": 2
+            },
+            {
+              "id": "Light:1797",
+              "count": 1
+            },
+            {
+              "id": "Light:1960",
+              "count": 1
+            },
+            {
+              "id": "Light:2393",
+              "count": 1
+            },
+            {
+              "id": "Light:2217",
+              "count": 1
+            },
+            {
+              "id": "Light:95",
+              "count": 1
+            },
+            {
+              "id": "Light:521",
+              "count": 1
+            },
+            {
+              "id": "Light:433",
+              "count": 1
+            },
+            {
+              "id": "Light:261",
+              "count": 1
+            },
+            {
+              "id": "Light:749",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "theme": {
+            "id": "cloud-city-falcon-rettungskommando",
+            "name": "Falcon-Rettungskommando",
+            "description": "Captain Han und der Falcon verbinden Raumkontrolle mit schneller Verstärkung am Boden.",
+            "cover": "Light:360"
+          },
+          "strategy": {
+            "start": "Beginne bodennah und beschaffe den Falcon samt Pilot. Captain Han darf auf dem Falcon, Hoth oder Cloud City deployen.",
+            "opening": "Captain Han auf dem Falcon liefert zusätzliche Battle Destiny und Maneuver. Punch It! ist eine defensive Antwort bei einem System; Lando und Leia ergänzen die Crew.",
+            "tactics": "Nutze den Falcon als mobile Verstärkung. Schau vor einem Start durch Wolken auf den legalen Weg und behalte Force für Hans gegnerischen Destiny-Neuzug."
+          },
+          "startingLocations": [
+            "Light:455",
+            "Light:438",
+            "Light:448",
+            "Light:459",
+            "Light:226"
+          ],
+          "cards": [
+            {
+              "id": "Light:226",
+              "count": 1
+            },
+            {
+              "id": "Light:229",
+              "count": 1
+            },
+            {
+              "id": "Light:455",
+              "count": 1
+            },
+            {
+              "id": "Light:438",
+              "count": 1
+            },
+            {
+              "id": "Light:464",
+              "count": 1
+            },
+            {
+              "id": "Light:448",
+              "count": 1
+            },
+            {
+              "id": "Light:459",
+              "count": 1
+            },
+            {
+              "id": "Light:360",
+              "count": 2
+            },
+            {
+              "id": "Light:1466",
+              "count": 2
+            },
+            {
+              "id": "Light:1943",
+              "count": 1
+            },
+            {
+              "id": "Light:2052",
+              "count": 2
+            },
+            {
+              "id": "Light:2040",
+              "count": 2
+            },
+            {
+              "id": "Light:1593",
+              "count": 2
+            },
+            {
+              "id": "Light:2640",
+              "count": 2
+            },
+            {
+              "id": "Light:436",
+              "count": 1
+            },
+            {
+              "id": "Light:2592",
+              "count": 1
+            },
+            {
+              "id": "Light:2810",
+              "count": 1
+            },
+            {
+              "id": "Light:434",
+              "count": 1
+            },
+            {
+              "id": "Light:1419",
+              "count": 1
+            },
+            {
+              "id": "Light:1562",
+              "count": 1
+            },
+            {
+              "id": "Light:394",
+              "count": 1
+            },
+            {
+              "id": "Light:426",
+              "count": 3
+            },
+            {
+              "id": "Light:1677",
+              "count": 2
+            },
+            {
+              "id": "Light:2838",
+              "count": 1
+            },
+            {
+              "id": "Light:2907",
+              "count": 1
+            },
+            {
+              "id": "Light:332",
+              "count": 1
+            },
+            {
+              "id": "Light:259",
+              "count": 1
+            },
+            {
+              "id": "Light:428",
+              "count": 1
+            },
+            {
+              "id": "Light:1603",
+              "count": 1
+            },
+            {
+              "id": "Light:109",
+              "count": 1
+            },
+            {
+              "id": "Light:592",
+              "count": 1
+            },
+            {
+              "id": "Light:54",
+              "count": 1
+            },
+            {
+              "id": "Light:84",
+              "count": 1
+            },
+            {
+              "id": "Light:414",
+              "count": 1
+            },
+            {
+              "id": "Light:2779",
+              "count": 1
+            },
+            {
+              "id": "Light:583",
+              "count": 1
+            },
+            {
+              "id": "Light:1112",
+              "count": 1
+            },
+            {
+              "id": "Light:104",
+              "count": 1
+            },
+            {
+              "id": "Light:133",
+              "count": 1
+            },
+            {
+              "id": "Light:1821",
+              "count": 1
+            },
+            {
+              "id": "Light:1875",
+              "count": 1
+            },
+            {
+              "id": "Light:1966",
+              "count": 3
+            },
+            {
+              "id": "Light:2301",
+              "count": 1
+            },
+            {
+              "id": "Light:2758",
+              "count": 2
+            },
+            {
+              "id": "Light:2217",
+              "count": 1
+            },
+            {
+              "id": "Light:95",
+              "count": 1
+            },
+            {
+              "id": "Light:521",
+              "count": 1
+            },
+            {
+              "id": "Light:433",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "theme": {
+            "id": "cloud-city-droiden-im-untergrund",
+            "name": "Droiden im Untergrund",
+            "description": "Droiden schützen wertvolle Karten, suchen Devices und halten die Versorgung aufrecht.",
+            "cover": "Light:592"
+          },
+          "strategy": {
+            "start": "Stelle einen Droiden an eine geschützte Site; C-3PO trägt Hindsight, R2-D2 nutzt R-unit-Devices. Ein Alien mit Ability unter 3 kann Cyborg Construct tragen.",
+            "opening": "Hero Of A Thousand Devices und Hopping Mad suchen passende Unterstützung. Der Cyborg-Speicher schützt bis zu drei Karten, auf Lobot sechs, und erlaubt das Spielen wie aus der Hand.",
+            "tactics": "Droiden erzeugen meist keine Presence. Sichere sie mit Charakteren, bevor du Devices installierst; beim Verlust des Speichers gehen gelagerte Karten in deinen Used Pile."
+          },
+          "startingLocations": [
+            "Light:450",
+            "Light:455",
+            "Light:438",
+            "Light:448",
+            "Light:226"
+          ],
+          "cards": [
+            {
+              "id": "Light:450",
+              "count": 1
+            },
+            {
+              "id": "Light:226",
+              "count": 1
+            },
+            {
+              "id": "Light:229",
+              "count": 1
+            },
+            {
+              "id": "Light:455",
+              "count": 1
+            },
+            {
+              "id": "Light:438",
+              "count": 1
+            },
+            {
+              "id": "Light:464",
+              "count": 1
+            },
+            {
+              "id": "Light:448",
+              "count": 1
+            },
+            {
+              "id": "Light:1992",
+              "count": 2
+            },
+            {
+              "id": "Light:343",
+              "count": 3
+            },
+            {
+              "id": "Light:1404",
+              "count": 1
+            },
+            {
+              "id": "Light:5300",
+              "count": 1
+            },
+            {
+              "id": "Light:2052",
+              "count": 1
+            },
+            {
+              "id": "Light:2040",
+              "count": 1
+            },
+            {
+              "id": "Light:360",
+              "count": 1
+            },
+            {
+              "id": "Light:1593",
+              "count": 1
+            },
+            {
+              "id": "Light:2640",
+              "count": 1
+            },
+            {
+              "id": "Light:436",
+              "count": 1
+            },
+            {
+              "id": "Light:2592",
+              "count": 1
+            },
+            {
+              "id": "Light:1466",
+              "count": 1
+            },
+            {
+              "id": "Light:2810",
+              "count": 1
+            },
+            {
+              "id": "Light:434",
+              "count": 1
+            },
+            {
+              "id": "Light:1419",
+              "count": 1
+            },
+            {
+              "id": "Light:1562",
+              "count": 1
+            },
+            {
+              "id": "Light:394",
+              "count": 1
+            },
+            {
+              "id": "Light:2073",
+              "count": 2
+            },
+            {
+              "id": "Light:2838",
+              "count": 2
+            },
+            {
+              "id": "Light:2907",
+              "count": 1
+            },
+            {
+              "id": "Light:426",
+              "count": 1
+            },
+            {
+              "id": "Light:1677",
+              "count": 1
+            },
+            {
+              "id": "Light:332",
+              "count": 1
+            },
+            {
+              "id": "Light:592",
+              "count": 2
+            },
+            {
+              "id": "Light:780",
+              "count": 1
+            },
+            {
+              "id": "Light:259",
+              "count": 1
+            },
+            {
+              "id": "Light:428",
+              "count": 1
+            },
+            {
+              "id": "Light:583",
+              "count": 1
+            },
+            {
+              "id": "Light:737",
+              "count": 1
+            },
+            {
+              "id": "Light:1132",
+              "count": 2
+            },
+            {
+              "id": "Light:1145",
+              "count": 1
+            },
+            {
+              "id": "Light:1157",
+              "count": 1
+            },
+            {
+              "id": "Light:139",
+              "count": 2
+            },
+            {
+              "id": "Light:511",
+              "count": 2
+            },
+            {
+              "id": "Light:1334",
+              "count": 1
+            },
+            {
+              "id": "Light:1970",
+              "count": 1
+            },
+            {
+              "id": "Light:2571",
+              "count": 1
+            },
+            {
+              "id": "Light:2825",
+              "count": 1
+            },
+            {
+              "id": "Light:2217",
+              "count": 1
+            },
+            {
+              "id": "Light:95",
+              "count": 1
+            },
+            {
+              "id": "Light:521",
+              "count": 1
+            },
+            {
+              "id": "Light:433",
+              "count": 1
+            },
+            {
+              "id": "Light:261",
+              "count": 1
+            },
+            {
+              "id": "Light:749",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "theme": {
+            "id": "cloud-city-sabacc-und-schmuggler",
+            "name": "Sabacc und Schmuggler",
+            "description": "Lando, Treva und Schmuggler gewinnen Karten und Force, bevor sie günstige Kämpfe suchen.",
+            "cover": "Light:2631"
+          },
+          "strategy": {
+            "start": "Bringe einen Gambler, Smuggler oder Thief an Cloud City. Beginne Sabacc erst mit mindestens zwei Karten in beiden Reserve Decks und ausreichend Life Force.",
+            "opening": "Lando verändert seinen Sabacc-Gesamtwert um 1; Wild cards und Klone werden getrennt gewählt. Treva kann über gegnerische Käufe zusätzlichen Nachschub ermöglichen.",
+            "tactics": "Passen ist endgültig. Ziele auf 11, prüfe den Einsatz und spiele danach mit der zurückkehrenden normalen Hand weiter. Eine perfekte erste Zweierhand gewinnt doppelt."
+          },
+          "startingLocations": [
+            "Light:455",
+            "Light:438",
+            "Light:448",
+            "Light:459",
+            "Light:226"
+          ],
+          "cards": [
+            {
+              "id": "Light:226",
+              "count": 1
+            },
+            {
+              "id": "Light:229",
+              "count": 1
+            },
+            {
+              "id": "Light:455",
+              "count": 1
+            },
+            {
+              "id": "Light:438",
+              "count": 1
+            },
+            {
+              "id": "Light:464",
+              "count": 1
+            },
+            {
+              "id": "Light:448",
+              "count": 1
+            },
+            {
+              "id": "Light:459",
+              "count": 1
+            },
+            {
+              "id": "Light:2631",
+              "count": 2
+            },
+            {
+              "id": "Light:1466",
+              "count": 2
+            },
+            {
+              "id": "Light:360",
+              "count": 2
+            },
+            {
+              "id": "Light:2052",
+              "count": 2
+            },
+            {
+              "id": "Light:2040",
+              "count": 2
+            },
+            {
+              "id": "Light:1593",
+              "count": 2
+            },
+            {
+              "id": "Light:2640",
+              "count": 1
+            },
+            {
+              "id": "Light:436",
+              "count": 1
+            },
+            {
+              "id": "Light:2592",
+              "count": 1
+            },
+            {
+              "id": "Light:2810",
+              "count": 1
+            },
+            {
+              "id": "Light:434",
+              "count": 1
+            },
+            {
+              "id": "Light:1419",
+              "count": 1
+            },
+            {
+              "id": "Light:1562",
+              "count": 1
+            },
+            {
+              "id": "Light:394",
+              "count": 1
+            },
+            {
+              "id": "Light:2838",
+              "count": 2
+            },
+            {
+              "id": "Light:2907",
+              "count": 2
+            },
+            {
+              "id": "Light:426",
+              "count": 1
+            },
+            {
+              "id": "Light:1677",
+              "count": 1
+            },
+            {
+              "id": "Light:332",
+              "count": 1
+            },
+            {
+              "id": "Light:2073",
+              "count": 1
+            },
+            {
+              "id": "Light:259",
+              "count": 1
+            },
+            {
+              "id": "Light:428",
+              "count": 1
+            },
+            {
+              "id": "Light:1603",
+              "count": 1
+            },
+            {
+              "id": "Light:109",
+              "count": 1
+            },
+            {
+              "id": "Light:592",
+              "count": 1
+            },
+            {
+              "id": "Light:2779",
+              "count": 1
+            },
+            {
+              "id": "Light:583",
+              "count": 1
+            },
+            {
+              "id": "Light:1112",
+              "count": 1
+            },
+            {
+              "id": "Light:414",
+              "count": 1
+            },
+            {
+              "id": "Light:989",
+              "count": 1
+            },
+            {
+              "id": "Light:217",
+              "count": 1
+            },
+            {
+              "id": "Light:142",
+              "count": 2
+            },
+            {
+              "id": "Light:433",
+              "count": 4
+            },
+            {
+              "id": "Light:1006",
+              "count": 2
+            },
+            {
+              "id": "Light:1313",
+              "count": 2
+            },
+            {
+              "id": "Light:2217",
+              "count": 1
+            },
+            {
+              "id": "Light:95",
+              "count": 1
+            },
+            {
+              "id": "Light:521",
+              "count": 1
+            },
+            {
+              "id": "Light:261",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "theme": {
+            "id": "cloud-city-flucht-aus-der-wolkenstadt",
+            "name": "Flucht aus der Wolkenstadt",
+            "description": "Gefangene befreien, gefährdete Figuren am Weather Vane sichern und erneut einsetzen.",
+            "cover": "Light:2779"
+          },
+          "strategy": {
+            "start": "Sichere eine Stadt-Site und spiele Weather Vane als Rettungsnetz aus. Halte mindestens einen flugfähigen Transporter samt Kapazität bereit.",
+            "opening": "Ventilation Shaft, Desperate Reach und Fall Of The Legend bewahren Charaktere im passenden Fenster. Captive Pursuit und Captive Fury können bewachte Gefangene befreien.",
+            "tactics": "Auf Weather Vane kann nur ein Charakter hängen. Ein neuer Ankömmling kostet den bisherigen; rette ihn rechtzeitig. Unbewachte Carbonit-Gefangene werden durch Kontrolle frei."
+          },
+          "startingLocations": [
+            "Light:438",
+            "Light:442",
+            "Light:455",
+            "Light:448",
+            "Light:226"
+          ],
+          "cards": [
+            {
+              "id": "Light:438",
+              "count": 1
+            },
+            {
+              "id": "Light:442",
+              "count": 1
+            },
+            {
+              "id": "Light:226",
+              "count": 1
+            },
+            {
+              "id": "Light:229",
+              "count": 1
+            },
+            {
+              "id": "Light:455",
+              "count": 1
+            },
+            {
+              "id": "Light:464",
+              "count": 1
+            },
+            {
+              "id": "Light:448",
+              "count": 1
+            },
+            {
+              "id": "Light:2052",
+              "count": 2
+            },
+            {
+              "id": "Light:2040",
+              "count": 2
+            },
+            {
+              "id": "Light:360",
+              "count": 2
+            },
+            {
+              "id": "Light:1593",
+              "count": 2
+            },
+            {
+              "id": "Light:2640",
+              "count": 2
+            },
+            {
+              "id": "Light:436",
+              "count": 2
+            },
+            {
+              "id": "Light:2592",
+              "count": 2
+            },
+            {
+              "id": "Light:1466",
+              "count": 1
+            },
+            {
+              "id": "Light:2810",
+              "count": 1
+            },
+            {
+              "id": "Light:434",
+              "count": 1
+            },
+            {
+              "id": "Light:1419",
+              "count": 1
+            },
+            {
+              "id": "Light:1562",
+              "count": 1
+            },
+            {
+              "id": "Light:394",
+              "count": 1
+            },
+            {
+              "id": "Light:2838",
+              "count": 2
+            },
+            {
+              "id": "Light:2907",
+              "count": 2
+            },
+            {
+              "id": "Light:426",
+              "count": 1
+            },
+            {
+              "id": "Light:1677",
+              "count": 1
+            },
+            {
+              "id": "Light:332",
+              "count": 1
+            },
+            {
+              "id": "Light:2073",
+              "count": 1
+            },
+            {
+              "id": "Light:244",
+              "count": 2
+            },
+            {
+              "id": "Light:259",
+              "count": 1
+            },
+            {
+              "id": "Light:428",
+              "count": 1
+            },
+            {
+              "id": "Light:1603",
+              "count": 1
+            },
+            {
+              "id": "Light:989",
+              "count": 2
+            },
+            {
+              "id": "Light:2779",
+              "count": 2
+            },
+            {
+              "id": "Light:583",
+              "count": 1
+            },
+            {
+              "id": "Light:1112",
+              "count": 1
+            },
+            {
+              "id": "Light:376",
+              "count": 2
+            },
+            {
+              "id": "Light:377",
+              "count": 2
+            },
+            {
+              "id": "Light:717",
+              "count": 2
+            },
+            {
+              "id": "Light:923",
+              "count": 2
+            },
+            {
+              "id": "Light:1293",
+              "count": 1
+            },
+            {
+              "id": "Light:1323",
+              "count": 2
+            },
+            {
+              "id": "Light:2092",
+              "count": 2
+            },
+            {
+              "id": "Light:2217",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "theme": {
+            "id": "cloud-city-hoffnung-ueber-bespin",
+            "name": "Hoffnung über Bespin",
+            "description": "Transporter, medizinische Versorgung und Fighter sichern die Wolkensektoren.",
+            "cover": "Light:332"
+          },
+          "strategy": {
+            "start": "Baue Bespin mit dem Stadtsektor auf und bemanne Bright Hope oder Redemption. Haven gehört an ein ausdrücklich genanntes System, beispielsweise Yavin 4.",
+            "opening": "Bright Hope zieht Piloten und Passagiere durch die Wolken. Redemption setzt medizinische Droiden und Bacta-Patienten günstig ein; Cloud Cars ergänzen die Patrol.",
+            "tactics": "Wolkenbewegung kostet normalerweise 1 Force für bis zu zwei Sektoren. Landen ist nur vom niedrigsten, der Systemwechsel nur vom höchsten Sektor erlaubt."
+          },
+          "startingLocations": [
+            "Light:455",
+            "Light:438",
+            "Light:448",
+            "Light:2849",
+            "Light:226"
+          ],
+          "cards": [
+            {
+              "id": "Light:229",
+              "count": 1
+            },
+            {
+              "id": "Light:2849",
+              "count": 1
+            },
+            {
+              "id": "Light:226",
+              "count": 1
+            },
+            {
+              "id": "Light:455",
+              "count": 1
+            },
+            {
+              "id": "Light:438",
+              "count": 1
+            },
+            {
+              "id": "Light:464",
+              "count": 1
+            },
+            {
+              "id": "Light:448",
+              "count": 1
+            },
+            {
+              "id": "Light:2592",
+              "count": 2
+            },
+            {
+              "id": "Light:1419",
+              "count": 2
+            },
+            {
+              "id": "Light:2052",
+              "count": 2
+            },
+            {
+              "id": "Light:2040",
+              "count": 2
+            },
+            {
+              "id": "Light:360",
+              "count": 2
+            },
+            {
+              "id": "Light:1593",
+              "count": 2
+            },
+            {
+              "id": "Light:2640",
+              "count": 2
+            },
+            {
+              "id": "Light:436",
+              "count": 1
+            },
+            {
+              "id": "Light:1466",
+              "count": 1
+            },
+            {
+              "id": "Light:2810",
+              "count": 1
+            },
+            {
+              "id": "Light:434",
+              "count": 1
+            },
+            {
+              "id": "Light:1562",
+              "count": 1
+            },
+            {
+              "id": "Light:394",
+              "count": 1
+            },
+            {
+              "id": "Light:332",
+              "count": 3
+            },
+            {
+              "id": "Light:2073",
+              "count": 2
+            },
+            {
+              "id": "Light:426",
+              "count": 2
+            },
+            {
+              "id": "Light:2838",
+              "count": 1
+            },
+            {
+              "id": "Light:259",
+              "count": 1
+            },
+            {
+              "id": "Light:428",
+              "count": 1
+            },
+            {
+              "id": "Light:1603",
+              "count": 1
+            },
+            {
+              "id": "Light:109",
+              "count": 1
+            },
+            {
+              "id": "Light:592",
+              "count": 1
+            },
+            {
+              "id": "Light:1112",
+              "count": 2
+            },
+            {
+              "id": "Light:2779",
+              "count": 1
+            },
+            {
+              "id": "Light:583",
+              "count": 1
+            },
+            {
+              "id": "Light:414",
+              "count": 1
+            },
+            {
+              "id": "Light:989",
+              "count": 1
+            },
+            {
+              "id": "Light:749",
+              "count": 2
+            },
+            {
+              "id": "Light:1143",
+              "count": 1
+            },
+            {
+              "id": "Light:1422",
+              "count": 1
+            },
+            {
+              "id": "Light:2084",
+              "count": 1
+            },
+            {
+              "id": "Light:2217",
+              "count": 1
+            },
+            {
+              "id": "Light:95",
+              "count": 1
+            },
+            {
+              "id": "Light:521",
+              "count": 1
+            },
+            {
+              "id": "Light:433",
+              "count": 1
+            },
+            {
+              "id": "Light:261",
+              "count": 1
+            },
+            {
+              "id": "Light:2758",
+              "count": 1
+            },
+            {
+              "id": "Light:377",
+              "count": 1
+            },
+            {
+              "id": "Light:1042",
+              "count": 1
+            },
+            {
+              "id": "Light:717",
+              "count": 1
+            }
+          ]
+        }
+      ],
+      "Dark": [
+        {
+          "theme": {
+            "id": "cloud-city-fetts-kopfgeldjagd",
+            "name": "Fetts Kopfgeldjagd",
+            "description": "Boba Fett bringt gefangene Rebellen selbst ins Gefängnis und kassiert die Bounty.",
+            "cover": "Dark:287"
+          },
+          "strategy": {
+            "start": "Beginne mit Boba Fett und seinem Gewehr an einer Site. Halte Gefängnis und einen Transportweg bereit, bevor du Bounty an einen Rebellen legst.",
+            "opening": "We Have A Prisoner und passende Trefferfenster sichern Gefangene. Binders lässt einen geeigneten Jäger weitere Gefangene eskortieren; Slave I transportiert ihn.",
+            "tactics": "Bounty zahlt nur, wenn der ursprünglich zugreifende Bounty Hunter selbst liefert. Boba erhöht den Auszahlungswert; ein verlorener oder ausgetauschter Eskorteur unterbricht den Plan."
+          },
+          "startingLocations": [
+            "Dark:444",
+            "Dark:447",
+            "Dark:437",
+            "Dark:457",
+            "Dark:225"
+          ],
+          "cards": [
+            {
+              "id": "Dark:444",
+              "count": 1
+            },
+            {
+              "id": "Dark:225",
+              "count": 1
+            },
+            {
+              "id": "Dark:228",
+              "count": 1
+            },
+            {
+              "id": "Dark:447",
+              "count": 1
+            },
+            {
+              "id": "Dark:437",
+              "count": 1
+            },
+            {
+              "id": "Dark:463",
+              "count": 1
+            },
+            {
+              "id": "Dark:457",
+              "count": 1
+            },
+            {
+              "id": "Dark:287",
+              "count": 2
+            },
+            {
+              "id": "Dark:2355",
+              "count": 2
+            },
+            {
+              "id": "Dark:1279",
+              "count": 2
+            },
+            {
+              "id": "Dark:435",
+              "count": 2
+            },
+            {
+              "id": "Dark:2662",
+              "count": 2
+            },
+            {
+              "id": "Dark:634",
+              "count": 2
+            },
+            {
+              "id": "Dark:2637",
+              "count": 2
+            },
+            {
+              "id": "Dark:430",
+              "count": 1
+            },
+            {
+              "id": "Dark:355",
+              "count": 1
+            },
+            {
+              "id": "Dark:409",
+              "count": 1
+            },
+            {
+              "id": "Dark:801",
+              "count": 1
+            },
+            {
+              "id": "Dark:492",
+              "count": 1
+            },
+            {
+              "id": "Dark:1537",
+              "count": 1
+            },
+            {
+              "id": "Dark:2278",
+              "count": 3
+            },
+            {
+              "id": "Dark:2600",
+              "count": 1
+            },
+            {
+              "id": "Dark:425",
+              "count": 1
+            },
+            {
+              "id": "Dark:1817",
+              "count": 1
+            },
+            {
+              "id": "Dark:1818",
+              "count": 1
+            },
+            {
+              "id": "Dark:1291",
+              "count": 1
+            },
+            {
+              "id": "Dark:243",
+              "count": 2
+            },
+            {
+              "id": "Dark:293",
+              "count": 2
+            },
+            {
+              "id": "Dark:1264",
+              "count": 1
+            },
+            {
+              "id": "Dark:46",
+              "count": 1
+            },
+            {
+              "id": "Dark:316",
+              "count": 3
+            },
+            {
+              "id": "Dark:379",
+              "count": 1
+            },
+            {
+              "id": "Dark:614",
+              "count": 1
+            },
+            {
+              "id": "Dark:330",
+              "count": 1
+            },
+            {
+              "id": "Dark:763",
+              "count": 2
+            },
+            {
+              "id": "Dark:1116",
+              "count": 2
+            },
+            {
+              "id": "Dark:2578",
+              "count": 1
+            },
+            {
+              "id": "Dark:2770",
+              "count": 1
+            },
+            {
+              "id": "Dark:2754",
+              "count": 2
+            },
+            {
+              "id": "Dark:2216",
+              "count": 1
+            },
+            {
+              "id": "Dark:94",
+              "count": 1
+            },
+            {
+              "id": "Dark:520",
+              "count": 1
+            },
+            {
+              "id": "Dark:432",
+              "count": 1
+            },
+            {
+              "id": "Dark:2603",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "theme": {
+            "id": "cloud-city-vaders-entscheidung",
+            "name": "Vaders Entscheidung",
+            "description": "Vader kontrolliert Sites und bedroht Obi-Wan mit Epic Duel und Waffen-Antworten.",
+            "cover": "Dark:879"
+          },
+          "strategy": {
+            "start": "Sichere eine Site mit Vader, bevor du Epic Duel auslegst. Behalte sein Lichtschwert und The Circle Is Now Complete für einen passenden Obi-Wan.",
+            "opening": "Epic Duel ist eine optionale Alternative zum regulären Duell. Focused Attack und Glancing-Blow-Antworten verändern die Destiny; Vader’s Cape stärkt seine Battle Destiny.",
+            "tactics": "Ein verlorenes Epic Duel entfernt die Figur aus dem Spiel und verursacht zusätzliche Force-Verluste. Prüfe Ability, Lichtschwert und Antwortkarten, bevor du es auslöst."
+          },
+          "startingLocations": [
+            "Dark:447",
+            "Dark:452",
+            "Dark:673",
+            "Dark:437",
+            "Dark:225"
+          ],
+          "cards": [
+            {
+              "id": "Dark:447",
+              "count": 1
+            },
+            {
+              "id": "Dark:452",
+              "count": 1
+            },
+            {
+              "id": "Dark:673",
+              "count": 1
+            },
+            {
+              "id": "Dark:225",
+              "count": 1
+            },
+            {
+              "id": "Dark:228",
+              "count": 1
+            },
+            {
+              "id": "Dark:437",
+              "count": 1
+            },
+            {
+              "id": "Dark:463",
+              "count": 1
+            },
+            {
+              "id": "Dark:1522",
+              "count": 1
+            },
+            {
+              "id": "Dark:634",
+              "count": 3
+            },
+            {
+              "id": "Dark:2355",
+              "count": 2
+            },
+            {
+              "id": "Dark:1279",
+              "count": 2
+            },
+            {
+              "id": "Dark:435",
+              "count": 2
+            },
+            {
+              "id": "Dark:2662",
+              "count": 2
+            },
+            {
+              "id": "Dark:287",
+              "count": 1
+            },
+            {
+              "id": "Dark:2637",
+              "count": 1
+            },
+            {
+              "id": "Dark:430",
+              "count": 1
+            },
+            {
+              "id": "Dark:355",
+              "count": 1
+            },
+            {
+              "id": "Dark:409",
+              "count": 1
+            },
+            {
+              "id": "Dark:801",
+              "count": 1
+            },
+            {
+              "id": "Dark:492",
+              "count": 1
+            },
+            {
+              "id": "Dark:1537",
+              "count": 1
+            },
+            {
+              "id": "Dark:2600",
+              "count": 2
+            },
+            {
+              "id": "Dark:425",
+              "count": 2
+            },
+            {
+              "id": "Dark:1817",
+              "count": 1
+            },
+            {
+              "id": "Dark:1818",
+              "count": 1
+            },
+            {
+              "id": "Dark:2278",
+              "count": 1
+            },
+            {
+              "id": "Dark:1291",
+              "count": 1
+            },
+            {
+              "id": "Dark:1637",
+              "count": 1
+            },
+            {
+              "id": "Dark:2702",
+              "count": 1
+            },
+            {
+              "id": "Dark:1264",
+              "count": 1
+            },
+            {
+              "id": "Dark:427",
+              "count": 1
+            },
+            {
+              "id": "Dark:293",
+              "count": 1
+            },
+            {
+              "id": "Dark:48",
+              "count": 1
+            },
+            {
+              "id": "Dark:1201",
+              "count": 2
+            },
+            {
+              "id": "Dark:2524",
+              "count": 1
+            },
+            {
+              "id": "Dark:2699",
+              "count": 2
+            },
+            {
+              "id": "Dark:625",
+              "count": 2
+            },
+            {
+              "id": "Dark:879",
+              "count": 2
+            },
+            {
+              "id": "Dark:964",
+              "count": 2
+            },
+            {
+              "id": "Dark:2633",
+              "count": 1
+            },
+            {
+              "id": "Dark:2775",
+              "count": 1
+            },
+            {
+              "id": "Dark:2875",
+              "count": 1
+            },
+            {
+              "id": "Dark:2754",
+              "count": 1
+            },
+            {
+              "id": "Dark:2517",
+              "count": 1
+            },
+            {
+              "id": "Dark:2216",
+              "count": 1
+            },
+            {
+              "id": "Dark:94",
+              "count": 1
+            },
+            {
+              "id": "Dark:520",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "theme": {
+            "id": "cloud-city-ein-dunkler-deal",
+            "name": "Ein dunkler Deal",
+            "description": "Kontrolliere den Stadtsektor und drei Sites, um Dark Deal abzusichern.",
+            "cover": "Dark:614"
+          },
+          "strategy": {
+            "start": "Baue langsam Kontrolle über den Bespin-Stadtsektor und drei Cloud-City-Sites auf. Vermeide Drains aus ungeschützten Einzelfiguren.",
+            "opening": "Dark Deal verstärkt Drains, solange seine Kontrollbedingungen bestehen. Tibanna-Miner und Cloud Cars liefern Einkommen und Präsenz; Imperial Decree kann gegnerische eigene Drain-Boni ausschalten.",
+            "tactics": "Verteile erst nach gesicherter Verteidigung. Verliert eine benötigte Location ihre Kontrolle, bricht der Deal; Luftunterstützung aus dem Stadtsektor stärkt die Bodenkämpfe."
+          },
+          "startingLocations": [
+            "Dark:441",
+            "Dark:449",
+            "Dark:447",
+            "Dark:437",
+            "Dark:225"
+          ],
+          "cards": [
+            {
+              "id": "Dark:225",
+              "count": 1
+            },
+            {
+              "id": "Dark:441",
+              "count": 1
+            },
+            {
+              "id": "Dark:449",
+              "count": 1
+            },
+            {
+              "id": "Dark:228",
+              "count": 1
+            },
+            {
+              "id": "Dark:447",
+              "count": 1
+            },
+            {
+              "id": "Dark:437",
+              "count": 1
+            },
+            {
+              "id": "Dark:463",
+              "count": 1
+            },
+            {
+              "id": "Dark:435",
+              "count": 4
+            },
+            {
+              "id": "Dark:1287",
+              "count": 1
+            },
+            {
+              "id": "Dark:2591",
+              "count": 2
+            },
+            {
+              "id": "Dark:2637",
+              "count": 2
+            },
+            {
+              "id": "Dark:2355",
+              "count": 1
+            },
+            {
+              "id": "Dark:1279",
+              "count": 1
+            },
+            {
+              "id": "Dark:2662",
+              "count": 1
+            },
+            {
+              "id": "Dark:287",
+              "count": 1
+            },
+            {
+              "id": "Dark:634",
+              "count": 1
+            },
+            {
+              "id": "Dark:430",
+              "count": 1
+            },
+            {
+              "id": "Dark:355",
+              "count": 1
+            },
+            {
+              "id": "Dark:409",
+              "count": 1
+            },
+            {
+              "id": "Dark:801",
+              "count": 1
+            },
+            {
+              "id": "Dark:492",
+              "count": 1
+            },
+            {
+              "id": "Dark:1537",
+              "count": 1
+            },
+            {
+              "id": "Dark:425",
+              "count": 3
+            },
+            {
+              "id": "Dark:2600",
+              "count": 1
+            },
+            {
+              "id": "Dark:1817",
+              "count": 1
+            },
+            {
+              "id": "Dark:1818",
+              "count": 1
+            },
+            {
+              "id": "Dark:2278",
+              "count": 1
+            },
+            {
+              "id": "Dark:1291",
+              "count": 1
+            },
+            {
+              "id": "Dark:427",
+              "count": 2
+            },
+            {
+              "id": "Dark:1264",
+              "count": 1
+            },
+            {
+              "id": "Dark:293",
+              "count": 1
+            },
+            {
+              "id": "Dark:243",
+              "count": 1
+            },
+            {
+              "id": "Dark:614",
+              "count": 3
+            },
+            {
+              "id": "Dark:1268",
+              "count": 2
+            },
+            {
+              "id": "Dark:2778",
+              "count": 1
+            },
+            {
+              "id": "Dark:968",
+              "count": 1
+            },
+            {
+              "id": "Dark:1919",
+              "count": 1
+            },
+            {
+              "id": "Dark:2079",
+              "count": 1
+            },
+            {
+              "id": "Dark:2248",
+              "count": 1
+            },
+            {
+              "id": "Dark:2216",
+              "count": 1
+            },
+            {
+              "id": "Dark:94",
+              "count": 1
+            },
+            {
+              "id": "Dark:520",
+              "count": 1
+            },
+            {
+              "id": "Dark:432",
+              "count": 1
+            },
+            {
+              "id": "Dark:2603",
+              "count": 1
+            },
+            {
+              "id": "Dark:2633",
+              "count": 1
+            },
+            {
+              "id": "Dark:1957",
+              "count": 1
+            },
+            {
+              "id": "Dark:2770",
+              "count": 1
+            },
+            {
+              "id": "Dark:1937",
+              "count": 1
+            },
+            {
+              "id": "Dark:1116",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "theme": {
+            "id": "cloud-city-landos-falsches-spiel",
+            "name": "Landos falsches Spiel",
+            "description": "Sabacc, Handel und Tricks bereiten günstige Gefechte vor; Lando braucht Schutz vor seiner Ablösung.",
+            "cover": "Dark:1465"
+          },
+          "strategy": {
+            "start": "Setze Lando an einer sicheren Stadt-Site ein und behalte die Hand für Sabacc und Interrupt-Antworten flexibel.",
+            "opening": "Sabacc kann wertvolle Waffen, Devices oder Fighter als Einsatz gewinnen. Projective Telepathy zwingt den Gegner im passenden Fenster zu zahlen oder seine Aktion abzubrechen.",
+            "tactics": "Der gegnerische Light-Lando darf diese Version ablösen. Spiele deshalb nicht alle Ressourcen allein auf Lando und sichere einen zweiten Presence-Träger."
+          },
+          "startingLocations": [
+            "Dark:447",
+            "Dark:437",
+            "Dark:457",
+            "Dark:452",
+            "Dark:225"
+          ],
+          "cards": [
+            {
+              "id": "Dark:463",
+              "count": 1
+            },
+            {
+              "id": "Dark:225",
+              "count": 1
+            },
+            {
+              "id": "Dark:228",
+              "count": 1
+            },
+            {
+              "id": "Dark:447",
+              "count": 1
+            },
+            {
+              "id": "Dark:437",
+              "count": 1
+            },
+            {
+              "id": "Dark:457",
+              "count": 1
+            },
+            {
+              "id": "Dark:452",
+              "count": 1
+            },
+            {
+              "id": "Dark:801",
+              "count": 2
+            },
+            {
+              "id": "Dark:1465",
+              "count": 2
+            },
+            {
+              "id": "Dark:2355",
+              "count": 2
+            },
+            {
+              "id": "Dark:1279",
+              "count": 2
+            },
+            {
+              "id": "Dark:435",
+              "count": 2
+            },
+            {
+              "id": "Dark:2662",
+              "count": 2
+            },
+            {
+              "id": "Dark:287",
+              "count": 1
+            },
+            {
+              "id": "Dark:634",
+              "count": 1
+            },
+            {
+              "id": "Dark:2637",
+              "count": 1
+            },
+            {
+              "id": "Dark:430",
+              "count": 1
+            },
+            {
+              "id": "Dark:355",
+              "count": 1
+            },
+            {
+              "id": "Dark:409",
+              "count": 1
+            },
+            {
+              "id": "Dark:492",
+              "count": 1
+            },
+            {
+              "id": "Dark:1537",
+              "count": 1
+            },
+            {
+              "id": "Dark:2600",
+              "count": 2
+            },
+            {
+              "id": "Dark:425",
+              "count": 2
+            },
+            {
+              "id": "Dark:1817",
+              "count": 1
+            },
+            {
+              "id": "Dark:1818",
+              "count": 1
+            },
+            {
+              "id": "Dark:2278",
+              "count": 1
+            },
+            {
+              "id": "Dark:1291",
+              "count": 1
+            },
+            {
+              "id": "Dark:1264",
+              "count": 1
+            },
+            {
+              "id": "Dark:427",
+              "count": 1
+            },
+            {
+              "id": "Dark:293",
+              "count": 1
+            },
+            {
+              "id": "Dark:243",
+              "count": 1
+            },
+            {
+              "id": "Dark:1637",
+              "count": 1
+            },
+            {
+              "id": "Dark:1210",
+              "count": 2
+            },
+            {
+              "id": "Dark:379",
+              "count": 1
+            },
+            {
+              "id": "Dark:614",
+              "count": 1
+            },
+            {
+              "id": "Dark:316",
+              "count": 1
+            },
+            {
+              "id": "Dark:1268",
+              "count": 1
+            },
+            {
+              "id": "Dark:432",
+              "count": 4
+            },
+            {
+              "id": "Dark:765",
+              "count": 2
+            },
+            {
+              "id": "Dark:800",
+              "count": 2
+            },
+            {
+              "id": "Dark:1957",
+              "count": 2
+            },
+            {
+              "id": "Dark:2216",
+              "count": 1
+            },
+            {
+              "id": "Dark:94",
+              "count": 1
+            },
+            {
+              "id": "Dark:520",
+              "count": 1
+            },
+            {
+              "id": "Dark:2603",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "theme": {
+            "id": "cloud-city-karbonit-protokoll",
+            "name": "Karbonit-Protokoll",
+            "description": "Ugnaughts, Ugloste und die Console erhöhen die Carbon-Freezing-Destiny.",
+            "cover": "Dark:379"
+          },
+          "strategy": {
+            "start": "Sichere die Carbonite Chamber und bringe Ugnaughts, Ugloste und die Console dorthin. Erst danach lohnt ein riskanter Gefangenen-Transport.",
+            "opening": "Carbon-Freezing benötigt einen gefangenen Rebellen; Ugnaughts, Ugloste, Console und Chamber verändern die Destiny. All Too Easy reagiert auf Luke, der gerade getroffen werden würde.",
+            "tactics": "Ein gefrorener Gefangener hat Power und Ability 0. Bewache ihn und halte die Chamber unter Kontrolle; der Gegner kann Freeze dort bei eigener Kontrolle abbrechen."
+          },
+          "startingLocations": [
+            "Dark:437",
+            "Dark:447",
+            "Dark:457",
+            "Dark:452",
+            "Dark:225"
+          ],
+          "cards": [
+            {
+              "id": "Dark:437",
+              "count": 1
+            },
+            {
+              "id": "Dark:225",
+              "count": 1
+            },
+            {
+              "id": "Dark:228",
+              "count": 1
+            },
+            {
+              "id": "Dark:447",
+              "count": 1
+            },
+            {
+              "id": "Dark:463",
+              "count": 1
+            },
+            {
+              "id": "Dark:457",
+              "count": 1
+            },
+            {
+              "id": "Dark:452",
+              "count": 1
+            },
+            {
+              "id": "Dark:2661",
+              "count": 2
+            },
+            {
+              "id": "Dark:2662",
+              "count": 4
+            },
+            {
+              "id": "Dark:634",
+              "count": 2
+            },
+            {
+              "id": "Dark:2355",
+              "count": 2
+            },
+            {
+              "id": "Dark:1279",
+              "count": 1
+            },
+            {
+              "id": "Dark:435",
+              "count": 1
+            },
+            {
+              "id": "Dark:287",
+              "count": 1
+            },
+            {
+              "id": "Dark:2637",
+              "count": 1
+            },
+            {
+              "id": "Dark:430",
+              "count": 1
+            },
+            {
+              "id": "Dark:355",
+              "count": 1
+            },
+            {
+              "id": "Dark:409",
+              "count": 1
+            },
+            {
+              "id": "Dark:801",
+              "count": 1
+            },
+            {
+              "id": "Dark:492",
+              "count": 1
+            },
+            {
+              "id": "Dark:1537",
+              "count": 1
+            },
+            {
+              "id": "Dark:2600",
+              "count": 2
+            },
+            {
+              "id": "Dark:425",
+              "count": 2
+            },
+            {
+              "id": "Dark:1817",
+              "count": 1
+            },
+            {
+              "id": "Dark:1818",
+              "count": 1
+            },
+            {
+              "id": "Dark:2278",
+              "count": 1
+            },
+            {
+              "id": "Dark:1291",
+              "count": 1
+            },
+            {
+              "id": "Dark:380",
+              "count": 2
+            },
+            {
+              "id": "Dark:2702",
+              "count": 1
+            },
+            {
+              "id": "Dark:1264",
+              "count": 1
+            },
+            {
+              "id": "Dark:427",
+              "count": 1
+            },
+            {
+              "id": "Dark:87",
+              "count": 2
+            },
+            {
+              "id": "Dark:379",
+              "count": 3
+            },
+            {
+              "id": "Dark:2768",
+              "count": 1
+            },
+            {
+              "id": "Dark:1514",
+              "count": 1
+            },
+            {
+              "id": "Dark:1937",
+              "count": 2
+            },
+            {
+              "id": "Dark:2255",
+              "count": 1
+            },
+            {
+              "id": "Dark:2807",
+              "count": 1
+            },
+            {
+              "id": "Dark:2754",
+              "count": 1
+            },
+            {
+              "id": "Dark:2216",
+              "count": 1
+            },
+            {
+              "id": "Dark:94",
+              "count": 1
+            },
+            {
+              "id": "Dark:520",
+              "count": 1
+            },
+            {
+              "id": "Dark:432",
+              "count": 1
+            },
+            {
+              "id": "Dark:2603",
+              "count": 1
+            },
+            {
+              "id": "Dark:2633",
+              "count": 1
+            },
+            {
+              "id": "Dark:1957",
+              "count": 1
+            },
+            {
+              "id": "Dark:2770",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "theme": {
+            "id": "cloud-city-die-schatten-des-turms",
+            "name": "Die Schatten des Turms",
+            "description": "Gefangene im Security Tower liefern Druck; bewachte Übergaben nutzen Special Delivery.",
+            "cover": "Dark:1320"
+          },
+          "strategy": {
+            "start": "Sichere Security Tower und einen geeigneten Eskorteur. IT-O hilft beim Druck auf Gefangene, kann selbst aber keine Presence ersetzen.",
+            "opening": "Interrogation Array, Sonic Bombardment und Aiiii! nutzen geeignete ungefrorene Gefangene. Special Delivery belohnt die Übergabe; Vader’s Bounty verlangt den ursprünglichen Jäger.",
+            "tactics": "Gefrorene Gefangene sind keine Verhörziele. Bewache die Türme, damit der Gegner keine Gefangenen befreit und Lando nicht aus dem Security Tower sucht."
+          },
+          "startingLocations": [
+            "Dark:457",
+            "Dark:447",
+            "Dark:437",
+            "Dark:452",
+            "Dark:225"
+          ],
+          "cards": [
+            {
+              "id": "Dark:457",
+              "count": 1
+            },
+            {
+              "id": "Dark:225",
+              "count": 1
+            },
+            {
+              "id": "Dark:228",
+              "count": 1
+            },
+            {
+              "id": "Dark:447",
+              "count": 1
+            },
+            {
+              "id": "Dark:437",
+              "count": 1
+            },
+            {
+              "id": "Dark:463",
+              "count": 1
+            },
+            {
+              "id": "Dark:452",
+              "count": 1
+            },
+            {
+              "id": "Dark:1537",
+              "count": 2
+            },
+            {
+              "id": "Dark:287",
+              "count": 2
+            },
+            {
+              "id": "Dark:2355",
+              "count": 2
+            },
+            {
+              "id": "Dark:1279",
+              "count": 2
+            },
+            {
+              "id": "Dark:435",
+              "count": 2
+            },
+            {
+              "id": "Dark:2662",
+              "count": 2
+            },
+            {
+              "id": "Dark:634",
+              "count": 2
+            },
+            {
+              "id": "Dark:2637",
+              "count": 1
+            },
+            {
+              "id": "Dark:430",
+              "count": 1
+            },
+            {
+              "id": "Dark:355",
+              "count": 1
+            },
+            {
+              "id": "Dark:409",
+              "count": 1
+            },
+            {
+              "id": "Dark:801",
+              "count": 1
+            },
+            {
+              "id": "Dark:492",
+              "count": 1
+            },
+            {
+              "id": "Dark:2600",
+              "count": 2
+            },
+            {
+              "id": "Dark:425",
+              "count": 2
+            },
+            {
+              "id": "Dark:1817",
+              "count": 1
+            },
+            {
+              "id": "Dark:1818",
+              "count": 1
+            },
+            {
+              "id": "Dark:2278",
+              "count": 1
+            },
+            {
+              "id": "Dark:1291",
+              "count": 1
+            },
+            {
+              "id": "Dark:1320",
+              "count": 2
+            },
+            {
+              "id": "Dark:243",
+              "count": 1
+            },
+            {
+              "id": "Dark:1264",
+              "count": 1
+            },
+            {
+              "id": "Dark:427",
+              "count": 1
+            },
+            {
+              "id": "Dark:714",
+              "count": 1
+            },
+            {
+              "id": "Dark:2323",
+              "count": 2
+            },
+            {
+              "id": "Dark:2697",
+              "count": 2
+            },
+            {
+              "id": "Dark:379",
+              "count": 1
+            },
+            {
+              "id": "Dark:73",
+              "count": 2
+            },
+            {
+              "id": "Dark:1188",
+              "count": 2
+            },
+            {
+              "id": "Dark:2306",
+              "count": 2
+            },
+            {
+              "id": "Dark:2216",
+              "count": 1
+            },
+            {
+              "id": "Dark:94",
+              "count": 1
+            },
+            {
+              "id": "Dark:520",
+              "count": 1
+            },
+            {
+              "id": "Dark:432",
+              "count": 1
+            },
+            {
+              "id": "Dark:2603",
+              "count": 1
+            },
+            {
+              "id": "Dark:2633",
+              "count": 1
+            },
+            {
+              "id": "Dark:1957",
+              "count": 1
+            },
+            {
+              "id": "Dark:2770",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "theme": {
+            "id": "cloud-city-obsidian-patrouille",
+            "name": "Obsidian-Patrouille",
+            "description": "Obsidian-Fighter und Cloud Cars verteidigen Bespin und verstärken Drains als React.",
+            "cover": "Dark:1817"
+          },
+          "strategy": {
+            "start": "Baue Bespin und einen Wolkensektor auf. Obsidian 7 und 8 sind dort günstiger und stärker; Cloud Cars besetzen den Luftraum.",
+            "opening": "Atmospheric Assault und Fighter Cover verändern Battles in Wolken; TIE Sentry Ships erlaubt passende React-Verstärkung. Piloten ergänzen Schiffe ohne ausreichende Besatzung.",
+            "tactics": "Clouds senkt Power und Maneuver von Starships, nicht Cloud Cars. Achte auf den legalen Weg durch die Wolken und halte Force für Reaktionen auf Drains bereit."
+          },
+          "startingLocations": [
+            "Dark:447",
+            "Dark:437",
+            "Dark:457",
+            "Dark:452",
+            "Dark:225"
+          ],
+          "cards": [
+            {
+              "id": "Dark:225",
+              "count": 1
+            },
+            {
+              "id": "Dark:228",
+              "count": 1
+            },
+            {
+              "id": "Dark:447",
+              "count": 1
+            },
+            {
+              "id": "Dark:437",
+              "count": 1
+            },
+            {
+              "id": "Dark:463",
+              "count": 1
+            },
+            {
+              "id": "Dark:457",
+              "count": 1
+            },
+            {
+              "id": "Dark:452",
+              "count": 1
+            },
+            {
+              "id": "Dark:492",
+              "count": 2
+            },
+            {
+              "id": "Dark:2355",
+              "count": 2
+            },
+            {
+              "id": "Dark:1279",
+              "count": 2
+            },
+            {
+              "id": "Dark:435",
+              "count": 2
+            },
+            {
+              "id": "Dark:2662",
+              "count": 2
+            },
+            {
+              "id": "Dark:287",
+              "count": 2
+            },
+            {
+              "id": "Dark:634",
+              "count": 2
+            },
+            {
+              "id": "Dark:2637",
+              "count": 1
+            },
+            {
+              "id": "Dark:430",
+              "count": 1
+            },
+            {
+              "id": "Dark:355",
+              "count": 1
+            },
+            {
+              "id": "Dark:409",
+              "count": 1
+            },
+            {
+              "id": "Dark:801",
+              "count": 1
+            },
+            {
+              "id": "Dark:1537",
+              "count": 1
+            },
+            {
+              "id": "Dark:425",
+              "count": 3
+            },
+            {
+              "id": "Dark:1817",
+              "count": 2
+            },
+            {
+              "id": "Dark:1818",
+              "count": 2
+            },
+            {
+              "id": "Dark:2596",
+              "count": 1
+            },
+            {
+              "id": "Dark:1264",
+              "count": 1
+            },
+            {
+              "id": "Dark:427",
+              "count": 1
+            },
+            {
+              "id": "Dark:293",
+              "count": 1
+            },
+            {
+              "id": "Dark:243",
+              "count": 1
+            },
+            {
+              "id": "Dark:1637",
+              "count": 1
+            },
+            {
+              "id": "Dark:972",
+              "count": 1
+            },
+            {
+              "id": "Dark:379",
+              "count": 1
+            },
+            {
+              "id": "Dark:614",
+              "count": 1
+            },
+            {
+              "id": "Dark:316",
+              "count": 1
+            },
+            {
+              "id": "Dark:1268",
+              "count": 1
+            },
+            {
+              "id": "Dark:2778",
+              "count": 1
+            },
+            {
+              "id": "Dark:162",
+              "count": 2
+            },
+            {
+              "id": "Dark:960",
+              "count": 2
+            },
+            {
+              "id": "Dark:2384",
+              "count": 1
+            },
+            {
+              "id": "Dark:2603",
+              "count": 3
+            },
+            {
+              "id": "Dark:2216",
+              "count": 1
+            },
+            {
+              "id": "Dark:94",
+              "count": 1
+            },
+            {
+              "id": "Dark:520",
+              "count": 1
+            },
+            {
+              "id": "Dark:432",
+              "count": 1
+            },
+            {
+              "id": "Dark:2633",
+              "count": 1
+            },
+            {
+              "id": "Dark:1957",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "theme": {
+            "id": "cloud-city-bewils-korridorfalle",
+            "name": "Bewils Korridorfalle",
+            "description": "Bewil, Retwin und die Stadttechnik schränken die Bewegungsfreiheit des Gegners ein.",
+            "cover": "Dark:355"
+          },
+          "strategy": {
+            "start": "Beginne am Scomp link und sichere eine benachbarte Site. Bewil und Retwin liefern Werkzeuge gegen gegnerische Technik statt blind anzugreifen.",
+            "opening": "Restricted Access verteuert das Überschreiten einer mobilen Kante. Chasm Walkway, Weather Vane und gezielte Verlagerungen verändern, wo Figuren nach einem Treffer landen.",
+            "tactics": "Behalte Force für Retwins Fähigkeit und Antwort-Interrupts. Prüfe Ziele und Kosten; nicht jede Karte lässt sich allein durch eine höhere Power überwinden."
+          },
+          "startingLocations": [
+            "Dark:458",
+            "Dark:447",
+            "Dark:437",
+            "Dark:457",
+            "Dark:225"
+          ],
+          "cards": [
+            {
+              "id": "Dark:228",
+              "count": 1
+            },
+            {
+              "id": "Dark:458",
+              "count": 1
+            },
+            {
+              "id": "Dark:225",
+              "count": 1
+            },
+            {
+              "id": "Dark:447",
+              "count": 1
+            },
+            {
+              "id": "Dark:437",
+              "count": 1
+            },
+            {
+              "id": "Dark:463",
+              "count": 1
+            },
+            {
+              "id": "Dark:457",
+              "count": 1
+            },
+            {
+              "id": "Dark:355",
+              "count": 2
+            },
+            {
+              "id": "Dark:409",
+              "count": 2
+            },
+            {
+              "id": "Dark:430",
+              "count": 3
+            },
+            {
+              "id": "Dark:2637",
+              "count": 2
+            },
+            {
+              "id": "Dark:2355",
+              "count": 2
+            },
+            {
+              "id": "Dark:1279",
+              "count": 2
+            },
+            {
+              "id": "Dark:435",
+              "count": 1
+            },
+            {
+              "id": "Dark:2662",
+              "count": 1
+            },
+            {
+              "id": "Dark:287",
+              "count": 1
+            },
+            {
+              "id": "Dark:634",
+              "count": 1
+            },
+            {
+              "id": "Dark:801",
+              "count": 1
+            },
+            {
+              "id": "Dark:492",
+              "count": 1
+            },
+            {
+              "id": "Dark:1537",
+              "count": 1
+            },
+            {
+              "id": "Dark:2600",
+              "count": 2
+            },
+            {
+              "id": "Dark:425",
+              "count": 2
+            },
+            {
+              "id": "Dark:1817",
+              "count": 1
+            },
+            {
+              "id": "Dark:1818",
+              "count": 1
+            },
+            {
+              "id": "Dark:2278",
+              "count": 1
+            },
+            {
+              "id": "Dark:1291",
+              "count": 1
+            },
+            {
+              "id": "Dark:1264",
+              "count": 1
+            },
+            {
+              "id": "Dark:427",
+              "count": 1
+            },
+            {
+              "id": "Dark:293",
+              "count": 1
+            },
+            {
+              "id": "Dark:243",
+              "count": 1
+            },
+            {
+              "id": "Dark:1637",
+              "count": 1
+            },
+            {
+              "id": "Dark:1701",
+              "count": 1
+            },
+            {
+              "id": "Dark:2101",
+              "count": 2
+            },
+            {
+              "id": "Dark:379",
+              "count": 1
+            },
+            {
+              "id": "Dark:614",
+              "count": 1
+            },
+            {
+              "id": "Dark:316",
+              "count": 1
+            },
+            {
+              "id": "Dark:257",
+              "count": 2
+            },
+            {
+              "id": "Dark:841",
+              "count": 1
+            },
+            {
+              "id": "Dark:1121",
+              "count": 2
+            },
+            {
+              "id": "Dark:2114",
+              "count": 2
+            },
+            {
+              "id": "Dark:2283",
+              "count": 2
+            },
+            {
+              "id": "Dark:2216",
+              "count": 1
+            },
+            {
+              "id": "Dark:94",
+              "count": 1
+            },
+            {
+              "id": "Dark:520",
+              "count": 1
+            },
+            {
+              "id": "Dark:432",
+              "count": 1
+            },
+            {
+              "id": "Dark:2603",
+              "count": 1
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

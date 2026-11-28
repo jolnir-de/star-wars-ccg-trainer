@@ -1,0 +1,3102 @@
+{
+  "schema": 1,
+  "formats": {
+    "premiere-a-new-hope-hoth-dagobah-cloud-city-jabbas-palace": {
+      "Light": [
+        {
+          "theme": {
+            "id": "jabbas-palace-palastbotschafter",
+            "name": "Die Palastbotschafter",
+            "description": "Die Botschafter machen aus vielen günstigen Aliens eine belastbare Palastbesatzung.",
+            "cover": "Light:1012"
+          },
+          "strategy": {
+            "start": "Beginne in Audience Chamber und verteile günstige Aliens erst nach gesicherter Verteidigung.",
+            "opening": "Garon stärkt andere Saurins; Tessek senkt die Kosten nicht einzigartiger Aliens und verbessert ihre Drains. Bargaining Table hält Verstärkung bereit.",
+            "tactics": "Bo Shuda verhindert Battles und Drains nur, solange dein Alien dort steht. Diese Ruhezone eignet sich zum Aufbau, ersetzt aber keine Kontrolle anderer Sites."
+          },
+          "startingLocations": [
+            "Light:1354",
+            "Light:1358",
+            "Light:2443",
+            "Light:2450",
+            "Light:2466",
+            "Light:2447",
+            "Light:1435"
+          ],
+          "cards": [
+            {
+              "id": "Light:1354",
+              "count": 1
+            },
+            {
+              "id": "Light:1358",
+              "count": 1
+            },
+            {
+              "id": "Light:2443",
+              "count": 1
+            },
+            {
+              "id": "Light:2450",
+              "count": 1
+            },
+            {
+              "id": "Light:2466",
+              "count": 1
+            },
+            {
+              "id": "Light:2447",
+              "count": 1
+            },
+            {
+              "id": "Light:1435",
+              "count": 1
+            },
+            {
+              "id": "Light:128",
+              "count": 1
+            },
+            {
+              "id": "Light:387",
+              "count": 2
+            },
+            {
+              "id": "Light:962",
+              "count": 1
+            },
+            {
+              "id": "Light:1012",
+              "count": 2
+            },
+            {
+              "id": "Light:1014",
+              "count": 2
+            },
+            {
+              "id": "Light:1575",
+              "count": 1
+            },
+            {
+              "id": "Light:2507",
+              "count": 2
+            },
+            {
+              "id": "Light:2173",
+              "count": 3
+            },
+            {
+              "id": "Light:2052",
+              "count": 2
+            },
+            {
+              "id": "Light:1593",
+              "count": 2
+            },
+            {
+              "id": "Light:1690",
+              "count": 2
+            },
+            {
+              "id": "Light:1447",
+              "count": 1
+            },
+            {
+              "id": "Light:722",
+              "count": 1
+            },
+            {
+              "id": "Light:1329",
+              "count": 1
+            },
+            {
+              "id": "Light:1482",
+              "count": 1
+            },
+            {
+              "id": "Light:2274",
+              "count": 2
+            },
+            {
+              "id": "Light:2838",
+              "count": 1
+            },
+            {
+              "id": "Light:2907",
+              "count": 1
+            },
+            {
+              "id": "Light:1677",
+              "count": 1
+            },
+            {
+              "id": "Light:2714",
+              "count": 2
+            },
+            {
+              "id": "Light:1699",
+              "count": 1
+            },
+            {
+              "id": "Light:259",
+              "count": 1
+            },
+            {
+              "id": "Light:265",
+              "count": 1
+            },
+            {
+              "id": "Light:1151",
+              "count": 1
+            },
+            {
+              "id": "Light:198",
+              "count": 2
+            },
+            {
+              "id": "Light:285",
+              "count": 2
+            },
+            {
+              "id": "Light:2665",
+              "count": 1
+            },
+            {
+              "id": "Light:2845",
+              "count": 1
+            },
+            {
+              "id": "Light:260",
+              "count": 2
+            },
+            {
+              "id": "Light:411",
+              "count": 1
+            },
+            {
+              "id": "Light:2890",
+              "count": 1
+            },
+            {
+              "id": "Light:2543",
+              "count": 2
+            },
+            {
+              "id": "Light:2771",
+              "count": 2
+            },
+            {
+              "id": "Light:1388",
+              "count": 1
+            },
+            {
+              "id": "Light:2300",
+              "count": 1
+            },
+            {
+              "id": "Light:2276",
+              "count": 1
+            },
+            {
+              "id": "Light:521",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "theme": {
+            "id": "jabbas-palace-artoos-geheimplan",
+            "name": "Artoos Geheimplan",
+            "description": "Droiden liefern Ausrüstung und bereiten einen Undercover-Einsatz im Palast vor.",
+            "cover": "Light:136"
+          },
+          "strategy": {
+            "start": "Bringe Artoo und einen zweiten Presence-Träger sicher zum Palast. Ein Droid allein kontrolliert gewöhnlich keine Site.",
+            "opening": "Artoo sucht A Gift; nach einer tatsächlichen Bewegung in Audience Chamber darf der Droid undercover gehen. Arc Welder befreit eskortierte Gefangene.",
+            "tactics": "A Gift endet, wenn sein Droid Tatooine verlässt. Spare Force für das Antwortfenster und Hidden Compartment statt jede Ausrüstung sofort auszulegen."
+          },
+          "startingLocations": [
+            "Light:1358",
+            "Light:1354",
+            "Light:2443",
+            "Light:2450",
+            "Light:2466",
+            "Light:2447",
+            "Light:1435"
+          ],
+          "cards": [
+            {
+              "id": "Light:1358",
+              "count": 1
+            },
+            {
+              "id": "Light:1354",
+              "count": 1
+            },
+            {
+              "id": "Light:2443",
+              "count": 1
+            },
+            {
+              "id": "Light:2450",
+              "count": 1
+            },
+            {
+              "id": "Light:2466",
+              "count": 1
+            },
+            {
+              "id": "Light:2447",
+              "count": 1
+            },
+            {
+              "id": "Light:1435",
+              "count": 1
+            },
+            {
+              "id": "Light:13",
+              "count": 2
+            },
+            {
+              "id": "Light:136",
+              "count": 2
+            },
+            {
+              "id": "Light:1449",
+              "count": 1
+            },
+            {
+              "id": "Light:1890",
+              "count": 1
+            },
+            {
+              "id": "Light:2263",
+              "count": 1
+            },
+            {
+              "id": "Light:2730",
+              "count": 1
+            },
+            {
+              "id": "Light:343",
+              "count": 1
+            },
+            {
+              "id": "Light:1992",
+              "count": 1
+            },
+            {
+              "id": "Light:2052",
+              "count": 2
+            },
+            {
+              "id": "Light:1593",
+              "count": 2
+            },
+            {
+              "id": "Light:1690",
+              "count": 2
+            },
+            {
+              "id": "Light:2173",
+              "count": 2
+            },
+            {
+              "id": "Light:1447",
+              "count": 2
+            },
+            {
+              "id": "Light:722",
+              "count": 1
+            },
+            {
+              "id": "Light:387",
+              "count": 1
+            },
+            {
+              "id": "Light:1329",
+              "count": 1
+            },
+            {
+              "id": "Light:1482",
+              "count": 1
+            },
+            {
+              "id": "Light:2274",
+              "count": 2
+            },
+            {
+              "id": "Light:2838",
+              "count": 1
+            },
+            {
+              "id": "Light:2907",
+              "count": 1
+            },
+            {
+              "id": "Light:1677",
+              "count": 1
+            },
+            {
+              "id": "Light:126",
+              "count": 2
+            },
+            {
+              "id": "Light:1138",
+              "count": 2
+            },
+            {
+              "id": "Light:1151",
+              "count": 2
+            },
+            {
+              "id": "Light:25",
+              "count": 2
+            },
+            {
+              "id": "Light:198",
+              "count": 1
+            },
+            {
+              "id": "Light:2665",
+              "count": 1
+            },
+            {
+              "id": "Light:2845",
+              "count": 1
+            },
+            {
+              "id": "Light:1956",
+              "count": 1
+            },
+            {
+              "id": "Light:140",
+              "count": 1
+            },
+            {
+              "id": "Light:756",
+              "count": 1
+            },
+            {
+              "id": "Light:2543",
+              "count": 2
+            },
+            {
+              "id": "Light:2771",
+              "count": 2
+            },
+            {
+              "id": "Light:1388",
+              "count": 2
+            },
+            {
+              "id": "Light:2300",
+              "count": 1
+            },
+            {
+              "id": "Light:260",
+              "count": 1
+            },
+            {
+              "id": "Light:2276",
+              "count": 1
+            },
+            {
+              "id": "Light:521",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "theme": {
+            "id": "jabbas-palace-oolas-palastintrige",
+            "name": "Oolas Palastintrige",
+            "description": "Oola, Jess und musikalische Unterstützung schwächen gegnerischen Nachschub und Forfeit.",
+            "cover": "Light:1842"
+          },
+          "strategy": {
+            "start": "Sichere eine Interior Site, bevor du Musiker und Oola ungeschützt ausspielst.",
+            "opening": "Jess holt Force beim Ausspielen weiterer Musiker an ihrer Site zurück. Oolas Aktion kostet so viel Force wie die gegnerische Hand Karten enthält.",
+            "tactics": "Nutze Forfeit 0 und zusätzliche Power, um einen günstigen Kampf vorzubereiten. Gegen eine große Hand ist Oola teuer; sichere zuerst deine eigene Versorgung."
+          },
+          "startingLocations": [
+            "Light:1354",
+            "Light:1358",
+            "Light:2443",
+            "Light:2450",
+            "Light:2466",
+            "Light:2447",
+            "Light:1435"
+          ],
+          "cards": [
+            {
+              "id": "Light:1435",
+              "count": 1
+            },
+            {
+              "id": "Light:1354",
+              "count": 1
+            },
+            {
+              "id": "Light:1358",
+              "count": 1
+            },
+            {
+              "id": "Light:2443",
+              "count": 1
+            },
+            {
+              "id": "Light:2450",
+              "count": 1
+            },
+            {
+              "id": "Light:2466",
+              "count": 1
+            },
+            {
+              "id": "Light:2447",
+              "count": 1
+            },
+            {
+              "id": "Light:170",
+              "count": 1
+            },
+            {
+              "id": "Light:1037",
+              "count": 1
+            },
+            {
+              "id": "Light:1059",
+              "count": 1
+            },
+            {
+              "id": "Light:1393",
+              "count": 2
+            },
+            {
+              "id": "Light:1660",
+              "count": 2
+            },
+            {
+              "id": "Light:1842",
+              "count": 2
+            },
+            {
+              "id": "Light:2156",
+              "count": 2
+            },
+            {
+              "id": "Light:784",
+              "count": 1
+            },
+            {
+              "id": "Light:2052",
+              "count": 2
+            },
+            {
+              "id": "Light:1593",
+              "count": 2
+            },
+            {
+              "id": "Light:1690",
+              "count": 2
+            },
+            {
+              "id": "Light:2173",
+              "count": 1
+            },
+            {
+              "id": "Light:1447",
+              "count": 1
+            },
+            {
+              "id": "Light:722",
+              "count": 1
+            },
+            {
+              "id": "Light:387",
+              "count": 1
+            },
+            {
+              "id": "Light:1329",
+              "count": 1
+            },
+            {
+              "id": "Light:1482",
+              "count": 1
+            },
+            {
+              "id": "Light:2274",
+              "count": 2
+            },
+            {
+              "id": "Light:2838",
+              "count": 1
+            },
+            {
+              "id": "Light:2907",
+              "count": 1
+            },
+            {
+              "id": "Light:1677",
+              "count": 1
+            },
+            {
+              "id": "Light:1699",
+              "count": 1
+            },
+            {
+              "id": "Light:2714",
+              "count": 1
+            },
+            {
+              "id": "Light:259",
+              "count": 1
+            },
+            {
+              "id": "Light:265",
+              "count": 1
+            },
+            {
+              "id": "Light:1151",
+              "count": 1
+            },
+            {
+              "id": "Light:126",
+              "count": 1
+            },
+            {
+              "id": "Light:1218",
+              "count": 1
+            },
+            {
+              "id": "Light:1956",
+              "count": 2
+            },
+            {
+              "id": "Light:198",
+              "count": 1
+            },
+            {
+              "id": "Light:2665",
+              "count": 1
+            },
+            {
+              "id": "Light:2845",
+              "count": 1
+            },
+            {
+              "id": "Light:924",
+              "count": 1
+            },
+            {
+              "id": "Light:1753",
+              "count": 1
+            },
+            {
+              "id": "Light:2109",
+              "count": 1
+            },
+            {
+              "id": "Light:2543",
+              "count": 2
+            },
+            {
+              "id": "Light:2771",
+              "count": 2
+            },
+            {
+              "id": "Light:1388",
+              "count": 1
+            },
+            {
+              "id": "Light:2300",
+              "count": 1
+            },
+            {
+              "id": "Light:260",
+              "count": 1
+            },
+            {
+              "id": "Light:2276",
+              "count": 1
+            },
+            {
+              "id": "Light:521",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "theme": {
+            "id": "jabbas-palace-jawas-in-der-duenensee",
+            "name": "Jawas in der Dünensee",
+            "description": "Jawas verbinden Wüstenkenntnis, hohe Destiny und Dune Sea Sabacc.",
+            "cover": "Light:1988"
+          },
+          "strategy": {
+            "start": "Wähle eine Tatooine-Site. Halte Jawas zusammen und nutze Kalit zum Verstärken der kleinen Figuren.",
+            "opening": "R’kik spielt Jawa-Waffen kostenlos und kann ihre Waffen-Destiny erhöhen. Aved sucht Jawas oder Utinni!, Kirdo III sucht Wüstenhilfen.",
+            "tactics": "Bei Dune Sea Sabacc gelten andere Wild cards und Einsätze als in Cloud City. R’kik gewinnt doppelt; prüfe trotzdem deine Reserve, bevor du weitere Karten ziehst."
+          },
+          "startingLocations": [
+            "Light:2450",
+            "Light:2443",
+            "Light:1354",
+            "Light:1358",
+            "Light:2466",
+            "Light:2447",
+            "Light:1442"
+          ],
+          "cards": [
+            {
+              "id": "Light:1442",
+              "count": 1
+            },
+            {
+              "id": "Light:2450",
+              "count": 1
+            },
+            {
+              "id": "Light:2443",
+              "count": 1
+            },
+            {
+              "id": "Light:1354",
+              "count": 1
+            },
+            {
+              "id": "Light:1358",
+              "count": 1
+            },
+            {
+              "id": "Light:2466",
+              "count": 1
+            },
+            {
+              "id": "Light:2447",
+              "count": 1
+            },
+            {
+              "id": "Light:174",
+              "count": 2
+            },
+            {
+              "id": "Light:1092",
+              "count": 1
+            },
+            {
+              "id": "Light:1408",
+              "count": 2
+            },
+            {
+              "id": "Light:2026",
+              "count": 1
+            },
+            {
+              "id": "Light:1988",
+              "count": 2
+            },
+            {
+              "id": "Light:2844",
+              "count": 1
+            },
+            {
+              "id": "Light:2052",
+              "count": 2
+            },
+            {
+              "id": "Light:1593",
+              "count": 2
+            },
+            {
+              "id": "Light:1690",
+              "count": 2
+            },
+            {
+              "id": "Light:2173",
+              "count": 2
+            },
+            {
+              "id": "Light:1447",
+              "count": 2
+            },
+            {
+              "id": "Light:722",
+              "count": 2
+            },
+            {
+              "id": "Light:387",
+              "count": 1
+            },
+            {
+              "id": "Light:1329",
+              "count": 1
+            },
+            {
+              "id": "Light:1482",
+              "count": 1
+            },
+            {
+              "id": "Light:2274",
+              "count": 2
+            },
+            {
+              "id": "Light:2838",
+              "count": 1
+            },
+            {
+              "id": "Light:2907",
+              "count": 1
+            },
+            {
+              "id": "Light:1677",
+              "count": 1
+            },
+            {
+              "id": "Light:1699",
+              "count": 1
+            },
+            {
+              "id": "Light:2714",
+              "count": 1
+            },
+            {
+              "id": "Light:259",
+              "count": 1
+            },
+            {
+              "id": "Light:265",
+              "count": 1
+            },
+            {
+              "id": "Light:1151",
+              "count": 1
+            },
+            {
+              "id": "Light:126",
+              "count": 1
+            },
+            {
+              "id": "Light:2665",
+              "count": 2
+            },
+            {
+              "id": "Light:1380",
+              "count": 1
+            },
+            {
+              "id": "Light:198",
+              "count": 1
+            },
+            {
+              "id": "Light:2845",
+              "count": 1
+            },
+            {
+              "id": "Light:1956",
+              "count": 1
+            },
+            {
+              "id": "Light:797",
+              "count": 3
+            },
+            {
+              "id": "Light:2679",
+              "count": 1
+            },
+            {
+              "id": "Light:2543",
+              "count": 2
+            },
+            {
+              "id": "Light:2771",
+              "count": 1
+            },
+            {
+              "id": "Light:1388",
+              "count": 1
+            },
+            {
+              "id": "Light:2300",
+              "count": 1
+            },
+            {
+              "id": "Light:260",
+              "count": 1
+            },
+            {
+              "id": "Light:2276",
+              "count": 1
+            },
+            {
+              "id": "Light:521",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "theme": {
+            "id": "jabbas-palace-musik-aus-der-wueste",
+            "name": "Musik aus der Wüste",
+            "description": "Kitonaks und Sandwhirl nutzen die Wüste gegen unvorbereitete Gegner.",
+            "cover": "Light:784"
+          },
+          "strategy": {
+            "start": "Baue Außen-Sites und einen sicheren Rückweg auf. Kitonaks und Droopy ignorieren die besonderen Wüstenanforderungen.",
+            "opening": "Sandwhirl bewegt sich in deiner Kontrollphase. Seine Richtung wird beim Ausspielen festgelegt; am Rand kehrt er um.",
+            "tactics": "Sandwhirl verschont nicht alle deine Figuren. Schütze empfindliche Charaktere und verlass dich bei Begegnungen mit Creatures nicht allein auf hohe Battle-Power."
+          },
+          "startingLocations": [
+            "Light:2443",
+            "Light:1354",
+            "Light:1358",
+            "Light:2450",
+            "Light:2466",
+            "Light:2447",
+            "Light:1442"
+          ],
+          "cards": [
+            {
+              "id": "Light:2443",
+              "count": 1
+            },
+            {
+              "id": "Light:1442",
+              "count": 1
+            },
+            {
+              "id": "Light:1354",
+              "count": 1
+            },
+            {
+              "id": "Light:1358",
+              "count": 1
+            },
+            {
+              "id": "Light:2450",
+              "count": 1
+            },
+            {
+              "id": "Light:2466",
+              "count": 1
+            },
+            {
+              "id": "Light:2447",
+              "count": 1
+            },
+            {
+              "id": "Light:230",
+              "count": 1
+            },
+            {
+              "id": "Light:784",
+              "count": 2
+            },
+            {
+              "id": "Light:1447",
+              "count": 4
+            },
+            {
+              "id": "Light:2087",
+              "count": 1
+            },
+            {
+              "id": "Light:2227",
+              "count": 1
+            },
+            {
+              "id": "Light:2052",
+              "count": 2
+            },
+            {
+              "id": "Light:1593",
+              "count": 2
+            },
+            {
+              "id": "Light:1690",
+              "count": 2
+            },
+            {
+              "id": "Light:2173",
+              "count": 2
+            },
+            {
+              "id": "Light:722",
+              "count": 2
+            },
+            {
+              "id": "Light:387",
+              "count": 2
+            },
+            {
+              "id": "Light:1329",
+              "count": 2
+            },
+            {
+              "id": "Light:1482",
+              "count": 1
+            },
+            {
+              "id": "Light:2829",
+              "count": 2
+            },
+            {
+              "id": "Light:2274",
+              "count": 2
+            },
+            {
+              "id": "Light:2838",
+              "count": 1
+            },
+            {
+              "id": "Light:1699",
+              "count": 1
+            },
+            {
+              "id": "Light:2714",
+              "count": 1
+            },
+            {
+              "id": "Light:259",
+              "count": 1
+            },
+            {
+              "id": "Light:265",
+              "count": 1
+            },
+            {
+              "id": "Light:1151",
+              "count": 1
+            },
+            {
+              "id": "Light:126",
+              "count": 1
+            },
+            {
+              "id": "Light:2171",
+              "count": 3
+            },
+            {
+              "id": "Light:198",
+              "count": 1
+            },
+            {
+              "id": "Light:2665",
+              "count": 1
+            },
+            {
+              "id": "Light:2845",
+              "count": 1
+            },
+            {
+              "id": "Light:1638",
+              "count": 1
+            },
+            {
+              "id": "Light:2543",
+              "count": 2
+            },
+            {
+              "id": "Light:2771",
+              "count": 2
+            },
+            {
+              "id": "Light:1388",
+              "count": 2
+            },
+            {
+              "id": "Light:2300",
+              "count": 2
+            },
+            {
+              "id": "Light:260",
+              "count": 1
+            },
+            {
+              "id": "Light:2276",
+              "count": 1
+            },
+            {
+              "id": "Light:521",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "theme": {
+            "id": "jabbas-palace-leias-befreiung",
+            "name": "Leias Befreiung",
+            "description": "Leia, Rettungs-Interrupts und mobile Unterstützung befreien Gefangene aus Jabbas Gewalt.",
+            "cover": "Light:1945"
+          },
+          "strategy": {
+            "start": "Princess Leia Organa kommt als Gefangene eines geeigneten gegnerischen Jägers oder Jabbas ins Spiel. Bereite die Befreiung vor.",
+            "opening": "Arc Welder, Jedi Mind Trick und Someone Who Loves You schaffen unterschiedliche Befreiungsfenster. Ein kontrollierter Dungeon bietet einen weiteren Weg.",
+            "tactics": "Nach Leias Befreiung erhältst du Force zurück. Leia als Gefangene einzusetzen sperrt dort zunächst deine Battle-Initiierung; plane nicht mit einem sofortigen Überraschungsangriff."
+          },
+          "startingLocations": [
+            "Light:1354",
+            "Light:1358",
+            "Light:2443",
+            "Light:2450",
+            "Light:2466",
+            "Light:2447",
+            "Light:1435"
+          ],
+          "cards": [
+            {
+              "id": "Light:1354",
+              "count": 1
+            },
+            {
+              "id": "Light:1358",
+              "count": 1
+            },
+            {
+              "id": "Light:2443",
+              "count": 1
+            },
+            {
+              "id": "Light:2450",
+              "count": 1
+            },
+            {
+              "id": "Light:2466",
+              "count": 1
+            },
+            {
+              "id": "Light:2447",
+              "count": 1
+            },
+            {
+              "id": "Light:1435",
+              "count": 1
+            },
+            {
+              "id": "Light:183",
+              "count": 1
+            },
+            {
+              "id": "Light:1329",
+              "count": 3
+            },
+            {
+              "id": "Light:1482",
+              "count": 2
+            },
+            {
+              "id": "Light:1945",
+              "count": 2
+            },
+            {
+              "id": "Light:2292",
+              "count": 1
+            },
+            {
+              "id": "Light:2052",
+              "count": 3
+            },
+            {
+              "id": "Light:1593",
+              "count": 2
+            },
+            {
+              "id": "Light:1690",
+              "count": 2
+            },
+            {
+              "id": "Light:2173",
+              "count": 2
+            },
+            {
+              "id": "Light:1447",
+              "count": 2
+            },
+            {
+              "id": "Light:722",
+              "count": 2
+            },
+            {
+              "id": "Light:387",
+              "count": 2
+            },
+            {
+              "id": "Light:2274",
+              "count": 4
+            },
+            {
+              "id": "Light:2838",
+              "count": 1
+            },
+            {
+              "id": "Light:1699",
+              "count": 1
+            },
+            {
+              "id": "Light:2714",
+              "count": 1
+            },
+            {
+              "id": "Light:259",
+              "count": 1
+            },
+            {
+              "id": "Light:265",
+              "count": 1
+            },
+            {
+              "id": "Light:1151",
+              "count": 1
+            },
+            {
+              "id": "Light:126",
+              "count": 1
+            },
+            {
+              "id": "Light:2845",
+              "count": 2
+            },
+            {
+              "id": "Light:198",
+              "count": 2
+            },
+            {
+              "id": "Light:2665",
+              "count": 1
+            },
+            {
+              "id": "Light:1956",
+              "count": 1
+            },
+            {
+              "id": "Light:1388",
+              "count": 2
+            },
+            {
+              "id": "Light:1546",
+              "count": 2
+            },
+            {
+              "id": "Light:2300",
+              "count": 3
+            },
+            {
+              "id": "Light:2361",
+              "count": 2
+            },
+            {
+              "id": "Light:2771",
+              "count": 2
+            },
+            {
+              "id": "Light:2543",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "theme": {
+            "id": "jabbas-palace-sabacc-am-hof",
+            "name": "Sabacc am Hof",
+            "description": "Schmuggler und Spieler gewinnen Einsätze und umgehen schlecht gewählte Kämpfe.",
+            "cover": "Light:722"
+          },
+          "strategy": {
+            "start": "Setze einen geeigneten Spieler an einer Jabba’s-Palace-Site ein und halte genügend Karten im Reserve Deck.",
+            "opening": "Jabba’s Palace Sabacc verwendet andere Klone und Einsätze als Dune Sea Sabacc. Devaronian kann mit Klonen seine eigene Destiny verwenden.",
+            "tactics": "Beende das Ziehen rechtzeitig. Sabacc ersetzt weder Presence noch eine bemannte Flotte; nutze gewonnene Ausrüstung in passenden Folgezügen."
+          },
+          "startingLocations": [
+            "Light:1354",
+            "Light:1358",
+            "Light:2443",
+            "Light:2450",
+            "Light:2466",
+            "Light:2447",
+            "Light:1435"
+          ],
+          "cards": [
+            {
+              "id": "Light:1354",
+              "count": 1
+            },
+            {
+              "id": "Light:1358",
+              "count": 1
+            },
+            {
+              "id": "Light:2443",
+              "count": 1
+            },
+            {
+              "id": "Light:2450",
+              "count": 1
+            },
+            {
+              "id": "Light:2466",
+              "count": 1
+            },
+            {
+              "id": "Light:2447",
+              "count": 1
+            },
+            {
+              "id": "Light:1435",
+              "count": 1
+            },
+            {
+              "id": "Light:722",
+              "count": 4
+            },
+            {
+              "id": "Light:1339",
+              "count": 1
+            },
+            {
+              "id": "Light:1505",
+              "count": 1
+            },
+            {
+              "id": "Light:2247",
+              "count": 1
+            },
+            {
+              "id": "Light:2420",
+              "count": 1
+            },
+            {
+              "id": "Light:2631",
+              "count": 1
+            },
+            {
+              "id": "Light:1466",
+              "count": 1
+            },
+            {
+              "id": "Light:2052",
+              "count": 2
+            },
+            {
+              "id": "Light:1593",
+              "count": 2
+            },
+            {
+              "id": "Light:1690",
+              "count": 2
+            },
+            {
+              "id": "Light:2173",
+              "count": 2
+            },
+            {
+              "id": "Light:1447",
+              "count": 2
+            },
+            {
+              "id": "Light:387",
+              "count": 2
+            },
+            {
+              "id": "Light:1329",
+              "count": 1
+            },
+            {
+              "id": "Light:1482",
+              "count": 1
+            },
+            {
+              "id": "Light:2274",
+              "count": 2
+            },
+            {
+              "id": "Light:2838",
+              "count": 1
+            },
+            {
+              "id": "Light:2907",
+              "count": 1
+            },
+            {
+              "id": "Light:1677",
+              "count": 1
+            },
+            {
+              "id": "Light:1699",
+              "count": 3
+            },
+            {
+              "id": "Light:2714",
+              "count": 1
+            },
+            {
+              "id": "Light:259",
+              "count": 1
+            },
+            {
+              "id": "Light:265",
+              "count": 1
+            },
+            {
+              "id": "Light:198",
+              "count": 2
+            },
+            {
+              "id": "Light:2665",
+              "count": 2
+            },
+            {
+              "id": "Light:2845",
+              "count": 1
+            },
+            {
+              "id": "Light:1956",
+              "count": 1
+            },
+            {
+              "id": "Light:532",
+              "count": 2
+            },
+            {
+              "id": "Light:1351",
+              "count": 3
+            },
+            {
+              "id": "Light:2543",
+              "count": 1
+            },
+            {
+              "id": "Light:2771",
+              "count": 1
+            },
+            {
+              "id": "Light:1388",
+              "count": 1
+            },
+            {
+              "id": "Light:2300",
+              "count": 1
+            },
+            {
+              "id": "Light:260",
+              "count": 1
+            },
+            {
+              "id": "Light:2276",
+              "count": 1
+            },
+            {
+              "id": "Light:521",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "theme": {
+            "id": "jabbas-palace-thryss-rueckkehr",
+            "name": "Thryss’ Rückkehr",
+            "description": "Ein kleiner Bespin-Stützpunkt liefert Nachschub für den Kampf um Tatooine.",
+            "cover": "Light:1964"
+          },
+          "strategy": {
+            "start": "Starte bei Bedarf auf Cloud City und sichere dort Pucumir, bevor du dich an weiteren Orten verteilst.",
+            "opening": "Pucumir kann nicht einzigartige Rebellen aus Reserve an seiner Cloud-City-Site deployen. Yoxgit und Baragwin bergen verlorene Ausrüstung.",
+            "tactics": "Nutze die zusätzlichen Drains als Druck, aber überdehne deine Verteidigung nicht. Die Tatooine-Karten brauchen weiterhin ihre eigenen legalen Einsatzorte."
+          },
+          "startingLocations": [
+            "Light:438",
+            "Light:455",
+            "Light:1354",
+            "Light:1358",
+            "Light:2443",
+            "Light:2450",
+            "Light:2593"
+          ],
+          "cards": [
+            {
+              "id": "Light:2593",
+              "count": 1
+            },
+            {
+              "id": "Light:438",
+              "count": 1
+            },
+            {
+              "id": "Light:455",
+              "count": 1
+            },
+            {
+              "id": "Light:1354",
+              "count": 1
+            },
+            {
+              "id": "Light:1358",
+              "count": 1
+            },
+            {
+              "id": "Light:2443",
+              "count": 1
+            },
+            {
+              "id": "Light:2450",
+              "count": 1
+            },
+            {
+              "id": "Light:197",
+              "count": 2
+            },
+            {
+              "id": "Light:828",
+              "count": 1
+            },
+            {
+              "id": "Light:1861",
+              "count": 1
+            },
+            {
+              "id": "Light:1964",
+              "count": 2
+            },
+            {
+              "id": "Light:2415",
+              "count": 1
+            },
+            {
+              "id": "Light:2903",
+              "count": 2
+            },
+            {
+              "id": "Light:2592",
+              "count": 2
+            },
+            {
+              "id": "Light:2052",
+              "count": 2
+            },
+            {
+              "id": "Light:1593",
+              "count": 2
+            },
+            {
+              "id": "Light:1690",
+              "count": 2
+            },
+            {
+              "id": "Light:2173",
+              "count": 2
+            },
+            {
+              "id": "Light:1447",
+              "count": 1
+            },
+            {
+              "id": "Light:722",
+              "count": 1
+            },
+            {
+              "id": "Light:387",
+              "count": 1
+            },
+            {
+              "id": "Light:1329",
+              "count": 1
+            },
+            {
+              "id": "Light:1482",
+              "count": 1
+            },
+            {
+              "id": "Light:2274",
+              "count": 2
+            },
+            {
+              "id": "Light:2838",
+              "count": 1
+            },
+            {
+              "id": "Light:2907",
+              "count": 1
+            },
+            {
+              "id": "Light:1677",
+              "count": 1
+            },
+            {
+              "id": "Light:1699",
+              "count": 1
+            },
+            {
+              "id": "Light:2714",
+              "count": 1
+            },
+            {
+              "id": "Light:259",
+              "count": 1
+            },
+            {
+              "id": "Light:265",
+              "count": 1
+            },
+            {
+              "id": "Light:1151",
+              "count": 1
+            },
+            {
+              "id": "Light:126",
+              "count": 1
+            },
+            {
+              "id": "Light:198",
+              "count": 2
+            },
+            {
+              "id": "Light:2665",
+              "count": 2
+            },
+            {
+              "id": "Light:2845",
+              "count": 1
+            },
+            {
+              "id": "Light:1956",
+              "count": 1
+            },
+            {
+              "id": "Light:1417",
+              "count": 1
+            },
+            {
+              "id": "Light:2276",
+              "count": 2
+            },
+            {
+              "id": "Light:2543",
+              "count": 2
+            },
+            {
+              "id": "Light:2771",
+              "count": 2
+            },
+            {
+              "id": "Light:1388",
+              "count": 2
+            },
+            {
+              "id": "Light:2300",
+              "count": 1
+            },
+            {
+              "id": "Light:260",
+              "count": 1
+            },
+            {
+              "id": "Light:521",
+              "count": 1
+            }
+          ]
+        }
+      ],
+      "Dark": [
+        {
+          "theme": {
+            "id": "jabbas-palace-jabbas-verbrecherhof",
+            "name": "Jabbas Verbrecherhof",
+            "description": "Jabba, Scum And Villainy und zahlreiche Aliens gewinnen durch günstiges Deployen und kontrollierte Battles.",
+            "cover": "Dark:1346"
+          },
+          "strategy": {
+            "start": "Sichere Audience Chamber und bringe Jabba sowie einen zweiten Alien ins Spiel.",
+            "opening": "Scum And Villainy verlangt eine passende Zusammensetzung deiner Ability. Prüfe die Bedingung, bevor du nicht passende Imperials nachlegst.",
+            "tactics": "Jabba verbessert Forfeit und aktiviert Force bei eigenen Alien-Drains. Wähle Battles sorgfältig, damit die Rückholung durch Scum deine Verluste übersteigt."
+          },
+          "startingLocations": [
+            "Dark:1353",
+            "Dark:1357",
+            "Dark:1356",
+            "Dark:2452",
+            "Dark:2442",
+            "Dark:2446"
+          ],
+          "cards": [
+            {
+              "id": "Dark:1353",
+              "count": 1
+            },
+            {
+              "id": "Dark:1364",
+              "count": 1
+            },
+            {
+              "id": "Dark:1357",
+              "count": 1
+            },
+            {
+              "id": "Dark:1356",
+              "count": 1
+            },
+            {
+              "id": "Dark:2452",
+              "count": 1
+            },
+            {
+              "id": "Dark:2442",
+              "count": 1
+            },
+            {
+              "id": "Dark:2446",
+              "count": 1
+            },
+            {
+              "id": "Dark:49",
+              "count": 1
+            },
+            {
+              "id": "Dark:122",
+              "count": 1
+            },
+            {
+              "id": "Dark:393",
+              "count": 1
+            },
+            {
+              "id": "Dark:978",
+              "count": 2
+            },
+            {
+              "id": "Dark:1003",
+              "count": 2
+            },
+            {
+              "id": "Dark:1346",
+              "count": 3
+            },
+            {
+              "id": "Dark:1009",
+              "count": 2
+            },
+            {
+              "id": "Dark:1780",
+              "count": 2
+            },
+            {
+              "id": "Dark:2788",
+              "count": 2
+            },
+            {
+              "id": "Dark:2827",
+              "count": 2
+            },
+            {
+              "id": "Dark:287",
+              "count": 2
+            },
+            {
+              "id": "Dark:700",
+              "count": 2
+            },
+            {
+              "id": "Dark:196",
+              "count": 1
+            },
+            {
+              "id": "Dark:2355",
+              "count": 1
+            },
+            {
+              "id": "Dark:1362",
+              "count": 2
+            },
+            {
+              "id": "Dark:2273",
+              "count": 2
+            },
+            {
+              "id": "Dark:2278",
+              "count": 1
+            },
+            {
+              "id": "Dark:764",
+              "count": 1
+            },
+            {
+              "id": "Dark:1698",
+              "count": 2
+            },
+            {
+              "id": "Dark:2713",
+              "count": 1
+            },
+            {
+              "id": "Dark:1008",
+              "count": 1
+            },
+            {
+              "id": "Dark:1264",
+              "count": 1
+            },
+            {
+              "id": "Dark:350",
+              "count": 1
+            },
+            {
+              "id": "Dark:697",
+              "count": 2
+            },
+            {
+              "id": "Dark:2096",
+              "count": 1
+            },
+            {
+              "id": "Dark:2188",
+              "count": 2
+            },
+            {
+              "id": "Dark:50",
+              "count": 2
+            },
+            {
+              "id": "Dark:1350",
+              "count": 1
+            },
+            {
+              "id": "Dark:2651",
+              "count": 2
+            },
+            {
+              "id": "Dark:193",
+              "count": 2
+            },
+            {
+              "id": "Dark:1139",
+              "count": 2
+            },
+            {
+              "id": "Dark:1795",
+              "count": 1
+            },
+            {
+              "id": "Dark:2617",
+              "count": 1
+            },
+            {
+              "id": "Dark:520",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "theme": {
+            "id": "jabbas-palace-bibs-torwaechter",
+            "name": "Bibs Torwächter",
+            "description": "Gamorreaner und Niktos bewachen die Zugänge und reagieren auf gegnerische Vorstöße.",
+            "cover": "Dark:232"
+          },
+          "strategy": {
+            "start": "Beginne am Eingang und halte Force für Reacts bereit. Bib ist hier besonders günstig.",
+            "opening": "Bib ermöglicht passenden Gamorreanern und Niktos Deploy-Reacts an Palast-Sites. Ortugg verbessert die Gardisten aus Audience Chamber.",
+            "tactics": "Ein Creature-Angriff ist kein Battle. Ein Gamorrean darf sich gegen einen gerade begonnenen Creature-Angriff opfern; die Entscheidung gehört in dieses Fenster."
+          },
+          "startingLocations": [
+            "Dark:1357",
+            "Dark:1353",
+            "Dark:1356",
+            "Dark:2452",
+            "Dark:2442",
+            "Dark:2446",
+            "Dark:1750"
+          ],
+          "cards": [
+            {
+              "id": "Dark:1357",
+              "count": 1
+            },
+            {
+              "id": "Dark:1353",
+              "count": 1
+            },
+            {
+              "id": "Dark:1356",
+              "count": 1
+            },
+            {
+              "id": "Dark:2452",
+              "count": 1
+            },
+            {
+              "id": "Dark:2442",
+              "count": 1
+            },
+            {
+              "id": "Dark:2446",
+              "count": 1
+            },
+            {
+              "id": "Dark:1750",
+              "count": 1
+            },
+            {
+              "id": "Dark:232",
+              "count": 2
+            },
+            {
+              "id": "Dark:1009",
+              "count": 4
+            },
+            {
+              "id": "Dark:1130",
+              "count": 1
+            },
+            {
+              "id": "Dark:1780",
+              "count": 4
+            },
+            {
+              "id": "Dark:1862",
+              "count": 2
+            },
+            {
+              "id": "Dark:2788",
+              "count": 2
+            },
+            {
+              "id": "Dark:2827",
+              "count": 2
+            },
+            {
+              "id": "Dark:287",
+              "count": 2
+            },
+            {
+              "id": "Dark:700",
+              "count": 2
+            },
+            {
+              "id": "Dark:196",
+              "count": 2
+            },
+            {
+              "id": "Dark:2355",
+              "count": 1
+            },
+            {
+              "id": "Dark:2273",
+              "count": 2
+            },
+            {
+              "id": "Dark:1362",
+              "count": 1
+            },
+            {
+              "id": "Dark:2278",
+              "count": 1
+            },
+            {
+              "id": "Dark:2600",
+              "count": 1
+            },
+            {
+              "id": "Dark:1008",
+              "count": 3
+            },
+            {
+              "id": "Dark:1698",
+              "count": 1
+            },
+            {
+              "id": "Dark:2713",
+              "count": 1
+            },
+            {
+              "id": "Dark:1264",
+              "count": 1
+            },
+            {
+              "id": "Dark:2792",
+              "count": 2
+            },
+            {
+              "id": "Dark:697",
+              "count": 1
+            },
+            {
+              "id": "Dark:2096",
+              "count": 1
+            },
+            {
+              "id": "Dark:2188",
+              "count": 1
+            },
+            {
+              "id": "Dark:1192",
+              "count": 1
+            },
+            {
+              "id": "Dark:1195",
+              "count": 1
+            },
+            {
+              "id": "Dark:2651",
+              "count": 2
+            },
+            {
+              "id": "Dark:50",
+              "count": 2
+            },
+            {
+              "id": "Dark:193",
+              "count": 2
+            },
+            {
+              "id": "Dark:1139",
+              "count": 2
+            },
+            {
+              "id": "Dark:1795",
+              "count": 1
+            },
+            {
+              "id": "Dark:2617",
+              "count": 1
+            },
+            {
+              "id": "Dark:520",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "theme": {
+            "id": "jabbas-palace-baradas-skiffgarde",
+            "name": "Baradas Skiffgarde",
+            "description": "Skiffs bringen Weequay und Waffen schnell an die richtige Tatooine-Site.",
+            "cover": "Dark:196"
+          },
+          "strategy": {
+            "start": "Baue zuerst einen Palast-Einsatzort für Barada und passende Fahrer für die Skiffs auf.",
+            "opening": "Weequay unterstützen einander; der Skiff Master verstärkt seinen Skiff. Vibro-Ax schließt Ziele aus dem Battle aus, statt sie gewöhnlich zu treffen.",
+            "tactics": "Besatzung und Waffe benötigen eigene legale Ziele und Kosten. Geht ein Skiff verloren, können Charaktere abspringen; prüfe die Landeposition rechtzeitig."
+          },
+          "startingLocations": [
+            "Dark:2449",
+            "Dark:1353",
+            "Dark:1357",
+            "Dark:1356",
+            "Dark:2452",
+            "Dark:2442",
+            "Dark:2446"
+          ],
+          "cards": [
+            {
+              "id": "Dark:2449",
+              "count": 1
+            },
+            {
+              "id": "Dark:1353",
+              "count": 1
+            },
+            {
+              "id": "Dark:1357",
+              "count": 1
+            },
+            {
+              "id": "Dark:1356",
+              "count": 1
+            },
+            {
+              "id": "Dark:2452",
+              "count": 1
+            },
+            {
+              "id": "Dark:2442",
+              "count": 1
+            },
+            {
+              "id": "Dark:2446",
+              "count": 1
+            },
+            {
+              "id": "Dark:196",
+              "count": 2
+            },
+            {
+              "id": "Dark:1342",
+              "count": 1
+            },
+            {
+              "id": "Dark:1448",
+              "count": 1
+            },
+            {
+              "id": "Dark:1802",
+              "count": 1
+            },
+            {
+              "id": "Dark:2724",
+              "count": 1
+            },
+            {
+              "id": "Dark:2788",
+              "count": 4
+            },
+            {
+              "id": "Dark:2789",
+              "count": 2
+            },
+            {
+              "id": "Dark:2790",
+              "count": 2
+            },
+            {
+              "id": "Dark:2791",
+              "count": 2
+            },
+            {
+              "id": "Dark:1009",
+              "count": 2
+            },
+            {
+              "id": "Dark:1780",
+              "count": 2
+            },
+            {
+              "id": "Dark:2827",
+              "count": 1
+            },
+            {
+              "id": "Dark:287",
+              "count": 1
+            },
+            {
+              "id": "Dark:700",
+              "count": 1
+            },
+            {
+              "id": "Dark:2355",
+              "count": 1
+            },
+            {
+              "id": "Dark:2273",
+              "count": 4
+            },
+            {
+              "id": "Dark:1362",
+              "count": 1
+            },
+            {
+              "id": "Dark:119",
+              "count": 1
+            },
+            {
+              "id": "Dark:2713",
+              "count": 3
+            },
+            {
+              "id": "Dark:1698",
+              "count": 1
+            },
+            {
+              "id": "Dark:1008",
+              "count": 1
+            },
+            {
+              "id": "Dark:697",
+              "count": 2
+            },
+            {
+              "id": "Dark:2096",
+              "count": 1
+            },
+            {
+              "id": "Dark:2188",
+              "count": 1
+            },
+            {
+              "id": "Dark:1192",
+              "count": 1
+            },
+            {
+              "id": "Dark:2792",
+              "count": 1
+            },
+            {
+              "id": "Dark:193",
+              "count": 3
+            },
+            {
+              "id": "Dark:2651",
+              "count": 2
+            },
+            {
+              "id": "Dark:50",
+              "count": 2
+            },
+            {
+              "id": "Dark:1139",
+              "count": 2
+            },
+            {
+              "id": "Dark:1795",
+              "count": 1
+            },
+            {
+              "id": "Dark:2617",
+              "count": 1
+            },
+            {
+              "id": "Dark:520",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "theme": {
+            "id": "jabbas-palace-dengars-kerkerjagd",
+            "name": "Dengars Kerkerjagd",
+            "description": "Jäger fangen Ziele ein und kassieren für eine sichere Lieferung in den Dungeon.",
+            "cover": "Dark:700"
+          },
+          "strategy": {
+            "start": "Sichere den Dungeon und rüste Dengar oder Boba aus. Ein Gefangener allein liefert noch keine Auszahlung.",
+            "opening": "Dengars Riot Gun nimmt Nicht-Droiden gefangen. Hutt Bounty und die Dungeon-Regel belohnen unterschiedliche Lieferbedingungen.",
+            "tactics": "Plane Eskorte und Transportweg. Ein verlorener Eskorteur gibt dem Gegner Befreiungsoptionen, und Light kann bei Kontrolle des Dungeon Gefangene freikaufen."
+          },
+          "startingLocations": [
+            "Dark:1356",
+            "Dark:1353",
+            "Dark:1357",
+            "Dark:2452",
+            "Dark:2442",
+            "Dark:2446",
+            "Dark:1750"
+          ],
+          "cards": [
+            {
+              "id": "Dark:1356",
+              "count": 1
+            },
+            {
+              "id": "Dark:1750",
+              "count": 1
+            },
+            {
+              "id": "Dark:1353",
+              "count": 1
+            },
+            {
+              "id": "Dark:1357",
+              "count": 1
+            },
+            {
+              "id": "Dark:2452",
+              "count": 1
+            },
+            {
+              "id": "Dark:2442",
+              "count": 1
+            },
+            {
+              "id": "Dark:2446",
+              "count": 1
+            },
+            {
+              "id": "Dark:878",
+              "count": 1
+            },
+            {
+              "id": "Dark:1444",
+              "count": 1
+            },
+            {
+              "id": "Dark:1928",
+              "count": 1
+            },
+            {
+              "id": "Dark:2628",
+              "count": 1
+            },
+            {
+              "id": "Dark:2804",
+              "count": 1
+            },
+            {
+              "id": "Dark:2906",
+              "count": 1
+            },
+            {
+              "id": "Dark:700",
+              "count": 2
+            },
+            {
+              "id": "Dark:287",
+              "count": 2
+            },
+            {
+              "id": "Dark:1009",
+              "count": 3
+            },
+            {
+              "id": "Dark:1780",
+              "count": 3
+            },
+            {
+              "id": "Dark:2788",
+              "count": 2
+            },
+            {
+              "id": "Dark:2827",
+              "count": 2
+            },
+            {
+              "id": "Dark:196",
+              "count": 2
+            },
+            {
+              "id": "Dark:2355",
+              "count": 2
+            },
+            {
+              "id": "Dark:2273",
+              "count": 2
+            },
+            {
+              "id": "Dark:1362",
+              "count": 1
+            },
+            {
+              "id": "Dark:2278",
+              "count": 1
+            },
+            {
+              "id": "Dark:2600",
+              "count": 1
+            },
+            {
+              "id": "Dark:705",
+              "count": 2
+            },
+            {
+              "id": "Dark:243",
+              "count": 1
+            },
+            {
+              "id": "Dark:1698",
+              "count": 1
+            },
+            {
+              "id": "Dark:2713",
+              "count": 1
+            },
+            {
+              "id": "Dark:1008",
+              "count": 1
+            },
+            {
+              "id": "Dark:90",
+              "count": 2
+            },
+            {
+              "id": "Dark:1192",
+              "count": 2
+            },
+            {
+              "id": "Dark:697",
+              "count": 1
+            },
+            {
+              "id": "Dark:2096",
+              "count": 1
+            },
+            {
+              "id": "Dark:1795",
+              "count": 2
+            },
+            {
+              "id": "Dark:2651",
+              "count": 2
+            },
+            {
+              "id": "Dark:50",
+              "count": 2
+            },
+            {
+              "id": "Dark:193",
+              "count": 2
+            },
+            {
+              "id": "Dark:1139",
+              "count": 2
+            },
+            {
+              "id": "Dark:2617",
+              "count": 1
+            },
+            {
+              "id": "Dark:520",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "theme": {
+            "id": "jabbas-palace-malakilis-bestien",
+            "name": "Malakilis Bestien",
+            "description": "Malakili kontrolliert Creatures, während Rancor Pit den Rückweg abschneidet.",
+            "cover": "Dark:1633"
+          },
+          "strategy": {
+            "start": "Sichere Rancor Pit. Außerhalb des Pits darf Rancor nur zu einem allein stehenden Malakili deployen.",
+            "opening": "Malakili verhindert Creature-Angriffe an seiner Site. Trap Door wird erst am Ende deiner Deploy Phase geprüft.",
+            "tactics": "Rancor trifft beide Seiten und bewegt sich nach Möglichkeit auf andere Rancors zu. Stelle eigene Charaktere nur mit Schutz in seine Nähe."
+          },
+          "startingLocations": [
+            "Dark:1360",
+            "Dark:1353",
+            "Dark:1357",
+            "Dark:1356",
+            "Dark:2452",
+            "Dark:2442",
+            "Dark:2446"
+          ],
+          "cards": [
+            {
+              "id": "Dark:1360",
+              "count": 1
+            },
+            {
+              "id": "Dark:1353",
+              "count": 1
+            },
+            {
+              "id": "Dark:1357",
+              "count": 1
+            },
+            {
+              "id": "Dark:1356",
+              "count": 1
+            },
+            {
+              "id": "Dark:2452",
+              "count": 1
+            },
+            {
+              "id": "Dark:2442",
+              "count": 1
+            },
+            {
+              "id": "Dark:2446",
+              "count": 1
+            },
+            {
+              "id": "Dark:103",
+              "count": 1
+            },
+            {
+              "id": "Dark:1633",
+              "count": 2
+            },
+            {
+              "id": "Dark:1972",
+              "count": 1
+            },
+            {
+              "id": "Dark:2706",
+              "count": 1
+            },
+            {
+              "id": "Dark:1009",
+              "count": 3
+            },
+            {
+              "id": "Dark:1780",
+              "count": 3
+            },
+            {
+              "id": "Dark:2788",
+              "count": 3
+            },
+            {
+              "id": "Dark:2827",
+              "count": 2
+            },
+            {
+              "id": "Dark:287",
+              "count": 2
+            },
+            {
+              "id": "Dark:700",
+              "count": 2
+            },
+            {
+              "id": "Dark:196",
+              "count": 2
+            },
+            {
+              "id": "Dark:2355",
+              "count": 2
+            },
+            {
+              "id": "Dark:339",
+              "count": 2
+            },
+            {
+              "id": "Dark:2021",
+              "count": 3
+            },
+            {
+              "id": "Dark:1698",
+              "count": 1
+            },
+            {
+              "id": "Dark:2713",
+              "count": 1
+            },
+            {
+              "id": "Dark:1008",
+              "count": 1
+            },
+            {
+              "id": "Dark:1264",
+              "count": 1
+            },
+            {
+              "id": "Dark:243",
+              "count": 1
+            },
+            {
+              "id": "Dark:1394",
+              "count": 1
+            },
+            {
+              "id": "Dark:697",
+              "count": 2
+            },
+            {
+              "id": "Dark:2096",
+              "count": 1
+            },
+            {
+              "id": "Dark:2188",
+              "count": 1
+            },
+            {
+              "id": "Dark:1192",
+              "count": 1
+            },
+            {
+              "id": "Dark:2792",
+              "count": 1
+            },
+            {
+              "id": "Dark:2630",
+              "count": 3
+            },
+            {
+              "id": "Dark:2651",
+              "count": 2
+            },
+            {
+              "id": "Dark:50",
+              "count": 2
+            },
+            {
+              "id": "Dark:193",
+              "count": 1
+            },
+            {
+              "id": "Dark:1139",
+              "count": 1
+            },
+            {
+              "id": "Dark:1795",
+              "count": 1
+            },
+            {
+              "id": "Dark:2617",
+              "count": 1
+            },
+            {
+              "id": "Dark:520",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "theme": {
+            "id": "jabbas-palace-wittins-wuestenhandel",
+            "name": "Wittins Wüstenhandel",
+            "description": "Jawas, Wüsten-Sabacc und Sandwhirl schaffen günstige Geschäfte auf Tatooine.",
+            "cover": "Dark:2817"
+          },
+          "strategy": {
+            "start": "Halte Wittin an Audience Chamber oder Jawa Camp, damit andere Jawas ihren Power-Bonus erhalten.",
+            "opening": "Herat sucht Jawas und Utinni!, während Dune Sea Sabacc Devices oder ungepanzerte Droiden als Einsatz gewinnen kann.",
+            "tactics": "Der Sandsturm kann auch eigene Charaktere vermissen lassen. Nutze Jawas und Tusken gezielt und halte empfindliche Jäger aus seiner Bahn."
+          },
+          "startingLocations": [
+            "Dark:2442",
+            "Dark:1353",
+            "Dark:1357",
+            "Dark:1356",
+            "Dark:2452",
+            "Dark:2446",
+            "Dark:1750"
+          ],
+          "cards": [
+            {
+              "id": "Dark:2442",
+              "count": 1
+            },
+            {
+              "id": "Dark:1353",
+              "count": 1
+            },
+            {
+              "id": "Dark:1357",
+              "count": 1
+            },
+            {
+              "id": "Dark:1356",
+              "count": 1
+            },
+            {
+              "id": "Dark:2452",
+              "count": 1
+            },
+            {
+              "id": "Dark:2446",
+              "count": 1
+            },
+            {
+              "id": "Dark:1750",
+              "count": 1
+            },
+            {
+              "id": "Dark:1041",
+              "count": 1
+            },
+            {
+              "id": "Dark:1128",
+              "count": 2
+            },
+            {
+              "id": "Dark:2488",
+              "count": 2
+            },
+            {
+              "id": "Dark:2711",
+              "count": 1
+            },
+            {
+              "id": "Dark:2817",
+              "count": 2
+            },
+            {
+              "id": "Dark:1009",
+              "count": 2
+            },
+            {
+              "id": "Dark:1780",
+              "count": 2
+            },
+            {
+              "id": "Dark:2788",
+              "count": 2
+            },
+            {
+              "id": "Dark:2827",
+              "count": 2
+            },
+            {
+              "id": "Dark:287",
+              "count": 2
+            },
+            {
+              "id": "Dark:700",
+              "count": 2
+            },
+            {
+              "id": "Dark:196",
+              "count": 2
+            },
+            {
+              "id": "Dark:2355",
+              "count": 2
+            },
+            {
+              "id": "Dark:2273",
+              "count": 2
+            },
+            {
+              "id": "Dark:1362",
+              "count": 1
+            },
+            {
+              "id": "Dark:2278",
+              "count": 1
+            },
+            {
+              "id": "Dark:2600",
+              "count": 1
+            },
+            {
+              "id": "Dark:1698",
+              "count": 1
+            },
+            {
+              "id": "Dark:2713",
+              "count": 1
+            },
+            {
+              "id": "Dark:1008",
+              "count": 1
+            },
+            {
+              "id": "Dark:1264",
+              "count": 1
+            },
+            {
+              "id": "Dark:243",
+              "count": 1
+            },
+            {
+              "id": "Dark:1394",
+              "count": 1
+            },
+            {
+              "id": "Dark:2170",
+              "count": 2
+            },
+            {
+              "id": "Dark:1378",
+              "count": 1
+            },
+            {
+              "id": "Dark:697",
+              "count": 1
+            },
+            {
+              "id": "Dark:2096",
+              "count": 1
+            },
+            {
+              "id": "Dark:2188",
+              "count": 1
+            },
+            {
+              "id": "Dark:796",
+              "count": 3
+            },
+            {
+              "id": "Dark:2651",
+              "count": 2
+            },
+            {
+              "id": "Dark:50",
+              "count": 2
+            },
+            {
+              "id": "Dark:193",
+              "count": 1
+            },
+            {
+              "id": "Dark:1139",
+              "count": 1
+            },
+            {
+              "id": "Dark:1795",
+              "count": 1
+            },
+            {
+              "id": "Dark:2617",
+              "count": 1
+            },
+            {
+              "id": "Dark:520",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "theme": {
+            "id": "jabbas-palace-ree-yees-letzter-trick",
+            "name": "Ree-Yees’ letzter Trick",
+            "description": "Musiker, Destiny-Tricks und versteckte Waffen schaffen riskante Überraschungen.",
+            "cover": "Dark:2077"
+          },
+          "strategy": {
+            "start": "Besetze eine verteidigbare Site und spare Force für die teuren Destiny-Antworten.",
+            "opening": "Ree-Yees verbessert passende Dreier-Draws. Salacious Crumb belastet gegnerische Battle-Draws an derselben oder einer benachbarten Site.",
+            "tactics": "Ein Thermal Detonator unterscheidet nicht zwischen deinen und gegnerischen Figuren. Prüfe die Destiny-Werte und deine eigene Ausrüstung vor der Zündung."
+          },
+          "startingLocations": [
+            "Dark:2452",
+            "Dark:1353",
+            "Dark:1357",
+            "Dark:1356",
+            "Dark:2442",
+            "Dark:2446",
+            "Dark:1750"
+          ],
+          "cards": [
+            {
+              "id": "Dark:2452",
+              "count": 1
+            },
+            {
+              "id": "Dark:1353",
+              "count": 1
+            },
+            {
+              "id": "Dark:1357",
+              "count": 1
+            },
+            {
+              "id": "Dark:1356",
+              "count": 1
+            },
+            {
+              "id": "Dark:2442",
+              "count": 1
+            },
+            {
+              "id": "Dark:2446",
+              "count": 1
+            },
+            {
+              "id": "Dark:1750",
+              "count": 1
+            },
+            {
+              "id": "Dark:214",
+              "count": 1
+            },
+            {
+              "id": "Dark:1781",
+              "count": 2
+            },
+            {
+              "id": "Dark:2077",
+              "count": 2
+            },
+            {
+              "id": "Dark:2159",
+              "count": 2
+            },
+            {
+              "id": "Dark:2589",
+              "count": 1
+            },
+            {
+              "id": "Dark:2827",
+              "count": 2
+            },
+            {
+              "id": "Dark:1009",
+              "count": 2
+            },
+            {
+              "id": "Dark:1780",
+              "count": 2
+            },
+            {
+              "id": "Dark:2788",
+              "count": 2
+            },
+            {
+              "id": "Dark:287",
+              "count": 2
+            },
+            {
+              "id": "Dark:700",
+              "count": 2
+            },
+            {
+              "id": "Dark:196",
+              "count": 2
+            },
+            {
+              "id": "Dark:2355",
+              "count": 2
+            },
+            {
+              "id": "Dark:2273",
+              "count": 2
+            },
+            {
+              "id": "Dark:1362",
+              "count": 1
+            },
+            {
+              "id": "Dark:2278",
+              "count": 1
+            },
+            {
+              "id": "Dark:2600",
+              "count": 1
+            },
+            {
+              "id": "Dark:1394",
+              "count": 2
+            },
+            {
+              "id": "Dark:2556",
+              "count": 2
+            },
+            {
+              "id": "Dark:1698",
+              "count": 1
+            },
+            {
+              "id": "Dark:2713",
+              "count": 1
+            },
+            {
+              "id": "Dark:697",
+              "count": 2
+            },
+            {
+              "id": "Dark:2096",
+              "count": 1
+            },
+            {
+              "id": "Dark:2188",
+              "count": 1
+            },
+            {
+              "id": "Dark:1192",
+              "count": 1
+            },
+            {
+              "id": "Dark:2792",
+              "count": 1
+            },
+            {
+              "id": "Dark:1139",
+              "count": 2
+            },
+            {
+              "id": "Dark:2831",
+              "count": 1
+            },
+            {
+              "id": "Dark:2651",
+              "count": 2
+            },
+            {
+              "id": "Dark:50",
+              "count": 2
+            },
+            {
+              "id": "Dark:193",
+              "count": 2
+            },
+            {
+              "id": "Dark:1795",
+              "count": 1
+            },
+            {
+              "id": "Dark:2617",
+              "count": 1
+            },
+            {
+              "id": "Dark:520",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "theme": {
+            "id": "jabbas-palace-werkstatt-der-schatten",
+            "name": "Werkstatt der Schatten",
+            "description": "Droiden, Informationshändler und Geräte kontrollieren Nachschub und Gefangene.",
+            "cover": "Dark:887"
+          },
+          "strategy": {
+            "start": "Besetze Droid Workshop mit einer Figur, die Presence beiträgt; Droiden ersetzen diese normalerweise nicht.",
+            "opening": "EV-9D9 sucht Unterstützung. CZ-4 verhindert gegnerische Reacts und kann Aliens aus Reserve als Verstärkung bringen.",
+            "tactics": "Torture benötigt einen geeigneten gefangenen oder gestohlenen Droiden am Workshop. Halte deine Gefangenen bewacht und verwende Information Exchange für entscheidende Battles."
+          },
+          "startingLocations": [
+            "Dark:1355",
+            "Dark:1353",
+            "Dark:1357",
+            "Dark:1356",
+            "Dark:2452",
+            "Dark:2442",
+            "Dark:2446"
+          ],
+          "cards": [
+            {
+              "id": "Dark:1355",
+              "count": 1
+            },
+            {
+              "id": "Dark:1353",
+              "count": 1
+            },
+            {
+              "id": "Dark:1357",
+              "count": 1
+            },
+            {
+              "id": "Dark:1356",
+              "count": 1
+            },
+            {
+              "id": "Dark:2452",
+              "count": 1
+            },
+            {
+              "id": "Dark:2442",
+              "count": 1
+            },
+            {
+              "id": "Dark:2446",
+              "count": 1
+            },
+            {
+              "id": "Dark:102",
+              "count": 1
+            },
+            {
+              "id": "Dark:188",
+              "count": 1
+            },
+            {
+              "id": "Dark:594",
+              "count": 2
+            },
+            {
+              "id": "Dark:887",
+              "count": 2
+            },
+            {
+              "id": "Dark:1713",
+              "count": 2
+            },
+            {
+              "id": "Dark:2275",
+              "count": 2
+            },
+            {
+              "id": "Dark:1009",
+              "count": 2
+            },
+            {
+              "id": "Dark:1780",
+              "count": 2
+            },
+            {
+              "id": "Dark:2788",
+              "count": 2
+            },
+            {
+              "id": "Dark:2827",
+              "count": 2
+            },
+            {
+              "id": "Dark:287",
+              "count": 2
+            },
+            {
+              "id": "Dark:700",
+              "count": 2
+            },
+            {
+              "id": "Dark:196",
+              "count": 1
+            },
+            {
+              "id": "Dark:2355",
+              "count": 1
+            },
+            {
+              "id": "Dark:2273",
+              "count": 2
+            },
+            {
+              "id": "Dark:1362",
+              "count": 1
+            },
+            {
+              "id": "Dark:2278",
+              "count": 1
+            },
+            {
+              "id": "Dark:2600",
+              "count": 1
+            },
+            {
+              "id": "Dark:1698",
+              "count": 1
+            },
+            {
+              "id": "Dark:2713",
+              "count": 1
+            },
+            {
+              "id": "Dark:1008",
+              "count": 1
+            },
+            {
+              "id": "Dark:1264",
+              "count": 1
+            },
+            {
+              "id": "Dark:243",
+              "count": 1
+            },
+            {
+              "id": "Dark:1394",
+              "count": 1
+            },
+            {
+              "id": "Dark:1310",
+              "count": 2
+            },
+            {
+              "id": "Dark:1978",
+              "count": 2
+            },
+            {
+              "id": "Dark:697",
+              "count": 1
+            },
+            {
+              "id": "Dark:2096",
+              "count": 1
+            },
+            {
+              "id": "Dark:2617",
+              "count": 2
+            },
+            {
+              "id": "Dark:2651",
+              "count": 2
+            },
+            {
+              "id": "Dark:50",
+              "count": 2
+            },
+            {
+              "id": "Dark:193",
+              "count": 2
+            },
+            {
+              "id": "Dark:1139",
+              "count": 2
+            },
+            {
+              "id": "Dark:1795",
+              "count": 1
+            },
+            {
+              "id": "Dark:520",
+              "count": 1
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

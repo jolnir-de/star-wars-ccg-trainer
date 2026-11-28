@@ -1,0 +1,87 @@
+{
+  "schema": 1,
+  "decks": {
+    "Light": {
+      "strategy": {
+        "start": "Nimm Docking Bay 94 für einen Bodenstart mit Anschluss an Raumkämpfe. Dantooine bietet sich an, wenn du zuerst Jäger einsetzen willst.",
+        "opening": "Setze zuerst einen Rebellen mit Ability über 2 an einer Site ein. Dann kannst du dort Rebel Trooper kostenlos ausspielen und die Site verstärken.",
+        "tactics": "Verteile deine Truppen auf Sites, die du halten kannst. Nutze die günstigen X-wings und Y-wings für ein System und halte Force für Reacts und Waffen bereit."
+      },
+      "startingLocations": ["Light:2447", "Light:2448", "Light:608"],
+      "cards": [
+        { "id": "Light:80", "count": 1 },
+        { "id": "Light:608", "count": 1 },
+        { "id": "Light:2430", "count": 1 },
+        { "id": "Light:2440", "count": 1 },
+        { "id": "Light:2447", "count": 1 },
+        { "id": "Light:2448", "count": 1 },
+        { "id": "Light:2462", "count": 1 },
+        { "id": "Light:2466", "count": 1 },
+        { "id": "Light:2471", "count": 1 },
+        { "id": "Light:2853", "count": 1 },
+        { "id": "Light:2859", "count": 1 },
+        { "id": "Light:2052", "count": 10 },
+        { "id": "Light:2040", "count": 3 },
+        { "id": "Light:917", "count": 1 },
+        { "id": "Light:239", "count": 1 },
+        { "id": "Light:799", "count": 1 },
+        { "id": "Light:2067", "count": 1 },
+        { "id": "Light:1390", "count": 1 },
+        { "id": "Light:1021", "count": 1 },
+        { "id": "Light:1495", "count": 1 },
+        { "id": "Light:1098", "count": 1 },
+        { "id": "Light:1593", "count": 1 },
+        { "id": "Light:1803", "count": 1 },
+        { "id": "Light:305", "count": 1 },
+        { "id": "Light:2", "count": 2 },
+        { "id": "Light:2250", "count": 3 },
+        { "id": "Light:221", "count": 1 },
+        { "id": "Light:1883", "count": 1 },
+        { "id": "Light:2838", "count": 5 },
+        { "id": "Light:2907", "count": 5 },
+        { "id": "Light:530", "count": 2 },
+        { "id": "Light:259", "count": 3 },
+        { "id": "Light:265", "count": 3 }
+      ]
+    },
+    "Dark": {
+      "strategy": {
+        "start": "Starte bei Jundland Wastes für Tusken Raider und Bantha oder bei Kessel für TIE-Jäger. Docking Bay 94 verbindet die beiden Aufbaurichtungen.",
+        "opening": "Spiele Stormtrooper kostenlos an einer Site mit einem eigenen Imperialen mit Ability über 2 aus. Im Raum können TIE Fighter ein System früh sichern, während du weitere Piloten vorbereitest.",
+        "tactics": "Halte eine Site oder ein System sicher für Force Drains. Lass Banthas auf passenden Außen-Sites bereitstehen und rüste Truppen erst aus, wenn du eine Waffe sinnvoll einsetzen kannst."
+      },
+      "startingLocations": ["Dark:2458", "Dark:2446", "Dark:1426"],
+      "cards": [
+        { "id": "Dark:1426", "count": 1 },
+        { "id": "Dark:2848", "count": 1 },
+        { "id": "Dark:669", "count": 1 },
+        { "id": "Dark:673", "count": 1 },
+        { "id": "Dark:675", "count": 1 },
+        { "id": "Dark:678", "count": 1 },
+        { "id": "Dark:682", "count": 1 },
+        { "id": "Dark:2446", "count": 1 },
+        { "id": "Dark:2458", "count": 1 },
+        { "id": "Dark:2355", "count": 10 },
+        { "id": "Dark:1279", "count": 3 },
+        { "id": "Dark:2897", "count": 1 },
+        { "id": "Dark:2648", "count": 5 },
+        { "id": "Dark:816", "count": 3 },
+        { "id": "Dark:634", "count": 1 },
+        { "id": "Dark:1061", "count": 1 },
+        { "id": "Dark:60", "count": 1 },
+        { "id": "Dark:406", "count": 1 },
+        { "id": "Dark:1027", "count": 1 },
+        { "id": "Dark:791", "count": 1 },
+        { "id": "Dark:1011", "count": 1 },
+        { "id": "Dark:191", "count": 4 },
+        { "id": "Dark:2600", "count": 4 },
+        { "id": "Dark:2602", "count": 4 },
+        { "id": "Dark:2595", "count": 2 },
+        { "id": "Dark:723", "count": 1 },
+        { "id": "Dark:1291", "count": 1 },
+        { "id": "Dark:1264", "count": 3 },
+        { "id": "Dark:264", "count": 3 }
+      ]
+    }
+  }
+}

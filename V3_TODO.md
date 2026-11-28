@@ -8,7 +8,7 @@ V3 wird parallel zu V2 entwickelt. V2.19.3 bleibt unter `v2.html` der Standard; 
 - [x] Eigene V3-Regelmodule, Karten-/Deckdaten, Speicher- und Exportversion einrichten.
 - [x] Beide Varianten mit klarer Kennzeichnung von der Startseite erreichbar machen; V2 bleibt Standard.
 - [x] Getrennte und gleichzeitige Partien, Fortsetzen, fehlerhaften Import und fehlende gegenseitige Downloads prüfen.
-- [ ] Vollständige Tests, PR und öffentliche Abnahme beider Varianten abschließen.
+- [x] Vollständige Tests, PR und öffentliche Abnahme beider Varianten abschließen. Am 28.11.2026 mit 991 Node-Tests und neun Browserprüfungen veröffentlicht; [Abnahme](docs/V3_PARALLEL.md#abnahme-am-28112026).
 
 ## 1. Aktionen und Berechnungen nachvollziehen – zuerst Force Drain
 

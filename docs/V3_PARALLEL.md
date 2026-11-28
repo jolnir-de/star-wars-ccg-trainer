@@ -22,3 +22,17 @@ Die bisherigen V2-Ladebudgets gelten unverändert. V3 erhält eigene Prüfungen 
 Für ALL-INKL gilt weiter [ALL_INKL.md](ALL_INKL.md): getestete Assets zuerst, HTML danach, Manifest zuletzt. Das Domainverzeichnis vorher prüfen und sichern; bestehende Hash-Dateien für offene Partien erhalten. Neue V3-Verzeichnisse dürfen ausschließlich innerhalb des bestätigten Domainverzeichnisses angelegt werden. Die Startseite behält V2 als Standard und verlinkt V3 zusätzlich.
 
 Die 308 privaten Premiere-Drucktexte bleiben außerhalb des Repositorys und werden weder eingelesen noch kopiert. V3 enthält ausschließlich die bereits öffentlichen Katalogdaten.
+
+## Abnahme am 28.11.2026
+
+V2.19.3 und V3 `3.0.0-preview.1` wurden als gemeinsames Release **fe66650262f79540** auf www.starwarsccg.de veröffentlicht. [PR #102](https://github.com/jolnir-de/star-wars-ccg-trainer/pull/102) dokumentiert Codecommit `5314c38`, die isolierte Arbeitskopie und die Abnahme. Es wurde weder auf main gepusht noch automatisch gemergt.
+
+- Alle Katalog-/Deckprüfungen, Sammlerprüfung und Deckübersicht bestanden. Die getrennten V3-Kataloge und sämtliche V3-Deckangebote bestehen zusätzlich die eigene V3-Validierung.
+- **991 Node-Tests und neun Browserprüfungen** bestehen für den Implementierungscommit in Push- und PR-CI. Lokal bestehen die gezielten Paket-/Isolationsprüfungen und der vollständige V3-Browserablauf. Die doppelten lokalen Gesamtläufe wurden nach erfolgreicher vollständiger CI beendet; sie werden nicht als vollständig bestandene lokale Läufe ausgegeben.
+- Der öffentliche Browserablauf startet und setzt alle sechs V3-Formate mit beiden Spielseiten fort. Eine gleichzeitig laufende V2-Partie behält ihren Zustand und ihren Speicher; Einstellungen und abgewiesene Fremdimporte sind ebenfalls geprüft. Keine Browserfehler, kein seitlicher Seitenüberlauf bei 1440, 390 und 320 Pixeln.
+- Alle **180 Manifest-Dateien** stimmen auf dem Server per SHA-256 mit dem geprüften Paket überein. Alle 13 HTML-Seiten und drei HTTPS-/www-Weiterleitungen sind geprüft; neue V3-Ressourcen haben gzip und unveränderliche Hash-Caches.
+- Bereits vor dem Upload wurden die **84 geschützten V2-Spieldateien** auf dem Server geprüft. Keine davon wurde übertragen oder ersetzt. Auch die öffentliche V2-HTML-Datei behält SHA-256 `74897f86de2c2ee1577e64f41c7316a1f9b0118c33c920c2d7fc8520e6c53f7b`.
+- Es wurden nur 54 neue beziehungsweise geänderte Dateien einschließlich Manifest übertragen. Vorheriger Stand privat gesichert: `/.local/swccg-backups/starwarsccg-before-v3-preview-20261128T150439.tar.gz`, SHA-256 `33086d64ea1f32bc851a4cedc7cbc5e379acb8433491fe0b2eb44abef38e96e4`, Rechte 600. Bestehende Hash-Dateien bleiben erhalten.
+- Private Drucktext-/Git-Pfade sind nicht abrufbar. V2 und V3 enthalten dieselben **16 unterschiedlichen öffentlichen Premiere-Drucktexte**; keine der 308 privaten Transkriptionen wurde ergänzt. Das interne V2-Prüfsummenverzeichnis wird nicht ausgeliefert.
+
+Die Parallelbasis ist damit abgeschlossen. Die in V3_TODO.md ab Abschnitt 1 aufgeführten Spielverbesserungen bleiben offen und werden anschließend in V3 entwickelt; der Deckeditor kommt zuletzt.
